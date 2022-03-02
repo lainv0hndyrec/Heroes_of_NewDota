@@ -1,0 +1,73 @@
+"DOTAAbilities"
+{
+    "special_bonus_whistlepunk_oil_spill_slow_duration"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"3"
+			}
+		}
+	}
+
+
+
+    "special_bonus_whistlepunk_oil_spill_slow_amount"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"10"
+			}
+		}
+	}
+
+
+
+    "special_bonus_whistlepunk_rockets_add_stacks"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"ScriptFile"		            "heroes/whistlepunk/ability_1/lua_ability_whistlepunk_rockets"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"value"					"2"
+			}
+		}
+	}
+
+    "special_bonus_whistlepunk_steam_barrier_purge_heal"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+	}
+
+
+}

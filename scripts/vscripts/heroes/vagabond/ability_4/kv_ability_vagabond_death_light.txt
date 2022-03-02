@@ -1,0 +1,77 @@
+"DOTAAbilities"
+{
+    "lua_ability_vagabond_death_light"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/vagabond/ability_4/lua_ability_vagabond_death_light"
+        "AbilityTextureName"     	    "vagabond_death_light"
+        "MaxLevel"						"3"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        //"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        //"AbilitySound"					"Hero_Terrorblade.Metamorphosis"
+
+
+        "AbilityCastPoint"				"0.0"
+
+        "AbilityCooldown"				"50 40 30"
+
+        "AbilityManaCost"				"100 125 150"
+
+        //"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_3"
+
+        //"HasScepterUpgrade"             "1"
+
+        "precache"
+		{
+            "particle"      "particles/units/heroes/vagabond/ability_4/death_light_wave.vpcf"
+            "particle"      "particles/econ/events/ti6/hero_levelup_ti6_flash_hit_magic.vpcf"
+            //"particle"      "particles/units/heroes/hero_terrorblade/terrorblade_scepter.vpcf"
+		}
+
+
+        "AbilitySpecial"
+        {
+            "01" //attack damage
+            {
+                "var_type" 	                 "FIELD_FLOAT"
+                "counter_time" 		         "1.0"
+            }
+
+            "02" //attack damage
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "projectile_speed" 		      "1000"
+            }
+
+            "03" //attack damage
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "projectile_distance" 		  "1000"
+            }
+
+            "04" //attack damage
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "projectile_radius" 		  "200"
+            }
+
+            "05" //attack damage
+            {
+                "var_type" 	                 "FIELD_FLOAT"
+                "stun_duration" 		      "2.0"
+            }
+
+            "06" //attack damage
+            {
+                "var_type" 	               "FIELD_INTEGER"
+                "magic_damage" 		       "250 450 650"
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+"DOTAAbilities"
+{
+    "lua_ability_vagabond_prismatic_mist"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/vagabond/ability_1/lua_ability_vagabond_prismatic_mist"
+        "AbilityTextureName"     	    "sandking_sand_storm"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        //"AbilitySound"					"Hero_Terrorblade.Metamorphosis"
+
+
+        //"AbilityCastPoint"				"0.0"
+
+        "AbilityCooldown"				"25 21 17 13"
+        "AbilityCastRange"              "300"
+        "AbilityManaCost"				"75"
+
+        //"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_3"
+
+        "HasScepterUpgrade"             "1"
+
+        "precache"
+		{
+            "particle"      "particles/units/heroes/vagabond/ability_1/prismatic_mist.vpcf"
+
+		}
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "aoe_radius" 		         "300"
+            }
+
+            "02"
+            {
+                "var_type" 	                 "FIELD_FLOAT"
+                "duration" 		             "4.0 4.5 5.0 5.5"
+            }
+
+            "03"
+            {
+                "var_type" 	                 "FIELD_FLOAT"
+                "fade_time" 		         "0.5"
+            }
+
+            "04"
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "ms_speed" 		             "8 12 16 20"
+            }
+
+            "05"
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "ms_slow" 		             "15 20 25 30"
+            }
+        }
+    }
+}

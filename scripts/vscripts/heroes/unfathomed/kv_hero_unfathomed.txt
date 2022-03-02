@@ -1,0 +1,42 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// Unfathomed = Enigma
+	//=================================================================================================================
+	"npc_custom_hero_unfathomed"
+	{
+		"override_hero"				"npc_dota_hero_enigma"				// Hero to override
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"	// Primary Attribute
+		"AttributeBaseStrength"			"23"						// Base strength
+		"AttributeStrengthGain"			"2.8"						// Strength bonus per level.
+
+		"AttributeBaseAgility"			"22"						// Base agility
+		"AttributeAgilityGain"			"1.5"						// Agility bonus per level.
+
+		"AttributeBaseIntelligence"		"18"							// Base intelligence
+		"AttributeIntelligenceGain"		"2.0"						// Intelligence bonus per level.
+
+		"AttackRange"					"300"
+
+
+		"Ability1"					"lua_ability_unfathomed_overwhelming_presence"			// Ability 1
+		"Ability2"					"lua_ability_unfathomed_yield"
+		"Ability3"					"lua_ability_unfathomed_ethereal_order"			// Ability 3
+		"Ability4"					"generic_hidden"		// Ability 4
+		"Ability5"					"generic_hidden"		// Ability 5
+		"Ability6"					"lua_ability_unfathomed_spatial_manipulation"		// ULT
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+
+		//Talents
+		"Ability10"			"special_bonus_armor_5"
+		"Ability11"			"special_bonus_mp_regen_2"
+		"Ability12"			"special_bonus_attack_speed_30"
+		"Ability13"			"special_bonus_unfathomed_ethereal_order_range"
+		"Ability14"			"special_bonus_strength_20"
+		"Ability15"			"special_bonus_unfathomed_overwhelming_presence_range"
+		"Ability16"			"special_bonus_unfathomed_overwhelming_presence_effect"
+		"Ability17"			"special_bonus_unfathomed_yield_range"
+	}
+}

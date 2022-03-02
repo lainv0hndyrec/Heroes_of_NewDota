@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+    "lua_ability_kalligromancer_captivate"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/kalligromancer/ability_1/lua_ability_kalligromancer_captivate"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityTextureName"     	"kalligromancer_captivate"
+
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+        "MaxLevel"                  "4"
+
+        "AbilityCastPoint"              "0.3"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+
+        "HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+
+        "AbilityManaCost"         "100 110 120 130"
+        "AbilityCooldown"         "14"
+        "AbilityCastRange"        "600"
+
+
+
+        "precache"
+		{
+            "particle"      "particles/units/heroes/kalligromancer/ability_1/captivate_bind.vpcf"
+            "particle"      "particles/units/heroes/hero_grimstroke/grimstroke_base_attack.vpcf"
+		}
+
+
+        "AbilitySpecial"
+        {
+            "01" //base_ability_damage
+            {
+                "var_type" 	    "FIELD_FLOAT"
+                "hold_time" 	"2.5 3.0 3.5 4.0"
+            }
+
+            "02" //base_ability_damage
+            {
+                "var_type" 	    "FIELD_INTEGER"
+                "aoe_vision" 	"400"
+            }
+
+        }
+    }
+
+
+}

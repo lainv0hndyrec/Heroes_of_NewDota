@@ -1,0 +1,95 @@
+"DOTAAbilities"
+{
+    "lua_ability_corruptedlord_duality_chaos"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/corruptedlord/ability_2/lua_ability_corruptedlord_duality"
+        "AbilityTextureName"     	    "corruptedlord_duality_chaos"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        // Ability Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"				"0.0"
+
+        // Ability Resource
+        //-------------------------------------------------------------------------------------------------------------
+        //"AbilityCooldown"				"0.0 0.0 0.0 0.0"
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/corrupted_lord/ability_2/duality_modifier_1.vpcf"
+		}
+
+        "AbilitySpecial"
+        {
+            "01" //attack damage
+            {
+                "var_type" 	                "FIELD_INTEGER"
+                "add_attack_damage" 		"20 40 60 80"
+            }
+
+            "02" //self damage
+            {
+                "var_type"  	            "FIELD_INTEGER"
+                "self_damage" 		        "20 30 40 50"
+            }
+
+        }
+    }
+
+
+
+    //////////////////////////////////////////////
+    // when pressed blink to the sword's position
+    "lua_ability_corruptedlord_duality_solace"
+	{
+
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/corruptedlord/ability_2/lua_ability_corruptedlord_duality"
+		"AbilityTextureName"			"corruptedlord_duality_solace"
+		"MaxLevel"						"4"
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0 0.0"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCooldown"				"0.2 0.2 0.2 0.2"
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/corrupted_lord/ability_2/duality_modifier_1.vpcf"
+            "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+		}
+
+        "AbilitySpecial"
+        {
+            "01" //attack damage
+            {
+                "var_type" 	                "FIELD_INTEGER"
+                "add_attack_damage" 		"-20 -40 -60 -80"
+            }
+
+            "02" //self damage
+            {
+                "var_type"  	            "FIELD_INTEGER"
+                "heal" 		                "15 35 55 75"
+            }
+
+        }
+	}
+}

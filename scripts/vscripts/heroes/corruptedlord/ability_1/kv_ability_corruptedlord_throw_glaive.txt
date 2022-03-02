@@ -1,0 +1,130 @@
+"DOTAAbilities"
+{
+    "lua_ability_corruptedlord_throw_glaive"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/corruptedlord/ability_1/lua_ability_corruptedlord_throw_glaive"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityTextureName"     	"corruptedlord_throw_glaive" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_PHYSICAL"
+        //"SpellDispellableType"		"SPELL_DISPELLABLE_YES"
+		//"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+        //"AbilitySound"						"Hero_DragonKnight.DragonTail.Target"
+
+
+        "MaxLevel"               "4"
+        "RequiredLevel"          "1"
+        "LevelsBetweenUpgrades"  "2"
+
+        "AbilityCastPoint"              "0.25"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        "AnimationPlaybackRate"         "1"
+        "AnimationIgnoresModelScale"    "1"
+        "HasShardUpgrade"                "1"
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 					"60 100 120 140"
+        "AbilityManaCost"         "80 90 100 110"
+        //"AbilityCooldown"         "13 14 15 16"
+        "AbilityCastRange"        "600 800 1000 1200"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"	"particles/units/heroes/corrupted_lord/ability_1/corrupted_lord_ability_1.vpcf"
+            "particle"  "particles/units/heroes/hero_abaddon/abaddon_curse_frostmourne_debuff.vpcf"
+            "particle"  "particles/units/heroes/hero_terrorblade/terrorblade_scepter.vpcf"
+
+		}
+
+
+        "AbilitySpecial"
+        {
+            "01" //base_ability_damage
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "base_ability_damage" 		"50 70 90 110"
+            }
+
+            "02" //projectile_aoe
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "attack_factor" 		"40"
+            }
+
+            "03" //ability_slow
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "ability_slow" 		"-20 -30 -40 -50"
+            }
+
+            "04" //ability_slow
+            {
+                "var_type" 	"FIELD_FLOAT"
+                "slow_duration" 		"6.0"
+            }
+
+            "05" //projectile_speed
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "projectile_speed" 		"850"
+            }
+
+            "06" //projectile_aoe
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "projectile_aoe" 		"160"
+            }
+
+            "07" //projectile_aoe
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "ability_cd" 		"13"
+            }
+        }
+    }
+
+
+    //////////////////////////////////////////////
+    // when pressed blink to the sword's position
+    "lua_ability_corruptedlord_throw_glaive_blink"
+	{
+
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/corruptedlord/ability_1/lua_ability_corruptedlord_throw_glaive"
+		"AbilityTextureName"			"corruptedlord_throw_glaive_blink" //test textures
+		"MaxLevel"						"1"
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0 0.0"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0 0.0 0.0 0.0"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+	}
+}

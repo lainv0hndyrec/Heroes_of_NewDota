@@ -1,0 +1,72 @@
+"DOTAAbilities"
+{
+    "lua_ability_unfathomed_overwhelming_presence"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/unfathomed/ability_1/lua_ability_unfathomed_overwhelming_presence"
+        "AbilityTextureName"     	    "enigma_midnight_pulse"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        //"AbilitySound"					"Hero_Terrorblade.Metamorphosis"
+
+
+        "AbilityCastPoint"				"0.25"
+        "AbilityCooldown"				"12"
+
+        "AbilityManaCost"				"85 100 115 130"
+
+        "AbilityCastAnimation"		    "ACT_DOTA_MIDNIGHT_PULSE"
+
+        //"HasScepterUpgrade"             "1"
+
+        "precache"
+		{
+            "particle"      "particles/units/heroes/unfathomed/ability_1/overwhelming_presence_wave_modifier.vpcf"
+            "particle"      "particles/units/heroes/unfathomed/ability_1/ovherwhelming_presence_wraper.vpcf"
+		}
+
+
+        "AbilitySpecial"
+        {
+            "01" //attack damage
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "aoe_range" 		         "400"
+            }
+
+            "02" //attack damage
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "aoe_damage" 		         "75 150 225 300"
+            }
+
+            "03" //attack damage
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "toggle_effect" 		     "10"
+            }
+
+            "04" //attack damage
+            {
+                "var_type" 	                 "FIELD_FLOAT"
+                "effect_duration" 		     "4.0"
+            }
+
+            "05" //attack damage
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "slow_effect" 		         "50"
+            }
+
+        }
+    }
+}

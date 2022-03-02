@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+	//add here if u want but i dont want to :V
+}
+
+//==============================
+//Terrorblade -> CorruptedLord
+#base "../vscripts/heroes/corruptedlord/ability_1/kv_ability_corruptedlord_throw_glaive.txt"
+#base "../vscripts/heroes/corruptedlord/ability_2/kv_ability_corruptedlord_duality.txt"
+#base "../vscripts/heroes/corruptedlord/ability_3/kv_ability_corruptedlord_demonic_scars.txt"
+#base "../vscripts/heroes/corruptedlord/ability_4/kv_ability_corruptedlord_unleashed.txt"
+#base "../vscripts/heroes/corruptedlord/talents/kv_talents_corruptedlord.txt"
+
+
+//Timbersaw -> whistlepunk
+#base "../vscripts/heroes/whistlepunk/ability_1/kv_ability_whistlepunk_rockets.txt"
+#base "../vscripts/heroes/whistlepunk/ability_2/kv_ability_whistlepunk_oil_spill.txt"
+#base "../vscripts/heroes/whistlepunk/ability_3/kv_ability_whistlepunk_steam_barrier.txt"
+#base "../vscripts/heroes/whistlepunk/ability_4/kv_ability_whistlepunk_sawprise.txt"
+#base "../vscripts/heroes/whistlepunk/talents/kv_talents_whistlepunk.txt"
+
+
+//Phantom Lancer -> Vagabond
+#base "../vscripts/heroes/vagabond/ability_1/kv_ability_vagabond_prismatic_mist.txt"
+#base "../vscripts/heroes/vagabond/ability_2/kv_ability_vagabond_phantom_charge.txt"
+#base "../vscripts/heroes/vagabond/ability_3/kv_ability_vagabond_outcasts_strike.txt"
+#base "../vscripts/heroes/vagabond/ability_4/kv_ability_vagabond_death_light.txt"
+#base "../vscripts/heroes/vagabond/talents/kv_talents_vagabond.txt"
+
+
+//Grimstroke -> kalligromancer
+#base "../vscripts/heroes/kalligromancer/ability_1/kv_ability_kalligromancer_captivate.txt"
+#base "../vscripts/heroes/kalligromancer/ability_2/kv_ability_kalligromancer_stroked_inspiration.txt"
+#base "../vscripts/heroes/kalligromancer/ability_3/kv_ability_kalligromancer_heavy_blot.txt"
+#base "../vscripts/heroes/kalligromancer/ability_4/kv_ability_kalligromancer_death_portrait.txt"
+#base "../vscripts/heroes/kalligromancer/talents/kv_talents_kalligromancer.txt"
+
+
+//Enigma -> Unfathomed
+#base "../vscripts/heroes/unfathomed/ability_1/kv_ability_unfathomed_overwhelming_presence.txt"
+#base "../vscripts/heroes/unfathomed/ability_2/kv_ability_unfathomed_yield.txt"
+#base "../vscripts/heroes/unfathomed/ability_3/kv_ability_unfathomed_ethereal_order.txt"
+#base "../vscripts/heroes/unfathomed/ability_4/kv_ability_unfathomed_spatial_manipulation.txt"
+#base "../vscripts/heroes/unfathomed/talents/kv_talents_unfathomed.txt"
+//===============================

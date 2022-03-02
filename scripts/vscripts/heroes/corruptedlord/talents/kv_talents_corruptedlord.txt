@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+    "special_bonus_corruptedlord_throw_glaive_reduce_cd"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilityValues"
+		{
+	        "value"		"5"
+		}
+	}
+
+
+
+    "special_bonus_corruptedlord_unleashed_armor_duration"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"10"
+			}
+		}
+	}
+
+
+
+    "special_bonus_corruptedlord_unleashed_cooldown"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"20"
+			}
+		}
+	}
+
+
+
+    "special_bonus_corruptedlord_throw_glaive_blink_fear"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        //"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		//"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"value"					"1.5"
+			}
+		}
+	}
+
+
+}

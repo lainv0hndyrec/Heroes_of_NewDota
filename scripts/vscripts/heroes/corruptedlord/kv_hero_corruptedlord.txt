@@ -1,0 +1,46 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// CORRUPTED LORD = Terrorblade Alternate Universe
+	//=================================================================================================================
+	"npc_custom_hero_corrupted_lord"
+	{
+		"override_hero"				"npc_dota_hero_terrorblade"				// Hero to override
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"	// Primary Attribute
+		"AttributeBaseStrength"		"22"						// Base strength
+		"AttributeStrengthGain"		"3.0"						// Strength bonus per level.
+
+		"AttributeBaseAgility"		"18"						// Base agility
+		"AttributeAgilityGain"		"2.0"						// Agility bonus per level.
+
+		"AttributeBaseIntelligence"	"20"							// Base intelligence
+		"AttributeIntelligenceGain"	"2.0"						// Intelligence bonus per level.
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"25"
+
+		"MovementSpeed"				"310"
+
+		"AttackRate"				"1.8"
+
+		"Ability1"					"lua_ability_corruptedlord_throw_glaive"			// Ability 1
+		"Ability2"					"lua_ability_corruptedlord_duality_chaos"
+		"Ability3"					"lua_ability_corruptedlord_duality_solace"			// Ability 3
+		"Ability4"					"lua_ability_corruptedlord_throw_glaive_blink"		// Ability 4
+		"Ability5"					"lua_ability_corruptedlord_demonic_scars"		// Ability 5
+		"Ability6"					"lua_ability_corruptedlord_unleashed"		// ULT
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+
+		//Talents
+		"Ability10"		"special_bonus_corruptedlord_throw_glaive_reduce_cd"
+		"Ability11"		"special_bonus_evasion_16"
+		"Ability12"		"special_bonus_hp_275"
+		"Ability13"		"special_bonus_attack_speed_30"
+		"Ability14"		"special_bonus_all_stats_8"
+		"Ability15"		"special_bonus_corruptedlord_unleashed_armor_duration"
+		"Ability16"		"special_bonus_corruptedlord_unleashed_cooldown"
+		"Ability17"		"special_bonus_corruptedlord_throw_glaive_blink_fear"
+	}
+}

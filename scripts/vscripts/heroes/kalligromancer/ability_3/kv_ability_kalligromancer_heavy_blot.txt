@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+    "lua_ability_kalligromancer_heavy_blot"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/kalligromancer/ability_3/lua_ability_kalligromancer_heavy_blot"
+        "AbilityTextureName"     	    "grimstroke_spirit_walk"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/kalligromancer/ability_3/blot_projectile.vpcf"
+            "particle" "particles/units/heroes/hero_grimstroke/grimstroke_ink_swell_aoe.vpcf"
+		}
+
+        "AbilitySpecial"
+        {
+            "01" //attack damage
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "crit_damage" 		    "150 175 200 225"
+            }
+
+            "02" //attack damage
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "aoe_damage" 		    "25 50 75 100"
+            }
+
+            "03" //attack damage
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "aoe_radius" 		    "200"
+            }
+
+            "04" //attack damage
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "helper_count" 		    "12 10 8 6"
+            }
+
+            "05" //attack damage
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "stacks" 		        "3"
+            }
+
+        }
+    }
+}

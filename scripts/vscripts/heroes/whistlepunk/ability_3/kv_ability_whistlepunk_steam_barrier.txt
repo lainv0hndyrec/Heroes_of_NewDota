@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+    "lua_ability_whistlepunk_steam_barrier"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"							"ability_lua"
+		"ScriptFile"						"heroes/whistlepunk/ability_3/lua_ability_whistlepunk_steam_barrier"
+
+        "AbilityType"                       "DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"					"SPELL_IMMUNITY_ALLIES_YES"
+        "MaxLevel"                          "4"
+        "RequiredLevel"                     "1"
+        "LevelsBetweenUpgrades"             "2"
+		"AbilityTextureName"				"tinker_defense_matrix"
+
+        "AbilityCastPoint"              "0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+        "AbilityManaCost"               "75"
+        "AbilityCooldown"               "15"
+        "AbilityCastRange"              "800"
+
+
+		"precache"
+		{
+			"particle" "particles/units/heroes/hero_tinker/tinker_defense_matrix.vpcf"
+            "particle" "particles/units/heroes/hero_tinker/tinker_defense_matrix_ball_sphere_rings.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
+
+		}
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "barrier_duration" 	"20"
+            }
+
+            "02"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "barrier_amount" 	"150 300 450 600"
+            }
+
+            "03"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "mana_convert" 	"30"
+            }
+        }
+	}
+}

@@ -1,0 +1,108 @@
+"DOTAAbilities"
+{
+    "special_bonus_vagabond_prismatic_mist_duration"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"value"					"1.5"
+			}
+		}
+	}
+
+
+
+    "special_bonus_vagabond_phantom_charge_range"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"300"
+			}
+		}
+	}
+
+
+
+    "special_bonus_vagabond_phantom_death_light_damage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"150"
+			}
+		}
+	}
+
+
+
+    "special_bonus_vagabond_phantom_charge_cd_reduction"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"4"
+			}
+		}
+	}
+
+    
+
+
+
+
+    "special_bonus_vagabond_phantom_outcasts_strike_max_crit"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"130"
+			}
+		}
+	}
+}

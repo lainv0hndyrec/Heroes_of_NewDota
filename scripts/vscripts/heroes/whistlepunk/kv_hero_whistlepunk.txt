@@ -1,0 +1,56 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// Whistle Punk = Shredder Alternate universe
+	//=================================================================================================================
+	"npc_custom_hero_whistle_punk"
+	{
+		"override_hero"				"npc_dota_hero_shredder"				// Hero to override
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"	// Primary Attribute
+		"AttributeBaseStrength"		"19"						// Base strength
+		"AttributeStrengthGain"		"2.2"						// Strength bonus per level.
+
+		"AttributeBaseAgility"		"20"						// Base agility
+		"AttributeAgilityGain"		"1.8"						// Agility bonus per level.
+
+		"AttributeBaseIntelligence"	"24"							// Base intelligence
+		"AttributeIntelligenceGain"	"3.0"						// Intelligence bonus per level.
+
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"25"
+
+		"MovementSpeed"				"290"
+
+		"Ability1"					"lua_ability_whistlepunk_rockets"			// Ability 1
+		"Ability2"					"lua_ability_whistlepunk_oil_spill"
+		"Ability3"					"lua_ability_whistlepunk_steam_barrier"			// Ability 3
+		"Ability4"					"generic_hidden"		// Ability 4
+		"Ability5"					"generic_hidden"		// Ability 5
+		"Ability6"					"lua_ability_whistlepunk_sawprise"		// ULT
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+
+		//Talents
+		"Ability10"		"special_bonus_mp_regen_150"
+		"Ability11"		"special_bonus_hp_200"
+		"Ability12"		"special_bonus_spell_amplify_8"
+		"Ability13"		"special_bonus_whistlepunk_oil_spill_slow_duration"
+		"Ability14"		"special_bonus_intelligence_16"
+		"Ability15"		"special_bonus_whistlepunk_oil_spill_slow_amount"
+		"Ability16"		"special_bonus_whistlepunk_rockets_add_stacks"
+		"Ability17"		"special_bonus_whistlepunk_steam_barrier_purge_heal"
+
+
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"26"
+		"AttackDamageMax"			"30"
+		"AttackRate"				"1.700000"
+		"AttackAnimationPoint"		"0.45"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"550"
+		"ProjectileModel"			"particles/units/heroes/whisltepunk/projectile/spinning_glaive.vpcf"
+		"ProjectileSpeed"			"1500"
+	}
+}

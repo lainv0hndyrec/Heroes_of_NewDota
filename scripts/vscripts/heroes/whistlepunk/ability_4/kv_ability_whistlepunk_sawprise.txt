@@ -1,0 +1,70 @@
+"DOTAAbilities"
+{
+    "lua_ability_whistlepunk_sawprise"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"										"ability_lua"
+		"ScriptFile"									"heroes/whistlepunk/ability_4/lua_ability_whistlepunk_sawprise"
+        "AbilityTextureName"							"shredder_return_chakram"
+        "MaxLevel"						                "3"
+
+        "AbilityType"                                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+		//"AbilityUnitTargetTeam"							"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		//"AbilityUnitTargetType"							"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"SpellImmunityType"								"SPELL_IMMUNITY_ALLIES_YES"
+		//"FightRecapLevel"								"1"
+
+        "HasScepterUpgrade"             "1"
+
+        "AbilityCastPoint"              "0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+
+        "AbilityManaCost"               "140 180 220"
+        "AbilityCooldown"               "65 55 45"
+        "AbilityCastRange"              "800"
+
+
+		"precache"
+		{
+			"particle" "particles/units/heroes/whisltepunk/ability_4/spinner_stay.vpcf"
+            "particle" "particles/units/heroes/hero_sandking/sandking_burrowstrike_eruption.vpcf"
+
+
+		}
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "saw_duration" 	"8"
+            }
+
+            "02"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "init_damage" 	"200 300 400"
+            }
+
+            "03"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "saw_dot" 	"40 65 90"
+            }
+
+            "04"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "saw_aoe" 	"125"
+            }
+
+            "05"
+            {
+                "var_type" 	"FIELD_FLOAT"
+                "tick_interval" 	"0.5"
+            }
+        }
+	}
+}

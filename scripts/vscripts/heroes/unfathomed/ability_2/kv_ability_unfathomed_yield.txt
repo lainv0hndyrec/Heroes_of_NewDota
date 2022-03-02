@@ -1,0 +1,61 @@
+"DOTAAbilities"
+{
+    "lua_ability_unfathomed_yield"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"							"ability_lua"
+		"ScriptFile"						"heroes/unfathomed/ability_2/lua_ability_unfathomed_yield"
+
+        "AbilityType"                       "DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		//"SpellImmunityType"					"SPELL_IMMUNITY_ALLIES_YES"
+        "MaxLevel"                          "4"
+        //"RequiredLevel"                     "1"
+        //"LevelsBetweenUpgrades"             "2"
+		"AbilityTextureName"				"unfathomed_yield"
+
+        "AbilityCastPoint"              "0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        //"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+        "AbilityManaCost"               "30"
+        "AbilityCooldown"               "11 9 7 5"
+        //"AbilityCastRange"              "300"
+
+        "HasShardUpgrade"                "1"
+
+
+		"precache"
+		{
+			"particle" "particles/units/heroes/unfathomed/ability_2/yield_preimage.vpcf"
+            //"particle" "particles/units/heroes/hero_tinker/tinker_defense_matrix_ball_sphere_rings.vpcf"
+            //"soundfile" "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
+
+		}
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "effect_distance" 	"75 150 225 300"
+            }
+
+            "02"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "str_damage" 	"40 60 80 100"
+            }
+
+            "02"
+            {
+                "var_type" 	"FIELD_FLOAT"
+                "shard_stun" 	"3"
+            }
+        }
+	}
+}

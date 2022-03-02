@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+    "lua_ability_vagabond_outcasts_strike"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/vagabond/ability_3/lua_ability_vagabond_outcasts_strike"
+        "AbilityTextureName"     	    "vagabond_outcasts_strike"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/vagabond/ability_3/vagabond_sparkle.vpcf"
+		}
+
+        "AbilitySpecial"
+        {
+            "01" //attack damage
+            {
+                "var_type" 	                "FIELD_INTEGER"
+                "max_stacks" 		        "100"
+            }
+
+            "02" //self damage
+            {
+                "var_type"  	            "FIELD_INTEGER"
+                "trigger_stacks" 		    "20"
+            }
+
+            "03" //self damage
+            {
+                "var_type"  	            "FIELD_INTEGER"
+                "hero_attack_stacks" 		"25"
+            }
+
+            "04" //self damage
+            {
+                "var_type"  	            "FIELD_INTEGER"
+                "max_crit" 		            "130 160 190 220"
+            }
+
+        }
+    }
+}

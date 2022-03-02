@@ -1,0 +1,31 @@
+"DOTAAbilities"
+{
+    "lua_ability_unfathomed_ethereal_order"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/unfathomed/ability_3/lua_ability_unfathomed_ethereal_order"
+        "AbilityTextureName"     	    "unfathomed_ethereal_order_pull"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+
+        "precache"
+		{
+            "particle"  "particles/status_fx/status_effect_faceless_timewalk.vpcf"
+		}
+
+        "AbilitySpecial"
+        {
+            "01" //attack damage
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "add_range" 		"125 200 275 350"
+            }
+        }
+    }
+}

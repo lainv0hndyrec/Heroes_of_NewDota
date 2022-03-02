@@ -1,0 +1,29 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// VAGABOND = PHANTOM LANCER
+	//=================================================================================================================
+	"npc_custom_hero_vagabond"
+	{
+		"override_hero"				"npc_dota_hero_phantom_lancer"				// Hero to override
+
+		"Ability1"					"lua_ability_vagabond_prismatic_mist"			// Ability 1
+		"Ability2"					"lua_ability_vagabond_phantom_charge"
+		"Ability3"					"lua_ability_vagabond_phantom_charge_fragment"			// Ability 3
+		"Ability4"					"lua_ability_vagabond_outcasts_strike"		// Ability 4
+		"Ability5"					"generic_hidden"		// Ability 5
+		"Ability6"					"lua_ability_vagabond_death_light"		// ULT
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+
+		//Talents
+		"Ability10"			"special_bonus_hp_150"
+		"Ability11"			"special_bonus_attack_speed_15"
+		"Ability12"			"special_bonus_evasion_16"
+		"Ability13"			"special_bonus_vagabond_prismatic_mist_duration"
+		"Ability14"			"special_bonus_vagabond_phantom_charge_range"
+		"Ability15"			"special_bonus_vagabond_phantom_death_light_damage"
+		"Ability16"			"special_bonus_vagabond_phantom_charge_cd_reduction"
+		"Ability17"			"special_bonus_vagabond_phantom_outcasts_strike_max_crit"
+	}
+}

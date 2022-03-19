@@ -46,7 +46,9 @@ function lua_modifier_whistlepunk_rockets_stacks:Update()
     if self.talent_add_count == 0 then
         local talent_add_rockets = self.parent:FindAbilityByName("special_bonus_whistlepunk_rockets_add_stacks")
         if not talent_add_rockets == false then
-            self.talent_add_count = talent_add_rockets:GetSpecialValueFor("value")
+            if talent_add_rockets:GetLevel() > 0 then
+                self.talent_add_count = talent_add_rockets:GetSpecialValueFor("value")
+            end
         end
     end
 

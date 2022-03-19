@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+    "lua_ability_soul_warden_ionic_absorption"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/soul_warden/ability_3/lua_ability_soul_warden_ionic_absorption"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        //"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "AbilityTextureName"     	      "soul_warden_ionic_absorption"
+
+
+
+
+        //"AbilityCastPoint"				"0.0"
+        //"AbilityCooldown"				"13"
+
+        "AbilityManaCost"				"75 100 125 150"
+
+        //"AbilityCastAnimation"		    "ACT_DOTA_OVERRIDE_ABILITY_1"
+
+
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/hero_razor/razor_storm_lightning_strike.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "aoe_range"     "300"
+            "aoe_damage"    "85 150 215 280"
+            "mana_drain_percent"    "8 10 12 14"
+            "mana_gain_per_stack"    "15 20 25 30"
+            "ms_duration"       "7"
+            "ms_initial"        "25"
+            "ms_max_stack"      "3"
+            "ms_per_stack"      "5"
+            "ability_cd"        "13"
+        }
+    }
+
+
+}

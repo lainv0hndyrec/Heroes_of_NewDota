@@ -67,6 +67,14 @@
 		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		//"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"0"
+			}
+		}
 	}
 
 

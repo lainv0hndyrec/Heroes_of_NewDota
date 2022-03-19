@@ -88,7 +88,13 @@
             "09"
             {
                 "var_type"  	            "FIELD_INTEGER"
-                "ability_cd" 		    "100 80 60"
+                "ability_cd" 		        "100 80 60"
+            }
+
+            "10"
+            {
+                "var_type"  	            "FIELD_FLOAT"
+                "talent_max_armor_duration" "7.0"
             }
         }
     }

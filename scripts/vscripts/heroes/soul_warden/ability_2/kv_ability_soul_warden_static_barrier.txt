@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+    "lua_ability_soul_warden_static_barrier"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/soul_warden/ability_2/lua_ability_soul_warden_static_barrier"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityTextureName"     	"soul_warden_static_barrier"
+
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+
+        //"AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        //"AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+        //"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+        "MaxLevel"                  "4"
+
+        //"AbilityCastPoint"              "0.3"
+        //"AbilityCastAnimation"          "ACT_DOTA_OVERRIDE_ABILITY_3"
+
+        //"HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+
+        //"AbilityManaCost"         "100 110 120 130"
+        "AbilityCooldown"         "0.5"
+        //"AbilityCastRange"        "500"
+
+
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/soul_warden/ability_2/static_barrier.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "barrier_duration"      "12.0"
+            "mana_barrier_percent"  "60 80 100 120"
+            "damage_prevent_percent"   "50" 
+            "spark_aoe"             "300"
+            "spark_damage"          "15 30 45 60"
+            "min_mana"              "10"
+            "mana_cost_percent"     "20"
+        }
+    }
+
+
+}

@@ -85,22 +85,6 @@ end
 
 
 
-function lua_modifier_corruptedlord_unleashed_transform_demon:talent_picked()
-	local caster = self:GetCaster()
-	local talent = caster:FindAbilityByName("special_bonus_corruptedlord_unleashed_armor_duration")
-	local talent_max_armor_duration = 0
-
-	if not talent == false then
-		if talent:GetLevel() > 0 then
-			talent_max_armor_duration = talent:GetSpecialValueFor("value")
-		end
-	end
-
-	return talent_max_armor_duration
-end
-
-
-
 function lua_modifier_corruptedlord_unleashed_transform_demon:OnCreated()
 
     self.caster = self:GetCaster()
@@ -111,9 +95,19 @@ function lua_modifier_corruptedlord_unleashed_transform_demon:OnCreated()
     self.aoe_damage_scale = self.ability:GetSpecialValueFor("aoe_damage_scale")
 	self.tapering_armor = self.ability:GetSpecialValueFor("tapering_armor")
 
+
 	self.current_tapering_armor = self.tapering_armor
-	self.max_armor_duration = 5.0 + self:talent_picked()
-	self.armor_duration = self.max_armor_duration + 2.0
+
+	local talent = self.caster:FindAbilityByName("special_bonus_corruptedlord_unleashed_armor_duration")
+    local arm_dur_val = self.ability:GetSpecialValueFor("talent_max_armor_duration")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+			arm_dur_val = arm_dur_val+talent:GetSpecialValueFor("value")
+		end
+	end
+
+	self.max_armor_duration = arm_dur_val - 2.0
+	self.armor_duration = arm_dur_val
 	self.interval = 0.20
 	self:StartIntervalThink(self.interval)
 
@@ -136,8 +130,17 @@ function lua_modifier_corruptedlord_unleashed_transform_demon:OnRefresh(table)
 	self.tapering_armor = self.ability:GetSpecialValueFor("tapering_armor")
 
 	self.current_tapering_armor = self.tapering_armor
-	self.max_armor_duration = 5.0 + self:talent_picked()
-	self.armor_duration = self.max_armor_duration + 2.0
+
+	local talent = self.caster:FindAbilityByName("special_bonus_corruptedlord_unleashed_armor_duration")
+    local arm_dur_val = self.ability:GetSpecialValueFor("talent_max_armor_duration")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+			arm_dur_val = arm_dur_val+talent:GetSpecialValueFor("value")
+		end
+	end
+
+	self.max_armor_duration = arm_dur_val - 2.0
+	self.armor_duration = arm_dur_val
 	self.interval = 0.20
 	self:StartIntervalThink(self.interval)
 

@@ -35,7 +35,9 @@ function lua_ability_kalligromancer_captivate:OnSpellStart()
     local talent = self:GetCaster():FindAbilityByName("special_bonus_kalligromancer_captivate_plus_duration")
     local hold_time = self:GetSpecialValueFor("hold_time")
     if not talent == false then
-        hold_time = hold_time + talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            hold_time = hold_time + talent:GetSpecialValueFor("value")
+        end
     end
 
     if shard_mod == false then

@@ -92,7 +92,9 @@ function lua_ability_whistlepunk_oil_spill:OnProjectileHit(target,location)
     local oil_spill_slow_duration = self.slow_duration
     local talent_slow_duration = self.caster:FindAbilityByName("special_bonus_whistlepunk_oil_spill_slow_duration")
     if not talent_slow_duration == false then
-        oil_spill_slow_duration = self.slow_duration+talent_slow_duration:GetSpecialValueFor("value")
+        if talent_slow_duration:GetLevel() > 0 then
+            oil_spill_slow_duration = self.slow_duration+talent_slow_duration:GetSpecialValueFor("value")
+        end
     end
 
     --loop enemies

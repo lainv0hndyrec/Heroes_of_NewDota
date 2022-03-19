@@ -8,7 +8,9 @@ function lua_ability_unfathomed_overwhelming_presence:GetAOERadius()
     local range = self:GetSpecialValueFor("aoe_range")
     local talent = self:GetCaster():FindAbilityByName("special_bonus_unfathomed_overwhelming_presence_range")
     if not talent == false then
-        range = range+talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            range = range+talent:GetSpecialValueFor("value")
+        end
     end
     return range
 end

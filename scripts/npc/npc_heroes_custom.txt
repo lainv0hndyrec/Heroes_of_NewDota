@@ -6,10 +6,11 @@
 
 }
 
-/*
-#base "../vscripts/heroes/corruptedlord/kv_hero_corruptedlord.txt"
-#base "../vscripts/heroes/whistlepunk/kv_hero_whistlepunk.txt"
-#base "../vscripts/heroes/vagabond/kv_hero_vagabond.txt"
-#base "../vscripts/heroes/kalligromancer/kv_hero_kalligromancer.txt"
-#base "../vscripts/heroes/unfathomed/kv_hero_unfathomed.txt"
-*/
+
+//#base "../vscripts/heroes/corruptedlord/kv_hero_corruptedlord.txt"
+//#base "../vscripts/heroes/whistlepunk/kv_hero_whistlepunk.txt"
+//#base "../vscripts/heroes/vagabond/kv_hero_vagabond.txt"
+//#base "../vscripts/heroes/kalligromancer/kv_hero_kalligromancer.txt"
+//#base "../vscripts/heroes/unfathomed/kv_hero_unfathomed.txt"
+
+#base "../vscripts/heroes/soul_warden/kv_hero_soul_warden.txt"

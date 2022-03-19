@@ -74,7 +74,9 @@ function lua_modifier_vagabond_outcasts_strike:GetModifierPreAttack_CriticalStri
     local talent = self:GetCaster():FindAbilityByName("special_bonus_vagabond_phantom_outcasts_strike_max_crit")
 
     if not talent == false then
-        add_max_crit = talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            add_max_crit = talent:GetSpecialValueFor("value")
+        end
     end
 
 

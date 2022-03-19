@@ -9,6 +9,7 @@
 		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
 
+
         "AbilitySpecial"
 		{
 			"01"

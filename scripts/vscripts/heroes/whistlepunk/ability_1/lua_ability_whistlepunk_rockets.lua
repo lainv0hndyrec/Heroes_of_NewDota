@@ -4,6 +4,8 @@ LinkLuaModifier( "lua_modifier_whistlepunk_rockets_stacks", "heroes/whistlepunk/
 lua_ability_whistlepunk_rockets = class({})
 
 
+
+
 function lua_ability_whistlepunk_rockets:IsHiddenWhenStolen()
     return true
 end
@@ -96,6 +98,7 @@ function lua_ability_whistlepunk_rockets:OnSpellStart()
 		bReplaceExisting = false,
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		vVelocity = direction * self.rocket_speed * Vector(1, 1, 0),
 		fExpireTime = GameRules:GetGameTime() + 10.0,
 		bProvidesVision = true,
@@ -154,17 +157,18 @@ function lua_ability_whistlepunk_rockets:OnProjectileHit_ExtraData(target,locati
 
     local shard_mod = self.caster:HasModifier("modifier_item_aghanims_shard")
     if shard_mod == false then
+        if target:IsMagicImmune() == false then
+            local damageTable = {
+                victim = target,
+        		damage = new_damage,
+        		damage_type = DAMAGE_TYPE_MAGICAL,
+        		attacker = self.caster,
+        		ability = self
+        	}
 
-        local damageTable = {
-            victim = target,
-    		damage = new_damage,
-    		damage_type = DAMAGE_TYPE_MAGICAL,
-    		attacker = self.caster,
-    		ability = self
-    	}
-
-        ApplyDamage(damageTable)
-        target:AddNewModifier(self.caster,self,"modifier_stunned", {duration = self.stun_duration})
+            ApplyDamage(damageTable)
+            target:AddNewModifier(self.caster,self,"modifier_stunned", {duration = self.stun_duration})
+        end
 
     else
 

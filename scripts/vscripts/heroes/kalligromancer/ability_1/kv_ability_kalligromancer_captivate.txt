@@ -38,21 +38,10 @@
             "particle"      "particles/units/heroes/hero_grimstroke/grimstroke_base_attack.vpcf"
 		}
 
-
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01" //base_ability_damage
-            {
-                "var_type" 	    "FIELD_FLOAT"
-                "hold_time" 	"2.5 3.0 3.5 4.0"
-            }
-
-            "02" //base_ability_damage
-            {
-                "var_type" 	    "FIELD_INTEGER"
-                "aoe_vision" 	"400"
-            }
-
+            "aoe_vision" 	"400"
+            "hold_time"     "2.5 3.0 3.5 4.0"
         }
     }
 

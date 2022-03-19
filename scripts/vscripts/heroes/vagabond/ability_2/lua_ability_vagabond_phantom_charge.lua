@@ -23,7 +23,9 @@ function lua_ability_vagabond_phantom_charge:GetCastRange(location,target)
     local add_range = 0
 
     if not talent == false then
-        add_range = talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            add_range = talent:GetSpecialValueFor("value")
+        end
     end
 
     return range + add_range
@@ -46,7 +48,9 @@ function lua_ability_vagabond_phantom_charge:GetCooldown(lvl)
     local add_cd = 0
 
     if not talent == false then
-        add_cd = talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            add_cd = talent:GetSpecialValueFor("value")
+        end
     end
 
     return cd - add_cd
@@ -139,7 +143,9 @@ function lua_ability_vagabond_phantom_charge_fragment:GetCastRange(location,targ
     local add_range = 0
 
     if not talent == false then
-        add_range = talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            add_range = talent:GetSpecialValueFor("value")
+        end
     end
 
     return range + add_range
@@ -162,7 +168,9 @@ function lua_ability_vagabond_phantom_charge_fragment:GetCooldown(lvl)
     local add_cd = 0
 
     if not talent == false then
-        add_cd = talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            add_cd = talent:GetSpecialValueFor("value")
+        end
     end
 
     return cd - add_cd

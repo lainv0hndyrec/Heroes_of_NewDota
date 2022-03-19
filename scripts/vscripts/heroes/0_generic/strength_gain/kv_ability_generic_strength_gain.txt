@@ -1,0 +1,17 @@
+"DOTAAbilities"
+{
+    "lua_ability_generic_strength_gain"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/0_generic/strength_gain/lua_ability_generic_strength_gain"
+        //"AbilityTextureName"     	    "bloodseeker_rupture"
+        "MaxLevel"						"1"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    }
+}

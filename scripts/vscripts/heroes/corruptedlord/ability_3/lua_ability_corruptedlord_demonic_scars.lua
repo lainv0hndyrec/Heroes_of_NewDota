@@ -10,5 +10,6 @@ end
 
 
 function lua_ability_corruptedlord_demonic_scars:GetIntrinsicModifierName()
+    if self:GetLevel() <= 0 then return end
 	return "lua_modifier_corruptedlord_demonic_scars"
 end

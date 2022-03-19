@@ -24,7 +24,7 @@
             "01" //attack damage
             {
                 "var_type" 	        "FIELD_INTEGER"
-                "add_range" 		"125 200 275 350"
+                "add_range" 		"75 150 225 300"
             }
         }
     }

@@ -46,11 +46,11 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"26"
 		"AttackDamageMax"			"30"
-		"AttackRate"				"1.700000"
-		"AttackAnimationPoint"		"0.45"
+		"AttackRate"				"1.700000" //create modifier
+		"AttackAnimationPoint"		"0.45"	//create modifier
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"550"
 		"ProjectileModel"			"particles/units/heroes/whisltepunk/projectile/spinning_glaive.vpcf"
-		"ProjectileSpeed"			"1500"
+		"ProjectileSpeed"			"1500"	//create modifier
 	}
 }

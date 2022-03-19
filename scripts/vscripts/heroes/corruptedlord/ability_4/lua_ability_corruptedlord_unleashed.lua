@@ -4,6 +4,7 @@ LinkLuaModifier( "lua_modifier_corruptedlord_unleashed_transform_animation", "he
 lua_ability_corruptedlord_unleashed = class({})
 
 
+
 function lua_ability_corruptedlord_unleashed:Init()
     self.caster = self:GetCaster()
 end
@@ -91,7 +92,7 @@ function lua_ability_corruptedlord_unleashed:OnSpellStart()
             end
 
             self:aghanim_effects_damage_enemies(enemy)
-            
+
         end
 	end
 
@@ -142,7 +143,8 @@ end
 
 function lua_ability_corruptedlord_unleashed:GetCooldown(level)
     local talent = self.caster:FindAbilityByName("special_bonus_corruptedlord_unleashed_cooldown")
-    self.ability_cd = self:GetSpecialValueFor("ability_cd")
+    local alvl = math.max(0,self:GetLevel()-1)
+    self.ability_cd = self:GetLevelSpecialValueFor("ability_cd",alvl)
     if not talent == false then
         if talent:GetLevel() > 0 then
             return self.ability_cd - talent:GetSpecialValueFor("value")

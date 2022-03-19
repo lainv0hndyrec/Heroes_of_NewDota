@@ -9,13 +9,14 @@ require("game_setup")
 function Precache( context )
 	--[[
 		Precache things we know we'll use.  Possible file types include (but not limited to):
-		PrecacheResource( "model", "*.vmdl", context )
 		PrecacheResource( "soundfile", "*.vsndevts", context )
 		PrecacheResource( "particle", "*.vpcf", context )
 		PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts", context )
 
-	--PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts", context )
+
 end
 
 

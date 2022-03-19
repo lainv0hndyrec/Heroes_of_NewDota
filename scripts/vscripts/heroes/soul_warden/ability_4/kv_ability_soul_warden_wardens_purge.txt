@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+    "lua_ability_soul_warden_wardens_purge"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/soul_warden/ability_4/lua_ability_soul_warden_wardens_purge"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityTextureName"     	"soul_warden_wardens_purge"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        //"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+        "MaxLevel"                  "3"
+
+        "AbilityCastPoint"              "0.1"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+
+        "HasScepterUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+
+        "AbilityManaCost"         "50"
+        "AbilityCooldown"         "12 10 8"
+        "AbilityCastRange"        "600"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf"
+            "particle" "particles/units/heroes/soul_warden/ability_4/wardens_purge.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "max_chain"     "0 1 2"
+            "enemy_ms"      "40 60 80"
+            "ally_ms"       "30 40 50"
+            "summon_damage" "700 850 1000"
+            "ms_duration"   "5"
+
+            "scepter_max_chain"   "3"
+        }
+    }
+
+
+}

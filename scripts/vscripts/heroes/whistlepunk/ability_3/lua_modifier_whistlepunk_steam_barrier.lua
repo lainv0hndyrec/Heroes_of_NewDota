@@ -74,16 +74,18 @@ function lua_modifier_whistlepunk_steam_barrier:GetModifierMagical_ConstantBlock
     self.parent:EmitSound("DOTA_Item.ArcaneRing.Cast")
 
 
-
+    local talent = self.parent:FindAbilityByName("special_bonus_whistlepunk_steam_barrier_purge_heal")
 
     if self.current_shield > event.damage then
         self.current_shield = self.current_shield - event.damage
         self.parent:GiveMana(event.damage*self.mana_convert)
         SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_ADD , self.parent, event.damage*self.mana_convert, nil)
 
-        if self.parent:HasAbility("special_bonus_whistlepunk_steam_barrier_purge_heal") == true then
-            self.parent:Heal(event.damage,self.parent)
-            SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, self.parent, event.damage, nil)
+        if not talent == false then
+            if talent:GetLevel() > 0 then
+                self.parent:Heal(event.damage,self.parent)
+                SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, self.parent, event.damage, nil)
+            end
         end
 
         return event.damage
@@ -91,9 +93,11 @@ function lua_modifier_whistlepunk_steam_barrier:GetModifierMagical_ConstantBlock
         self.parent:GiveMana(self.current_shield*self.mana_convert)
         SendOverheadEventMessage(nil, OVERHEAD_ALERT_MANA_ADD , self.parent, self.current_shield*self.mana_convert, nil)
 
-        if self.parent:HasAbility("special_bonus_whistlepunk_steam_barrier_purge_heal") == true then
-            self.parent:Heal(self.current_shield,self.parent)
-            SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, self.parent, self.current_shield, nil)
+        if not talent == false then
+            if talent:GetLevel() > 0 then
+                self.parent:Heal(self.current_shield,self.parent)
+                SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, self.parent, self.current_shield, nil)
+            end
         end
 
         self:Destroy()

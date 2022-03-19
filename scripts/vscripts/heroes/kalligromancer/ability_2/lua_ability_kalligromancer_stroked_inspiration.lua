@@ -19,7 +19,9 @@ function lua_ability_kalligromancer_stroked_inspiration:GetCooldown(lvl)
     local add_cd = 0
 
     if not talent == false then
-        add_cd = talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            add_cd = talent:GetSpecialValueFor("value")
+        end
     end
 
     return cd - add_cd

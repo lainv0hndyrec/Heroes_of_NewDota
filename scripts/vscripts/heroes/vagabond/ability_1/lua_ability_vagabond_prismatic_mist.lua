@@ -9,7 +9,7 @@ function lua_ability_vagabond_prismatic_mist:Init()
     if IsServer() == false then return end
 
     if not self:GetCaster() then return end
-    
+
     print(self:GetCaster())
 end
 
@@ -26,7 +26,9 @@ function lua_ability_vagabond_prismatic_mist:OnSpellStart()
     local talent_duration = 0
     local talent = self:GetCaster():FindAbilityByName("special_bonus_vagabond_prismatic_mist_duration")
     if not talent == false then
-        talent_duration = talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            talent_duration = talent:GetSpecialValueFor("value")
+        end
     end
 
     local scepter_duration = 0

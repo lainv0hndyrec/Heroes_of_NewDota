@@ -1,0 +1,17 @@
+"DOTAAbilities"
+{
+    "lua_ability_generic_change_projectile_speed"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/0_generic/change_projectile_speed/lua_ability_generic_change_projectile_speed"
+        //"AbilityTextureName"     	    "bloodseeker_rupture"
+        "MaxLevel"						"1"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    }
+}

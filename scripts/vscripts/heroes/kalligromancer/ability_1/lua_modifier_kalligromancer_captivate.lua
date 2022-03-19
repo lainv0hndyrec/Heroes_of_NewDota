@@ -53,6 +53,8 @@ function lua_modifier_kalligromancer_captivate:OnIntervalThink()
     local pullrate = distance*FrameTime()*2
 
     if not IsServer() then return end
+    if self:GetParent():IsCurrentlyHorizontalMotionControlled() then return end
+
     local new_pos = GetGroundPosition(self:GetParent():GetAbsOrigin() + (pullrate*direction),self:GetParent())
     self:GetParent():SetAbsOrigin(new_pos)
 end

@@ -36,51 +36,19 @@
 		}
 
 
-        "AbilitySpecial"
+
+        "AbilityValues"
         {
-            "01" //base_ability_damage
-            {
-                "var_type" 	    "FIELD_INTEGER"
-                "spawn_distance" 	"200"
-            }
-
-            "02" //base_ability_damage
-            {
-                "var_type" 	    "FIELD_INTEGER"
-                "portrait_hp" 	"600 800 1200"
-            }
-
-            "03" //base_ability_damage
-            {
-                "var_type" 	    "FIELD_INTEGER"
-                "magic_damage" 	"110 120 130"
-            }
-
-            "04" //base_ability_damage
-            {
-                "var_type" 	    "FIELD_INTEGER"
-                "portrait_duration" 	"20"
-            }
-
-            "05" //base_ability_damage
-            {
-                "var_type" 	    "FIELD_INTEGER"
-                "leash_range" 	"1500"
-            }
-
-            "06" //base_ability_damage
-            {
-                "var_type" 	    "FIELD_INTEGER"
-                "scepter_damage" 	"100"
-            }
-
-            "07" //base_ability_damage
-            {
-                "var_type" 	    "FIELD_INTEGER"
-                "scepter_hp" 	"800"
-            }
-            
+            "spawn_distance" 	"200"
+            "portrait_hp" 	    "600 800 1200"
+            "magic_damage"      "110 120 130"
+            "portrait_duration" "20"
+            "leash_range" 	    "1500"
+            "scepter_damage" 	"100"
+            "scepter_hp" 	    "800"
         }
+
+
     }
 
 

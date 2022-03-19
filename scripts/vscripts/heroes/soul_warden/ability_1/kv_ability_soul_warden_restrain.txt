@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+    "lua_ability_soul_warden_restrain"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/soul_warden/ability_1/lua_ability_soul_warden_restrain"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityTextureName"     	"soul_warden_restrain"
+
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+        //"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+        "MaxLevel"                  "4"
+
+        "AbilityCastPoint"              "0.3"
+        "AbilityCastAnimation"          "ACT_DOTA_OVERRIDE_ABILITY_3"
+
+        "HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+
+        "AbilityManaCost"         "100 110 120 130"
+        "AbilityCooldown"         "14"
+        //"AbilityCastRange"        "500"
+
+
+
+        "precache"
+		{
+            "particle" "particles/econ/items/razor/razor_punctured_crest/razor_static_link_blade.vpcf"
+            "particle" "particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex_recipient_b.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "hold_time"                 "1.5 2.0 2.5 3.0"
+            "hold_range"                "700"
+            "shard_mana_leech_percent"  "10"
+            "cast_range"                "500"
+        }
+    }
+
+
+}

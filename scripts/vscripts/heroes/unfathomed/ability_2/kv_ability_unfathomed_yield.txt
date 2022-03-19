@@ -31,7 +31,7 @@
 
 		"precache"
 		{
-			"particle" "particles/units/heroes/unfathomed/ability_2/yield_preimage.vpcf"
+			"particle" "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf"
             //"particle" "particles/units/heroes/hero_tinker/tinker_defense_matrix_ball_sphere_rings.vpcf"
             //"soundfile" "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
 

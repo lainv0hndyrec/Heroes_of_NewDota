@@ -4,6 +4,17 @@
 }
 
 //==============================
+//Generic abilities
+#base "../vscripts/heroes/0_generic/strength_gain/kv_ability_generic_strength_gain.txt"
+#base "../vscripts/heroes/0_generic/agility_gain/kv_ability_generic_agility_gain.txt"
+#base "../vscripts/heroes/0_generic/intelligence_gain/kv_ability_generic_intelligence_gain.txt"
+#base "../vscripts/heroes/0_generic/change_attack_range/kv_ability_generic_change_attack_range.txt"
+#base "../vscripts/heroes/0_generic/change_projectile_speed/kv_ability_generic_change_projectile_speed.txt"
+#base "../vscripts/heroes/0_generic/change_attack_point/kv_ability_generic_change_attack_point.txt"
+
+
+
+
 //Terrorblade -> CorruptedLord
 #base "../vscripts/heroes/corruptedlord/ability_1/kv_ability_corruptedlord_throw_glaive.txt"
 #base "../vscripts/heroes/corruptedlord/ability_2/kv_ability_corruptedlord_duality.txt"
@@ -42,4 +53,11 @@
 #base "../vscripts/heroes/unfathomed/ability_3/kv_ability_unfathomed_ethereal_order.txt"
 #base "../vscripts/heroes/unfathomed/ability_4/kv_ability_unfathomed_spatial_manipulation.txt"
 #base "../vscripts/heroes/unfathomed/talents/kv_talents_unfathomed.txt"
-//===============================
+
+
+//Razor -> Soul Warden
+#base "../vscripts/heroes/soul_warden/ability_1/kv_ability_soul_warden_restrain.txt"
+#base "../vscripts/heroes/soul_warden/ability_2/kv_ability_soul_warden_static_barrier.txt"
+#base "../vscripts/heroes/soul_warden/ability_3/kv_ability_soul_warden_ionic_absorption.txt"
+#base "../vscripts/heroes/soul_warden/ability_4/kv_ability_soul_warden_wardens_purge.txt"
+#base "../vscripts/heroes/soul_warden/talents/kv_talents_soul_warden.txt"

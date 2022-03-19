@@ -11,5 +11,6 @@ end
 
 
 function lua_ability_kalligromancer_heavy_blot:GetIntrinsicModifierName()
+    if self:GetLevel() <= 0 then return end
 	return "lua_modifier_kalligromancer_heavy_blot"
 end

@@ -11,5 +11,6 @@ end
 
 
 function lua_ability_vagabond_outcasts_strike:GetIntrinsicModifierName()
+    if self:GetLevel() <= 0 then return end
 	return "lua_modifier_vagabond_outcasts_strike"
 end

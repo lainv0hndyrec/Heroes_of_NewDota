@@ -22,6 +22,11 @@ end
 
 function lua_ability_corruptedlord_throw_glaive:OnSpellStart()
 
+    -- local test = self:GetCaster():FindAllModifiers()
+    -- for i=1, #test do
+    --     print(test[i]:GetName())
+    -- end
+
     --set the other skill active
     self.blink_q:SetActivated(true)
 
@@ -59,12 +64,13 @@ end
 
 function lua_ability_corruptedlord_throw_glaive:GetCooldown(level)
     local talent = self.caster:FindAbilityByName("special_bonus_corruptedlord_throw_glaive_reduce_cd")
-    self.ability_cd = self:GetSpecialValueFor("ability_cd")
+    self.ability_cd = self:GetLevelSpecialValueFor("ability_cd",0)
     if not talent == false then
         if talent:GetLevel() > 0 then
             return self.ability_cd - talent:GetSpecialValueFor("value")
         end
     end
+
     return self.ability_cd
 end
 

@@ -42,6 +42,7 @@
 
         "precache"
 		{
+            "particle"  "particles/units/heroes/whisltepunk/projectile/spinning_glaive.vpcf"
             "particle"	"particles/units/heroes/whisltepunk/ability_1/whistlepunk_rockets.vpcf"
             "particle"  "particles/units/heroes/whisltepunk/ability_1/rocket_trail_explosion.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"

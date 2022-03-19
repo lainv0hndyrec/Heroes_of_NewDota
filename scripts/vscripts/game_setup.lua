@@ -2,10 +2,15 @@ if GameSetup == nil then
   GameSetup = class({})
 end
 
---nil will not force a hero selection
-local forceHero = nil--"shredder"
+require("hero_alternative_path")
+require("timers")
 
-local test_on = false --manually turn it on or off
+local PlayerHeroPathChoice = {}
+
+--nil will not force a hero selection
+local forceHero = "razor" --"shredder"
+
+local test_on = true --manually turn it on or off
 
 
 function GameSetup:ready()
@@ -16,6 +21,8 @@ function GameSetup:ready()
     --Selection and PenaltyTime
     GameRules:SetHeroSelectionTime(60)
     GameRules:SetHeroSelectPenaltyTime(30)
+    GameRules:SetStrategyTime(0)
+    --GameRules:SetStrategyTime(30)
 
 
     --force single hero selection (optional)
@@ -25,8 +32,9 @@ function GameSetup:ready()
 
     --listen to game state event
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(self, "OnChangedGameState"), self)
-    CustomGameEventManager:RegisterListener("update_server_of_the_player_pick_path", Dynamic_Wrap(self, "OnPlayerPickPathSave"))
-    
+    CustomGameEventManager:RegisterListener("check_if_hero_is_already_picked", Dynamic_Wrap(self, "OnCheckPlayerSelectAHero"))
+    CustomGameEventManager:RegisterListener("player_locked_choice_check_availability", Dynamic_Wrap(self, "OnCheckPlayerCanLockHero"))
+
 
 
     if IsInToolsMode() then  --debug build
@@ -80,6 +88,9 @@ function GameSetup:OnChangedGameState()
                         local hPlayer = PlayerResource:GetPlayer(playerID)
                         if hPlayer ~= nil then
                           hPlayer:MakeRandomHeroSelection()
+                          local random_hero_name = PlayerResource:GetSelectedHeroName(playerID)
+                          local random_path = RandomInt(0,2)
+                          table.insert(PlayerHeroPathChoice, {random_hero_name,random_path})
                         end
                     end
                 end
@@ -87,6 +98,13 @@ function GameSetup:OnChangedGameState()
         end
     end
 
+
+    if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
+        Timers:CreateTimer(
+            0.1,
+            function() self:SetTheHeroesPathAtPreGame(PlayerHeroPathChoice) end
+        )
+    end
 
     --add test rubick
     if test_on == false then return end
@@ -125,22 +143,43 @@ end
 
 
 
+function GameSetup:OnCheckPlayerSelectAHero(info)
 
-function GameSetup:OnPlayerPickPathSave(args)
-    print(args)
-    if args.PlayerID == -1 then return end
+    if info.PlayerID == -1 then return end
 
-    local cdotaplayer = PlayerResource:GetPlayer(args.PlayerID)
+    if PlayerResource:IsHeroSelected(info.HeroScriptName,true) then return end
 
-    local hero_string = args.HeroString
+    local cdotaplayer = PlayerResource:GetPlayer(info.PlayerID)
+    CustomGameEventManager:Send_ServerToPlayer(cdotaplayer,"proceed_to_show_hero_path",info)
 
-    cdotaplayer:SetSelectedHero(hero_string)
-
-
-
-    --local lock_in = "" --npc_dota_hero_name
-    --local chosen_path = 0 --original dota hero = 0, alternate universe = 1..
+end
 
 
 
+
+function GameSetup:OnCheckPlayerCanLockHero(hero)
+
+    if hero.PlayerID == -1 then return end
+
+    if PlayerResource:IsHeroSelected(hero.HeroScriptName,true) then return end
+
+    table.insert(PlayerHeroPathChoice, {hero.HeroScriptName,hero.Path})
+
+    local cdotaplayer = PlayerResource:GetPlayer(hero.PlayerID)
+    cdotaplayer:SetSelectedHero(hero.HeroScriptName)
+end
+
+
+
+
+function GameSetup:SetTheHeroesPathAtPreGame(table)
+    --table = { {hero,path},{hero,path},{hero,path}}
+
+    local hero_list = HeroList:GetAllHeroes()
+
+    for i=1, #table do
+     local hero_string = table[i][1]
+     local hero_path = table[i][2]
+     HeroAlternativePath:Initialize(hero_string,hero_path,hero_list)
+    end
 end

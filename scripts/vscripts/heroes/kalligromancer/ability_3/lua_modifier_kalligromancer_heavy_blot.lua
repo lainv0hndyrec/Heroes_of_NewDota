@@ -14,6 +14,7 @@ function lua_modifier_kalligromancer_heavy_blot:RemoveOnDeath() return false end
 
 function lua_modifier_kalligromancer_heavy_blot:DeclareFunctions()
     local dfunc = {
+        MODIFIER_EVENT_ON_ATTACK_START,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_EVENT_ON_ATTACK,
         MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
@@ -63,6 +64,9 @@ function lua_modifier_kalligromancer_heavy_blot:OnIntervalThink()
 end
 
 
+
+
+
 function lua_modifier_kalligromancer_heavy_blot:GetModifierPreAttack_CriticalStrike(event)
 
     if not IsServer() then return end
@@ -78,12 +82,43 @@ function lua_modifier_kalligromancer_heavy_blot:GetModifierPreAttack_CriticalStr
 
     local talent = self:GetCaster():FindAbilityByName("special_bonus_kalligromancer_heavy_blot_aoe_plus_crit")
     if not talent == false then
-        add_crit = talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            add_crit = talent:GetSpecialValueFor("value")
+        end
     end
-
 
     return crit+add_crit
 end
+
+
+
+
+
+
+
+function lua_modifier_kalligromancer_heavy_blot:OnAttackStart(event)
+    if not IsServer() then return end
+
+    if event.attacker ~= self:GetParent() then return end
+
+    if self:GetParent():PassivesDisabled() then return end
+
+    if self.blot == false then return end
+
+    self:GetParent():StartGesture(ACT_DOTA_GS_INK_CREATURE)
+
+end
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -114,6 +149,7 @@ function lua_modifier_kalligromancer_heavy_blot:OnAttack(event)
             self.blot = true
         end
     else
+        --self:GetParent():StartGesture(ACT_DOTA_GS_INK_CREATURE)
         self:SetStackCount(stacks)
         self:StartIntervalThink(helper_count)
         self:SetDuration(helper_count,true)
@@ -151,7 +187,9 @@ function lua_modifier_kalligromancer_heavy_blot:OnAttackLanded(event)
     local aoe_radius = self:GetAbility():GetSpecialValueFor("aoe_radius")
 
     if not talent == false then
-        aoe_radius = aoe_radius + talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            aoe_radius = aoe_radius + talent:GetSpecialValueFor("value")
+        end
     end
 
 
@@ -198,6 +236,7 @@ function lua_modifier_kalligromancer_heavy_blot:OnAttackLanded(event)
     event.target:EmitSound("Hero_Grimstroke.InkSwell.Stun")
     --createhero npc_dota_hero_terrorblade enemy
 end
+
 
 
 

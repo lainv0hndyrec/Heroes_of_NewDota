@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+    "generic_talents_all_stats_5"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+		{
+            "value"		"5"
+        }
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+}

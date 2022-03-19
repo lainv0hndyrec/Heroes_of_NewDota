@@ -62,7 +62,9 @@ function lua_ability_vagabond_death_light:OnProjectileHit(target,location)
     local add_damage = 0
     local talent = self:GetCaster():FindAbilityByName("special_bonus_vagabond_phantom_death_light_damage")
     if not talent == false then
-        add_damage = talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            add_damage = talent:GetSpecialValueFor("value")
+        end
     end
 
 

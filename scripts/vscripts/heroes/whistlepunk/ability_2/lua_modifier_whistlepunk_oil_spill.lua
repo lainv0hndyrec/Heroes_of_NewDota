@@ -41,7 +41,9 @@ function lua_modifier_whistlepunk_oil_spill_slowburn:OnCreated( kv )
     self.talent_ms_as_bonus = 0
     local talent_slow_amount = self:GetCaster():FindAbilityByName("special_bonus_whistlepunk_oil_spill_slow_amount")
     if not talent_slow_amount == false then
-        self.talent_ms_as_bonus = talent_slow_amount:GetSpecialValueFor("value")
+        if talent_slow_amount:GetLevel() > 0 then
+            self.talent_ms_as_bonus = talent_slow_amount:GetSpecialValueFor("value")
+        end
     end
 
     self.move_speed_percent = self:GetAbility():GetSpecialValueFor("move_speed_percent")+self.talent_ms_as_bonus

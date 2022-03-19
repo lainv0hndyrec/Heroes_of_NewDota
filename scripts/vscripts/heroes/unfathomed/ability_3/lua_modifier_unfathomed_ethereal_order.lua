@@ -35,7 +35,9 @@ function lua_modifier_unfathomed_ethereal_order:GetModifierAttackRangeBonus()
     local range = self.add_range
     local talent = self:GetCaster():FindAbilityByName("special_bonus_unfathomed_ethereal_order_range")
     if not talent == false then
-        range = range+talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            range = range+talent:GetSpecialValueFor("value")
+        end
     end
     return range
 end

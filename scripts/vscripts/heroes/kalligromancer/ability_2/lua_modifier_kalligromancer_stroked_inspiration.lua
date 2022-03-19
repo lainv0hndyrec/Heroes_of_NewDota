@@ -216,7 +216,9 @@ function lua_modifier_kalligromancer_stroked_inspiration:GetModifierTotalDamageO
         local add_damage = 0
         local talent = self:GetCaster():FindAbilityByName("special_bonus_kalligromancer_stroked_inspiration_plus_damage")
         if not talent == false then
-            add_damage = talent:GetSpecialValueFor("value")
+            if talent:GetLevel() > 0 then
+                add_damage = talent:GetSpecialValueFor("value")
+            end
         end
 
         local damage_mult = (self:GetAbility():GetSpecialValueFor("damage_mult")+add_damage)*0.01

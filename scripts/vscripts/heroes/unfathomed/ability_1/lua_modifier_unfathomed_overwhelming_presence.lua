@@ -82,7 +82,9 @@ function lua_modifier_unfathomed_overwhelming_presence:GetModifierDamageOutgoing
     local teffect = self:GetAbility():GetSpecialValueFor("toggle_effect")
     local talent = self:GetCaster():FindAbilityByName("special_bonus_unfathomed_overwhelming_presence_effect")
     if not talent == false then
-        teffect = teffect+talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            teffect = teffect+talent:GetSpecialValueFor("value")
+        end
     end
 
     return -teffect
@@ -99,7 +101,9 @@ function lua_modifier_unfathomed_overwhelming_presence:GetModifierIncomingDamage
     local teffect = self:GetAbility():GetSpecialValueFor("toggle_effect")
     local talent = self:GetCaster():FindAbilityByName("special_bonus_unfathomed_overwhelming_presence_effect")
     if not talent == false then
-        teffect = teffect+talent:GetSpecialValueFor("value")
+        if talent:GetLevel() > 0 then
+            teffect = teffect+talent:GetSpecialValueFor("value")
+        end
     end
 
     return teffect

@@ -21,6 +21,10 @@ function lua_modifier_corruptedlord_throw_glaive_thinker:OnCreated( kv )
 
     if not IsServer() then return end
 
+    if not kv.target_x then self:OnDestroy() return end
+    if not kv.target_y then self:OnDestroy() return end
+    if not kv.target_z then self:OnDestroy() return end
+
     self.parent = self:GetParent()
 	self.cursorPt = Vector( kv.target_x, kv.target_y, kv.target_z )
 	self.caster = self:GetCaster()
@@ -308,6 +312,8 @@ function lua_modifier_corruptedlord_throw_glaive_slow:IsPurgable() return true e
 
 
 function lua_modifier_corruptedlord_throw_glaive_slow:OnCreated( kv )
+
+    if not kv.duration then self:Destroy() return end
 	-- references
 	self.ability_slow = self:GetAbility():GetSpecialValueFor( "ability_slow" ) -- special value
 	self.slow_duration = self:GetAbility():GetSpecialValueFor( "slow_duration" ) -- special value
@@ -319,6 +325,8 @@ end
 
 
 function lua_modifier_corruptedlord_throw_glaive_slow:OnRefresh( kv )
+
+    if not kv.duration then self:Destroy() return end
 	-- references
     self.ability_slow = self:GetAbility():GetSpecialValueFor( "ability_slow" ) -- special value
 	self.slow_duration = self:GetAbility():GetSpecialValueFor( "slow_duration" ) -- special value

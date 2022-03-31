@@ -1,0 +1,38 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// VAGABOND = PHANTOM LANCER
+	//=================================================================================================================
+	"npc_custom_hero_defiler"
+	{
+		"override_hero"				"npc_dota_hero_life_stealer"				// Hero to override
+
+		"Ability1"					"lua_ability_defiler_fetid_slime"			// Ability 1
+		"Ability2"					"lua_ability_defiler_mimicry"
+		"Ability3"					"lua_ability_defiler_defiling_touch"			// Ability 3
+		"Ability4"					"generic_hidden"		// Ability 4
+		"Ability5"					"generic_hidden"		// Ability 5
+		"Ability6"					"lua_ability_defiler_life_grasp"		// ULT
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"	// Primary Attribute
+
+
+
+		//Talents
+		"Ability10"		"special_bonus_defiler_fetid_slime_slow_time"
+		"Ability11"		"special_bonus_defiler_fetid_slime_damage"
+
+		"Ability12"		"special_bonus_hp_250"
+		"Ability13"		"special_bonus_intelligence_10"
+
+		"Ability14"		"special_bonus_lifesteal_15"
+		"Ability15"		"special_bonus_attack_damage_30"
+
+		"Ability16"		"special_bonus_defiler_defiling_touch_bonus_dmg"
+		"Ability17"		"special_bonus_defiler_defiling_touch_decrease_dmg"
+
+
+	}
+}

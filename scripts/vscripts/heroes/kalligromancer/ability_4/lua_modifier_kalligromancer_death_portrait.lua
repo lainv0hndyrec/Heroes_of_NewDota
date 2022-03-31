@@ -146,7 +146,8 @@ function lua_modifier_kalligromancer_death_portrait:OnModifierAdded(event)
     if d_duration <= 0 then return end
 
     if self.target:IsMagicImmune() == false then
-        self.target:AddNewModifier(caster,ability,mod_name,{duration = d_duration})
+        local mod = self.target:AddNewModifier(caster,ability,mod_name,{})
+        mod:SetDuration(d_duration,true)
     end
 
     self:GetParent():RemoveAllModifiersOfName(mod_name)

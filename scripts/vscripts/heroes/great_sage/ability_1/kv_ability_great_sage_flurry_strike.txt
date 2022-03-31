@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+
+    "lua_ability_great_sage_flurry_strike"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/great_sage/ability_1/lua_ability_great_sage_flurry_strike"
+        "AbilityTextureName"     	    "monkey_king_wukongs_command"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        //"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_PHYSICAL"
+
+
+        //"AbilityCooldown"				"10 9 8 7"
+		//"AbilityManaCost"				"90"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/great_sage/ability_1/image_trail.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "flurry_range"    "300"
+            "flurry_radius"   "200"
+            "bonus_attack_damage" "15 30 45 60"
+            "additional_cast_duration"  "2.5"
+            "flurry_duration"  "0.1"
+
+            "ability_cd"    "10 9 8 7"
+            "ability_mana"  "90"
+        }
+
+    }
+}

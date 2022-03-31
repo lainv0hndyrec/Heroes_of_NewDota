@@ -48,6 +48,8 @@ function lua_modifier_unfathomed_yield_motion:IsPurgeException() return false en
 function lua_modifier_unfathomed_yield_motion:OnCreated(kv)
     if not IsServer() then return end
 
+    if not kv.duration then self:Destroy() return end
+
     --PARTICLE
     if not self.particle then
         self.particle = ParticleManager:CreateParticle(
@@ -129,8 +131,7 @@ function lua_modifier_unfathomed_yield_motion:UpdateHorizontalMotion( me, dt )
     end
 
     --remove trees
-    local hull = self:GetParent():GetHullRadius()*4
-    GridNav:DestroyTreesAroundPoint(self:GetParent():GetAbsOrigin(),hull,false)
+    GridNav:DestroyTreesAroundPoint(ground_pos,150,false)
 end
 
 

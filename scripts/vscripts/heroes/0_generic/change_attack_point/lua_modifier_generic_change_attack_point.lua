@@ -16,5 +16,5 @@ end
 
 function lua_modifier_generic_change_attack_point:GetAttackAnimationPoint()
     if not IsServer() then return end
-    return self.Attack_Point
+    return self:GetAbility().Attack_Point
 end

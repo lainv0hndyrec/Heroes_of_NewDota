@@ -84,6 +84,8 @@ function lua_ability_vagabond_phantom_charge:OnSpellStart()
 
     if self:GetCursorTarget():TriggerSpellAbsorb(self) then return end
 
+    self:GetCaster():AttackNoEarlierThan(0,0)
+
     self:GetCaster():AddNewModifier(
         self:GetCaster(),
         self,
@@ -98,9 +100,6 @@ function lua_ability_vagabond_phantom_charge:OnSpellStart()
         "lua_modifier_vagabond_phantom_charge",
         {}
     )
-
-    --self:GetCaster():StartGestureWithPlaybackRate(ACT_DOTA_SPAWN,5)
-
 
     self:GetCaster():MoveToTargetToAttack(self:GetCursorTarget())
 end
@@ -191,7 +190,6 @@ function lua_ability_vagabond_phantom_charge_fragment:OnSpellStart()
     if shard_mod == false then
         real_strike:StartCooldown(self:GetCooldownTime())
     end
-
 
     if self:GetCursorTarget():TriggerSpellAbsorb(self) then return end
 

@@ -16,8 +16,9 @@
         "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_PHYSICAL"
 
-        "HasShardUpgrade"                "1"
+        //"HasShardUpgrade"                "1"
 
 		"AbilityManaCost"				"90"
 
@@ -33,7 +34,7 @@
             "01" //attack damage
             {
                 "var_type" 	                "FIELD_INTEGER"
-                "bonus_damage" 		        "80 120 160 200"
+                "bonus_damage" 		        "80 140 200 260"
             }
 
             "02" //self damage
@@ -93,6 +94,7 @@
         "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_PHYSICAL"
 
 
         "AbilityCooldown"				"15 14 13 12"

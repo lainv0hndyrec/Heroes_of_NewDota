@@ -28,7 +28,7 @@
         "AbilityCooldown"         "120 110 100"
         "AbilityCastRange"        "600"
 
-        "HasScepterUpgrade"             "1"
+        //"HasScepterUpgrade"             "1"
 
         "precache"
 		{

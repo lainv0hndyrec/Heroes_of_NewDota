@@ -20,14 +20,14 @@
         "AbilityCastPoint"              "0.1"
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
 
-        "HasScepterUpgrade"                "1"
+        //"HasScepterUpgrade"                "1"
 
         // Stats
         //----------------------------------------------------------------------------------------
 
         "AbilityManaCost"         "50"
         "AbilityCooldown"         "12 10 8"
-        "AbilityCastRange"        "600"
+        //"AbilityCastRange"        "600"
 
         "precache"
 		{
@@ -42,6 +42,7 @@
             "ally_ms"       "30 40 50"
             "summon_damage" "700 850 1000"
             "ms_duration"   "5"
+            "cast_range"    "600"
 
             "scepter_max_chain"   "3"
         }

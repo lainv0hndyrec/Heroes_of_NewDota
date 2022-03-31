@@ -45,7 +45,6 @@ function lua_modifier_vagabond_phantom_charge:OnCreated(kv)
 
     self.ability = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge")
 
-
     if not IsServer() then return end
 
     if not self.ability then

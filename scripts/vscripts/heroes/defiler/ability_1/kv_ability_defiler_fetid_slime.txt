@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+
+    "lua_ability_defiler_fetid_slime"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/defiler/ability_1/lua_ability_defiler_fetid_slime"
+        "AbilityTextureName"     	    "defiler_fetid_slime"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityCastPoint"              "0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_6"
+
+
+        //"AbilityCooldown"				"10 9 8 7"
+		//"AbilityManaCost"				"90"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/defiler/ability_1/rend_wounds.vpcf"
+            "particle" "particles/units/heroes/defiler/ability_1/fetid_slime_debuff.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "ability_damage"    "80 140 200 260"
+            "stolen_ms"         "50 75 100 125"
+            "ms_time"          "4.0"
+
+            "projectile_speed"  "2000"
+
+            "mana_cost"     "75 90 105 120"
+            "ability_cd"    "10"
+            "cast_range"    "600"
+        }
+
+    }
+}

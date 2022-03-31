@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+
+    "lua_ability_great_sage_earth_driver"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/great_sage/ability_3/lua_ability_great_sage_earth_driver"
+        "AbilityTextureName"     	    "monkey_king_primal_spring"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityCastPoint"              "0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_MK_STRIKE"
+        "AnimationPlaybackRate"         "2"
+
+        //"AbilityCooldown"				"10 9 8 7"
+		//"AbilityManaCost"				"90"
+        //"HasScepterUpgrade"             "1"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/great_sage/ability_3/earth_drive_earth_b.vpcf"
+            "particle"  "particles/units/heroes/great_sage/ability_3/monkey_signcast.vpcf"
+            "particle" "particles/units/heroes/great_sage/ability_3/stone_statue.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "strike_range"          "200"
+            "strike_aoe_range"      "200"
+            "scepter_aoe_range"     "200"
+
+            "scepter_ability_damage"     "50"
+
+            "ability_damage"        "70 100 130 160"
+            "delay_duration"        "2.0"
+            "knockup_duration"      "0.5"
+
+            "ability_cd"            "13 11 9 7"
+            "ability_mana"          "80"
+        }
+
+    }
+}

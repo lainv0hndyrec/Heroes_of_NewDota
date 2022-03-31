@@ -23,6 +23,9 @@ end
 function lua_modifier_soul_warden_wardens_purge_ally:OnCreated(kv)
     if not IsServer() then return end
 
+    if not kv.chain_order then self:Destroy() return end
+
+
     self:GetParent():Purge(false,true,false,false,false)
 
     self:GetParent():EmitSound("DOTA_Item.DiffusalBlade.Activate")
@@ -374,7 +377,6 @@ function lua_modifier_soul_warden_wardens_purge_enemy:PureDamageSummonedIllusion
     if apply_damage == false then return end
 
     local summon_damage = self:GetAbility():GetSpecialValueFor("summon_damage")
-    print(summon_damage)
 
     local dtable = {
         victim = self:GetParent(),

@@ -11,6 +11,7 @@
 #base "../vscripts/heroes/0_generic/change_attack_range/kv_ability_generic_change_attack_range.txt"
 #base "../vscripts/heroes/0_generic/change_projectile_speed/kv_ability_generic_change_projectile_speed.txt"
 #base "../vscripts/heroes/0_generic/change_attack_point/kv_ability_generic_change_attack_point.txt"
+#base "../vscripts/heroes/0_generic/change_turn_rate/kv_ability_generic_change_turn_rate.txt"
 
 
 
@@ -61,3 +62,20 @@
 #base "../vscripts/heroes/soul_warden/ability_3/kv_ability_soul_warden_ionic_absorption.txt"
 #base "../vscripts/heroes/soul_warden/ability_4/kv_ability_soul_warden_wardens_purge.txt"
 #base "../vscripts/heroes/soul_warden/talents/kv_talents_soul_warden.txt"
+
+
+//Monkey King -> Great Sage
+#base "../vscripts/heroes/great_sage/ability_1/kv_ability_great_sage_flurry_strike.txt"
+#base "../vscripts/heroes/great_sage/ability_2/kv_ability_great_sage_ruyi_jingu_bang.txt"
+#base "../vscripts/heroes/great_sage/ability_3/kv_ability_great_sage_earth_driver.txt"
+#base "../vscripts/heroes/great_sage/ability_4/kv_ability_great_sage_somersault_cloud.txt"
+#base "../vscripts/heroes/great_sage/talents/kv_talents_great_sage.txt"
+
+
+
+//Lifesteal -> Defiler
+#base "../vscripts/heroes/defiler/ability_1/kv_ability_defiler_fetid_slime.txt"
+#base "../vscripts/heroes/defiler/ability_2/kv_ability_defiler_mimicry.txt"
+#base "../vscripts/heroes/defiler/ability_3/kv_ability_defiler_defiling_touch.txt"
+#base "../vscripts/heroes/defiler/ability_4/kv_ability_defiler_life_grasp.txt"
+#base "../vscripts/heroes/defiler/talents/kv_talents_defiler.txt"

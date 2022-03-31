@@ -16,6 +16,19 @@ function lua_modifier_whistlepunk_sawprise_thinker:OnCreated(params)
 
     if not IsServer() then return end
 
+    if not params.cp_x then self:Destroy() return end
+    if not params.cp_y then self:Destroy() return end
+    if not params.cp_z then self:Destroy() return end
+    if not params.vd_x then self:Destroy() return end
+    if not params.vd_y then self:Destroy() return end
+    if not params.saw_duration then self:Destroy() return end
+    if not params.init_damage then self:Destroy() return end
+    if not params.saw_dot then self:Destroy() return end
+    if not params.saw_aoe then self:Destroy() return end
+    if not params.tick_interval then self:Destroy() return end
+
+
+
     self.cast_position = Vector(params.cp_x,params.cp_y,params.cp_z)
     self.vector_direction = Vector(params.vd_x,params.vd_y,0)
     self.saw_duration = params.saw_duration

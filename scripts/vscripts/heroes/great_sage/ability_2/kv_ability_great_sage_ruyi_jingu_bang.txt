@@ -1,0 +1,62 @@
+"DOTAAbilities"
+{
+
+    "lua_ability_great_sage_ruyi_jingu_bang"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/great_sage/ability_2/lua_ability_great_sage_ruyi_jingu_bang"
+        "AbilityTextureName"     	    "monkey_king_jingu_mastery"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET  | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_PHYSICAL"
+
+        "AbilityCastPoint"              "0.0"
+        //"AbilityCooldown"				"10 9 8 7"
+		//"AbilityManaCost"				"90"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/great_sage/ability_1/image_trail.vpcf"
+            "particle" "particles/units/heroes/hero_monkey_king/monkey_king_spring.vpcf"
+            "particle"  "particles/units/heroes/hero_sniper/sniper_headshot_slow.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "cast_range"                    "200"
+            "re_cast_range"                 "300"
+            "aoe_radius"                    "250"
+
+
+            "unit_vault_distance"           "300"
+            "enemy_pull_distance"           "200"
+
+            "building_vault_distance"       "600"
+
+            "ability_damage"                "70 110 150 190"
+
+
+            "pull_animation"                "0.1"
+            "vault_animation"               "0.4"
+
+
+            "slow_percent"                  "20 35 50 65"
+            "slow_duration"                 "2.0"
+
+
+            "additional_cast_duration"      "2.5"
+            "ability_cd"                    "8"
+            "ability_mana"                  "120"
+        }
+
+    }
+}

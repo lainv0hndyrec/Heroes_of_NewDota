@@ -26,7 +26,7 @@
         "AbilityCooldown"               "11 9 7 5"
         //"AbilityCastRange"              "300"
 
-        "HasShardUpgrade"                "1"
+        //"HasShardUpgrade"                "1"
 
 
 		"precache"

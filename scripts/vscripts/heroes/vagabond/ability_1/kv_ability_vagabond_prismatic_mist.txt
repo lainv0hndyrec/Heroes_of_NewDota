@@ -6,7 +6,7 @@
         // ----------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "ScriptFile"		            "heroes/vagabond/ability_1/lua_ability_vagabond_prismatic_mist"
-        "AbilityTextureName"     	    "sandking_sand_storm"
+        "AbilityTextureName"     	    "vagabond_prismatic_mist"
         "MaxLevel"						"4"
 
         // Ability General
@@ -25,7 +25,7 @@
 
         //"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_3"
 
-        "HasScepterUpgrade"             "1"
+        //"HasScepterUpgrade"             "1"
 
         "precache"
 		{

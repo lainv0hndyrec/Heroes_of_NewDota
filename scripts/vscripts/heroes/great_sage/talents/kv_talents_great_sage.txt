@@ -1,0 +1,86 @@
+"DOTAAbilities"
+{
+    "special_bonus_great_sage_ruyi_jingu_bang_cd_reduction"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilityValues"
+        {
+			"value"      "1.0"
+		}
+	}
+
+
+
+    "special_bonus_great_sage_flurry_strike_freecast_duration"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilityValues"
+        {
+			"value"      "0.5"
+		}
+	}
+
+
+
+    "special_bonus_great_sage_ruyi_jingu_bang_slow_duration"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilityValues"
+        {
+			"value"      "1.0"
+		}
+	}
+
+
+
+    "special_bonus_great_sage_somersault_cloud_ms_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilityValues"
+        {
+			"value"      "15"
+		}
+	}
+
+
+    "special_bonus_great_sage_flurry_strike_damage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilityValues"
+        {
+			"value"      "40"
+		}
+	}
+
+
+}

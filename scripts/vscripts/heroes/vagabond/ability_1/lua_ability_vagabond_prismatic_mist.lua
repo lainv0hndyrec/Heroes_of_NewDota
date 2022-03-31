@@ -5,16 +5,6 @@ LinkLuaModifier( "lua_modifier_vagabond_prismatic_mist_slow_aura", "heroes/vagab
 
 lua_ability_vagabond_prismatic_mist = class({})
 
-function lua_ability_vagabond_prismatic_mist:Init()
-    if IsServer() == false then return end
-
-    if not self:GetCaster() then return end
-
-    print(self:GetCaster())
-end
-
-
-
 
 
 

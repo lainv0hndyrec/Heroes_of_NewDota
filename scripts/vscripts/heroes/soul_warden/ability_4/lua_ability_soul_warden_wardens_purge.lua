@@ -4,10 +4,36 @@ LinkLuaModifier( "lua_modifier_soul_warden_wardens_purge_enemy", "heroes/soul_wa
 lua_ability_soul_warden_wardens_purge = class({})
 
 
-function lua_ability_soul_warden_wardens_purge:OnAbilityPhaseStart()
-    if self:GetCursorTarget():IsMagicImmune() then return false end
-    return true
+-- function lua_ability_soul_warden_wardens_purge:OnAbilityPhaseStart()
+--     if self:GetCursorTarget():IsMagicImmune() then return false end
+--     return true
+-- end
+function lua_ability_soul_warden_wardens_purge:CastFilterResultTarget(target)
+    if not IsServer() then return end
+
+    if target:IsBuilding() then return UF_FAIL_BUILDING end
+    if target:IsCourier() then return UF_FAIL_COURIER end
+    if target:IsOther() then return UF_FAIL_OTHER end
+    if target:IsAlive() == false then return UF_FAIL_DEAD end
+    if self:GetCaster():IsAlive() == false then return UF_FAIL_DEAD end
+    if target:IsMagicImmune() then return UF_FAIL_CUSTOM end
+    if target:IsInvulnerable() then return UF_FAIL_INVULNERABLE end
+    if self:GetCaster():CanEntityBeSeenByMyTeam(target) == false then return UF_FAIL_IN_FOW end
+    if target:IsInvisible() then return UF_FAIL_INVISIBLE end
+    if target:IsOutOfGame() then return UF_FAIL_OUT_OF_WORLD end
+
+    return UF_SUCCESS
 end
+
+
+
+function lua_ability_soul_warden_wardens_purge:GetCustomCastErrorTarget(target)
+    if target:IsMagicImmune() then
+        return "Target is Magic Immune"
+    end
+end
+
+
 
 
 
@@ -63,5 +89,10 @@ function lua_ability_soul_warden_wardens_purge:OnSpellStart()
             chain_order = 0
         }
     )
+end
 
+
+
+function lua_ability_soul_warden_wardens_purge:GetCastRange(ps,target)
+    return self:GetLevelSpecialValueFor("cast_range",0)
 end

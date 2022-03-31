@@ -22,7 +22,7 @@ end
 
 
 function lua_ability_soul_warden_restrain:GetCastRange(ps,target)
-    local range = self:GetSpecialValueFor("cast_range")
+    local range = self:GetLevelSpecialValueFor("cast_range",0)
     local talent = self:GetCaster():FindAbilityByName("special_bonus_soul_warden_restrain_add_range")
     if not talent == false then
         if talent:GetLevel() > 0 then

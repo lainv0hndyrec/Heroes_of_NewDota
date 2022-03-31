@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+    "lua_ability_defiler_defiling_touch"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/defiler/ability_3/lua_ability_defiler_defiling_touch"
+        "AbilityTextureName"     	    "life_stealer_ghoul_frenzy"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+
+        "AbilityValues"
+        {
+            "dmg_bonus_percent"         "7 14 21 28"
+            "dmg_decrease_percent"      "7 14 21 28"
+            "debuff_time"               "3.0"
+        }
+    }
+}

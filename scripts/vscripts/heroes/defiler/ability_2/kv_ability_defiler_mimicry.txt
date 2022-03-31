@@ -1,0 +1,77 @@
+"DOTAAbilities"
+{
+
+    "lua_ability_defiler_mimicry"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/defiler/ability_2/lua_ability_defiler_mimicry"
+        "AbilityTextureName"     	    "life_stealer_control"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        //"AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityCastPoint"              "0.3"
+        //"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_6"
+
+
+        //"HasScepterUpgrade"     "1"
+        //"HasShardUpgrade"       "1"
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/hero_life_stealer/life_stealer_loadout.vpcf"
+            "particle"  "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf"
+            "particle"  "particles/status_fx/status_effect_life_stealer_rage.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "atk_spd_bonus"    "40 60 80 100"
+            "ms_bonus"   "25 50 75 100"
+            "heal_percent"     "20 30 40 50"
+
+            "dot_hp_percent"       "4 3 2 1"
+
+            "mana_cost"     "100 110 120 130"
+            "ability_cd"    "30.0"
+            "cast_range"    "300"
+
+            "scepter_atk_percent"     "30"
+
+            //"shard_dot_decrease"       "1"
+            "shard_explosion_dmg"      "80 160 240 320"
+            "shard_explosion_aoe"      "600"
+        }
+
+    }
+
+
+
+
+    "lua_ability_defiler_mimicry_end"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/defiler/ability_2/lua_ability_defiler_mimicry"
+        "AbilityTextureName"     	    "life_stealer_consume"
+        "MaxLevel"						"1"
+
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf"
+		}
+
+    }
+
+}

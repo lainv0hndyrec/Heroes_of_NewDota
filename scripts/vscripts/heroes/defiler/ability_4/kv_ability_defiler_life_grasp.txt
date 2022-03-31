@@ -1,0 +1,52 @@
+"DOTAAbilities"
+{
+
+    "lua_ability_defiler_life_grasp"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/defiler/ability_4/lua_ability_defiler_life_grasp"
+        "AbilityTextureName"     	    "defiler_life_grasp"
+        "MaxLevel"						"3"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_PURE"
+
+        "AbilityCastPoint"              "0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_LIFESTEALER_EJECT"
+
+
+        //"AbilityCooldown"				"10 9 8 7"
+		//"AbilityManaCost"				"90"
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/defiler/ability_4/life_grasp.vpcf"
+            "particle"  "particles/items2_fx/soul_ring_blood.vpcf"
+
+		}
+
+        "AbilityValues"
+        {
+            "pure_damage"           "250 350 450"
+            "silence_duration"      "2 3 4"
+
+            "hook_speed"            "1750"
+            "leap_speed"            "2250"
+
+            "anim_duration"         "1.0"
+
+            "mana_cost"             "125 150 175"
+            "ability_cd"            "60.0 45.0 30.0"
+            "cast_range"            "600"
+        }
+
+    }
+}

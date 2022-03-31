@@ -5,12 +5,59 @@ lua_ability_kalligromancer_death_portrait = class({})
 
 
 
-function lua_ability_kalligromancer_death_portrait:OnAbilityPhaseStart()
-    if self:GetCursorTarget():IsCreepHero() then return false end
-    if self:GetCursorTarget():IsSummoned() then return false end
+-- function lua_ability_kalligromancer_death_portrait:OnAbilityPhaseStart()
+--     if self:GetCursorTarget():IsCreepHero() then return false end
+--     if self:GetCursorTarget():IsSummoned() then return false end
+--
+--     return true
+-- end
 
-    return true
+
+
+
+function lua_ability_kalligromancer_death_portrait:CastFilterResultTarget(target)
+    if not IsServer() then return end
+    if target:GetTeam() == self:GetCaster():GetTeam() then return UF_FAIL_FRIENDLY end
+    if target:IsCreep() then return UF_FAIL_CREEP end
+    if target:IsBuilding() then return UF_FAIL_BUILDING end
+    if target:IsCourier() then return UF_FAIL_COURIER end
+    if target:IsOther() then return UF_FAIL_OTHER end
+    if target:IsAncient() then return UF_FAIL_ANCIENT end
+    if target:IsSummoned() then return UF_FAIL_SUMMONED end
+    if target:IsDominated() then return UF_FAIL_DOMINATED end
+    if target:IsAlive() == false then return UF_FAIL_DEAD end
+    if self:GetCaster():IsAlive() == false then return UF_FAIL_DEAD end
+    if target:IsMagicImmune() then return UF_FAIL_CUSTOM end
+    if target:IsInvulnerable() then return UF_FAIL_INVULNERABLE end
+    if self:GetCaster():CanEntityBeSeenByMyTeam(target) == false then return UF_FAIL_IN_FOW end
+    if target:IsInvisible() then return UF_FAIL_INVISIBLE end
+    if target:IsOutOfGame() then return UF_FAIL_OUT_OF_WORLD end
+    if target:IsHero() == false then return UF_FAIL_CUSTOM end
+
+    return UF_SUCCESS
 end
+
+
+
+function lua_ability_kalligromancer_death_portrait:GetCustomCastErrorTarget(target)
+    if target:IsMagicImmune() then
+        return "Target is Magic Immune"
+    end
+
+    if target:IsHero() == false then
+        return "Target is not a Hero"
+    end
+end
+
+
+
+
+
+
+
+
+
+
 
 
 function lua_ability_kalligromancer_death_portrait:OnSpellStart()

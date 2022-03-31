@@ -12,5 +12,6 @@
 //#base "../vscripts/heroes/vagabond/kv_hero_vagabond.txt"
 //#base "../vscripts/heroes/kalligromancer/kv_hero_kalligromancer.txt"
 //#base "../vscripts/heroes/unfathomed/kv_hero_unfathomed.txt"
-
-#base "../vscripts/heroes/soul_warden/kv_hero_soul_warden.txt"
+//#base "../vscripts/heroes/soul_warden/kv_hero_soul_warden.txt"
+//#base "../vscripts/heroes/great_sage/kv_hero_great_sage.txt"
+//#base "../vscripts/heroes/defiler/kv_hero_defiler.txt"

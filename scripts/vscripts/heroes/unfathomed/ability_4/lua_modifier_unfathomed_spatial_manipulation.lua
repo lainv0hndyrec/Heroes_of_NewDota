@@ -10,6 +10,8 @@ function lua_modifier_unfathomed_spatial_manipulation:IsPurgeException() return 
 function lua_modifier_unfathomed_spatial_manipulation:OnCreated(kv)
     if not IsServer() then return end
 
+    if not kv.duration then self:Destroy() return end
+
     --PARTICLE
     if not self.particle then
         self.particle = ParticleManager:CreateParticle(
@@ -84,8 +86,7 @@ function lua_modifier_unfathomed_spatial_manipulation:UpdateHorizontalMotion( me
     end
 
     --remove trees
-    local hull = self:GetParent():GetHullRadius()*4
-    GridNav:DestroyTreesAroundPoint(self:GetParent():GetAbsOrigin(),hull,false)
+    GridNav:DestroyTreesAroundPoint(ground_pos,150,false)
 end
 
 

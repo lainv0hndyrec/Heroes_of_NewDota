@@ -25,7 +25,7 @@
         "AnimationPlaybackRate"         "1"
         "AnimationIgnoresModelScale"    "1"
 
-        "HasShardUpgrade"                "1"
+        //"HasShardUpgrade"                "1"
 
         // Stats
         //----------------------------------------------------------------------------------------

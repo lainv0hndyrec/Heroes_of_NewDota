@@ -1,111 +1,88 @@
-LinkLuaModifier( "lua_modifier_vagabond_phantom_charge", "heroes/vagabond/ability_2/lua_modifier_vagabond_phantom_charge", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "lua_modifier_vagabond_phantom_charge_invi", "heroes/vagabond/ability_2/lua_modifier_vagabond_phantom_charge", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "lua_modifier_vagabond_phantom_charge_invi_frame", "heroes/vagabond/ability_2/lua_modifier_vagabond_phantom_charge", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "lua_modifier_vagabond_phantom_charge_movement", "heroes/vagabond/ability_2/lua_modifier_vagabond_phantom_charge", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "lua_modifier_vagabond_phantom_charge_particle", "heroes/vagabond/ability_2/lua_modifier_vagabond_phantom_charge", LUA_MODIFIER_MOTION_NONE )
 
 
 lua_ability_vagabond_phantom_charge = class({})
 
-
-
-
-
-
-function lua_ability_vagabond_phantom_charge:GetCastRange(location,target)
-
-    local self_ability = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge")
-    local range = 0
-
-    if not self_ability then return 0 end
-
-    range = self_ability:GetSpecialValueFor("cast_range")
-
-    local talent = self:GetCaster():FindAbilityByName("special_bonus_vagabond_phantom_charge_range")
-    local add_range = 0
-
-    if not talent == false then
-        if talent:GetLevel() > 0 then
-            add_range = talent:GetSpecialValueFor("value")
-        end
+function lua_ability_vagabond_phantom_charge:OnUpgrade()
+    local illu_ability = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge_fragment")
+    if not illu_ability == false then
+        illu_ability:SetLevel(self:GetLevel())
     end
-
-    return range + add_range
 end
 
 
+function lua_ability_vagabond_phantom_charge:GetCastRange(pos,target)
+    local cast_range = self:GetLevelSpecialValueFor("cast_range",0)
 
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_vagabond_phantom_charge_range")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            cast_range = cast_range+talent:GetSpecialValueFor("value")
+        end
+    end
+
+    return cast_range
+end
 
 
 function lua_ability_vagabond_phantom_charge:GetCooldown(lvl)
-
-    local self_ability = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge")
-    local cd = 0
-
-    if not self_ability then return 0 end
-
-    cd = self_ability:GetSpecialValueFor("cast_cd")
+    local cast_cd = self:GetLevelSpecialValueFor("cast_cd",lvl)
 
     local talent = self:GetCaster():FindAbilityByName("special_bonus_vagabond_phantom_charge_cd_reduction")
-    local add_cd = 0
-
     if not talent == false then
         if talent:GetLevel() > 0 then
-            add_cd = talent:GetSpecialValueFor("value")
+            cast_cd = cast_cd-talent:GetSpecialValueFor("value")
         end
     end
 
-    return cd - add_cd
+    return cast_cd
 end
 
 
-
-
-
-
-function lua_ability_vagabond_phantom_charge:OnUpgrade()
-    local illu_strike = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge_fragment")
-    if not illu_strike then return end
-
-    illu_strike:SetLevel(self:GetLevel())
-
+function lua_ability_vagabond_phantom_charge:GetManaCost(lvl)
+    local cast_mana = self:GetLevelSpecialValueFor("cast_mana",lvl)
+    return cast_mana
 end
-
 
 
 function lua_ability_vagabond_phantom_charge:OnSpellStart()
 
-    local illu_strike = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge_fragment")
-    if not illu_strike then return end
-
-
-    local shard_mod = self:GetCaster():HasModifier("modifier_item_aghanims_shard")
-    if shard_mod == false then
-        illu_strike:StartCooldown(self:GetCooldownTime())
+    local illu_ability = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge_fragment")
+    local shard = self:GetCaster():HasModifier("modifier_item_aghanims_shard")
+    if not illu_ability == false then
+        if shard == false then
+            illu_ability:StartCooldown(self:GetEffectiveCooldown(self:GetLevel()-1))
+        end
     end
+
 
     if self:GetCursorTarget():TriggerSpellAbsorb(self) then return end
 
-    self:GetCaster():AttackNoEarlierThan(0,0)
+    --particle
+    CreateModifierThinker(
+        self:GetCaster(),self,"lua_modifier_vagabond_phantom_charge_particle",
+        {duration = 2.0},self:GetCaster():GetAbsOrigin(),self:GetCaster():GetTeam(),false
+    )
 
+    --invi fake out
     self:GetCaster():AddNewModifier(
-        self:GetCaster(),
-        self,
-        "lua_modifier_vagabond_phantom_charge_invi_frame",
-        {duration = FrameTime()}
+        self:GetCaster(),self,"lua_modifier_vagabond_phantom_charge_invi",
+        {duration = 0.1}
+    )
+
+    --charge
+    self:GetCaster():AddNewModifier(
+        self:GetCaster(),self,"lua_modifier_vagabond_phantom_charge_movement",
+        {
+            duration = self:GetSpecialValueFor("charge_duration"),
+            target = self:GetCursorTarget():GetEntityIndex()
+        }
     )
 
 
-    self.modifier = self:GetCaster():AddNewModifier(
-        self:GetCaster(),
-        self,
-        "lua_modifier_vagabond_phantom_charge",
-        {}
-    )
-
-    self:GetCaster():MoveToTargetToAttack(self:GetCursorTarget())
 end
-
-
-
 
 
 function lua_ability_vagabond_phantom_charge:GetAssociatedSecondaryAbilities()
@@ -119,124 +96,112 @@ end
 
 
 
-------------------------------------------------------------
---Illu strike
------------------------------------------------------------
 
 
+
+
+
+
+
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 lua_ability_vagabond_phantom_charge_fragment = class({})
 
 
 
-
-function lua_ability_vagabond_phantom_charge_fragment:GetCastRange(location,target)
-
-    local self_ability = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge")
-    local range = 0
-
-    if not self_ability then return 0 end
-
-    range = self_ability:GetSpecialValueFor("cast_range")
+function lua_ability_vagabond_phantom_charge_fragment:GetCastRange(pos,target)
+    local cast_range = self:GetLevelSpecialValueFor("cast_range",0)
 
     local talent = self:GetCaster():FindAbilityByName("special_bonus_vagabond_phantom_charge_range")
-    local add_range = 0
-
     if not talent == false then
         if talent:GetLevel() > 0 then
-            add_range = talent:GetSpecialValueFor("value")
+            cast_range = cast_range+talent:GetSpecialValueFor("value")
         end
     end
 
-    return range + add_range
+    return cast_range
 end
-
-
-
 
 
 function lua_ability_vagabond_phantom_charge_fragment:GetCooldown(lvl)
-
-    local self_ability = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge")
-    local cd = 0
-
-    if not self_ability then return 0 end
-
-    cd = self_ability:GetSpecialValueFor("cast_cd")
+    local cast_cd = self:GetLevelSpecialValueFor("cast_cd",lvl)
 
     local talent = self:GetCaster():FindAbilityByName("special_bonus_vagabond_phantom_charge_cd_reduction")
-    local add_cd = 0
-
     if not talent == false then
         if talent:GetLevel() > 0 then
-            add_cd = talent:GetSpecialValueFor("value")
+            cast_cd = cast_cd-talent:GetSpecialValueFor("value")
         end
     end
 
-    return cd - add_cd
+    return cast_cd
 end
 
 
-
+function lua_ability_vagabond_phantom_charge_fragment:GetManaCost(lvl)
+    local cast_mana = self:GetLevelSpecialValueFor("cast_mana",lvl)
+    return cast_mana
+end
 
 
 
 function lua_ability_vagabond_phantom_charge_fragment:OnSpellStart()
 
-    local real_strike = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge")
-    if not real_strike then return end
-
-
-    local shard_mod = self:GetCaster():HasModifier("modifier_item_aghanims_shard")
-    if shard_mod == false then
-        real_strike:StartCooldown(self:GetCooldownTime())
+    local main_ability = self:GetCaster():FindAbilityByName("lua_ability_vagabond_phantom_charge")
+    local shard = self:GetCaster():HasModifier("modifier_item_aghanims_shard")
+    if not main_ability == false then
+        if shard == false then
+            main_ability:StartCooldown(self:GetEffectiveCooldown(self:GetLevel()-1))
+        end
     end
 
     if self:GetCursorTarget():TriggerSpellAbsorb(self) then return end
 
-    self:GetCaster():AddNewModifier(
-        self:GetCaster(),
-        self,
-        "lua_modifier_vagabond_phantom_charge_invi",
-        {duration = real_strike:GetSpecialValueFor("charge_duration")}
+    --particle
+    CreateModifierThinker(
+        self:GetCaster(),self,"lua_modifier_vagabond_phantom_charge_particle",
+        {duration = 2.0},self:GetCaster():GetAbsOrigin(),self:GetCaster():GetTeam(),false
     )
 
-    self.illusion = CreateIllusions(
-        self:GetCaster(),
-        self:GetCaster(),
+    --create illu
+    local illu = CreateIllusions(
+        self:GetCaster(),self:GetCaster(),
         {
-            outgoing_damage = 0,
+            outgoing_damage = -100.0,
             incoming_damage = 0,
             bounty_base = 0,
-            bounty_growth = 0.0,
-            outgoing_damage_structure = 0,
-            outgoing_damage_roshan = 0
+            bounty_growth = 0,
+            outgoing_damage_structure =  -100.0,
+            outgoing_damage_roshan =  -100.0
         },
-        1,
-        self:GetCaster():GetHullRadius(),
-        false,
-        true
+        1,self:GetCaster():GetHullRadius(),
+        false,false
     )
 
-    self.illusion[1]:AddNewModifier(
-        self:GetCaster(),
-        self,
-        "lua_modifier_vagabond_phantom_charge_invi_frame",
-        {duration = FrameTime()}
+    --invi owner
+    self:GetCaster():AddNewModifier(
+        self:GetCaster(),self,"lua_modifier_vagabond_phantom_charge_invi",
+        {duration = self:GetSpecialValueFor("charge_duration")}
     )
 
-    --self.illusion[1]:StartGestureWithPlaybackRate(ACT_DOTA_SPAWN,5)
-
-    self.modifier = self.illusion[1]:AddNewModifier(
-        self:GetCaster(),
-        self,
-        "lua_modifier_vagabond_phantom_charge",
-        {}
+    --invi fake out
+    illu[1]:AddNewModifier(
+        self:GetCaster(),self,"lua_modifier_vagabond_phantom_charge_invi",
+        {duration = 0.1}
     )
 
-    self.illusion[1]:MoveToTargetToAttack(self:GetCursorTarget())
+    --illu charge
+    illu[1]:AddNewModifier(
+        self:GetCaster(),self,"lua_modifier_vagabond_phantom_charge_movement",
+        {
+            duration = self:GetSpecialValueFor("charge_duration"),
+            target = self:GetCursorTarget():GetEntityIndex()
+        }
+    )
+
+
+
 end
-
-
 
 
 function lua_ability_vagabond_phantom_charge_fragment:GetAssociatedPrimaryAbilities()

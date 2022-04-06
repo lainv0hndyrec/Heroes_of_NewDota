@@ -187,6 +187,7 @@ end
 
 
 function lua_modifier_corruptedlord_unleashed_transform_demon:OnAttackStart(keys)
+	if keys.attacker:IsAlive() == false then return end
 	if keys.attacker ~= self.caster then return end
 	self.caster:EmitSound("Hero_Terrorblade_Morphed.preAttack")
 end
@@ -194,6 +195,7 @@ end
 
 
 function lua_modifier_corruptedlord_unleashed_transform_demon:OnAttack(keys)
+	if keys.attacker:IsAlive() == false then return end
 	if keys.attacker ~= self.caster then return end
     self.caster:EmitSound("Hero_Terrorblade_Morphed.Attack")
 end
@@ -201,6 +203,7 @@ end
 
 
 function lua_modifier_corruptedlord_unleashed_transform_demon:OnAttackLanded(keys)
+	--if keys.attacker:IsAlive() == false then return end
 	if keys.attacker ~= self.caster then return end
 
 	--DebugDrawCircle(keys.target:GetAbsOrigin(),Vector(255,0,0),1,self.attack_aoe,false,0.5)

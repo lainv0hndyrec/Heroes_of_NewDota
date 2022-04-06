@@ -72,10 +72,17 @@
 #base "../vscripts/heroes/great_sage/talents/kv_talents_great_sage.txt"
 
 
-
 //Lifesteal -> Defiler
 #base "../vscripts/heroes/defiler/ability_1/kv_ability_defiler_fetid_slime.txt"
 #base "../vscripts/heroes/defiler/ability_2/kv_ability_defiler_mimicry.txt"
 #base "../vscripts/heroes/defiler/ability_3/kv_ability_defiler_defiling_touch.txt"
 #base "../vscripts/heroes/defiler/ability_4/kv_ability_defiler_life_grasp.txt"
 #base "../vscripts/heroes/defiler/talents/kv_talents_defiler.txt"
+
+
+//Bounty Hunter -> Qaldin Assassin
+#base "../vscripts/heroes/qaldin_assassin/ability_1/kv_ability_qaldin_assassin_assassins_shroud.txt"
+#base "../vscripts/heroes/qaldin_assassin/ability_2/kv_ability_qaldin_assassin_qaldin_eye.txt"
+#base "../vscripts/heroes/qaldin_assassin/ability_3/kv_ability_qaldin_assassin_weapon_break.txt"
+#base "../vscripts/heroes/qaldin_assassin/ability_4/kv_ability_qaldin_assassin_snipe.txt"
+#base "../vscripts/heroes/qaldin_assassin/talents/kv_talents_qaldin_assassin.txt"

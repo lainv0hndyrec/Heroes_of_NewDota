@@ -203,11 +203,12 @@ end
 
 
 function lua_modifier_kalligromancer_stroked_inspiration:GetModifierTotalDamageOutgoing_Percentage(event)
-
+    if event.attacker:IsAlive() == false then return 0 end
     if event.attacker ~= self:GetParent() then return 0 end
 
     if not self.closest_target then return 0 end
-
+    
+    if event.target:IsAlive() == false then return 0 end
     if event.target ~= self.closest_target then return 0 end
 
     if self.closest_target:GetTeamNumber() == self:GetCaster():GetTeamNumber() then return -50 end

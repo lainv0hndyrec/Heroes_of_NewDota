@@ -30,7 +30,7 @@
 		{
             "particle"  "particles/units/heroes/hero_life_stealer/life_stealer_loadout.vpcf"
             "particle"  "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf"
-            "particle"  "particles/status_fx/status_effect_life_stealer_rage.vpcf"
+            "particle"  "particles/units/heroes/defiler/ability_2/defiler_mimicry.vpcf"
 		}
 
         "AbilityValues"

@@ -1,0 +1,98 @@
+"DOTAAbilities"
+{
+    "lua_ability_qaldin_assassin_qaldin_eye"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/qaldin_assassin/ability_2/lua_ability_qaldin_assassin_qaldin_eye"
+        "AbilityTextureName"     	"techies_stasis_trap" //test textures
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+
+
+        "MaxLevel"                      "4"
+        "RequiredLevel"                 "1"
+
+        "AbilityCastPoint"              "0.3"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK_EVENT"
+        "AnimationPlaybackRate"         "2.0"
+
+
+
+        "AbilityValues"
+        {
+            "ward_collision"        "50"
+            "ward_vision"           "700 800 900 1000"
+            "ward_unhide_range"     "300"
+            "active_wards"          "2 3 4 5"
+
+            "ward_silence_range"    "450"
+            "silence_duration"      "2 3 4 5"
+
+            "ability_cd"            "30"
+            "mana_cost"             "50"
+            "cast_range"            "150"
+
+        }
+    }
+
+
+
+
+
+    "lua_ability_qaldin_assassin_qaldin_eye_detonate_hero"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/qaldin_assassin/ability_2/lua_ability_qaldin_assassin_qaldin_eye"
+        "AbilityTextureName"     	    "lich_chain_frost"
+        "MaxLevel"						"1"
+
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+        "AbilityCooldown"	            "0.5"
+    }
+
+
+
+
+
+
+
+    "lua_ability_qaldin_assassin_qaldin_eye_detonate_ward"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/qaldin_assassin/ability_2/lua_ability_qaldin_assassin_qaldin_eye"
+        "AbilityTextureName"     	    "lich_chain_frost"
+        "MaxLevel"						"4"
+
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/hero_techies/techies_stasis_trap_explode.vpcf"
+            "soundfile"  "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		}
+
+
+        "AbilityValues"
+        {
+            "ward_silence_range"    "450"
+            "silence_duration"      "2 3 4 5"
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+}

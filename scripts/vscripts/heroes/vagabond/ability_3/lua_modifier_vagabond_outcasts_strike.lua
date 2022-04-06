@@ -41,6 +41,7 @@ function lua_modifier_vagabond_outcasts_strike:OnCreated(kv)
     self.previous_position = self:GetParent():GetAbsOrigin()
     self.distance_created = 0
 
+
     self.particle = ParticleManager:CreateParticle(
         "particles/units/heroes/vagabond/ability_3/vagabond_sparkle.vpcf",
         PATTACH_POINT_FOLLOW ,
@@ -52,6 +53,18 @@ function lua_modifier_vagabond_outcasts_strike:OnCreated(kv)
     ParticleManager:SetParticleControl(
         self.particle,1,Vector(0,0,0)
     )
+
+    if not IsServer() then return end
+
+    if self:GetParent():IsIllusion() == false then return end
+    local playerid = self:GetParent():GetPlayerOwnerID()
+    local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+    local mod = hero:FindModifierByName("lua_modifier_vagabond_outcasts_strike")
+    local copy_stacks = mod:GetStackCount()
+
+    self.previous_position = mod.previous_position
+    self.distance_created = mod.distance_created
+    self:SetStackCount(copy_stacks)
 end
 
 --function lua_modifier_vagabond_charged_lance:OnUnitMoved(event)
@@ -143,7 +156,7 @@ function lua_modifier_vagabond_outcasts_strike:OnUnitMoved(event)
     self.previous_position = event.new_pos
 
     local max_stacks = self:GetAbility():GetSpecialValueFor("max_stacks")
-    local new_stacks = math.min(100,self:GetStackCount()+add_stacks)
+    local new_stacks = math.min(max_stacks,self:GetStackCount()+add_stacks)
 
 
     self:SetStackCount(new_stacks)

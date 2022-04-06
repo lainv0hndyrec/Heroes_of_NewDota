@@ -60,6 +60,7 @@ end
 function lua_modifier_whistlepunk_steam_barrier:GetModifierMagical_ConstantBlock(event)
     if not IsServer() then return end
 
+    if event.target:IsAlive() == false then return end
     if event.target ~= self.parent then return end
 
     if event.damage_type ~= DAMAGE_TYPE_MAGICAL  then return end

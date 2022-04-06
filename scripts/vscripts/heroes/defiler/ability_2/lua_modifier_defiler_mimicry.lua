@@ -54,6 +54,9 @@ function lua_modifier_defiler_mimicry_hero:OnCreated(kv)
     self:StartIntervalThink(0.1)
 
     if not IsServer() then return end
+
+    if not kv.host then self:Destroy() return end
+
     self.host = EntIndexToHScript(kv.host)
 
     --self:GetParent():AddNoDraw()
@@ -139,7 +142,7 @@ function lua_modifier_defiler_mimicry_host:IsPurgeException() return false end
 
 
 function lua_modifier_defiler_mimicry_host:GetStatusEffectName()
-    return "particles/status_fx/status_effect_life_stealer_rage.vpcf"
+    return "particles/units/heroes/defiler/ability_2/defiler_mimicry.vpcf"
 end
 
 

@@ -70,6 +70,8 @@ end
 function lua_modifier_soul_warden_static_barrier:GetModifierTotal_ConstantBlock(event)
     if not IsServer() then return end
 
+	if event.target:IsAlive() == false then return end
+	
     if event.target ~= self:GetParent() then return end
 
     local damage_prevented = event.original_damage*0.5

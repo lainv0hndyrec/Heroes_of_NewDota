@@ -21,7 +21,9 @@ end
 
 
 function lua_modifier_defiler_defiling_touch_source:GetModifierTotalDamageOutgoing_Percentage(event)
+    if event.attacker:IsAlive() == false then return 0 end
     if event.attacker ~= self:GetParent() then return 0 end
+    if event.target:IsAlive() == false then return 0 end
     if event.target:GetName() == "npc_dota_roshan" then return 0 end
     if event.target:IsMagicImmune() then return 0 end
     if event.target:IsBuilding() then return 0 end
@@ -37,7 +39,7 @@ function lua_modifier_defiler_defiling_touch_source:GetModifierTotalDamageOutgoi
     )
 
     local dmg_up = self:GetAbility():GetSpecialValueFor("dmg_bonus_percent")
-    local talent = self:GetParent():FindAbilityByName("special_bonus_defiler_defiling_touch_bonus_dmg")
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_defiler_defiling_touch_bonus_dmg")
     if not talent == false then
         if talent:GetLevel() > 0 then
             dmg_up =  dmg_up + talent:GetSpecialValueFor("value")
@@ -50,10 +52,13 @@ end
 
 
 function lua_modifier_defiler_defiling_touch_source:GetModifierIncomingDamage_Percentage(event)
+    if event.attacker:IsAlive() == false then return 0 end
     if event.attacker:HasModifier("lua_modifier_defiler_defiling_touch_debuff") == false then return 0 end
+    if event.target:IsAlive() == false then return 0 end
+    if event.target ~= self:GetParent() then return 0 end
 
     local dmg_down = self:GetAbility():GetSpecialValueFor("dmg_decrease_percent")
-    local talent = self:GetParent():FindAbilityByName("special_bonus_defiler_defiling_touch_decrease_dmg")
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_defiler_defiling_touch_decrease_dmg")
     if not talent == false then
         if talent:GetLevel() > 0 then
             dmg_down =  dmg_down + talent:GetSpecialValueFor("value")

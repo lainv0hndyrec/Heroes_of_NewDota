@@ -163,11 +163,12 @@ function lua_modifier_corruptedlord_throw_glaive_thinker:apply_ability_damage_an
 
     if (enemy:IsNull() == true) or (enemy:IsAlive() == false) or (IsValidEntity(enemy) == false) then return end
 
+
 	local modifier = self.caster:AddNewModifier(
 		self.caster,
 		self.ability,
 		"lua_modifier_corruptedlord_throw_glaive_attack",
-		{}
+		{atkdmg = self:GetCaster():GetAverageTrueAttackDamage(nil)}
 	)
 
 	self:GetCaster():PerformAttack (
@@ -243,17 +244,17 @@ lua_modifier_corruptedlord_throw_glaive_attack = class({})
 
 
 function lua_modifier_corruptedlord_throw_glaive_attack:IsHidden() return true end
-
-
-
 function lua_modifier_corruptedlord_throw_glaive_attack:IsPurgable() return false end
 
-
-
 function lua_modifier_corruptedlord_throw_glaive_attack:OnCreated( kv )
+    if not IsServer() then return end
+
+    if not kv.atkdmg then self:Destroy() return end
+
 	-- references
 	self.base_ability_damage = self:GetAbility():GetSpecialValueFor( "base_ability_damage" )
 	self.attack_factor = self:GetAbility():GetSpecialValueFor( "attack_factor" )
+    self.current_atkdmg = kv.atkdmg
 end
 
 
@@ -269,19 +270,18 @@ end
 
 
 function lua_modifier_corruptedlord_throw_glaive_attack:GetModifierPreAttack_BonusDamage( params )
-	if IsServer() then
-        local caster = self:GetCaster()
-        local no_shard = 1
-        if caster:HasModifier("modifier_item_aghanims_shard") == false then
-            no_shard = 0
-        end
+	if not IsServer() then return end
 
-		local attack_damage = caster:GetAttackDamage()
-        local percentage = (100-self.attack_factor)*0.01
-        local new_damage = self.base_ability_damage - (attack_damage*percentage*no_shard)
+    local no_shard = 1.0
+    if self:GetCaster():HasModifier("modifier_item_aghanims_shard") then
+        no_shard = 0.0
+    end
 
-		return new_damage
-	end
+    local percentage = (100-self.attack_factor)*0.01
+    local new_damage = self.base_ability_damage - (self.current_atkdmg * percentage * no_shard)
+
+	return new_damage
+
 end
 
 

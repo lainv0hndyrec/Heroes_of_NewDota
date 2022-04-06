@@ -15,3 +15,4 @@
 //#base "../vscripts/heroes/soul_warden/kv_hero_soul_warden.txt"
 //#base "../vscripts/heroes/great_sage/kv_hero_great_sage.txt"
 //#base "../vscripts/heroes/defiler/kv_hero_defiler.txt"
+#base "../vscripts/heroes/qaldin_assassin/kv_hero_qaldin_assassin.txt"

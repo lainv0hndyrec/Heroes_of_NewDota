@@ -8,9 +8,9 @@ require("timers")
 local PlayerHeroPathChoice = {}
 
 --nil will not force a hero selection
-local forceHero = nil --"shredder"
+local forceHero = "bounty_hunter" --"shredder"
 
-local test_on = false --manually turn it on or off
+local test_on = true --manually turn it on or off
 
 
 function GameSetup:ready()

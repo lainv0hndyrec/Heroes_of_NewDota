@@ -261,15 +261,6 @@ function lua_modifier_defiler_life_grasp_leap:UltimateHit()
         return
     end
 
-    local dtable = {
-        victim = self.target,
-        attacker = self:GetParent(),
-        damage = self:GetAbility():GetSpecialValueFor("pure_damage"),
-        damage_type = DAMAGE_TYPE_PURE ,
-        damage_flags = DOTA_DAMAGE_FLAG_NONE,
-        ability = self:GetAbility()
-    }
-    ApplyDamage(dtable)
 
     local target_mods = self.target:FindAllModifiers()
     local my_mods = self:GetParent():FindAllModifiers()
@@ -278,14 +269,18 @@ function lua_modifier_defiler_life_grasp_leap:UltimateHit()
         for i=1, #target_mods do
             if target_mods[i]:IsDebuff() == false then
 
-                local mod_name = target_mods[i]:GetName()
                 local mod_time = target_mods[i]:GetRemainingTime()
-                local mod_caster = target_mods[i]:GetCaster()
-                local mod_ability = target_mods[i]:GetAbility()
-                local transfer_mod = self:GetParent():AddNewModifier(mod_caster,mod_ability,mod_name,{})
-                transfer_mod:SetDuration(mod_time,true)
-                self.target:RemoveModifierByName(mod_name)
 
+                if mod_time > 0 then
+
+                    local mod_name = target_mods[i]:GetName()
+                    local mod_caster = target_mods[i]:GetCaster()
+                    local mod_ability = target_mods[i]:GetAbility()
+
+                    local transfer_mod = self:GetParent():AddNewModifier(self:GetParent(),mod_ability,mod_name,{})
+                    transfer_mod:SetDuration(mod_time,true)
+                    self.target:RemoveModifierByName(mod_name)
+                end
             end
         end
 
@@ -299,18 +294,21 @@ function lua_modifier_defiler_life_grasp_leap:UltimateHit()
     for i=1, #my_mods do
         if my_mods[i]:IsDebuff() then
 
-            local mod_name = my_mods[i]:GetName()
             local mod_time = my_mods[i]:GetRemainingTime()
-            local mod_caster = my_mods[i]:GetCaster()
-            local mod_ability = my_mods[i]:GetAbility()
 
-            if self.target:IsMagicImmune() == false then
-                local transfer_mod = self.target:AddNewModifier(mod_caster,mod_ability,mod_name,{})
-                transfer_mod:SetDuration(mod_time,true)
+            if mod_time > 0 then
+
+                local mod_name = my_mods[i]:GetName()
+                local mod_caster = my_mods[i]:GetCaster()
+                local mod_ability = my_mods[i]:GetAbility()
+
+                if self.target:IsMagicImmune() == false then
+                    local transfer_mod = self.target:AddNewModifier(self:GetParent(),mod_ability,mod_name,{})
+                    transfer_mod:SetDuration(mod_time,true)
+                end
+
+                self:GetParent():RemoveModifierByName(mod_name)
             end
-
-            self:GetParent():RemoveModifierByName(mod_name)
-
         end
     end
 
@@ -320,6 +318,16 @@ function lua_modifier_defiler_life_grasp_leap:UltimateHit()
         PATTACH_ABSORIGIN,self.target
     )
     ParticleManager:SetParticleControl(particle,0,self.target:GetAbsOrigin())
+
+    local dtable = {
+        victim = self.target,
+        attacker = self:GetParent(),
+        damage = self:GetAbility():GetSpecialValueFor("pure_damage"),
+        damage_type = DAMAGE_TYPE_PURE ,
+        damage_flags = DOTA_DAMAGE_FLAG_NONE,
+        ability = self:GetAbility()
+    }
+    ApplyDamage(dtable)
 
 
     self:Destroy()

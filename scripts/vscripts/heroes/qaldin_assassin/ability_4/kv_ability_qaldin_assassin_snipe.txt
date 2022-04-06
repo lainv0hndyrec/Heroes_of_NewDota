@@ -1,0 +1,104 @@
+"DOTAAbilities"
+{
+
+    "lua_ability_qaldin_assassin_snipe"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/qaldin_assassin/ability_4/lua_ability_qaldin_assassin_snipe"
+        "AbilityTextureName"     	    "bounty_hunter_shuriken_toss"
+        "MaxLevel"						"3"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"		    "SPELL_DISPELLABLE_YES"
+
+        "AbilityCastPoint"              "1.5"
+        //"AbilityChannelTime"            "1.5"
+
+        //"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        //"AnimationPlaybackRate"         "0.1"
+
+
+        //"AbilityCooldown"				"10 9 8 7"
+		//"AbilityManaCost"				"90"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/qaldin_assassin/qaldin_assassin_snipe_crosshair.vpcf"
+            "particle"  "particles/econ/items/bounty_hunter/bounty_hunter_shuriken_hidden/bounty_hunter_suriken_toss_hidden_hunter.vpcf"
+            "particle"  "particles/units/heroes/hero_monkey_king/monkey_king_spring_slow.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "base_dmg"          "250"
+            "scepter_base_dmg"  "100"
+            "hp_percent_dmg"    "10 20 30"
+            "range_check"       "300"
+
+            "ms_slow_percent"   "20 30 40"
+            "ms_slow_time"      "4.0"
+
+            "mini_stun"         "0.1"
+
+            "projectile_speed"  "2000"
+
+            "mana_cost"         "125 175 225"
+            "ability_cd"        "50 40 30"
+            "cast_range"        "1500 2000 2500"
+            "shard_range"       "1000"
+        }
+
+    }
+
+
+
+
+    "lua_ability_qaldin_assassin_snipe_blink"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/qaldin_assassin/ability_4/lua_ability_qaldin_assassin_snipe"
+        "AbilityTextureName"     	    "bounty_hunter_track"
+        "MaxLevel"						"1"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_NONE"
+        //"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        //"AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        //"SpellDispellableType"		    "SPELL_DISPELLABLE_YES"
+
+        //"AbilityCastPoint"              "1.5"
+        //"AbilityChannelTime"            "1.5"
+
+        //"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        //"AnimationPlaybackRate"         "0.1"
+
+
+        "AbilityCooldown"				"10.0"
+		//"AbilityManaCost"				"90"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/hero_bounty_hunter/bounty_loadout.vpcf"
+		}
+
+    }
+
+
+
+
+}

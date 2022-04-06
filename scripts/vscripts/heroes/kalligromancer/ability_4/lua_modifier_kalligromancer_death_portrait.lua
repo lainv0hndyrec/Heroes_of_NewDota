@@ -92,6 +92,7 @@ function lua_modifier_kalligromancer_death_portrait:GetModifierIncomingDamage_Pe
 
     if not IsServer() then return end
 
+    if event.target:IsAlive() == false then return end
     if event.target ~= self:GetParent() then return end
 
     local scepter_damage = 0
@@ -130,6 +131,8 @@ end
 
 
 function lua_modifier_kalligromancer_death_portrait:OnModifierAdded(event)
+    if event.unit:IsAlive() == false then return end
+
     if event.unit ~= self:GetParent() then return end
 
     if event.added_buff == self then return end
@@ -143,7 +146,7 @@ function lua_modifier_kalligromancer_death_portrait:OnModifierAdded(event)
     local ability = event.added_buff:GetAbility()
     local d_duration = event.added_buff:GetDuration()
 
-    if d_duration <= 0 then return end
+    if d_duration <= 0.0 then return end
 
     if self.target:IsMagicImmune() == false then
         local mod = self.target:AddNewModifier(caster,ability,mod_name,{})

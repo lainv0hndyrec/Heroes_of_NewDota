@@ -77,6 +77,8 @@ end
 function lua_modifier_unfathomed_overwhelming_presence:GetModifierDamageOutgoing_Percentage(event)
     if self.is_push == false then return end
 
+    if event.attacker:IsAlive() == false then return end
+
     if event.attacker ~= self:GetParent() then return end
 
     local teffect = self:GetAbility():GetSpecialValueFor("toggle_effect")
@@ -95,6 +97,8 @@ end
 
 function lua_modifier_unfathomed_overwhelming_presence:GetModifierIncomingDamage_Percentage(event)
     if self.is_push == true then return end
+
+    if event.attacker:IsAlive() == false then return end
 
     if event.attacker ~= self:GetCaster() then return end
 

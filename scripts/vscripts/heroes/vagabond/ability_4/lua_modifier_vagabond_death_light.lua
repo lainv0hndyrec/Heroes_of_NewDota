@@ -84,6 +84,7 @@ end
 
 
 function lua_modifier_vagabond_death_light:OnModifierAdded(event)
+
     if event.unit ~= self:GetParent() then return end
     if event.added_buff:IsDebuff() == false then return end
 
@@ -110,6 +111,7 @@ end
 
 
 function lua_modifier_vagabond_death_light:GetAbsoluteNoDamagePhysical(event)
+
     if event.target ~= self:GetParent() then return 0 end
 
     if event.damage_type ~= DAMAGE_TYPE_PHYSICAL then return 0 end
@@ -129,6 +131,7 @@ end
 
 
 function lua_modifier_vagabond_death_light:GetAbsoluteNoDamageMagical(event)
+
     if event.target ~= self:GetParent() then return 0 end
 
     if event.damage_type ~= DAMAGE_TYPE_MAGICAL then return 0 end
@@ -148,6 +151,7 @@ end
 
 
 function lua_modifier_vagabond_death_light:GetAbsoluteNoDamagePure(event)
+
     if event.target ~= self:GetParent() then return 0 end
 
     if event.damage_type ~= DAMAGE_TYPE_PURE then return 0 end

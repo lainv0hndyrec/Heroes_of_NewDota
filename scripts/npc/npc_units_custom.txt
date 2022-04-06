@@ -84,3 +84,6 @@
 	}
 
 }
+
+
+#base "../vscripts/heroes/qaldin_assassin/ability_2/kv_unit_qaldin_assassin_qaldin_eye.txt"

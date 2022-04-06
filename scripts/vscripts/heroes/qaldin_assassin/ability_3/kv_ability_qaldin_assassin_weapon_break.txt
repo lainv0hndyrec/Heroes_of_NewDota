@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+    "lua_ability_qaldin_assassin_weapon_break"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/qaldin_assassin/ability_3/lua_ability_qaldin_assassin_weapon_break"
+        "AbilityTextureName"     	    "bounty_hunter_jinada"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/hero_sniper/concussive_grenade_disarm.vpcf"
+		}
+
+
+
+        "AbilityValues"
+        {
+            "ability_cd"         "16.0 14.0 12.0 10.0"
+            "cd_per_atk"         "1.0"
+
+            "crit_percent"      "140 160 180 200"
+
+            "disarm_duration"      "2.0"
+        }
+    }
+}

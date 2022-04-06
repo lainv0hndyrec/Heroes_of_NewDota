@@ -219,6 +219,7 @@ end
 
 function lua_modifier_vagabond_prismatic_mist_invi:OnAbilityFullyCast(event)
 
+	if event.unit:IsAlive() == false then return end
 	if event.unit ~= self:GetParent() then return end
 	if event.ability == self:GetAbility() then return end
 	self:Destroy()
@@ -230,6 +231,7 @@ end
 
 function lua_modifier_vagabond_prismatic_mist_invi:OnAttack(event)
 
+	if event.attacker:IsAlive() == false then return end
 	if event.attacker ~= self:GetParent() then return end
 	self:Destroy()
 
@@ -357,8 +359,8 @@ end
 function lua_modifier_vagabond_prismatic_mist_slow:CheckState()
 	local scepter = self:GetCaster():HasScepter()
 	local cstate = {
-		[MODIFIER_STATE_SILENCED] = scepter,
-		[MODIFIER_STATE_MUTED] = scepter
+		[MODIFIER_STATE_SILENCED] = scepter
+		--[MODIFIER_STATE_MUTED] = scepter
 	}
 	return cstate
 end

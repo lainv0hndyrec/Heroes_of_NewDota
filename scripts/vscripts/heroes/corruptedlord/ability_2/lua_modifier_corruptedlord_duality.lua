@@ -56,6 +56,7 @@ end
 
 function lua_modifier_corruptedlord_duality_chaos:OnAttack(event)
 	if not IsServer() then return end
+	if event.attacker:IsAlive() == false then return end
 	if event.attacker:IsSilenced() == true then return end
     if event.attacker ~= self.caster then return end
 
@@ -138,6 +139,9 @@ end
 
 
 function lua_modifier_corruptedlord_duality_solace:OnAttackLanded(event)
+	if event.attacker:IsAlive() == false then return end
+
+	if event.target:IsAlive() == false then return end 
 
     if event.attacker ~= self.caster then return end
 

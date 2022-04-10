@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+    "lua_ability_spiritsmaster_drunken_affinity"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/spiritsmaster/ability_4/lua_ability_spiritsmaster_drunken_affinity"
+        "AbilityTextureName"     	    "brewmaster_drunken_brawler"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        //"AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"		    "SPELL_DISPELLABLE_YES_STRONG"
+
+
+
+        //"AbilityCastPoint"				"0.3"
+        //"AbilityCooldown"				"13"
+
+        //"AbilityManaCost"				"75 100 125 150"
+
+        "AbilityCastAnimation"		    "ACT_DOTA_SPAWN"
+
+
+
+        "precache"
+		{
+            "particle"  ""
+		}
+
+        "AbilityValues"
+        {
+            "primary_stat_copy_percent"     "20 30 40"
+
+            "ability_cd"                    "30"
+            "cast_range"                    "1600"
+            "mana_cost"                     "30"
+
+            "shard_copy_percent"            "15"
+            "shard_cd_reduce"               "15"
+        }
+    }
+
+
+}

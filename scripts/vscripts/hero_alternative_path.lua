@@ -93,6 +93,13 @@ function HeroAlternativePath:Initialize(hero_string,hero_path,hero_list)
         return
     end
 
+    if hero_string == "npc_dota_hero_brewmaster" then
+        self:Path_Brewmaster(hero_string,hero_path,the_hero)
+        return
+    end
+
+
+
 
 
 end
@@ -784,6 +791,84 @@ function HeroAlternativePath:Path_BountyHunter(hero_string,hero_path,the_hero)
         local info =  {}
         info["shard"] = {"lua_ability_qaldin_assassin_snipe","lua_ability_qaldin_assassin_snipe_blink"}
         info["scepter"] = {"lua_ability_qaldin_assassin_snipe"}
+        CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
+
+        local stats_gain = {}
+        stats_gain["str_gain"] = str_gain.Strength_Gain
+        stats_gain["agi_gain"] = agi_gain.Agility_Gain
+        stats_gain["int_gain"] = int_gain.Intelligence_Gain
+        CustomNetTables:SetTableValue("custom_stats_gain", hero_string, stats_gain)
+    end
+end
+
+
+function HeroAlternativePath:Path_Brewmaster(hero_string,hero_path,the_hero)
+
+    if hero_path == 1 then
+
+        self:RemoveOriginalAbilities(the_hero)
+        the_hero:AddAbility("lua_ability_spiritsmaster_earth_spirit")
+        the_hero:AddAbility("lua_ability_spiritsmaster_fire_spirit")
+        the_hero:AddAbility("lua_ability_spiritsmaster_storm_spirit")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("lua_ability_spiritsmaster_drunken_affinity")
+
+        the_hero:AddAbility("special_bonus_spiritsmaster_earth_spirit_slow_up")
+        the_hero:AddAbility("special_bonus_spiritsmaster_fire_spirit_speed_up")
+        the_hero:AddAbility("special_bonus_attack_speed_15")
+        the_hero:AddAbility("special_bonus_spiritsmaster_storm_spirit_atk_range_up")
+        the_hero:AddAbility("special_bonus_spiritsmaster_earth_spirit_slow_time_up")
+        the_hero:AddAbility("special_bonus_spiritsmaster_storm_spirit_stun_time_up")
+        the_hero:AddAbility("special_bonus_spiritsmaster_fire_spirit_steal_up")
+        the_hero:AddAbility("special_bonus_hp_475")
+        self:RemoveAllTalentModifiers(the_hero)
+
+        --HP regen
+        the_hero:SetBaseHealthRegen(1.0)
+
+        --Set Min/Max Damage
+        the_hero:SetBaseDamageMin(25)
+        the_hero:SetBaseDamageMax(28)
+
+        --Base Attack Time
+        the_hero:SetBaseAttackTime(1.7)
+
+        --Set Movespeed
+        the_hero:SetBaseMoveSpeed(305)
+
+        --Armor
+        the_hero:SetPhysicalArmorBaseValue(0)
+
+        --Attack Point
+        local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
+        atk_point.Attack_Point = 0.5
+
+        --Change Stats
+        the_hero:SetPrimaryAttribute(DOTA_ATTRIBUTE_AGILITY)
+
+        the_hero:SetBaseStrength(22)
+        local str_gain = the_hero:AddAbility("lua_ability_generic_strength_gain")
+        str_gain.Strength_Gain = 2.2
+
+        the_hero:SetBaseAgility(22)
+        local agi_gain = the_hero:AddAbility("lua_ability_generic_agility_gain")
+        agi_gain.Agility_Gain = 2.2
+
+        the_hero:SetBaseIntellect(22)
+        local int_gain = the_hero:AddAbility("lua_ability_generic_intelligence_gain")
+        int_gain.Intelligence_Gain = 2.2
+
+        the_hero:CalculateStatBonus(true)
+
+        --NetTables
+        local info =  {}
+        info["shard"] = {"lua_ability_spiritsmaster_drunken_affinity"}
+        info["scepter"] = {
+            "lua_ability_spiritsmaster_earth_spirit",
+            "lua_ability_spiritsmaster_fire_spirit",
+            "lua_ability_spiritsmaster_storm_spirit"
+        }
         CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
 
         local stats_gain = {}

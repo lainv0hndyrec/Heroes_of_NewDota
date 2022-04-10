@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+    "lua_ability_fallen_one_revelation"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/fallen_one/ability_1/lua_ability_fallen_one_revelation"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityTextureName"     	"doom_bringer_doom" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        //"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+        "MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        "AbilityCastPoint"              "0.1"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_3"
+        "AnimationPlaybackRate"         "1.5"
+        //"AnimationIgnoresModelScale"    "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "50 65 80 95"
+        //"AbilityCooldown"               "18 15 12 9"
+        //"AbilityCastRange"              "700"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"	"particles/units/heroes/fallen_one/ability_1/fallen_one_revelation_aoe_sign.vpcf"
+            "particle"  "particles/units/heroes/fallen_one/ability_1/fallen_one_revelation_blast.vpcf"
+            "particle"  "particles/units/heroes/hero_snapfire/hero_snapfire_burn_debuff_glow.vpcf"
+
+		}
+
+
+        "AbilityValues"
+        {
+            "blast_delay"               "0.65"
+            "blast_dmg"                 "130 210 290 370"
+            "blast_heal_percent"        "40"
+            "blast_heal_time"           "5.0"
+
+            "ability_cd"                "11 9 7 5"
+            "cast_range"                "600"
+            "cast_aoe"                  "250"
+            "mana_cost"                 "80 85 90 95"
+
+
+        }
+    }
+}

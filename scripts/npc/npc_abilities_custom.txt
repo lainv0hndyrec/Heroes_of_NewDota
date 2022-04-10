@@ -86,3 +86,17 @@
 #base "../vscripts/heroes/qaldin_assassin/ability_3/kv_ability_qaldin_assassin_weapon_break.txt"
 #base "../vscripts/heroes/qaldin_assassin/ability_4/kv_ability_qaldin_assassin_snipe.txt"
 #base "../vscripts/heroes/qaldin_assassin/talents/kv_talents_qaldin_assassin.txt"
+
+
+//Brewmaster -> Spiritsmaster
+#base "../vscripts/heroes/spiritsmaster/ability_1/kv_ability_spiritsmaster_earth_spirit.txt"
+#base "../vscripts/heroes/spiritsmaster/ability_2/kv_ability_spiritsmaster_fire_spirit.txt"
+#base "../vscripts/heroes/spiritsmaster/ability_3/kv_ability_spiritsmaster_storm_spirit.txt"
+#base "../vscripts/heroes/spiritsmaster/ability_4/kv_ability_spiritsmaster_drunken_affinity.txt"
+#base "../vscripts/heroes/spiritsmaster/talents/kv_talents_spiritsmaster.txt"
+
+
+//Brewmaster -> Spiritsmaster
+#base "../vscripts/heroes/fallen_one/ability_1/kv_ability_fallen_one_revelation.txt"
+#base "../vscripts/heroes/fallen_one/ability_2/kv_ability_fallen_one_soul_tap.txt"
+#base "../vscripts/heroes/fallen_one/ability_3/kv_ability_fallen_one_sadism.txt"

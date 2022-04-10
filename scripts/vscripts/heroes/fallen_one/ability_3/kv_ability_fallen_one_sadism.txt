@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+    "lua_ability_fallen_one_sadism"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/fallen_one/ability_3/lua_ability_fallen_one_sadism"
+        "AbilityTextureName"     	    ""
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_PURE"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+
+
+
+
+        //"AbilityCastPoint"				"0.1"
+        //"AnimationPlaybackRate"         "3.0"
+        //"AbilityCooldown"				"13"
+
+        //"AbilityManaCost"				"75 100 125 150"
+
+        //"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_2"
+
+
+
+        "precache"
+		{
+            "particle" ""
+		}
+
+        "AbilityValues"
+        {
+            "aura_range"            "300"
+            "regen_steal_percent"   "30 45 60 75"
+            "pure_dot"              "15 25 35 45"
+            "pure_dot_min"          "15"
+        }
+    }
+
+
+}

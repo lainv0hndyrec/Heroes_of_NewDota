@@ -1,0 +1,46 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// VAGABOND = PHANTOM LANCER
+	//=================================================================================================================
+	"npc_custom_hero_spiritsmaster"
+	{
+		"override_hero"				"npc_dota_hero_brewmaster"				// Hero to override
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"	// Primary Attribute
+
+		"Ability1"					"lua_ability_spiritsmaster_earth_spirit"			// Ability 1
+		"Ability2"					"lua_ability_spiritsmaster_fire_spirit"
+		"Ability3"					"lua_ability_spiritsmaster_storm_spirit"			// Ability 3
+		"Ability4"					"generic_hidden"		// Ability 4
+		"Ability5"					"generic_hidden"		// Ability 5
+		"Ability6"					"lua_ability_spiritsmaster_drunken_affinity"		// ULT
+
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+		//"AttackRange"					"150"
+		//"MovementSpeed"					"290"
+		//"MovementTurnRate"				"0.900000"
+
+		//Talents
+		"Ability10"			"special_bonus_spiritsmaster_earth_spirit_slow_up"
+		"Ability11"			"special_bonus_spiritsmaster_fire_spirit_speed_up"
+
+		"Ability12"			"special_bonus_attack_speed_15"
+		"Ability13"			"special_bonus_spiritsmaster_storm_spirit_atk_range_up"
+
+		"Ability14"			"special_bonus_spiritsmaster_earth_spirit_slow_time_up"
+		"Ability15"			"special_bonus_spiritsmaster_storm_spirit_stun_time_up"
+
+		"Ability16"			"special_bonus_spiritsmaster_fire_spirit_steal_up"
+		"Ability17"			"special_bonus_hp_475"
+
+		//SCEPTER
+		//lua_ability_spiritsmaster_earth_spirit  	aoe attack damage
+		//lua_ability_spiritsmaster_fire_spirit  	true strike and phased
+		//lua_ability_spiritsmaster_storm_spirit 	mana steal
+
+		//SHARD
+		//lua_ability_spiritsmaster_drunken_affinity cd reduced increased copy percent
+	}
+}

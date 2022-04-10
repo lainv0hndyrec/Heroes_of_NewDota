@@ -1,0 +1,64 @@
+"DOTAAbilities"
+{
+    "lua_ability_spiritsmaster_storm_spirit"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/spiritsmaster/ability_3/lua_ability_spiritsmaster_storm_spirit"
+        "AbilityTextureName"     	    "spiritsmaster_storm_spirit"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+
+
+
+
+        "AbilityCastPoint"				"0.15"
+        //"AnimationPlaybackRate"         "3.0"
+        //"AbilityCooldown"				"13"
+
+        //"AbilityManaCost"				"75 100 125 150"
+
+        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_1"
+
+
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_storm_ambient.vpcf"
+            "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
+            "particle"  "particles/units/heroes/hero_zuus/zuus_smaller_lightning_bolt.vpcf"
+
+            "particle"  "particles/econ/items/invoker/invoker_apex/invoker_apex_quas_eye_b.vpcf"
+            "particle"  "particles/units/heroes/hero_razor_reduced_flash/razor_rain_storm_reduced_flash.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "hero_effect_time"          "15.0"
+            "projectile_speed"          "1200"
+            "attack_range"              "550"
+            "hero_effect_int"           "5 10 15 20"
+            "m_dmg_based_int_percent"   "20 40 60 80"
+
+            "vision_time"               "6.0"
+
+            "atk_bolt_time"             "5.0"
+            "atk_bolt_magic_dmg"        "16 24 32 40"
+            "atk_bolt_stun"             "0.6 0.8 1.0 1.2"
+
+            "ability_cd"                "10"
+            "cast_range"                "800"
+            "mana_cost"                 "60 80 100 120"
+        }
+    }
+
+
+}

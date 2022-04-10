@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+    "lua_ability_fallen_one_soul_tap"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/fallen_one/ability_2/lua_ability_fallen_one_soul_tap"
+        "AbilityTextureName"     	    "doom_bringer_infernal_blade"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_PHYSICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+
+
+
+
+        "AbilityCastPoint"				"0.1"
+        //"AnimationPlaybackRate"         "3.0"
+        //"AbilityCooldown"				"13"
+
+        //"AbilityManaCost"				"75 100 125 150"
+
+        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_2"
+
+
+
+        "precache"
+		{
+            "particle" "particles/econ/items/centaur/centaur_ti6/centaur_ti6_warstomp.vpcf"
+            "particle"  "articles/units/heroes/hero_doom_bringer/doom_infernal_blade.vpcf"
+            "particle"  "particles/units/heroes/hero_mars/mars_spear_impact_debuff_embers.vpcf"
+            "particle"  "particles/generic_gameplay/generic_lifesteal.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "aoe_tappering_slow_percent"    "40"
+            "aoe_slow_time"                 "2.0"
+
+            "buff_time"                     "5.0"
+            "attack_ms_bonus"               "50"
+            "attack_bonus"                  "40 60 80 100"
+            "life_steal"                    "55 70 85 100"
+
+            "ability_cd"                    "8.0 7.0 6.0 5.0"
+            "cast_range"                    "275"
+            "mana_cost"                     "60"
+        }
+    }
+
+
+}

@@ -1,0 +1,59 @@
+"DOTAAbilities"
+{
+    "lua_ability_spiritsmaster_fire_spirit"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/spiritsmaster/ability_2/lua_ability_spiritsmaster_fire_spirit"
+        "AbilityTextureName"     	    "spiritsmaster_fire_spirit"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"		    "SPELL_DISPELLABLE_YES"
+
+
+
+        "AbilityCastPoint"				"0.3"
+        //"AbilityCooldown"				"13"
+
+        //"AbilityManaCost"				"75 100 125 150"
+
+        //"AbilityCastAnimation"		    "ACT_DOTA_OVERRIDE_ABILITY_1"
+
+
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_fire_ambient.vpcf"
+            "particle"  "particles/units/heroes/hero_phoenix/phoenix_icarus_dive.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "ability_dmg"               "70 120 170 220"
+
+            "dash_speed"                "1600"
+
+            "hero_effect_time"          "15.0"
+            "hero_effect_agi"           "4 8 12 16"
+            "hero_effect_ms_bonus"      "25 30 35 40"
+
+            "dmg_steal_time"            "5.0"
+            "dmg_steal_hero_percent"    "10 20 30 40"
+            "dmg_steal_creep_percent"   "5 10 15 20"
+
+            "ability_cd"                "10"
+            "cast_range"                "600"
+            "mana_cost"                 "75 85 95 105"
+        }
+    }
+
+
+}

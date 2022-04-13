@@ -7,7 +7,6 @@ function lua_modifier_fallen_one_sadism_aura:IsDebuff() return false end
 function lua_modifier_fallen_one_sadism_aura:IsHidden() return false end
 function lua_modifier_fallen_one_sadism_aura:IsPurgable() return false end
 function lua_modifier_fallen_one_sadism_aura:IsPurgeException() return false end
-function lua_modifier_fallen_one_sadism_aura:RemoveOnDeath() return false end
 
 
 function lua_modifier_fallen_one_sadism_aura:IsAura() return true end
@@ -92,9 +91,18 @@ function lua_modifier_fallen_one_sadism_steal:OnCreated(kv)
     if not IsServer() then return end
 
     local current_hp_regen = self:GetParent():GetHealthRegen()
-    local reduction = self:GetAbility():GetSpecialValueFor("regen_steal_percent")*0.01
+    local reduction = self:GetAbility():GetSpecialValueFor("regen_steal_percent")
 
-    self:SetStackCount(reduction*current_hp_regen)
+    --talent
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_fallen_one_sadism_regen_up")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            reduction = reduction + talent:GetSpecialValueFor("value")
+        end
+    end
+
+    local total_reduction = reduction*current_hp_regen*0.01
+    self:SetStackCount(total_reduction)
     self.current_hp_regen = math.floor(current_hp_regen - self:GetStackCount())
 
     self:StartIntervalThink(0.5)
@@ -141,7 +149,17 @@ function lua_modifier_fallen_one_sadism_steal:OnIntervalThink()
     if aura.affected_enemies == 0 then return end
 
     local min_dmg = self:GetAbility():GetSpecialValueFor("pure_dot_min")
-    local pure_dmg = math.max(min_dmg,self:GetAbility():GetSpecialValueFor("pure_dot")/aura.affected_enemies)
+    local pure_dot = self:GetAbility():GetSpecialValueFor("pure_dot")
+
+    --talent
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_fallen_one_sadism_dmg_up")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            pure_dot = pure_dot + talent:GetSpecialValueFor("value")
+        end
+    end
+
+    local pure_dmg = math.max(min_dmg,pure_dot/aura.affected_enemies)
     local dot = pure_dmg*0.5
 
     local dtable = {

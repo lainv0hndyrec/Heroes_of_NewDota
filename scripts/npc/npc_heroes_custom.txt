@@ -17,4 +17,4 @@
 //#base "../vscripts/heroes/defiler/kv_hero_defiler.txt"
 //#base "../vscripts/heroes/qaldin_assassin/kv_hero_qaldin_assassin.txt"
 //#base "../vscripts/heroes/spiritsmaster/kv_hero_spiritsmaster.txt"
-#base "../vscripts/heroes/fallen_one/kv_hero_fallen_one.txt"
+//#base "../vscripts/heroes/fallen_one/kv_hero_fallen_one.txt"

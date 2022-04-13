@@ -16,6 +16,15 @@ end
 
 function lua_modifier_fallen_one_soul_tap_slow:OnCreated(kv)
     self.ms_slow = self:GetAbility():GetSpecialValueFor("aoe_tappering_slow_percent")
+
+    --talent
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_fallen_one_soul_tap_slow_up")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            self.ms_slow = self.ms_slow + talent:GetSpecialValueFor("value")
+        end
+    end
+
     self.interval = (self.ms_slow/self:GetDuration())*0.1
     self:StartIntervalThink(0.1)
 end
@@ -91,7 +100,16 @@ end
 
 
 function lua_modifier_fallen_one_soul_tap_buff:GetModifierPreAttack_BonusDamage()
-    return self:GetAbility():GetSpecialValueFor("attack_bonus")
+    --talent
+    local bonus_dmg = self:GetAbility():GetSpecialValueFor("attack_bonus")
+    local talent = self:GetParent():FindAbilityByName("special_bonus_fallen_one_soul_tap_dmg_up")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            bonus_dmg = bonus_dmg + talent:GetSpecialValueFor("value")
+        end
+    end
+    
+    return bonus_dmg
 end
 
 

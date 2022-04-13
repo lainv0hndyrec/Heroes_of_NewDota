@@ -52,6 +52,14 @@ function lua_modifier_fallen_one_revelation_delay:OnIntervalThink()
     local aoe_dmg = self:GetAbility():GetSpecialValueFor("blast_dmg")
     local heal_time = self:GetAbility():GetSpecialValueFor("blast_heal_time")
 
+    --talent
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_fallen_one_revelation_dmg_up")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            aoe_dmg = aoe_dmg + talent:GetSpecialValueFor("value")
+        end
+    end
+
     local enemies = FindUnitsInRadius(
         self:GetCaster():GetTeam(),self:GetParent():GetAbsOrigin(),
         nil,aoe_range,DOTA_UNIT_TARGET_TEAM_ENEMY,

@@ -1,5 +1,6 @@
 
 LinkLuaModifier( "lua_modifier_fallen_one_eternal_suffering", "heroes/fallen_one/ability_4/lua_modifier_fallen_one_eternal_suffering", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "lua_modifier_fallen_one_eternal_suffering_scepter", "heroes/fallen_one/ability_4/lua_modifier_fallen_one_eternal_suffering", LUA_MODIFIER_MOTION_NONE )
 
 lua_ability_fallen_one_eternal_suffering = class({})
 
@@ -35,4 +36,21 @@ function lua_ability_fallen_one_eternal_suffering:OnSpellStart()
         {duration = self:GetSpecialValueFor("dot_time")}
     )
 
+end
+
+
+
+function lua_ability_fallen_one_eternal_suffering:OnUpgrade()
+
+    if self:GetCaster():GetName() ~= "npc_dota_hero_doom_bringer" then return end
+
+    local scepter_mod = self:GetCaster():FindModifierByName("lua_modifier_fallen_one_eternal_suffering_scepter")
+
+    if not scepter_mod then
+        self:GetCaster():AddNewModifier(
+            self:GetCaster(),self,
+            "lua_modifier_fallen_one_eternal_suffering_scepter",
+            {}
+        )
+    end
 end

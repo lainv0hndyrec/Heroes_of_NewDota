@@ -14,7 +14,7 @@ end
 
 
 function lua_modifier_fallen_one_eternal_suffering:CheckState()
-    return {[MODIFIER_STATE_SPECIALLY_DENIABLE] = true}
+    return {[MODIFIER_STATE_SPECIALLY_UNDENIABLE] = true}
 end
 
 
@@ -50,6 +50,14 @@ function lua_modifier_fallen_one_eternal_suffering:OnIntervalThink()
     if not IsServer() then return end
 
     local pure_dot = self:GetAbility():GetSpecialValueFor("pure_dot")
+
+    if self:GetCaster():HasScepter() then
+        local scepter_stack = self:GetCaster():FindModifierByName("lua_modifier_fallen_one_eternal_suffering_scepter")
+        if not scepter_stack == false then
+            pure_dot = pure_dot + scepter_stack:GetStackCount()
+        end
+    end
+
     local dtable = {
         victim = self:GetParent(),
         attacker = self:GetCaster(),
@@ -80,4 +88,77 @@ function lua_modifier_fallen_one_eternal_suffering:OnDestroy()
         ParticleManager:ReleaseParticleIndex(self.burn)
         self.burn = nil
     end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+lua_modifier_fallen_one_eternal_suffering_scepter = class({})
+
+
+function lua_modifier_fallen_one_eternal_suffering_scepter:IsDebuff() return false end
+function lua_modifier_fallen_one_eternal_suffering_scepter:IsPurgable() return false end
+function lua_modifier_fallen_one_eternal_suffering_scepter:IsPurgeException() return false end
+function lua_modifier_fallen_one_eternal_suffering_scepter:RemoveOnDeath() return false end
+
+
+function lua_modifier_fallen_one_eternal_suffering_scepter:IsHidden()
+    if self:GetParent():HasScepter() then
+        return false
+    end
+    return true
+end
+
+
+function lua_modifier_fallen_one_eternal_suffering_scepter:DeclareFunctions()
+    local dfunc = {
+        MODIFIER_EVENT_ON_HERO_KILLED,
+        MODIFIER_EVENT_ON_TAKEDAMAGE
+    }
+    return dfunc
+end
+
+
+function lua_modifier_fallen_one_eternal_suffering_scepter:OnHeroKilled(event)
+    if not IsServer() then return end
+
+    if self:GetParent():HasScepter() == false then return end
+
+    if event.target:HasModifier("lua_modifier_fallen_one_eternal_suffering") then
+        self:IncrementStackCount()
+    end
+
+end
+
+
+
+function lua_modifier_fallen_one_eternal_suffering_scepter:OnTakeDamage(event)
+    if not IsServer() then return end
+
+    if self:GetParent():HasScepter() == false then return end
+
+    if event.attacker ~= self:GetParent() then return end
+
+    if event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL then
+        if event.inflictor:GetName() == "lua_ability_fallen_one_eternal_suffering" then return end
+    end
+
+    local doom = event.unit:FindModifierByName("lua_modifier_fallen_one_eternal_suffering")
+    if not doom then return end
+
+    doom:ForceRefresh()
 end

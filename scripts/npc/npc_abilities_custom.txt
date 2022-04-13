@@ -101,3 +101,4 @@
 #base "../vscripts/heroes/fallen_one/ability_2/kv_ability_fallen_one_soul_tap.txt"
 #base "../vscripts/heroes/fallen_one/ability_3/kv_ability_fallen_one_sadism.txt"
 #base "../vscripts/heroes/fallen_one/ability_4/kv_ability_fallen_one_eternal_suffering.txt"
+#base "../vscripts/heroes/fallen_one/talents/kv_talents_fallen_one.txt"

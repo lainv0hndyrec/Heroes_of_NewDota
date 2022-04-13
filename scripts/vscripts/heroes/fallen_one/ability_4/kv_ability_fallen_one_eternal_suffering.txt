@@ -36,7 +36,7 @@
         "AbilityValues"
         {
             "pure_dot"      "20 35 50"
-            "dot_time"      "20 35 50"
+            "dot_time"      "12"
 
             "mana_cost"     "100 150 200"
             "ability_cd"    "80 70 60"

@@ -98,6 +98,10 @@ function HeroAlternativePath:Initialize(hero_string,hero_path,hero_list)
         return
     end
 
+    if hero_string == "npc_dota_hero_doom_bringer" then
+        self:Path_DoomBringer(hero_string,hero_path,the_hero)
+        return
+    end
 
 
 
@@ -869,6 +873,80 @@ function HeroAlternativePath:Path_Brewmaster(hero_string,hero_path,the_hero)
             "lua_ability_spiritsmaster_fire_spirit",
             "lua_ability_spiritsmaster_storm_spirit"
         }
+        CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
+
+        local stats_gain = {}
+        stats_gain["str_gain"] = str_gain.Strength_Gain
+        stats_gain["agi_gain"] = agi_gain.Agility_Gain
+        stats_gain["int_gain"] = int_gain.Intelligence_Gain
+        CustomNetTables:SetTableValue("custom_stats_gain", hero_string, stats_gain)
+    end
+end
+
+
+function HeroAlternativePath:Path_DoomBringer(hero_string,hero_path,the_hero)
+
+    if hero_path == 1 then
+
+        self:RemoveOriginalAbilities(the_hero)
+        the_hero:AddAbility("lua_ability_fallen_one_revelation")
+        the_hero:AddAbility("lua_ability_fallen_one_soul_tap")
+        the_hero:AddAbility("lua_ability_fallen_one_sadism")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("lua_ability_fallen_one_eternal_suffering")
+
+        the_hero:AddAbility("special_bonus_magic_resistance_10")
+        the_hero:AddAbility("special_bonus_fallen_one_soul_tap_slow_up")
+        the_hero:AddAbility("special_bonus_strength_12")
+        the_hero:AddAbility("special_bonus_fallen_one_revelation_dmg_up")
+        the_hero:AddAbility("special_bonus_status_resistance_15")
+        the_hero:AddAbility("special_bonus_fallen_one_sadism_dmg_up")
+        the_hero:AddAbility("special_bonus_fallen_one_soul_tap_dmg_up")
+        the_hero:AddAbility("special_bonus_fallen_one_sadism_regen_up")
+        self:RemoveAllTalentModifiers(the_hero)
+
+        --HP regen
+        the_hero:SetBaseHealthRegen(1.0)
+
+        --Set Min/Max Damage
+        the_hero:SetBaseDamageMin(28)
+        the_hero:SetBaseDamageMax(32)
+
+        --Base Attack Time
+        the_hero:SetBaseAttackTime(1.7)
+
+        --Set Movespeed
+        the_hero:SetBaseMoveSpeed(305)
+
+        --Armor
+        the_hero:SetPhysicalArmorBaseValue(1)
+
+        --Attack Point
+        local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
+        atk_point.Attack_Point = 0.375
+
+        --Change Stats
+        the_hero:SetPrimaryAttribute(DOTA_ATTRIBUTE_STRENGTH)
+
+        the_hero:SetBaseStrength(25)
+        local str_gain = the_hero:AddAbility("lua_ability_generic_strength_gain")
+        str_gain.Strength_Gain = 2.6
+
+        the_hero:SetBaseAgility(10)
+        local agi_gain = the_hero:AddAbility("lua_ability_generic_agility_gain")
+        agi_gain.Agility_Gain = 1.2
+
+        the_hero:SetBaseIntellect(20)
+        local int_gain = the_hero:AddAbility("lua_ability_generic_intelligence_gain")
+        int_gain.Intelligence_Gain = 2.0
+
+        the_hero:CalculateStatBonus(true)
+
+        --NetTables
+        local info =  {}
+        info["shard"] = {"lua_ability_fallen_one_soul_tap"}
+        info["scepter"] = {"lua_ability_fallen_one_eternal_suffering"}
         CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
 
         local stats_gain = {}

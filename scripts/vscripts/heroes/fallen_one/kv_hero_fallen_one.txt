@@ -23,24 +23,22 @@
 		//"MovementTurnRate"				"0.900000"
 
 		//Talents
-		"Ability10"			"special_bonus_generic_hidden"
-		"Ability11"			"special_bonus_generic_hidden"
+		"Ability10"			"special_bonus_magic_resistance_10"
+		"Ability11"			"special_bonus_fallen_one_soul_tap_slow_up"
 
-		"Ability12"			"special_bonus_generic_hidden"
-		"Ability13"			"special_bonus_generic_hidden"
+		"Ability12"			"special_bonus_strength_12"
+		"Ability13"			"special_bonus_fallen_one_revelation_dmg_up"
 
-		"Ability14"			"special_bonus_generic_hidden"
-		"Ability15"			"special_bonus_generic_hidden"
+		"Ability14"			"special_bonus_status_resistance_15"
+		"Ability15"			"special_bonus_fallen_one_sadism_dmg_up"
 
-		"Ability16"			"special_bonus_generic_hidden"
-		"Ability17"			"special_bonus_generic_hidden"
+		"Ability16"			"special_bonus_fallen_one_soul_tap_dmg_up"
+		"Ability17"			"special_bonus_fallen_one_sadism_regen_up"
 
 		//SCEPTER
-		//special_bonus_generic_hidden  	aoe attack damage
-		//special_bonus_generic_hidden  	true strike and phased
-		//special_bonus_generic_hidden 	mana steal
+		//lua_ability_fallen_one_eternal_suffering	reset duration when damaged, increase damage per stack
 
 		//SHARD
-		//special_bonus_generic_hidden cd reduced increased copy percent
+		//lua_ability_fallen_one_soul_tap	100 magic dmg + 1s stun
 	}
 }

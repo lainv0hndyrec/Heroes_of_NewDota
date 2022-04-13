@@ -51,6 +51,10 @@
             "ability_cd"                    "8.0 7.0 6.0 5.0"
             "cast_range"                    "275"
             "mana_cost"                     "60"
+
+            "shard_dmg"                     "320"
+            "shard_stun"                    "1.0"
+            "shard_slow"                    "2.0"
         }
     }
 

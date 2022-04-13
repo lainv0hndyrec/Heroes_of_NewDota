@@ -67,7 +67,7 @@
             "03" //ability_slow
             {
                 "var_type" 	"FIELD_INTEGER"
-                "ability_slow" 		"-20 -30 -40 -50"
+                "ability_slow" 		"20 30 40 50"
             }
 
             "04" //ability_slow

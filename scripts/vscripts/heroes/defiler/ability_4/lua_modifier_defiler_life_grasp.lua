@@ -1,4 +1,5 @@
 LinkLuaModifier( "lua_modifier_defiler_life_grasp_leap", "heroes/defiler/ability_4/lua_modifier_defiler_life_grasp", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier( "lua_modifier_defiler_life_grasp_switch", "heroes/defiler/ability_4/lua_modifier_defiler_life_grasp", LUA_MODIFIER_MOTION_NONE)
 
 
 lua_modifier_defiler_life_grasp_anim = class({})
@@ -72,6 +73,11 @@ function lua_modifier_defiler_life_grasp_hook:OnIntervalThink()
     end
 
     if self:GetCaster():IsStunned()  then
+        self:Destroy()
+        return
+    end
+
+    if self:GetCaster():IsRooted()  then
         self:Destroy()
         return
     end
@@ -256,79 +262,11 @@ end
 function lua_modifier_defiler_life_grasp_leap:UltimateHit()
     if not IsServer() then return end
 
-    if self.target:TriggerSpellAbsorb(self) then
-        self:Destroy()
-        return
-    end
-
-
-    local target_mods = self.target:FindAllModifiers()
-    local my_mods = self:GetParent():FindAllModifiers()
-
-    if self.target:IsMagicImmune() == false then
-        for i=1, #target_mods do
-            if target_mods[i]:IsDebuff() == false then
-
-                local mod_time = target_mods[i]:GetRemainingTime()
-
-                if mod_time > 0 then
-
-                    local mod_name = target_mods[i]:GetName()
-                    local mod_caster = target_mods[i]:GetCaster()
-                    local mod_ability = target_mods[i]:GetAbility()
-
-                    local transfer_mod = self:GetParent():AddNewModifier(self:GetParent(),mod_ability,mod_name,{})
-                    transfer_mod:SetDuration(mod_time,true)
-                    self.target:RemoveModifierByName(mod_name)
-                end
-            end
-        end
-
-        self.target:AddNewModifier(
-            self:GetParent(),self:GetAbility(),"modifier_silence",
-            {duration = self:GetAbility():GetSpecialValueFor("silence_duration") }
-        )
-    end
-
-
-    for i=1, #my_mods do
-        if my_mods[i]:IsDebuff() then
-
-            local mod_time = my_mods[i]:GetRemainingTime()
-
-            if mod_time > 0 then
-
-                local mod_name = my_mods[i]:GetName()
-                local mod_caster = my_mods[i]:GetCaster()
-                local mod_ability = my_mods[i]:GetAbility()
-
-                if self.target:IsMagicImmune() == false then
-                    local transfer_mod = self.target:AddNewModifier(self:GetParent(),mod_ability,mod_name,{})
-                    transfer_mod:SetDuration(mod_time,true)
-                end
-
-                self:GetParent():RemoveModifierByName(mod_name)
-            end
-        end
-    end
-
-
-    local particle = ParticleManager:CreateParticle(
-        "particles/items2_fx/soul_ring_blood.vpcf",
-        PATTACH_ABSORIGIN,self.target
+    self.target:AddNewModifier(
+        self:GetParent(),self:GetAbility(),
+        "lua_modifier_defiler_life_grasp_switch",
+        {}
     )
-    ParticleManager:SetParticleControl(particle,0,self.target:GetAbsOrigin())
-
-    local dtable = {
-        victim = self.target,
-        attacker = self:GetParent(),
-        damage = self:GetAbility():GetSpecialValueFor("pure_damage"),
-        damage_type = DAMAGE_TYPE_PURE ,
-        damage_flags = DOTA_DAMAGE_FLAG_NONE,
-        ability = self:GetAbility()
-    }
-    ApplyDamage(dtable)
-
 
     self:Destroy()
 end
@@ -346,4 +284,138 @@ function lua_modifier_defiler_life_grasp_leap:OnDestroy()
     ParticleManager:DestroyParticle(self.particle,false)
     ParticleManager:ReleaseParticleIndex(self.particle)
     self.particle = nil
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+lua_modifier_defiler_life_grasp_switch = class({})
+
+function lua_modifier_defiler_life_grasp_switch:IsDebuff() return false end
+function lua_modifier_defiler_life_grasp_switch:IsHidden() return true end
+function lua_modifier_defiler_life_grasp_switch:IsPurgable() return false end
+function lua_modifier_defiler_life_grasp_switch:IsPurgeException() return false end
+
+
+function lua_modifier_defiler_life_grasp_switch:OnCreated(kv)
+    if not IsServer() then return end
+
+    self.target_mod_pair = {}
+    self.caster_mod_pair = {}
+
+    if self:GetParent():IsMagicImmune() == false then
+
+        --GET BUFFS FROM TARGET
+        local target_mods = self:GetParent():FindAllModifiers()
+        for i=1, #target_mods do
+            if target_mods[i]:IsDebuff() == false then
+                if target_mods[i]:GetRemainingTime()-FrameTime() > 0 then
+                    self.target_mod_pair[target_mods[i]:GetName()] = {target_mods[i]:GetRemainingTime()-FrameTime(),target_mods[i]:GetAbility()}
+                end
+            end
+        end
+        --PURGE THE BUFFS FROM THE TARGET
+        self:GetParent():Purge(true,false,false,false,false)
+
+        --GIVE DEBUFFS TO THE TARGET
+        local caster_mods = self:GetCaster():FindAllModifiers()
+        for i=1, #caster_mods do
+            if caster_mods[i]:IsDebuff() then
+                if caster_mods[i]:GetRemainingTime()-FrameTime() > 0 then
+                    self.caster_mod_pair[caster_mods[i]:GetName()] = {caster_mods[i]:GetRemainingTime()-FrameTime(),caster_mods[i]:GetAbility()}
+                end
+            end
+        end
+
+    end
+
+    --PURGE THE DEBUFFS FROM YOU
+    self:GetCaster():Purge(false,true,false,false,false)
+
+
+    local dtable = {
+        victim = self:GetParent(),
+        attacker = self:GetCaster(),
+        damage = self:GetAbility():GetSpecialValueFor("pure_damage"),
+        damage_type = DAMAGE_TYPE_PURE ,
+        damage_flags = DOTA_DAMAGE_FLAG_NONE,
+        ability = self:GetAbility()
+    }
+    ApplyDamage(dtable)
+
+    self:StartIntervalThink(FrameTime())
+end
+
+
+
+function lua_modifier_defiler_life_grasp_switch:OnIntervalThink()
+    if not IsServer() then return end
+
+    --Recieve Buffs
+    if self:GetParent():IsAlive() then
+
+        for mod_name,array in pairs(self.target_mod_pair) do
+
+            if self:GetParent():HasModifier(mod_name) == false then
+                if self:GetCaster():IsAlive() then
+                    self:GetCaster():AddNewModifier(
+                        self:GetCaster(),array[2],
+                        mod_name, {duration = array[1]}
+                    )
+                end
+            end
+        end
+
+        if self:GetParent():IsMagicImmune() == false then
+            self:GetParent():AddNewModifier(
+                self:GetCaster(),self:GetAbility(),
+                "modifier_silence",
+                {duration = self:GetAbility():GetSpecialValueFor("silence_duration")}
+            )
+        end
+    end
+
+    --Give Debuffs
+    if self:GetCaster():IsAlive() then
+
+        local caster_mods = self:GetCaster():FindAllModifiers()
+
+        for mod_name,array in pairs(self.caster_mod_pair) do
+
+            if self:GetCaster():HasModifier(mod_name) == false then
+                if self:GetParent():IsAlive() then
+                    self:GetParent():AddNewModifier(
+                        self:GetCaster(),array[2],
+                        mod_name, {duration = array[1]}
+                    )
+                end
+            end
+
+        end
+
+    end
+
+
+
+
+    self:StartIntervalThink(-1)
+    self:Destroy()
 end

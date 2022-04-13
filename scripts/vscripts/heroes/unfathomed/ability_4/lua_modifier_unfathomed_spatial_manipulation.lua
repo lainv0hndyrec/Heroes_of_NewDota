@@ -111,7 +111,6 @@ function lua_modifier_unfathomed_spatial_manipulation:OnDestroy()
     )
 
     if not self.particle then return end
-    print("wtf?")
     ParticleManager:DestroyParticle(self.particle,false)
     ParticleManager:ReleaseParticleIndex(self.particle)
     self.particle = nil

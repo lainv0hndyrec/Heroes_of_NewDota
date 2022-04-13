@@ -6,7 +6,7 @@
         // ----------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "ScriptFile"		            "heroes/fallen_one/ability_3/lua_ability_fallen_one_sadism"
-        "AbilityTextureName"     	    ""
+        "AbilityTextureName"     	    "doom_bringer_scorched_earth"
 
         // Ability General
         //-------------------------------------------------------------------------------------------------------------
@@ -32,15 +32,16 @@
 
         "precache"
 		{
-            "particle" ""
+            "particle"  "particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_buff.vpcf"
+            "particle"  "particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_debuff.vpcf"
 		}
 
         "AbilityValues"
         {
             "aura_range"            "300"
-            "regen_steal_percent"   "30 45 60 75"
-            "pure_dot"              "15 25 35 45"
-            "pure_dot_min"          "15"
+            "regen_steal_percent"   "16 32 48 64"
+            "pure_dot"              "16 24 32 40"
+            "pure_dot_min"          "16"
         }
     }
 

@@ -14,7 +14,7 @@
         "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
-        //"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 
         "MaxLevel"                  "4"
 

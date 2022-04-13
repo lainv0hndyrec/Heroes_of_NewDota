@@ -11,7 +11,6 @@ function lua_ability_fallen_one_sadism:GetAOERadius()
 end
 
 
-
 function lua_ability_fallen_one_sadism:GetCastRange(pos,target)
     return self:GetAOERadius()
 end
@@ -27,12 +26,25 @@ end
 function lua_ability_fallen_one_sadism:OnToggle()
 
     if self:GetToggleState() == true then
-
-        print(true)
-
+        self.toggle = true
+        self:GetCaster():AddNewModifier(
+            self:GetCaster(),self,
+            "lua_modifier_fallen_one_sadism_aura",
+            {}
+        )
 
     else
-        print(false)
+        self.toggle = false
+        local aura = self:GetCaster():FindModifierByName("lua_modifier_fallen_one_sadism_aura")
+        if not aura == false then
+            aura:Destroy()
+        end
+
     end
 
+end
+
+
+function lua_ability_fallen_one_sadism:OnOwnerSpawned()
+    self:ToggleAbility()
 end

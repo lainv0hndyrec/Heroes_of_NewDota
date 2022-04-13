@@ -13,7 +13,7 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
-        //"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
         "AbilityTextureName"     	      "soul_warden_ionic_absorption"
 
 

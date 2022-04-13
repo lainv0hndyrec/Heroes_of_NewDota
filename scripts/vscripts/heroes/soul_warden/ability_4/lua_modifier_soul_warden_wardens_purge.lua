@@ -23,7 +23,7 @@ end
 function lua_modifier_soul_warden_wardens_purge_ally:OnCreated(kv)
     if not IsServer() then return end
 
-    if not kv.chain_order then self:Destroy() return end
+
 
 
     self:GetParent():Purge(false,true,false,false,false)
@@ -46,6 +46,9 @@ function lua_modifier_soul_warden_wardens_purge_ally:OnCreated(kv)
 
 
     --check if need to chain
+
+    if not kv.chain_order then return end
+
     local add_max = 0
     if self:GetCaster():HasScepter() then
         add_max = self:GetAbility():GetSpecialValueFor("scepter_max_chain")
@@ -234,6 +237,8 @@ function lua_modifier_soul_warden_wardens_purge_enemy:OnCreated(kv)
 
 
     --check if need to chain
+    if not kv.chain_order then return end
+
     local add_max = 0
     if self:GetCaster():HasScepter() then
         add_max = self:GetAbility():GetSpecialValueFor("scepter_max_chain")

@@ -8,7 +8,7 @@ require("timers")
 local PlayerHeroPathChoice = {}
 
 --nil will not force a hero selection
-local forceHero = "doom_bringer" --"shredder"
+local forceHero = "grimstroke" --"shredder"
 
 local test_on = true --manually turn it on or off
 

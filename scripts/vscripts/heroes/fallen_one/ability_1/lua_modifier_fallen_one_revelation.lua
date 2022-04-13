@@ -136,11 +136,6 @@ function lua_modifier_fallen_one_revelation_heal:GetEffectAttachType()
 end
 
 
-function lua_modifier_fallen_one_revelation_heal:OnCreated(kv)
-    self.hp_regen_full = nil
-end
-
-
 function lua_modifier_fallen_one_revelation_heal:OnTakeDamage(event)
 
     if event.unit ~= self:GetParent() then return end
@@ -149,14 +144,10 @@ function lua_modifier_fallen_one_revelation_heal:OnTakeDamage(event)
 
     local dmg_to_heal = self:GetAbility():GetSpecialValueFor("blast_heal_percent")*0.01
 
-    self.hp_regen_full = dmg_to_heal*event.damage
+    self:SetStackCount((dmg_to_heal*event.damage)/self:GetDuration())
 end
 
 
 function lua_modifier_fallen_one_revelation_heal:GetModifierConstantHealthRegen()
-    if not self.hp_regen_full then return end
-
-    local hp_regen = self.hp_regen_full/self:GetDuration()
-
-    return hp_regen
+    return self:GetStackCount()
 end

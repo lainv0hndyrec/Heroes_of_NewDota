@@ -300,58 +300,12 @@ lua_modifier_corruptedlord_throw_glaive_slow = class({})
 
 
 function lua_modifier_corruptedlord_throw_glaive_slow:IsHidden() return false end
-
-
-
 function lua_modifier_corruptedlord_throw_glaive_slow:IsDebuff() return true end
-
-
-
 function lua_modifier_corruptedlord_throw_glaive_slow:IsPurgable() return true end
 
-
-
-function lua_modifier_corruptedlord_throw_glaive_slow:OnCreated( kv )
-
-    if not kv.duration then self:Destroy() return end
-	-- references
-	self.ability_slow = self:GetAbility():GetSpecialValueFor( "ability_slow" ) -- special value
-	self.slow_duration = self:GetAbility():GetSpecialValueFor( "slow_duration" ) -- special value
-	self.max_duration = kv.duration
-	self.current_duration = self.max_duration
-	self:StartIntervalThink(FrameTime())
+function lua_modifier_corruptedlord_throw_glaive_slow:GetStatusEffectName()
+	return "particles/units/heroes/hero_abaddon/abaddon_curse_frostmourne_debuff.vpcf"
 end
-
-
-
-function lua_modifier_corruptedlord_throw_glaive_slow:OnRefresh( kv )
-
-    if not kv.duration then self:Destroy() return end
-	-- references
-    self.ability_slow = self:GetAbility():GetSpecialValueFor( "ability_slow" ) -- special value
-	self.slow_duration = self:GetAbility():GetSpecialValueFor( "slow_duration" ) -- special value
-	self.max_duration = kv.duration
-	self.current_duration = self.max_duration
-	self:StartIntervalThink(FrameTime())
-end
-
-
-
-function lua_modifier_corruptedlord_throw_glaive_slow:OnDestroy( kv )
-end
-
-
-
-function lua_modifier_corruptedlord_throw_glaive_slow:OnIntervalThink()
-	self.current_duration = self.current_duration-FrameTime()
-
-	if self.current_duration <= 0.0 then
-		self.current_duration = 0.0
-		self:StartIntervalThink( -1 )
-	end
-end
-
-
 
 function lua_modifier_corruptedlord_throw_glaive_slow:DeclareFunctions()
 	local funcs = {
@@ -361,13 +315,24 @@ function lua_modifier_corruptedlord_throw_glaive_slow:DeclareFunctions()
 end
 
 
-
-function lua_modifier_corruptedlord_throw_glaive_slow:GetModifierMoveSpeedBonus_Percentage()
-	return self.ability_slow * (self.current_duration/self.max_duration)
+function lua_modifier_corruptedlord_throw_glaive_slow:OnCreated(kv)
+    self.ms_slow = self:GetAbility():GetSpecialValueFor("ability_slow")
+    self.interval = (self.ms_slow/self:GetDuration())*0.1
+    self:StartIntervalThink(0.1)
 end
 
 
+function lua_modifier_corruptedlord_throw_glaive_slow:OnRefresh(kv)
+    self:OnCreated(kv)
+end
 
-function lua_modifier_corruptedlord_throw_glaive_slow:GetStatusEffectName()
-	return "particles/units/heroes/hero_abaddon/abaddon_curse_frostmourne_debuff.vpcf"
+
+function lua_modifier_corruptedlord_throw_glaive_slow:OnIntervalThink()
+    self.ms_slow = math.max(self.ms_slow-self.interval,0)
+end
+
+
+function lua_modifier_corruptedlord_throw_glaive_slow:GetModifierMoveSpeedBonus_Percentage()
+    if not self.ms_slow then return end
+    return -self.ms_slow
 end

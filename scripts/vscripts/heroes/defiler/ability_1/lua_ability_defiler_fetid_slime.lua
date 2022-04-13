@@ -28,8 +28,6 @@ function lua_ability_defiler_fetid_slime:OnSpellStart()
 
     self:GetCaster():EmitSound("Hero_LifeStealer.OpenWounds.Cast")
 
-    if self:GetCursorTarget():TriggerSpellAbsorb(self) then return end
-
     local proj ={
         vSourceLoc = self:GetCaster():GetAbsOrigin(),
         Target = self:GetCursorTarget(),
@@ -56,9 +54,9 @@ function lua_ability_defiler_fetid_slime:OnProjectileHit(target,pos)
 
     if not target then return true end
 
-    if target:TriggerSpellAbsorb(self) then return true end
-
     if target:IsMagicImmune() then return true end
+
+    if target:TriggerSpellAbsorb(self) then return end
 
     local ms_time = self:GetSpecialValueFor("ms_time")
     local talent_time = self:GetCaster():FindAbilityByName("special_bonus_defiler_fetid_slime_slow_time")

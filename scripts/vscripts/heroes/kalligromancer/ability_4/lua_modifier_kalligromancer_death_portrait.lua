@@ -5,7 +5,7 @@ lua_modifier_kalligromancer_death_portrait = class({})
 
 function lua_modifier_kalligromancer_death_portrait:IsHidden() return false end
 
-function lua_modifier_kalligromancer_death_portrait:IsDebuff() return false end
+function lua_modifier_kalligromancer_death_portrait:IsDebuff() return true end
 
 function lua_modifier_kalligromancer_death_portrait:IsPurgable() return false end
 
@@ -59,6 +59,7 @@ function lua_modifier_kalligromancer_death_portrait:OnCreated(kv)
 
 
     self.target = self:GetAbility():GetCursorTarget()
+    self.transfer_mod = {}
 
 
     self.thinker = CreateModifierThinker(
@@ -148,12 +149,11 @@ function lua_modifier_kalligromancer_death_portrait:OnModifierAdded(event)
 
     if d_duration <= 0.0 then return end
 
-    if self.target:IsMagicImmune() == false then
-        local mod = self.target:AddNewModifier(caster,ability,mod_name,{})
-        mod:SetDuration(d_duration,true)
-    end
+    local mod = {caster,ability,mod_name,d_duration}
+    table.insert(self.transfer_mod,mod)
 
-    self:GetParent():RemoveAllModifiersOfName(mod_name)
+    self:GetParent():Purge(false,true,false,false,false)
+    self:StartIntervalThink(FrameTime())
 end
 
 
@@ -165,8 +165,21 @@ function lua_modifier_kalligromancer_death_portrait:OnIntervalThink()
 
     if self.target:IsAlive() == false then return end
 
-    self:GetParent():Purge(false,true,true,true,true)
+    for i=1, #self.transfer_mod do
+        local mod = self.transfer_mod[i]
+
+        if self:GetParent():HasModifier(mod[3]) == false then
+            self.target:AddNewModifier(
+                mod[1],mod[2],mod[3],
+                {duration = mod[4]}
+            )
+        end
+
+    end
+
+    self.transfer_mod = {}
     self:StartIntervalThink(-1)
+
 end
 
 

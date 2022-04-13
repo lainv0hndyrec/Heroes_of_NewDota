@@ -78,7 +78,7 @@ function lua_modifier_fallen_one_soul_tap_buff:DeclareFunctions()
     local dfunc = {
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
         MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
+        MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
     }
     return dfunc
@@ -95,12 +95,11 @@ function lua_modifier_fallen_one_soul_tap_buff:GetModifierPreAttack_BonusDamage(
 end
 
 
-function lua_modifier_fallen_one_soul_tap_buff:OnTakeDamage(event)
+function lua_modifier_fallen_one_soul_tap_buff:OnAttackLanded(event)
     if not IsServer() then return end
+
     if event.attacker ~= self:GetParent() then return end
-    if event.attacker:IsAlive() == false then return end
-    if event.unit:IsAlive() == false then return end
-    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then return end
+
 
     self:GetParent():EmitSound("Hero_DoomBringer.LvlDeath")
 
@@ -109,6 +108,13 @@ function lua_modifier_fallen_one_soul_tap_buff:OnTakeDamage(event)
         PATTACH_POINT_FOLLOW,self:GetParent()
     )
     ParticleManager:SetParticleControl(slash,0,self:GetParent():GetAbsOrigin())
+
+
+    if event.target:IsBuilding() then
+        self:Destroy()
+        return
+    end
+
 
     local lf_particle = ParticleManager:CreateParticle(
         "particles/generic_gameplay/generic_lifesteal.vpcf",

@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+
+    "lua_ability_fallen_one_eternal_suffering"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/fallen_one/ability_4/lua_ability_fallen_one_eternal_suffering"
+        "AbilityTextureName"     	    "fallen_one_eternal_suffering"
+        "MaxLevel"						"3"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_PURE"
+        "SpellDispellableType"		    "SPELL_DISPELLABLE_YES_STRONG"
+
+        "AbilityCastPoint"              "0.4"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_6"
+
+
+        //"AbilityCooldown"				"10 9 8 7"
+		//"AbilityManaCost"				"90"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf"
+            "particle" "particles/units/heroes/fallen_one/ability_4/fallen_one_eternal_suffering.vpcf"
+		}
+
+        "AbilityValues"
+        {
+            "pure_dot"      "20 35 50"
+            "dot_time"      "20 35 50"
+
+            "mana_cost"     "100 150 200"
+            "ability_cd"    "80 70 60"
+            "cast_range"    "600"
+        }
+
+    }
+}

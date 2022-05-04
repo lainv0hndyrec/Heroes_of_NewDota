@@ -7,7 +7,7 @@ function lua_modifier_fallen_one_sadism_aura:IsDebuff() return false end
 function lua_modifier_fallen_one_sadism_aura:IsHidden() return false end
 function lua_modifier_fallen_one_sadism_aura:IsPurgable() return false end
 function lua_modifier_fallen_one_sadism_aura:IsPurgeException() return false end
-
+function lua_modifier_fallen_one_sadism_aura:AllowIllusionDuplicate() return true end
 
 function lua_modifier_fallen_one_sadism_aura:IsAura() return true end
 function lua_modifier_fallen_one_sadism_aura:IsAuraActiveOnDeath() return false end
@@ -128,6 +128,13 @@ end
 function lua_modifier_fallen_one_sadism_steal:OnIntervalThink()
     if not IsServer() then return end
 
+    if not self:GetAbility() then
+        self:StartIntervalThink(-1)
+        self:Destroy()
+        return
+    end
+
+
     if self:GetParent():IsAlive() == false then
         self:StartIntervalThink(-1)
         self:Destroy()
@@ -141,15 +148,15 @@ function lua_modifier_fallen_one_sadism_steal:OnIntervalThink()
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
 
     local owner = self:GetAuraOwner()
-    if not owner then return self:Destroy() end
-    if owner:IsAlive() == false then return end
+    if not owner then self:Destroy() return end
+    if owner:IsAlive() == false then self:Destroy() return  end
 
     local aura = owner:FindModifierByName("lua_modifier_fallen_one_sadism_aura")
-    if not aura then return end
+    if not aura then self:Destroy() return end
     if aura.affected_enemies == 0 then return end
 
-    local min_dmg = self:GetAbility():GetSpecialValueFor("pure_dot_min")
-    local pure_dot = self:GetAbility():GetSpecialValueFor("pure_dot")
+    local min_dmg = self:GetAbility():GetSpecialValueFor("pure_dot_min_damage")
+    local pure_dot = self:GetAbility():GetSpecialValueFor("pure_dot_damage")
 
     --talent
     local talent = self:GetCaster():FindAbilityByName("special_bonus_fallen_one_sadism_dmg_up")

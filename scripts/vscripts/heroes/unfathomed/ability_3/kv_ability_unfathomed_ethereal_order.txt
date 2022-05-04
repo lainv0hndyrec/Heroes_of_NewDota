@@ -25,6 +25,7 @@
             {
                 "var_type" 	        "FIELD_INTEGER"
                 "add_range" 		"75 150 225 300"
+                "LinkedSpecialBonus"    "special_bonus_unfathomed_ethereal_order_range"
             }
         }
     }

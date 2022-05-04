@@ -1,0 +1,118 @@
+"DOTAAbilities"
+{
+    "lua_ability_atniw_druid_atniws_calling"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/atniw_druid/ability_4/lua_ability_atniw_druid_atniws_calling"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityTextureName"     	"atniw_druid_atniws_calling" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+        //"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        //"AbilityCastPoint"              "0.1"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_3"
+        //"AnimationPlaybackRate"         "2.0"
+        //"AnimationIgnoresModelScale"    "1"
+
+        //"HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "40 50 60 70"
+        //"AbilityCooldown"               "3"
+        //"AbilityCastRange"              "3000"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/atniw_druid/ability_4/atniw_bear_smokedebuff.vpcf"
+            "particle"  "particles/units/heroes/atniw_druid/ability_4/atniw_bear_scepter_splash_attack.vpcf"
+            "particle"  "particles/econ/events/fall_major_2016/blink_dagger_start_sparkles_fm06.vpcf"
+            "particle"  "particles/units/heroes/hero_treant/treant_naturesguise_mushroom.vpcf"
+
+		}
+
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	             "FIELD_FLOAT"
+                "transform_duration"     "20.0"
+                //"LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+            }
+
+            "02"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "bonus_hp"              "150 300 450"
+            }
+
+            "03"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "bonus_mr_percent"      "12 20 28"
+            }
+
+            "04"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "ms_slow"               "25 30 35"
+            }
+
+            "05"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "slow_time"               "3.0"
+            }
+
+            "06"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "attack_magic_damage"    "125/175/225"
+            }
+
+            "07"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "add_atk_percent_as_magic_dmg"    "70"
+            }
+
+        }
+
+
+
+        "AbilityValues"
+        {
+            "mana_cost"     "100 150 200"
+            "ability_cd"    "60.0"
+
+            "scepter_cd"    "4.0"
+            "scepter_attack_magic_damage"    "15"
+            "scepter_attack_splash_radius"    "250"
+
+            "shard_root_chance"     "15.0"
+        }
+
+
+    }
+}

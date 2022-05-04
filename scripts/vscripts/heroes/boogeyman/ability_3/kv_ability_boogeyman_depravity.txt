@@ -1,0 +1,119 @@
+"DOTAAbilities"
+{
+    "lua_ability_boogeyman_depravity"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/boogeyman/ability_3/lua_ability_boogeyman_depravity"
+        "AbilityTextureName"     	    "boogeyman_depravity"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        //"AbilityUnitDamageType"  	    "DAMAGE_TYPE_PURE"
+        //"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+
+
+
+
+        //"AbilityCastPoint"				"0.1"
+        //"AnimationPlaybackRate"         "3.0"
+        //"AbilityCooldown"				"13"
+
+        //"AbilityManaCost"				"75 100 125 150"
+
+        //"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_2"
+
+
+
+        "precache"
+		{
+            "particle"  "particles/generic_gameplay/generic_lifesteal.vpcf"
+            "particle"  "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_sigil_c.vpcf"
+		}
+
+        "AbilityValues"
+        {
+
+            "aura_range"                        "650"
+        }
+
+
+        "AbilitySpecial"
+        {
+            "01" //base_ability_damage
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "melee_lifesteal_percent"            "15 20 25 30"
+                "LinkedSpecialBonus"    "special_bonus_boogeyman_depravity_lifesteal_up"
+            }
+
+            "02" //base_ability_damage
+            {
+                "var_type" 	"FIELD_FLOAT"
+                "range_lifesteal_percent"            "2.5 5.0 7.5 10.0"
+                "LinkedSpecialBonus"    "special_bonus_boogeyman_depravity_lifesteal_up"
+            }
+
+            "03"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "devour_stack_atkspd"               "15"
+                "LinkedSpecialBonus"    "special_bonus_boogeyman_depravity_atk_sped_per_stack_up"
+            }
+        }
+
+
+
+
+
+    }
+
+
+
+    "lua_ability_boogeyman_fright_night"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/boogeyman/ability_3/lua_ability_boogeyman_depravity"
+        "AbilityTextureName"     	    "night_stalker_darkness"
+        "MaxLevel"						"1"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_NONE"
+        //"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        //"AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        //"SpellDispellableType"		    "SPELL_DISPELLABLE_YES"
+
+        //"AbilityCastPoint"              "1.5"
+        //"AbilityChannelTime"            "1.5"
+
+        //"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        //"AnimationPlaybackRate"         "0.1"
+
+
+        "AbilityCooldown"				"3.0"
+		//"AbilityManaCost"				"90"
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+}

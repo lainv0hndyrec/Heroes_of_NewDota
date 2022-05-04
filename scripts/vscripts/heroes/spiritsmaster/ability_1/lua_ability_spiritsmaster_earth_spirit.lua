@@ -83,7 +83,7 @@ function lua_ability_spiritsmaster_earth_spirit:OnSpellStart()
         local dtable = {
             victim = enemies[i],
             attacker = self:GetCaster(),
-            damage = self:GetSpecialValueFor("ability_dmg"),
+            damage = self:GetSpecialValueFor("ability_damage"),
             damage_type = DAMAGE_TYPE_MAGICAL,
             damage_flags = DOTA_DAMAGE_FLAG_NONE,
             ability = self

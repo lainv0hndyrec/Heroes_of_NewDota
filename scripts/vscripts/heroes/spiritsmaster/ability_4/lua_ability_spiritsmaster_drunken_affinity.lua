@@ -48,23 +48,21 @@ end
 
 function lua_ability_spiritsmaster_drunken_affinity:OnSpellStart()
 
-    if self:GetCursorTarget():TriggerSpellAbsorb(self) then return end
-
     local str_mod = self:GetCaster():FindModifierByName("lua_modifier_spiritsmaster_drunken_affinity_str")
-    local str_agi = self:GetCaster():FindModifierByName("lua_modifier_spiritsmaster_drunken_affinity_agi")
-    local str_int = self:GetCaster():FindModifierByName("lua_modifier_spiritsmaster_drunken_affinity_int")
+    local agi_mod = self:GetCaster():FindModifierByName("lua_modifier_spiritsmaster_drunken_affinity_agi")
+    local int_mod = self:GetCaster():FindModifierByName("lua_modifier_spiritsmaster_drunken_affinity_int")
 
 
     if not str_mod == false then
         str_mod:Destroy()
     end
 
-    if not str_agi == false then
-        str_agi:Destroy()
+    if not agi_mod == false then
+        agi_mod:Destroy()
     end
 
-    if not str_int == false then
-        str_int:Destroy()
+    if not int_mod == false then
+        int_mod:Destroy()
     end
 
 

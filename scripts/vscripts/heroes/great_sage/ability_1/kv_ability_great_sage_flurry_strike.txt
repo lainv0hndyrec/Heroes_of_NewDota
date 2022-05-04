@@ -32,12 +32,29 @@
         {
             "flurry_range"    "300"
             "flurry_radius"   "200"
-            "bonus_attack_damage" "15 30 45 60"
-            "additional_cast_duration"  "2.5"
+
+
             "flurry_duration"  "0.1"
 
             "ability_cd"    "10 9 8 7"
             "ability_mana"  "90"
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "additional_cast_duration"  "2.5"
+                "LinkedSpecialBonus"    "special_bonus_great_sage_flurry_strike_freecast_duration"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "bonus_attack_damage"   "15 30 45 60"
+                "LinkedSpecialBonus"    "special_bonus_great_sage_flurry_strike_damage"
+            }
         }
 
     }

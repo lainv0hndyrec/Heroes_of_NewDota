@@ -20,17 +20,34 @@
             "particle" "particles/units/heroes/hero_grimstroke/grimstroke_ink_swell_aoe.vpcf"
 		}
 
-        
+
 
         "AbilityValues"
         {
-            "crit_damage" 		    "150 175 200 225"
+
             "aoe_damage" 		    "25 50 75 100"
-            "aoe_radius" 		    "200"
+
             "helper_count" 		    "12 10 8 6"
             "stacks" 		        "3"
         }
 
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "crit_damage" 		    "150 175 200 225"
+                "LinkedSpecialBonus"    "special_bonus_kalligromancer_heavy_blot_aoe_plus_crit"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "aoe_radius" 		    "200"
+                "LinkedSpecialBonus"    "special_bonus_kalligromancer_heavy_blot_aoe_range"
+            }
+
+        }
 
     }
 }

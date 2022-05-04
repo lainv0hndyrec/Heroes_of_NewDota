@@ -97,7 +97,6 @@ function lua_modifier_spiritsmaster_earth_spirit_transform:OnAttackLanded(event)
 end
 
 
-
 function lua_modifier_spiritsmaster_earth_spirit_transform:GetEffectName()
     return "particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_b.vpcf"
 end
@@ -122,7 +121,7 @@ function lua_modifier_spiritsmaster_earth_spirit_transform:OnCreated(kv)
         strom_mod:Destroy()
     end
 
-    self.original_scale = self:GetParent():GetModelScale()
+    self.original_scale = 0.88480001688004
     self:GetParent():SetModelScale(1.3)
 
     self.original_atk_type = self:GetParent():GetAttackCapability()

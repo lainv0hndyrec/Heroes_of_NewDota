@@ -1,0 +1,91 @@
+"DOTAAbilities"
+{
+    "lua_ability_atniw_druid_bear_rush"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/atniw_druid/ability_3/lua_ability_atniw_druid_bear_rush"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityTextureName"     	"lone_druid_spirit_link" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"		"SPELL_DISPELLABLE_YES"
+        "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        //"AbilityCastPoint"              "0.1"
+        //"AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        //"AnimationPlaybackRate"         "2.0"
+        //"AnimationIgnoresModelScale"    "1"
+
+        //"HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "40 50 60 70"
+        //"AbilityCooldown"               "3"
+        //"AbilityCastRange"              "3000"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/hero_lone_druid/lone_druid_rabid_buff_speed.vpcf"
+            "particle"  "particles/units/heroes/atniw_druid/ability_3/atniw_bear_rush_waves.vpcf"
+            "particle"  "particles/units/heroes/hero_lone_druid/lone_druid_savage_roar_debuff.vpcf"
+
+		}
+
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "trample_slow_percent"  "15 20 25 30"
+                //"LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+            }
+
+            "02"
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "trample_mr_minus_percent"   "4 8 12 16"
+            }
+
+            "03"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "trample_duration"      "6.0"
+            }
+
+        }
+
+
+
+        "AbilityValues"
+        {
+            "aoe_redius"  "200"
+            "movespeed_bonus"  "1500"
+
+            "mana_cost"     "70 75 80 85"
+            "ability_cd"    "24 20 16 12"
+            "cast_range"    "850"
+        }
+
+
+    }
+}

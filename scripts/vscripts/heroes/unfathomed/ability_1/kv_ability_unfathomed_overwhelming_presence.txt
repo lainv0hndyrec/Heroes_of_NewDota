@@ -41,6 +41,7 @@
             {
                 "var_type" 	                 "FIELD_INTEGER"
                 "aoe_range" 		         "400"
+                "LinkedSpecialBonus"  "special_bonus_unfathomed_overwhelming_presence_range"
             }
 
             "02" //attack damage
@@ -53,6 +54,7 @@
             {
                 "var_type" 	                 "FIELD_INTEGER"
                 "toggle_effect" 		     "10"
+                "LinkedSpecialBonus"  "special_bonus_unfathomed_overwhelming_presence_effect"
             }
 
             "04" //attack damage

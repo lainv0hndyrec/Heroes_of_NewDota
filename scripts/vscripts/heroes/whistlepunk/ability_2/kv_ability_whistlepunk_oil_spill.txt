@@ -13,7 +13,7 @@
         "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-        //"AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
         "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
@@ -55,8 +55,9 @@
         {
             "01"
             {
-                "var_type" 	"FIELD_INTEGER"
+                "var_type" 	"FIELD_FLOAT"
                 "slow_duration" 	"2 3 4 5"
+                "LinkedSpecialBonus"  "special_bonus_whistlepunk_oil_spill_slow_duration"
             }
 
             "02"
@@ -69,12 +70,14 @@
             {
                 "var_type" 	"FIELD_INTEGER"
                 "attack_speed_percent" 	"20 30 40 50"
+                "LinkedSpecialBonus"  "special_bonus_whistlepunk_oil_spill_slow_amount"
             }
 
             "04"
             {
                 "var_type" 	"FIELD_INTEGER"
                 "move_speed_percent" 	"30 40 50 60"
+                "LinkedSpecialBonus"  "special_bonus_whistlepunk_oil_spill_slow_amount"
             }
 
             "05"

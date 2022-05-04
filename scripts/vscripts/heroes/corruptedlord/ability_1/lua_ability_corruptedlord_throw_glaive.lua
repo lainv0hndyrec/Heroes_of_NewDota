@@ -12,6 +12,7 @@ function lua_ability_corruptedlord_throw_glaive:OnUpgrade()
     self.caster = self:GetCaster()
     self.blink_name = "lua_ability_corruptedlord_throw_glaive_blink"
     self.blink_q = self.caster:FindAbilityByName(self.blink_name)
+    if not self.blink_q then return end
     if self.blink_q:GetLevel() <= 0 then
         self.blink_q:SetLevel(1)
         self.blink_q:SetActivated(false)

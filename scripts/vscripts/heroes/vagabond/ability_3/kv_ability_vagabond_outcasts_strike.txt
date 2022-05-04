@@ -43,6 +43,7 @@
             {
                 "var_type"  	            "FIELD_INTEGER"
                 "max_crit" 		            "130 160 190 220"
+                "LinkedSpecialBonus"          "special_bonus_vagabond_phantom_outcasts_strike_max_crit"
             }
 
         }

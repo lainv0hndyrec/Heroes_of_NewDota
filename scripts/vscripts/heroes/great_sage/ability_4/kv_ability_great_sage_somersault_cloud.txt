@@ -37,7 +37,17 @@
         {
             "ability_cd" "5.0"
             "mana_regen" "3 5 7"
-            "ms_percent" "10 20 30"
+
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "ms_percent" "10 20 30"
+                "LinkedSpecialBonus"    "special_bonus_great_sage_somersault_cloud_ms_bonus"
+            }
         }
 
     }

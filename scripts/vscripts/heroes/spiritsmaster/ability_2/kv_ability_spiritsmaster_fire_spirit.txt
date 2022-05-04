@@ -37,22 +37,47 @@
 
         "AbilityValues"
         {
-            "ability_dmg"               "70 120 170 220"
+            "ability_damage"               "70 120 170 220"
 
             "dash_speed"                "1600"
 
             "hero_effect_time"          "15.0"
             "hero_effect_agi"           "4 8 12 16"
-            "hero_effect_ms_bonus"      "25 30 35 40"
+
 
             "dmg_steal_time"            "5.0"
-            "dmg_steal_hero_percent"    "10 20 30 40"
-            "dmg_steal_creep_percent"   "5 10 15 20"
+
 
             "ability_cd"                "10"
             "cast_range"                "600"
             "mana_cost"                 "75 85 95 105"
         }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "dmg_steal_hero_percent"    "10 20 30 40"
+                "LinkedSpecialBonus"  "special_bonus_spiritsmaster_fire_spirit_steal_up"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "dmg_steal_creep_percent"   "5 10 15 20"
+                "LinkedSpecialBonus"  "special_bonus_spiritsmaster_fire_spirit_steal_up"
+            }
+
+            "03"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "hero_effect_ms_bonus"      "25 30 35 40"
+                "LinkedSpecialBonus"  "special_bonus_spiritsmaster_fire_spirit_speed_up"
+            }
+        }
+
+
     }
 
 

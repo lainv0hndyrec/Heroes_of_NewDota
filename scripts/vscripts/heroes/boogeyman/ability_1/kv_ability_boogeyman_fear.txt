@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+    "lua_ability_boogeyman_fear"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/boogeyman/ability_1/lua_ability_boogeyman_fear"
+        "AbilityTextureName"     	    "night_stalker_void"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+
+
+
+
+        "AbilityCastPoint"				"0.2"
+        //"AnimationPlaybackRate"         "3.0"
+        //"AbilityCooldown"				"13"
+
+        //"AbilityManaCost"				"75 100 125 150"
+
+        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_5"
+
+
+
+        "precache"
+		{
+            "particle" ""
+		}
+
+        "AbilityValues"
+        {
+            "ability_damage"               "75 125 175 225"
+
+            "devour_damage_stack"          "35"
+            "devour_fear_stack"         "0.2"
+
+            "ability_cd"                "10"
+            "cast_range"                "275"
+            "mana_cost"                 "75 85 95 105"
+
+        }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "ability_fear"          "0.8"
+                "LinkedSpecialBonus"    "special_bonus_generic_boogeyman_fear_time_up"
+            }
+
+        }
+
+    }
+
+
+}

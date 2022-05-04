@@ -198,16 +198,6 @@ function lua_ability_whistlepunk_rockets:OnProjectileHit_ExtraData(target,locati
     	end
     end
 
-    --[[
-    local modifiers = target:FindAllModifiers()
-    for _,mod in pairs(modifiers) do
-        print(mod:GetName())
-    end]]
-
-    --[[
-    for skill = 0,10,1 do
-        print(target:GetAbilityByIndex(skill):GetName())
-    end]]
 
     return true
 end

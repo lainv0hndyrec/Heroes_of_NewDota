@@ -26,7 +26,7 @@
             "ward_collision"        "50"
             "ward_vision"           "700 800 900 1000"
             "ward_unhide_range"     "300"
-            "active_wards"          "2 3 4 5"
+
 
             "ward_silence_range"    "450"
             "silence_duration"      "2 3 4 5"
@@ -35,6 +35,17 @@
             "mana_cost"             "50"
             "cast_range"            "150"
 
+        }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "active_wards"          "2 3 4 5"
+                "LinkedSpecialBonus"  "special_bonus_qaldin_assassin_qaldin_eye_max"
+            }
         }
     }
 

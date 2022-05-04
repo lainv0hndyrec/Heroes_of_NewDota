@@ -40,23 +40,43 @@
 
         "AbilityValues"
         {
-            "aoe_tappering_slow_percent"    "40"
+
             "aoe_slow_time"                 "2.0"
 
             "buff_time"                     "5.0"
             "attack_ms_bonus"               "50"
-            "attack_bonus"                  "40 60 80 100"
-            "life_steal"                    "55 70 85 100"
+
+            "lfs_bonus"                    "55 70 85 100"
 
             "ability_cd"                    "8.0 7.0 6.0 5.0"
             "cast_range"                    "275"
             "mana_cost"                     "60"
 
-            "shard_dmg"                     "320"
+            "shard_dmg"                     "80 160 240 320"
             "shard_stun"                    "1.0"
             "shard_slow"                    "2.0"
         }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "aoe_tappering_slow_percent"    "40"
+                "LinkedSpecialBonus"    "special_bonus_fallen_one_soul_tap_slow_up"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "atk_bonus"          "40 60 80 100"
+                "LinkedSpecialBonus"    "special_bonus_fallen_one_soul_tap_dmg_up"
+            }
+        }
+
+
     }
+
 
 
 }

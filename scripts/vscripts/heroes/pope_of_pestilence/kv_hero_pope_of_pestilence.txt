@@ -1,0 +1,42 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// VAGABOND = PHANTOM LANCER
+	//=================================================================================================================
+	"npc_custom_hero_pope_of_pestilence"
+	{
+		"override_hero"				"npc_dota_hero_necrolyte"				// Hero to override
+
+		"Ability1"					"lua_ability_pope_of_pestilence_exorcismus"			// Ability 1
+		"Ability2"					"lua_ability_pope_of_pestilence_soul_explosion"
+		"Ability3"					"lua_ability_pope_of_pestilence_banish"			// Ability 3
+		"Ability4"					"generic_hidden"		// Ability 4
+		"Ability5"					"generic_hidden"		// Ability 5
+		"Ability6"					"lua_ability_pope_of_pestilence_the_rite"		// ULT
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+		//"AttackRange"					"150"
+		//"MovementSpeed"					"290"
+		//"MovementTurnRate"				"0.900000"
+		"ProjectileSpeed"		"900"
+
+		//Talents
+		"Ability10"			"special_bonus_pope_of_pestilence_banish_slow_up"
+		"Ability11"			"special_bonus_mp_regen_175"
+
+		"Ability12"			"special_bonus_corruption_25"
+		"Ability13"			"special_bonus_pope_of_pestilence_soul_explosion_aoe_up"
+
+		"Ability14"			"special_bonus_attack_range_125"
+		"Ability15"			"special_bonus_lifesteal_25"
+
+		"Ability16"			"special_bonus_pope_of_pestilence_soul_explosion_dmg_up"
+		"Ability17"			"special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+
+		//scepter the rite increase max +6, explosion +15, atkdmg +5, +150hp
+		//shard blood ghost silence enemies caught in the explosion, +15 dmg
+
+
+
+	}
+}

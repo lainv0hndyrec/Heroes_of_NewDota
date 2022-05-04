@@ -18,3 +18,7 @@
 //#base "../vscripts/heroes/qaldin_assassin/kv_hero_qaldin_assassin.txt"
 //#base "../vscripts/heroes/spiritsmaster/kv_hero_spiritsmaster.txt"
 //#base "../vscripts/heroes/fallen_one/kv_hero_fallen_one.txt"
+//#base "../vscripts/heroes/boogeyman/kv_hero_boogeyman.txt"
+//#base "../vscripts/heroes/pope_of_pestilence/kv_hero_pope_of_pestilence.txt"
+//#base "../vscripts/heroes/diviner/kv_hero_diviner.txt"
+//base "../vscripts/heroes/atniw_druid/kv_hero_atniw_druid.txt"

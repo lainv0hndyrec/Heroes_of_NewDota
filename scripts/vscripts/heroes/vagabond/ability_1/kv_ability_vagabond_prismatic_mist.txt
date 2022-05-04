@@ -46,6 +46,7 @@
             {
                 "var_type" 	                 "FIELD_FLOAT"
                 "duration" 		             "4.0 4.5 5.0 5.5"
+                "LinkedSpecialBonus"          "special_bonus_vagabond_prismatic_mist_duration"
             }
 
             "03"

@@ -14,9 +14,10 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
         "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         //"AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
         "SpellDispellableType"		    "SPELL_DISPELLABLE_YES_STRONG"
+        "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
 
 
 

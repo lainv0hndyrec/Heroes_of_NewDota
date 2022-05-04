@@ -39,10 +39,29 @@
         "AbilityValues"
         {
             "aura_range"            "300"
-            "regen_steal_percent"   "16 32 48 64"
-            "pure_dot"              "16 24 32 40"
-            "pure_dot_min"          "16"
+
+            "pure_dot_min_damage"          "16"
         }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "pure_dot_damage"              "16 24 32 40"
+                "LinkedSpecialBonus"    "special_bonus_fallen_one_sadism_dmg_up"
+            }
+
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "regen_steal_percent"   "16 32 48 64"
+                "LinkedSpecialBonus"    "special_bonus_fallen_one_sadism_regen_up"
+            }
+        }
+
     }
 
 

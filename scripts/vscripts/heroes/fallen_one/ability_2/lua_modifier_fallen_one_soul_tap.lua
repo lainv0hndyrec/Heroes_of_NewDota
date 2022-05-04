@@ -101,14 +101,14 @@ end
 
 function lua_modifier_fallen_one_soul_tap_buff:GetModifierPreAttack_BonusDamage()
     --talent
-    local bonus_dmg = self:GetAbility():GetSpecialValueFor("attack_bonus")
+    local bonus_dmg = self:GetAbility():GetSpecialValueFor("atk_bonus")
     local talent = self:GetParent():FindAbilityByName("special_bonus_fallen_one_soul_tap_dmg_up")
     if not talent == false then
         if talent:GetLevel() > 0 then
             bonus_dmg = bonus_dmg + talent:GetSpecialValueFor("value")
         end
     end
-    
+
     return bonus_dmg
 end
 
@@ -127,12 +127,10 @@ function lua_modifier_fallen_one_soul_tap_buff:OnAttackLanded(event)
     )
     ParticleManager:SetParticleControl(slash,0,self:GetParent():GetAbsOrigin())
 
-
     if event.target:IsBuilding() then
         self:Destroy()
         return
     end
-
 
     local lf_particle = ParticleManager:CreateParticle(
         "particles/generic_gameplay/generic_lifesteal.vpcf",
@@ -140,9 +138,7 @@ function lua_modifier_fallen_one_soul_tap_buff:OnAttackLanded(event)
     )
     ParticleManager:SetParticleControl(lf_particle,0,self:GetParent():GetAbsOrigin())
 
-
-
-    local lifesteal = self:GetAbility():GetSpecialValueFor("life_steal")*0.01
+    local lifesteal = self:GetAbility():GetSpecialValueFor("lfs_bonus")*0.01
     local heal = event.damage*lifesteal
     self:GetParent():Heal(heal,self:GetAbility())
 

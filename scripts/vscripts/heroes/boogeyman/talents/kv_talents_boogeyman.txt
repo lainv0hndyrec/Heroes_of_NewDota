@@ -1,0 +1,105 @@
+"DOTAAbilities"
+{
+    "special_bonus_boogeyman_fear_range_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"100"
+			}
+		}
+	}
+
+
+    "special_bonus_boogeyman_depravity_lifesteal_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"10"
+			}
+		}
+	}
+
+
+
+    "special_bonus_boogeyman_lunge_range_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"300"
+			}
+		}
+	}
+
+
+
+    //"special_bonus_generic_boogeyman_fear_time_up"
+	//{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"BaseClass"						"special_bonus_undefined"
+		//"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        //"AbilitySpecial"
+		//{
+			//"01"
+			//{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"1.0"
+			//}
+	//	}
+//	}
+
+
+    "special_bonus_boogeyman_depravity_atk_sped_per_stack_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"15"
+			}
+		}
+	}
+
+
+}

@@ -49,7 +49,7 @@ function lua_modifier_fallen_one_revelation_delay:OnIntervalThink()
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
 
     local aoe_range = self:GetAbility():GetAOERadius()
-    local aoe_dmg = self:GetAbility():GetSpecialValueFor("blast_dmg")
+    local aoe_dmg = self:GetAbility():GetSpecialValueFor("blast_damage")
     local heal_time = self:GetAbility():GetSpecialValueFor("blast_heal_time")
 
     --talent

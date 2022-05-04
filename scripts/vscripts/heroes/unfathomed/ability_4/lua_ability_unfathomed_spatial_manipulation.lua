@@ -29,7 +29,7 @@ function lua_ability_unfathomed_spatial_manipulation:GetAOERadius()
     if self:GetCaster():HasScepter() then
         return self:GetSpecialValueFor("scepter_range")
     end
-    return self:GetSpecialValueFor("ability_range")
+    return self:GetLevelSpecialValueFor("ability_range",0)
 end
 
 

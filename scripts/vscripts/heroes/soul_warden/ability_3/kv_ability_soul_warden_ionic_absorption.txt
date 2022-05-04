@@ -13,7 +13,7 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
-        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
         "AbilityTextureName"     	      "soul_warden_ionic_absorption"
 
 
@@ -39,11 +39,14 @@
             "aoe_damage"    "85 150 215 280"
             "mana_drain_percent"    "8 10 12 14"
             "mana_gain_per_stack"    "15 20 25 30"
-            "ms_duration"       "7"
+
             "ms_initial"        "25"
-            "ms_max_stack"      "3"
             "ms_per_stack"      "5"
-            "ability_cd"        "13"
+            "ms_max_stack"      "3"
+
+            "ms_duration"       "7.0"
+
+            "ability_cd"        "13.0"
         }
     }
 

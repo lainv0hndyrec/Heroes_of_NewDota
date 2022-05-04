@@ -1,0 +1,59 @@
+"DOTAAbilities"
+{
+    "lua_ability_boogeyman_devour"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/boogeyman/ability_4/lua_ability_boogeyman_devour"
+        "AbilityTextureName"     	    "night_stalker_crippling_fear"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        //"AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+
+
+
+
+        "AbilityCastPoint"				"0.2"
+        //"AnimationPlaybackRate"         "3.0"
+        //"AbilityCooldown"				"13"
+
+        //"AbilityManaCost"				"75 100 125 150"
+
+        "AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_1"
+
+
+
+        "precache"
+		{
+            "particle"  "particles/generic_gameplay/generic_lifesteal.vpcf"
+            "particle"  "particles/units/heroes/boogeyman/ability_4/boogeyman_blood_orbwex_orb.vpcf"
+		}
+
+        "AbilityValues"
+        {
+
+            "ability_damage"               "200 300 400"
+            "devour_stack_damage"          "30 50 70"
+            "max_devour_stack"          "3"
+            "debuff_kill_time"          "0.25"
+
+            "scepter_devour_stack"      "3"
+
+            "ability_cd"                "30"
+            "cast_range"                "150"
+            "mana_cost"                 "100"
+
+        }
+    }
+
+
+}

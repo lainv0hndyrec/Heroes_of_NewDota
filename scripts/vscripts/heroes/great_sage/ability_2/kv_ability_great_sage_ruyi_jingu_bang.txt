@@ -32,8 +32,10 @@
 
         "AbilityValues"
         {
+
             "cast_range"                    "200"
-            "re_cast_range"                 "300"
+            "ability_damage"                "70 110 150 190"
+
             "aoe_radius"                    "250"
 
 
@@ -42,20 +44,27 @@
 
             "building_vault_distance"       "600"
 
-            "ability_damage"                "70 110 150 190"
-
+            "re_cast_range"                 "300"
 
             "pull_animation"                "0.1"
             "vault_animation"               "0.4"
 
-
             "slow_percent"                  "20 35 50 65"
-            "slow_duration"                 "2.0"
 
 
             "additional_cast_duration"      "2.5"
             "ability_cd"                    "8"
             "ability_mana"                  "120"
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "slow_duration"                 "2.0"
+                "LinkedSpecialBonus"    "special_bonus_great_sage_ruyi_jingu_bang_slow_duration"
+            }
         }
 
     }

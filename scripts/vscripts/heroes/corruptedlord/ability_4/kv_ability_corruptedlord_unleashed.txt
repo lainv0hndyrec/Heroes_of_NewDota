@@ -95,7 +95,9 @@
             {
                 "var_type"  	            "FIELD_FLOAT"
                 "talent_max_armor_duration" "7.0"
+                "LinkedSpecialBonus"  "special_bonus_corruptedlord_unleashed_armor_duration"
             }
+
         }
     }
 }

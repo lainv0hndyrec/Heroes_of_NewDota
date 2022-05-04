@@ -41,7 +41,7 @@
             "enemy_ms"      "40 60 80"
             "ally_ms"       "30 40 50"
             "summon_damage" "700 850 1000"
-            "ms_duration"   "5"
+            "ms_duration"   "5.0"
             "cast_range"    "600"
 
             "scepter_max_chain"   "3"

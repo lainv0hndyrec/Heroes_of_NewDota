@@ -51,7 +51,7 @@
         "AbilityValues"
         {
             "blast_delay"               "0.65"
-            "blast_dmg"                 "130 210 290 370"
+
             "blast_heal_percent"        "40"
             "blast_heal_time"           "5.0"
 
@@ -62,5 +62,18 @@
 
 
         }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "blast_damage"                 "130 210 290 370"
+                "LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+        }
+
+
     }
 }

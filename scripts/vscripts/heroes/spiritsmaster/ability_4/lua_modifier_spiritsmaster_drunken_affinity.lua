@@ -5,7 +5,7 @@ function lua_modifier_spiritsmaster_drunken_affinity_str:IsHidden() return false
 function lua_modifier_spiritsmaster_drunken_affinity_str:IsDebuff() return false end
 function lua_modifier_spiritsmaster_drunken_affinity_str:IsPurgable() return false end
 function lua_modifier_spiritsmaster_drunken_affinity_str:IsPurgeException() return true end
-
+function lua_modifier_spiritsmaster_drunken_affinity_str:AllowIllusionDuplicate() return true end
 
 function lua_modifier_spiritsmaster_drunken_affinity_str:DeclareFunctions()
     return {MODIFIER_PROPERTY_STATS_STRENGTH_BONUS}
@@ -20,6 +20,21 @@ end
 function lua_modifier_spiritsmaster_drunken_affinity_str:OnCreated(kv)
 
     if not IsServer() then return end
+
+    if self:GetParent():IsIllusion() then
+        local original = self:GetParent():GetReplicatingOtherHero()
+        if not original then return end
+
+        local mod = original:FindModifierByName("lua_modifier_spiritsmaster_drunken_affinity_str")
+        if not mod then return end
+
+        local stacks = mod:GetStackCount()
+        self:SetStackCount(stacks)
+
+        return
+    end
+
+    if not kv.target then return end
 
     self.target = EntIndexToHScript(kv.target)
 
@@ -63,6 +78,7 @@ function lua_modifier_spiritsmaster_drunken_affinity_agi:IsHidden() return false
 function lua_modifier_spiritsmaster_drunken_affinity_agi:IsDebuff() return false end
 function lua_modifier_spiritsmaster_drunken_affinity_agi:IsPurgable() return false end
 function lua_modifier_spiritsmaster_drunken_affinity_agi:IsPurgeException() return true end
+function lua_modifier_spiritsmaster_drunken_affinity_agi:AllowIllusionDuplicate() return true end
 
 
 function lua_modifier_spiritsmaster_drunken_affinity_agi:DeclareFunctions()
@@ -78,6 +94,21 @@ end
 function lua_modifier_spiritsmaster_drunken_affinity_agi:OnCreated(kv)
 
     if not IsServer() then return end
+
+    if self:GetParent():IsIllusion() then
+        local original = self:GetParent():GetReplicatingOtherHero()
+        if not original then return end
+
+        local mod = original:FindModifierByName("lua_modifier_spiritsmaster_drunken_affinity_agi")
+        if not mod then return end
+
+        local stacks = mod:GetStackCount()
+        self:SetStackCount(stacks)
+
+        return
+    end
+
+    if not kv.target then return end
 
     self.target = EntIndexToHScript(kv.target)
 
@@ -121,6 +152,7 @@ function lua_modifier_spiritsmaster_drunken_affinity_int:IsHidden() return false
 function lua_modifier_spiritsmaster_drunken_affinity_int:IsDebuff() return false end
 function lua_modifier_spiritsmaster_drunken_affinity_int:IsPurgable() return false end
 function lua_modifier_spiritsmaster_drunken_affinity_int:IsPurgeException() return true end
+function lua_modifier_spiritsmaster_drunken_affinity_int:AllowIllusionDuplicate() return true end
 
 
 function lua_modifier_spiritsmaster_drunken_affinity_int:DeclareFunctions()
@@ -136,6 +168,21 @@ end
 function lua_modifier_spiritsmaster_drunken_affinity_int:OnCreated(kv)
 
     if not IsServer() then return end
+
+    if self:GetParent():IsIllusion() then
+        local original = self:GetParent():GetReplicatingOtherHero()
+        if not original then return end
+
+        local mod = original:FindModifierByName("lua_modifier_spiritsmaster_drunken_affinity_int")
+        if not mod then return end
+
+        local stacks = mod:GetStackCount()
+        self:SetStackCount(stacks)
+
+        return
+    end
+
+    if not kv.target then return end
 
     self.target = EntIndexToHScript(kv.target)
 

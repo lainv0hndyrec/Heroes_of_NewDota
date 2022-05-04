@@ -43,6 +43,7 @@
             {
                 "var_type" 	"FIELD_INTEGER"
                 "effect_distance" 	"75 150 225 300"
+                "LinkedSpecialBonus"  "special_bonus_unfathomed_yield_range"
             }
 
             "02"
@@ -51,11 +52,6 @@
                 "str_damage" 	"40 60 80 100"
             }
 
-            "02"
-            {
-                "var_type" 	"FIELD_FLOAT"
-                "shard_stun" 	"3"
-            }
         }
 	}
 }

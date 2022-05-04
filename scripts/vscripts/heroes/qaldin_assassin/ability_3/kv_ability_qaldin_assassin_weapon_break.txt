@@ -26,9 +26,20 @@
             "ability_cd"         "16.0 14.0 12.0 10.0"
             "cd_per_atk"         "1.0"
 
-            "crit_percent"      "140 160 180 200"
+
 
             "disarm_duration"      "2.0"
+        }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "crit_percent"      "140 160 180 200"
+                "LinkedSpecialBonus"  "special_bonus_qaldin_assassin_weapon_break_crit_up"
+            }
         }
     }
 }

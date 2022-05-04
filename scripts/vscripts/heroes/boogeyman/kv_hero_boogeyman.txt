@@ -1,0 +1,41 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// VAGABOND = PHANTOM LANCER
+	//=================================================================================================================
+	"npc_custom_hero_boogeyman"
+	{
+		"override_hero"				"npc_dota_hero_night_stalker"				// Hero to override
+
+		"Ability1"					"lua_ability_boogeyman_fear"			// Ability 1
+		"Ability2"					"lua_ability_boogeyman_lunge"
+		"Ability3"					"lua_ability_boogeyman_depravity"			// Ability 3
+		"Ability4"					"lua_ability_boogeyman_fright_night"		// Ability 4 lua_ability_boogeyman_fright_night
+		"Ability5"					"generic_hidden"		// Ability 5
+		"Ability6"					"lua_ability_boogeyman_devour"		// ULT
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+		"AttackRange"					"150"
+		"MovementSpeed"					"290"
+		"MovementTurnRate"				"0.900000"
+
+		//Talents
+		"Ability10"			"special_bonus_mp_regen_150"
+		"Ability11"			"special_bonus_boogeyman_fear_range_up"
+
+		"Ability12"			"special_bonus_boogeyman_depravity_lifesteal_up"
+		"Ability13"			"special_bonus_intelligence_15"
+
+		"Ability14"			"special_bonus_hp_225"
+		"Ability15"			"special_bonus_boogeyman_lunge_range_up"
+
+		"Ability16"			"special_bonus_boogeyman_depravity_atk_sped_per_stack_up"
+		"Ability17"			"special_bonus_spell_amplify_20"
+
+		//scepter devour max stacks is 6
+		//shard new ability fight night gain flight at night, take damage cd 3 sec
+
+
+
+	}
+}

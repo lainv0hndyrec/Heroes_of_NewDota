@@ -77,6 +77,8 @@ end
 function lua_modifier_unfathomed_overwhelming_presence:GetModifierDamageOutgoing_Percentage(event)
     if self.is_push == false then return end
 
+    if not event.attacker then return end
+
     if event.attacker:IsAlive() == false then return end
 
     if event.attacker ~= self:GetParent() then return end
@@ -97,6 +99,8 @@ end
 
 function lua_modifier_unfathomed_overwhelming_presence:GetModifierIncomingDamage_Percentage(event)
     if self.is_push == true then return end
+
+    if not event.attacker then return end
 
     if event.attacker:IsAlive() == false then return end
 

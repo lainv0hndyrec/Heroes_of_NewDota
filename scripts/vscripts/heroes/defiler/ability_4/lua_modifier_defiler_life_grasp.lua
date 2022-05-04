@@ -187,11 +187,38 @@ function lua_modifier_defiler_life_grasp_leap:IsPurgeException() return false en
 
 function lua_modifier_defiler_life_grasp_leap:CheckState()
     local cstate = {
-        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+        [MODIFIER_STATE_STUNNED] = true,
         [MODIFIER_STATE_NO_UNIT_COLLISION] = true
     }
     return cstate
 end
+
+
+
+function lua_modifier_defiler_life_grasp_leap:DeclareFunctions()
+    return {MODIFIER_EVENT_ON_MODIFIER_ADDED}
+end
+
+
+
+function lua_modifier_defiler_life_grasp_leap:OnModifierAdded(event)
+    if not IsServer() then return end
+    if event.unit ~= self:GetParent() then return end
+    if event.added_buff == self then return end
+
+    if self:GetParent():IsStunned() then
+        self:Destroy()
+        return
+    end
+
+    if self:GetParent():IsRooted() then
+        self:Destroy()
+        return
+    end
+
+end
+
+
 
 
 function lua_modifier_defiler_life_grasp_leap:OnCreated(kv)
@@ -228,16 +255,6 @@ function lua_modifier_defiler_life_grasp_leap:UpdateHorizontalMotion(me,dt)
         return
     end
 
-    if self:GetParent():IsStunned() then
-        self:Destroy()
-        return
-    end
-
-    if self:GetParent():IsRooted() then
-        self:Destroy()
-        return
-    end
-
     local speed = self:GetAbility():GetSpecialValueFor("leap_speed")*dt
     local target_pos = self.target:GetAbsOrigin()
     local my_pos = self:GetParent():GetAbsOrigin()
@@ -248,6 +265,13 @@ function lua_modifier_defiler_life_grasp_leap:UpdateHorizontalMotion(me,dt)
     velocity = GetGroundPosition(velocity,self:GetParent())
 
     self:GetCaster():FaceTowards(target_pos)
+
+    local cast_range = self:GetAbility():GetCastRange(target_pos,self.target)
+    if diff_length > cast_range*1.5 then
+        self:Destroy()
+        return
+    end
+
 
     if diff_length <= 150 then
         self:GetParent():SetAbsOrigin(target_pos-(diff_norm*150))

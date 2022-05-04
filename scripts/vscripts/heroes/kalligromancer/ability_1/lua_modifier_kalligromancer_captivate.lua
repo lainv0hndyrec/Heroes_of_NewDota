@@ -121,6 +121,6 @@ function lua_modifier_kalligromancer_captivate:create_particle_effects()
     ParticleManager:SetParticleControlEnt(
         self.particle_trail, 1, self:GetParent(),
         PATTACH_POINT_FOLLOW, "follow_hitloc",
-        orb_pos, true
+        Vector(0,0,0), false
     )
 end

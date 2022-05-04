@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+    "lua_ability_pope_of_pestilence_soul_explosion"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/pope_of_pestilence/ability_2/lua_ability_pope_of_pestilence_soul_explosion"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityTextureName"     	"pope_of_pestilence_soul_explosion" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        //"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        "AbilityCastPoint"              "0.0"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        //"AnimationPlaybackRate"         "2.0"
+        //"AnimationIgnoresModelScale"    "1"
+
+        //"HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "40 50 60 70"
+        //"AbilityCooldown"               "3"
+        //"AbilityCastRange"              "3000"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"  ""
+
+		}
+
+
+        "AbilityValues"
+        {
+            "base_damage"           "40 80 120 160"
+
+
+            "mana_cost"     "100 110 120 130"
+            "ability_cd"    "15"
+            "cast_range"    "600"
+
+        }
+
+
+        "AbilitySpecial"
+        {
+
+            "01"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "aoe_radius"            "400"
+                "LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_soul_explosion_aoe_up"
+            }
+
+            "02"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "skull_damage"          "10 20 30 40"
+                "LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_soul_explosion_dmg_up"
+            }
+
+        }
+
+    }
+}

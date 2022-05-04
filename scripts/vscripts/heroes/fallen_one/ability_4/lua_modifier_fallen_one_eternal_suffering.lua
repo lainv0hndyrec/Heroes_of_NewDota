@@ -49,7 +49,7 @@ function lua_modifier_fallen_one_eternal_suffering:OnIntervalThink()
 
     if not IsServer() then return end
 
-    local pure_dot = self:GetAbility():GetSpecialValueFor("pure_dot")
+    local pure_dot = self:GetAbility():GetSpecialValueFor("pure_dot_damage")
 
     if self:GetCaster():HasScepter() then
         local scepter_stack = self:GetCaster():FindModifierByName("lua_modifier_fallen_one_eternal_suffering_scepter")
@@ -161,4 +161,20 @@ function lua_modifier_fallen_one_eternal_suffering_scepter:OnTakeDamage(event)
     if not doom then return end
 
     doom:ForceRefresh()
+end
+
+
+function lua_modifier_fallen_one_eternal_suffering_scepter:OnCreated(kv)
+    if not IsServer() then return end
+    if self:GetParent():IsIllusion() == false then return end
+
+    local original = self:GetParent():GetReplicatingOtherHero()
+    if not original then return end
+
+    local mod = original:FindModifierByName("lua_modifier_fallen_one_eternal_suffering_scepter")
+    if not mod then return end
+
+    self:SetStackCount(mod:GetStackCount())
+
+
 end

@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+    "lua_ability_pope_of_pestilence_banish"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/pope_of_pestilence/ability_3/lua_ability_pope_of_pestilence_banish"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+        "AbilityTextureName"     	"necrolyte_death_pulse" //test textures
+        //"AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        //"AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        //"AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        //"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        //"AbilityCastPoint"              "0.1"
+        //"AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        //"AnimationPlaybackRate"         "2.0"
+        //"AnimationIgnoresModelScale"    "1"
+
+        //"HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "40 50 60 70"
+        //"AbilityCooldown"               "3"
+        //"AbilityCastRange"              "3000"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy_skull_glow.vpcf"
+            "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_ghosts_ambient.vpcf"
+
+		}
+
+
+        "AbilityValues"
+        {
+            //"tethered_soul_range"   "99999"
+            "pick_range"        "100"
+            "soul_decay"        "15.0"
+
+            "crit_damage"      "120 140 160 180"
+
+            "slow_time"  "2.0"
+        }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "ms_slow_percent"       "25 30 35 40"
+                "LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_banish_slow_up"
+            }
+        }
+
+    }
+}

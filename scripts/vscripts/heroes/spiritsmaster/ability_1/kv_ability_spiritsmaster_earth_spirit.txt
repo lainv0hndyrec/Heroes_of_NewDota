@@ -40,15 +40,12 @@
 
         "AbilityValues"
         {
-            "ability_dmg"               "70 120 170 220"
+            "ability_damage"               "70 120 170 220"
 
             "hero_effect_time"          "15.0"
             "hero_effect_str"           "4 8 12 16"
             "hero_effect_armor"         "3 6 9 12"
             "hero_effect_mr_percent"    "4 8 12 16"
-
-            "slow_time"                 "2.5 3.0 3.5 4"
-            "slow_percent"              "25"
 
             "ability_cd"                "10"
             "cast_range"                "300"
@@ -56,6 +53,23 @@
 
             "scepter_aoe_atk_percent"   "40 50 60 70"
             "scepter_aoe_atk_radius"    "225"
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "slow_percent"              "25"
+                "LinkedSpecialBonus"  "special_bonus_spiritsmaster_earth_spirit_slow_up"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "slow_time"                 "2.5 3.0 3.5 4"
+                "LinkedSpecialBonus"  "special_bonus_spiritsmaster_earth_spirit_slow_time_up"
+            }
         }
     }
 

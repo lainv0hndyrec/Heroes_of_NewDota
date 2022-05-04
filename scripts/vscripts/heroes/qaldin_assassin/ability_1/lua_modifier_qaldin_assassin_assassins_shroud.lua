@@ -99,7 +99,7 @@ function lua_modifier_qaldin_assassin_assassins_shroud:OnIntervalThink()
     local talent = self:GetCaster():FindAbilityByName("special_bonus_qaldin_assassin_assassins_shroud_minus_mana_per_sec")
     if not talent == false then
         if talent:GetLevel() > 0 then
-            mana_per_sec = mana_per_sec - talent:GetSpecialValueFor("value")
+            mana_per_sec = mana_per_sec + talent:GetSpecialValueFor("value")
         end
     end
 

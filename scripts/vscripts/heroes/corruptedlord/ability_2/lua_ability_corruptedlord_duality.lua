@@ -11,6 +11,8 @@ function lua_ability_corruptedlord_duality_chaos:OnUpgrade()
     self.switch_name = "lua_ability_corruptedlord_duality_solace"
     self.ability_switch = self.caster:FindAbilityByName(self.switch_name)
 
+    if not self.ability_switch then return end
+
     self.ability_switch.caster = self.caster
     self.ability_switch.switch_name = "lua_ability_corruptedlord_duality_chaos"
     self.ability_switch.ability_switch = self

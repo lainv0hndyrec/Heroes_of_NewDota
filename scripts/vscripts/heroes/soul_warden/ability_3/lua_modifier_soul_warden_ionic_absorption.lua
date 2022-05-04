@@ -2,8 +2,8 @@ lua_modifier_soul_warden_ionic_absorption = class({})
 
 function lua_modifier_soul_warden_ionic_absorption:IsHidden() return false end
 function lua_modifier_soul_warden_ionic_absorption:IsDebuff() return false end
-function lua_modifier_soul_warden_ionic_absorption:IsPurgable() return false end
-function lua_modifier_soul_warden_ionic_absorption:IsPurgeException() return false end
+function lua_modifier_soul_warden_ionic_absorption:IsPurgable() return true end
+function lua_modifier_soul_warden_ionic_absorption:IsPurgeException() return true end
 
 
 

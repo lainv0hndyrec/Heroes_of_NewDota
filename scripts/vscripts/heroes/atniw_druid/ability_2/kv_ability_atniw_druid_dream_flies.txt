@@ -1,0 +1,114 @@
+
+
+
+"DOTAAbilities"
+{
+    "lua_ability_atniw_druid_dream_flies"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/atniw_druid/ability_2/lua_ability_atniw_druid_dream_flies"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityTextureName"     	"atniw_druid_dream_flies" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        "AbilityCastPoint"              "0.1"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        //"AnimationPlaybackRate"         "2.0"
+        //"AnimationIgnoresModelScale"    "1"
+
+        //"HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "40 50 60 70"
+        //"AbilityCooldown"               "3"
+        //"AbilityCastRange"              "3000"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/atniw_druid/ability_2/antiw_druid_dream_fliesshot.vpcf"
+            "particle"  "particles/units/heroes/atniw_druid/ability_2/antiw_druid_dream_flies_debuff.vpcf"
+
+		}
+
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "ability_damage"        "100 150 200 250"
+                //"LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+            }
+
+            "02"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "ms_slow_percent"        "30"
+                "LinkedSpecialBonus"    "special_bonus_atniw_druid_dream_flies_slow_up"
+            }
+
+            "03"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "ms_slow_duration"         "0.6"
+                "LinkedSpecialBonus"    "special_bonus_atniw_druid_dream_flies_slow_time_up"
+            }
+
+            "04"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "move_stun_duration"    "1.0 1.5 2.0 2.5"
+            }
+
+            "05"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "impact_vision"         "800"
+            }
+
+            "06"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "vision_duration"         "3.4"
+            }
+
+
+        }
+
+
+
+        "AbilityValues"
+        {
+            "aoe_redius"  "300"
+            "projectile_speed"  "600"
+
+            "mana_cost"     "95 100 105 110"
+            "ability_cd"    "11"
+            "cast_range"    "750"
+        }
+
+
+    }
+}

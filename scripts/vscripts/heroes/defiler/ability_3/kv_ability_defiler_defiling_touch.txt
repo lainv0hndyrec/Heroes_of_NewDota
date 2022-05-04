@@ -17,9 +17,27 @@
 
         "AbilityValues"
         {
-            "dmg_bonus_percent"         "7 14 21 28"
-            "dmg_decrease_percent"      "7 14 21 28"
+
+
             "debuff_time"               "3.0"
+        }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "dmg_decrease_percent"      "7 14 21 28"
+                "LinkedSpecialBonus"    "special_bonus_defiler_defiling_touch_decrease_dmg"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "dmg_bonus_percent"         "7 14 21 28"
+                "LinkedSpecialBonus"    "special_bonus_defiler_defiling_touch_bonus_dmg"
+            }
         }
     }
 }

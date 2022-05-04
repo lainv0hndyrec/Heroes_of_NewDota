@@ -1,0 +1,32 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	//
+	//=================================================================================================================
+	"npc_custom_hero_diviner"
+	{
+		"override_hero"				"npc_dota_hero_oracle"				// Hero to override
+
+		"Ability1"					"lua_ability_diviner_karma"			// Ability 1
+		"Ability2"					"lua_ability_diviner_chaotic_insight"
+		"Ability3"					"lua_ability_diviner_altered_fate"			// Ability 3
+		"Ability4"					"generic_hidden"		// Ability 4
+		"Ability5"					"generic_hidden"		// Ability 5
+		"Ability6"					"lua_ability_diviner_shared_fate"		// ULT
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+
+		//Talents
+		"Ability10"		"special_bonus_attack_damage_60"
+		"Ability11"		"special_bonus_diviner_karma_max_dmg_up"
+
+		"Ability12"		"special_bonus_diviner_chaotic_insight_cd_down"
+		"Ability13"		"special_bonus_movement_speed_20"
+
+		"Ability14"		"special_bonus_diviner_altered_fate_passive_up"
+		"Ability15"		"special_bonus_diviner_altered_fate_cd_down"
+
+		"Ability16"		"special_bonus_diviner_karma_cd_down"
+		"Ability17"		"special_bonus_attack_speed_100"
+	}
+}

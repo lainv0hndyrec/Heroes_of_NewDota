@@ -1,0 +1,107 @@
+"DOTAAbilities"
+{
+    "special_bonus_diviner_karma_max_dmg_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"75"
+			}
+		}
+	}
+
+
+
+    "special_bonus_diviner_chaotic_insight_cd_down"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"value"					"4.0"
+			}
+		}
+	}
+
+
+
+    "special_bonus_diviner_altered_fate_passive_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"value"					"0.08"
+			}
+		}
+	}
+
+
+
+    "special_bonus_diviner_altered_fate_cd_down"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        //"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		//"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"value"					"6.0"
+			}
+		}
+	}
+
+
+
+    "special_bonus_diviner_karma_cd_down"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+        //"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		//"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"value"					"6.0"
+			}
+		}
+	}
+
+
+}

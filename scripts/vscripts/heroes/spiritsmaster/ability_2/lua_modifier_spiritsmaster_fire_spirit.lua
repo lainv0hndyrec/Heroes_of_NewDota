@@ -98,7 +98,7 @@ function lua_modifier_spiritsmaster_fire_spirit_transform:OnCreated(kv)
         strom_mod:Destroy()
     end
 
-    self.original_scale = self:GetParent():GetModelScale()
+    self.original_scale = 0.88480001688004
     self:GetParent():SetModelScale(1.1)
 
     self.original_atk_type = self:GetParent():GetAttackCapability()
@@ -148,10 +148,15 @@ function lua_modifier_spiritsmaster_fire_spirit_dash:IsPurgable() return false e
 function lua_modifier_spiritsmaster_fire_spirit_dash:IsPurgeException() return false end
 
 
+function lua_modifier_spiritsmaster_fire_spirit_dash:eclareFunctions()
+    return {MODIFIER_EVENT_ON_MODIFIER_ADDED}
+end
+
+
 function lua_modifier_spiritsmaster_fire_spirit_dash:CheckState()
     local cstate = {
         [MODIFIER_STATE_NO_UNIT_COLLISION]  = true,
-        [MODIFIER_STATE_COMMAND_RESTRICTED] = true
+        [MODIFIER_STATE_STUNNED] = true
     }
     return cstate
 end
@@ -183,6 +188,29 @@ function lua_modifier_spiritsmaster_fire_spirit_dash:OnCreated(kv)
 end
 
 
+
+function lua_modifier_spiritsmaster_fire_spirit_dash:OnModifierAdded(event)
+    if not IsServer() then return end
+    if event.unit ~= self:GetParent() then return end
+    if event.added_buff == self then return end
+
+    if self:GetParent():IsStunned() then
+        self:Destroy()
+        return
+    end
+
+    if self:GetParent():IsRooted() then
+        self:Destroy()
+        return
+    end
+
+end
+
+
+
+
+
+
 function lua_modifier_spiritsmaster_fire_spirit_dash:UpdateHorizontalMotion(me,dt)
     if not IsServer() then return end
 
@@ -196,15 +224,6 @@ function lua_modifier_spiritsmaster_fire_spirit_dash:UpdateHorizontalMotion(me,d
         return
     end
 
-    if self:GetParent():IsStunned() then
-        self:Destroy()
-        return
-    end
-
-    if self:GetParent():IsRooted() then
-        self:Destroy()
-        return
-    end
 
     local speed = self:GetAbility():GetSpecialValueFor("dash_speed")*dt
     local target_pos = self.target:GetAbsOrigin()
@@ -216,6 +235,12 @@ function lua_modifier_spiritsmaster_fire_spirit_dash:UpdateHorizontalMotion(me,d
     velocity = GetGroundPosition(velocity,self:GetParent())
 
     self:GetParent():FaceTowards(target_pos)
+
+    local cast_range = self:GetAbility():GetCastRange(target_pos,self.target)
+    if diff_length > cast_range*1.5 then
+        self:Destroy()
+        return
+    end
 
     if diff_length <= 150 then
         self:GetParent():SetAbsOrigin(target_pos-(diff_norm*150))
@@ -297,7 +322,7 @@ function lua_modifier_spiritsmaster_fire_spirit_dash:StealAttack()
     local dtable = {
         victim = self.target,
         attacker = self:GetParent(),
-        damage = self:GetAbility():GetSpecialValueFor("ability_dmg"),
+        damage = self:GetAbility():GetSpecialValueFor("ability_damage"),
         damage_type = DAMAGE_TYPE_MAGICAL,
         damage_flags = DOTA_DAMAGE_FLAG_NONE,
         ability = self:GetAbility()

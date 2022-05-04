@@ -133,7 +133,7 @@ function lua_modifier_spiritsmaster_storm_spirit_transform:OnCreated(kv)
 
     self.new_projectile_speed = self:GetAbility():GetSpecialValueFor("projectile_speed") - self:GetParent():GetProjectileSpeed()
 
-    self.original_scale = self:GetParent():GetModelScale()
+    self.original_scale = 0.88480001688004
     self:GetParent():SetModelScale(1.1)
 
     self.original_atk_type = self:GetParent():GetAttackCapability()
@@ -213,7 +213,7 @@ function lua_modifier_spiritsmaster_storm_spirit_bolt:OnAttackLanded(event)
             {duration = stun_time}
         )
 
-        local m_dmg = self:GetAbility():GetSpecialValueFor("atk_bolt_magic_dmg")
+        local m_dmg = self:GetAbility():GetSpecialValueFor("atk_bolt_magic_damage")
 
         local dtable = {
             victim = event.target,

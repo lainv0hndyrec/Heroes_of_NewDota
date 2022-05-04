@@ -17,12 +17,16 @@ function HeroAlternativePath:RemoveOriginalAbilities(the_hero)
     end
 end
 
+
 function HeroAlternativePath:RemoveAllTalentModifiers(the_hero)
     --remove the talent modifiers
     local talent_mods = the_hero:FindAllModifiers()
     for i = 1, #talent_mods do
         talent_mods[i]:Destroy()
     end
+
+    --Illusion Correction
+    the_hero:AddAbility("lua_ability_generic_illusion_correction")
 end
 
 
@@ -103,8 +107,25 @@ function HeroAlternativePath:Initialize(hero_string,hero_path,hero_list)
         return
     end
 
+    if hero_string == "npc_dota_hero_night_stalker" then
+        self:Path_NightStlaker(hero_string,hero_path,the_hero)
+        return
+    end
 
+    if hero_string == "npc_dota_hero_necrolyte" then
+        self:Path_Necrolyte(hero_string,hero_path,the_hero)
+        return
+    end
 
+    if hero_string == "npc_dota_hero_oracle" then
+        self:Path_Oracle(hero_string,hero_path,the_hero)
+        return
+    end
+
+    if hero_string == "npc_dota_hero_lone_druid" then
+        self:Path_LoneDruid(hero_string,hero_path,the_hero)
+        return
+    end
 
 end
 
@@ -147,7 +168,7 @@ function HeroAlternativePath:Path_Terrorblade(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(300)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(0)
+        the_hero:SetPhysicalArmorBaseValue(-2)
 
         --HP regen
         the_hero:SetBaseHealthRegen(1.0)
@@ -187,6 +208,7 @@ function HeroAlternativePath:Path_Terrorblade(hero_string,hero_path,the_hero)
     end
 end
 
+
 function HeroAlternativePath:Path_Grimstroke(hero_string,hero_path,the_hero)
     if hero_path == 1 then
 
@@ -218,7 +240,7 @@ function HeroAlternativePath:Path_Grimstroke(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(295)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(2)
+        the_hero:SetPhysicalArmorBaseValue(-0.5)
 
         --HP regen
         the_hero:SetBaseHealthRegen(0.25)
@@ -259,6 +281,7 @@ function HeroAlternativePath:Path_Grimstroke(hero_string,hero_path,the_hero)
     end
 end
 
+
 function HeroAlternativePath:Path_Enigma(hero_string,hero_path,the_hero)
 
     --unfathomed
@@ -291,7 +314,7 @@ function HeroAlternativePath:Path_Enigma(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(295)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(-1)
+        the_hero:SetPhysicalArmorBaseValue(-0.4)
 
         --HP regen
         the_hero:SetBaseHealthRegen(0.25)
@@ -340,6 +363,7 @@ function HeroAlternativePath:Path_Enigma(hero_string,hero_path,the_hero)
     end
 end
 
+
 function HeroAlternativePath:Path_Phantom_Lancer(hero_string,hero_path,the_hero)
     --vagabond
     if hero_path == 1 then
@@ -375,7 +399,7 @@ function HeroAlternativePath:Path_Phantom_Lancer(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(300)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(0)
+        the_hero:SetPhysicalArmorBaseValue(-1.1)
 
         --HP regen
         the_hero:SetBaseHealthRegen(1)
@@ -414,6 +438,7 @@ function HeroAlternativePath:Path_Phantom_Lancer(hero_string,hero_path,the_hero)
     end
 end
 
+
 function HeroAlternativePath:Path_Shredder(hero_string,hero_path,the_hero)
     --whistlepunk
     if hero_path == 1 then
@@ -435,6 +460,8 @@ function HeroAlternativePath:Path_Shredder(hero_string,hero_path,the_hero)
         the_hero:AddAbility("special_bonus_whistlepunk_steam_barrier_purge_heal")
         self:RemoveAllTalentModifiers(the_hero)
 
+
+
         --HP regen
         the_hero:SetBaseHealthRegen(0.25)
 
@@ -449,7 +476,7 @@ function HeroAlternativePath:Path_Shredder(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(295)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(0)
+        the_hero:SetPhysicalArmorBaseValue(-1)
 
         --Change to Attack Ranger
         the_hero:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
@@ -502,6 +529,7 @@ function HeroAlternativePath:Path_Shredder(hero_string,hero_path,the_hero)
     end
 end
 
+
 function HeroAlternativePath:Path_Razor(hero_string,hero_path,the_hero)
     --whistlepunk
     if hero_path == 1 then
@@ -537,7 +565,7 @@ function HeroAlternativePath:Path_Razor(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(300)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(0)
+        the_hero:SetPhysicalArmorBaseValue(0.3)
 
 
         --Change to Attack Ranger
@@ -580,6 +608,7 @@ function HeroAlternativePath:Path_Razor(hero_string,hero_path,the_hero)
     end
 end
 
+
 function HeroAlternativePath:Path_MonkeyKing(hero_string,hero_path,the_hero)
     --whistlepunk
     if hero_path == 1 then
@@ -615,7 +644,7 @@ function HeroAlternativePath:Path_MonkeyKing(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(290)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(1)
+        the_hero:SetPhysicalArmorBaseValue(-0.1)
 
 
         --Change Attack Range
@@ -659,6 +688,7 @@ function HeroAlternativePath:Path_MonkeyKing(hero_string,hero_path,the_hero)
     end
 end
 
+
 function HeroAlternativePath:Path_LifeStealer(hero_string,hero_path,the_hero)
     --whistlepunk
     if hero_path == 1 then
@@ -695,7 +725,7 @@ function HeroAlternativePath:Path_LifeStealer(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(290)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(-1)
+        the_hero:SetPhysicalArmorBaseValue(0.7)
 
         --Attack Point
         local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
@@ -732,6 +762,7 @@ function HeroAlternativePath:Path_LifeStealer(hero_string,hero_path,the_hero)
     end
 end
 
+
 function HeroAlternativePath:Path_BountyHunter(hero_string,hero_path,the_hero)
 
     if hero_path == 1 then
@@ -744,8 +775,8 @@ function HeroAlternativePath:Path_BountyHunter(hero_string,hero_path,the_hero)
         the_hero:AddAbility("lua_ability_qaldin_assassin_snipe_blink")
         the_hero:AddAbility("lua_ability_qaldin_assassin_snipe")
 
-        the_hero:AddAbility("special_bonus_mana_break_20")
         the_hero:AddAbility("special_bonus_qaldin_assassin_assassins_shroud_minus_mana_per_sec")
+        the_hero:AddAbility("special_bonus_mana_break_20")
         the_hero:AddAbility("special_bonus_strength_15")
         the_hero:AddAbility("special_bonus_lifesteal_15")
         the_hero:AddAbility("special_bonus_qaldin_assassin_qaldin_eye_max")
@@ -842,7 +873,7 @@ function HeroAlternativePath:Path_Brewmaster(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(305)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(0)
+        the_hero:SetPhysicalArmorBaseValue(0.3)
 
         --Attack Point
         local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
@@ -920,7 +951,7 @@ function HeroAlternativePath:Path_DoomBringer(hero_string,hero_path,the_hero)
         the_hero:SetBaseMoveSpeed(305)
 
         --Armor
-        the_hero:SetPhysicalArmorBaseValue(1)
+        the_hero:SetPhysicalArmorBaseValue(1.2)
 
         --Attack Point
         local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
@@ -947,6 +978,319 @@ function HeroAlternativePath:Path_DoomBringer(hero_string,hero_path,the_hero)
         local info =  {}
         info["shard"] = {"lua_ability_fallen_one_soul_tap"}
         info["scepter"] = {"lua_ability_fallen_one_eternal_suffering"}
+        CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
+
+        local stats_gain = {}
+        stats_gain["str_gain"] = str_gain.Strength_Gain
+        stats_gain["agi_gain"] = agi_gain.Agility_Gain
+        stats_gain["int_gain"] = int_gain.Intelligence_Gain
+        CustomNetTables:SetTableValue("custom_stats_gain", hero_string, stats_gain)
+    end
+end
+
+
+function HeroAlternativePath:Path_NightStlaker(hero_string,hero_path,the_hero)
+
+    if hero_path == 1 then
+
+        self:RemoveOriginalAbilities(the_hero)
+        the_hero:AddAbility("lua_ability_boogeyman_fear")
+        the_hero:AddAbility("lua_ability_boogeyman_lunge")
+        the_hero:AddAbility("lua_ability_boogeyman_depravity")
+        the_hero:AddAbility("lua_ability_boogeyman_fright_night")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("lua_ability_boogeyman_devour")
+
+        the_hero:AddAbility("special_bonus_mp_regen_150")
+        the_hero:AddAbility("special_bonus_boogeyman_fear_range_up")
+
+        the_hero:AddAbility("special_bonus_boogeyman_depravity_lifesteal_up")
+        the_hero:AddAbility("special_bonus_intelligence_15")
+
+        the_hero:AddAbility("special_bonus_hp_225")
+        the_hero:AddAbility("special_bonus_boogeyman_lunge_range_up")
+        
+        the_hero:AddAbility("special_bonus_boogeyman_depravity_atk_sped_per_stack_up")
+        the_hero:AddAbility("special_bonus_spell_amplify_20")
+        self:RemoveAllTalentModifiers(the_hero)
+
+        --HP regen
+        the_hero:SetBaseHealthRegen(1.0)
+
+        --Set Min/Max Damage
+        the_hero:SetBaseDamageMin(27)
+        the_hero:SetBaseDamageMax(33)
+
+        --Base Attack Time
+        the_hero:SetBaseAttackTime(1.7)
+
+        --Set Movespeed
+        the_hero:SetBaseMoveSpeed(305)
+
+        --Armor
+        the_hero:SetPhysicalArmorBaseValue(-1.32)
+
+        --Attack Point
+        local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
+        atk_point.Attack_Point = 0.33
+
+        --Change Stats
+        the_hero:SetPrimaryAttribute(DOTA_ATTRIBUTE_AGILITY)
+
+        the_hero:SetBaseStrength(21)
+        local str_gain = the_hero:AddAbility("lua_ability_generic_strength_gain")
+        str_gain.Strength_Gain = 2.0
+
+        the_hero:SetBaseAgility(24)
+        local agi_gain = the_hero:AddAbility("lua_ability_generic_agility_gain")
+        agi_gain.Agility_Gain = 2.9
+
+        the_hero:SetBaseIntellect(16)
+        local int_gain = the_hero:AddAbility("lua_ability_generic_intelligence_gain")
+        int_gain.Intelligence_Gain = 1.4
+
+        the_hero:CalculateStatBonus(true)
+
+        --NetTables
+        local info =  {}
+        info["shard"] = {"lua_ability_boogeyman_fright_night"}
+        info["scepter"] = {"lua_ability_boogeyman_devour"}
+        CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
+
+        local stats_gain = {}
+        stats_gain["str_gain"] = str_gain.Strength_Gain
+        stats_gain["agi_gain"] = agi_gain.Agility_Gain
+        stats_gain["int_gain"] = int_gain.Intelligence_Gain
+        CustomNetTables:SetTableValue("custom_stats_gain", hero_string, stats_gain)
+    end
+end
+
+
+function HeroAlternativePath:Path_Necrolyte(hero_string,hero_path,the_hero)
+
+    if hero_path == 1 then
+
+        self:RemoveOriginalAbilities(the_hero)
+        the_hero:AddAbility("lua_ability_pope_of_pestilence_exorcismus")
+        the_hero:AddAbility("lua_ability_pope_of_pestilence_soul_explosion")
+        the_hero:AddAbility("lua_ability_pope_of_pestilence_banish")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("lua_ability_pope_of_pestilence_the_rite")
+
+        the_hero:AddAbility("special_bonus_pope_of_pestilence_banish_slow_up")
+        the_hero:AddAbility("special_bonus_mp_regen_175")
+        the_hero:AddAbility("special_bonus_corruption_25")
+        the_hero:AddAbility("special_bonus_pope_of_pestilence_soul_explosion_aoe_up")
+        the_hero:AddAbility("special_bonus_attack_range_125")
+        the_hero:AddAbility("special_bonus_lifesteal_25")
+        the_hero:AddAbility("special_bonus_pope_of_pestilence_soul_explosion_dmg_up")
+        the_hero:AddAbility("special_bonus_pope_of_pestilence_exorcismus_stacks_up")
+        self:RemoveAllTalentModifiers(the_hero)
+
+        --HP regen
+        the_hero:SetBaseHealthRegen(1.0)
+
+        --Set Min/Max Damage
+        the_hero:SetBaseDamageMin(22)
+        the_hero:SetBaseDamageMax(26)
+
+        --Base Attack Time
+        the_hero:SetBaseAttackTime(1.7)
+
+        --Set Movespeed
+        the_hero:SetBaseMoveSpeed(310)
+
+        --Armor
+        the_hero:SetPhysicalArmorBaseValue(-1.1)
+
+        --Attack Point
+        local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
+        atk_point.Attack_Point = 0.4
+
+        --Change Stats
+        the_hero:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
+
+        the_hero:SetBaseStrength(18)
+        local str_gain = the_hero:AddAbility("lua_ability_generic_strength_gain")
+        str_gain.Strength_Gain = 1.6
+
+        the_hero:SetBaseAgility(16)
+        local agi_gain = the_hero:AddAbility("lua_ability_generic_agility_gain")
+        agi_gain.Agility_Gain = 1.6
+
+        the_hero:SetBaseIntellect(24)
+        local int_gain = the_hero:AddAbility("lua_ability_generic_intelligence_gain")
+        int_gain.Intelligence_Gain = 3.0
+
+        the_hero:CalculateStatBonus(true)
+
+        --NetTables
+        local info =  {}
+        info["shard"] = {"lua_ability_pope_of_pestilence_the_rite"}
+        info["scepter"] = {"lua_ability_pope_of_pestilence_the_rite"}
+        CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
+
+        local stats_gain = {}
+        stats_gain["str_gain"] = str_gain.Strength_Gain
+        stats_gain["agi_gain"] = agi_gain.Agility_Gain
+        stats_gain["int_gain"] = int_gain.Intelligence_Gain
+        CustomNetTables:SetTableValue("custom_stats_gain", hero_string, stats_gain)
+    end
+end
+
+
+function HeroAlternativePath:Path_Oracle(hero_string,hero_path,the_hero)
+
+    if hero_path == 1 then
+
+        self:RemoveOriginalAbilities(the_hero)
+        the_hero:AddAbility("lua_ability_diviner_karma")
+        the_hero:AddAbility("lua_ability_diviner_chaotic_insight")
+        the_hero:AddAbility("lua_ability_diviner_altered_fate")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("lua_ability_diviner_shared_fate")
+
+        the_hero:AddAbility("special_bonus_attack_damage_60")
+        the_hero:AddAbility("special_bonus_diviner_karma_max_dmg_up")
+
+        the_hero:AddAbility("special_bonus_diviner_chaotic_insight_cd_down")
+        the_hero:AddAbility("special_bonus_movement_speed_20")
+
+        the_hero:AddAbility("special_bonus_diviner_altered_fate_passive_up")
+        the_hero:AddAbility("special_bonus_diviner_altered_fate_cd_down")
+
+        the_hero:AddAbility("special_bonus_diviner_karma_cd_down")
+        the_hero:AddAbility("special_bonus_attack_speed_100")
+        self:RemoveAllTalentModifiers(the_hero)
+
+        --HP regen
+        the_hero:SetBaseHealthRegen(1.0)
+
+        --Set Min/Max Damage
+        the_hero:SetBaseDamageMin(28)
+        the_hero:SetBaseDamageMax(32)
+
+        --Base Attack Time
+        the_hero:SetBaseAttackTime(1.7)
+
+        --Set Movespeed
+        the_hero:SetBaseMoveSpeed(300)
+
+        --Armor
+        the_hero:SetPhysicalArmorBaseValue(-0.37)
+
+        --Attack Point
+        local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
+        atk_point.Attack_Point = 0.4
+
+        --Change Stats
+        the_hero:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
+
+        the_hero:SetBaseStrength(21)
+        local str_gain = the_hero:AddAbility("lua_ability_generic_strength_gain")
+        str_gain.Strength_Gain = 2.5
+
+        the_hero:SetBaseAgility(14)
+        local agi_gain = the_hero:AddAbility("lua_ability_generic_agility_gain")
+        agi_gain.Agility_Gain = 1.4
+
+        the_hero:SetBaseIntellect(22)
+        local int_gain = the_hero:AddAbility("lua_ability_generic_intelligence_gain")
+        int_gain.Intelligence_Gain = 2.5
+
+        the_hero:CalculateStatBonus(true)
+
+        --NetTables
+        local info =  {}
+        info["shard"] = {"lua_ability_diviner_altered_fate"}
+        info["scepter"] = {"lua_ability_diviner_shared_fate"}
+        CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
+
+        local stats_gain = {}
+        stats_gain["str_gain"] = str_gain.Strength_Gain
+        stats_gain["agi_gain"] = agi_gain.Agility_Gain
+        stats_gain["int_gain"] = int_gain.Intelligence_Gain
+        CustomNetTables:SetTableValue("custom_stats_gain", hero_string, stats_gain)
+    end
+end
+
+
+function HeroAlternativePath:Path_LoneDruid(hero_string,hero_path,the_hero)
+
+    if hero_path == 1 then
+
+        self:RemoveOriginalAbilities(the_hero)
+        the_hero:AddAbility("lua_ability_atniw_druid_tangling_roots")
+        the_hero:AddAbility("lua_ability_atniw_druid_dream_flies")
+        the_hero:AddAbility("lua_ability_atniw_druid_bear_rush")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("lua_ability_atniw_druid_atniws_calling")
+
+        the_hero:AddAbility("special_bonus_atniw_druid_dream_flies_slow_time_up")
+        the_hero:AddAbility("special_bonus_spell_amplify_6")
+
+        the_hero:AddAbility("special_bonus_atniw_druid_dream_flies_slow_up")
+        the_hero:AddAbility("special_bonus_atniw_druid_bear_rush_range_up")
+
+        the_hero:AddAbility("special_bonus_strength_30")
+        the_hero:AddAbility("special_bonus_spell_lifesteal_15")
+
+        the_hero:AddAbility("special_bonus_attack_speed_100")
+        the_hero:AddAbility("special_bonus_atniw_druid_tangling_roots_range_up")
+        self:RemoveAllTalentModifiers(the_hero)
+
+        --HP regen
+        the_hero:SetBaseHealthRegen(1.0)
+
+        --Set Min/Max Damage
+        the_hero:SetBaseDamageMin(24)
+        the_hero:SetBaseDamageMax(31)
+
+        --Base Attack Time
+        the_hero:SetBaseAttackTime(1.7)
+
+        --Set Movespeed
+        the_hero:SetBaseMoveSpeed(290)
+
+        --Armor
+        the_hero:SetPhysicalArmorBaseValue(2)
+
+        --Attack projectile Speed
+        local proj_speed = the_hero:AddAbility("lua_ability_generic_change_projectile_speed")
+        proj_speed.Projectile_Speed = 900
+
+        --Change Attack Range
+        local attack_range = the_hero:AddAbility("lua_ability_generic_change_attack_range")
+        attack_range.Change_Attack_Range = 475
+
+        --Attack Point
+        local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
+        atk_point.Attack_Point = 0.4
+
+        --Change Stats
+        the_hero:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
+
+        the_hero:SetBaseStrength(19)
+        local str_gain = the_hero:AddAbility("lua_ability_generic_strength_gain")
+        str_gain.Strength_Gain = 1.8
+
+        the_hero:SetBaseAgility(15)
+        local agi_gain = the_hero:AddAbility("lua_ability_generic_agility_gain")
+        agi_gain.Agility_Gain = 1.2
+
+        the_hero:SetBaseIntellect(24)
+        local int_gain = the_hero:AddAbility("lua_ability_generic_intelligence_gain")
+        int_gain.Intelligence_Gain = 2.9
+
+        the_hero:CalculateStatBonus(true)
+
+        --NetTables
+        local info =  {}
+        info["shard"] = {"lua_ability_atniw_druid_atniws_calling"}
+        info["scepter"] = {"lua_ability_atniw_druid_atniws_calling"}
         CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
 
         local stats_gain = {}

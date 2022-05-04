@@ -43,7 +43,6 @@
             "cast_mana"                 "90"
         }
 
-
     }
 
 
@@ -68,7 +67,7 @@
 
         "AbilityValues"
         {
-            "bonus_damage"          "40 60 80 100"
+            "bonus_damage"          "80 120 160 200"
             "bonus_as" 		        "20 40 60 80"
             "duration_as" 		         "3.0"
             "charge_duration" 		    "3.0"

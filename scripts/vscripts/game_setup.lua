@@ -22,7 +22,10 @@ function GameSetup:ready()
     GameRules:SetHeroSelectionTime(60)
     GameRules:SetHeroSelectPenaltyTime(30)
     GameRules:SetStrategyTime(0)
+
     --GameRules:SetStrategyTime(30)
+
+    GameRules:SetTimeOfDay(0.251)
 
 
     --force single hero selection (optional)
@@ -53,9 +56,9 @@ function GameSetup:ready()
 
         GameMode:SetAnnouncerDisabled(true)
         GameMode:SetKillingSpreeAnnouncerDisabled(true)
-        GameMode:SetDaynightCycleDisabled(true)
+        --GameMode:SetDaynightCycleDisabled(true)
         GameMode:DisableHudFlip(true)
-        GameMode:SetDeathOverlayDisabled(true)
+        --GameMode:SetDeathOverlayDisabled(true)
         GameMode:SetWeatherEffectsDisabled(true)
 
         --disable music events

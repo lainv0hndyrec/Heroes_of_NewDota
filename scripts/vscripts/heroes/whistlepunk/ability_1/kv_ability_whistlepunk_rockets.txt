@@ -50,6 +50,17 @@
 		}
 
 
+
+
+
+
+
+
+
+
+
+
+
         "AbilityValues"
         {
             "cast_range"        "3000"
@@ -59,11 +70,21 @@
             "rocket_damage" 	"75 95 115 135"
             "rocket_max_range_damage_percent" 	"10"
             "rocket_add_damage_range" 	"1999"
-            "rocket_stacks" 	"1 2 3 4"
+
             "rocket_cooldown" 	"3.0"
             "rocket_explode_vision" 	"250"
             "shard_explode_aoe_damage" 	"250"
             "shard_add_range" 	"1000"
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "rocket_stacks" 	"1 2 3 4"
+                "LinkedSpecialBonus" "special_bonus_whistlepunk_rockets_add_stacks"
+            }
         }
 
     }

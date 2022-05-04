@@ -42,14 +42,28 @@
 
         "AbilityValues"
         {
-            "barrier_duration"      "12.0"
-            "mana_barrier_percent"  "60 80 100 120"
-            "damage_prevent_percent"   "50"
-            "spark_aoe"             "300"
-            "spark_damage"          "15 30 45 60"
             "min_mana"              "10"
             "mana_cost_percent"     "20"
+            "mana_barrier_percent"  "60 80 100 120"
+            "barrier_duration"      "12.0"
+            "damage_prevent_percent"   "50"
+
+            "spark_aoe"             "300"
+
+
+
         }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "spark_damage"          "15 30 45 60"
+                "LinkedSpecialBonus"    "special_bonus_soul_warden_static_barrier_damage"
+            }
+        }
+
     }
 
 

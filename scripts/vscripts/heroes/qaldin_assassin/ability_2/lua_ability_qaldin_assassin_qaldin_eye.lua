@@ -96,7 +96,7 @@ function lua_ability_qaldin_assassin_qaldin_eye:OnSpellStart()
 
     local my_wards = {}
     for i=1,#find_all_wards do
-        if find_all_wards[i]:GetUnitName() == "npc_custom_unit_qaldin_eye" then
+        if find_all_wards[i]:GetUnitName() == "npc_custom_unit_qaldin_assassin_qaldin_eye" then
             table.insert(my_wards,find_all_wards[i])
         end
     end
@@ -115,7 +115,7 @@ function lua_ability_qaldin_assassin_qaldin_eye:OnSpellStart()
 
 
     local ward = CreateUnitByName(
-        "npc_custom_unit_qaldin_eye",
+        "npc_custom_unit_qaldin_assassin_qaldin_eye",
         self:GetCursorPosition(),true,self:GetCaster(),
         self:GetCaster(),self:GetCaster():GetTeam()
     )
@@ -175,7 +175,7 @@ function lua_ability_qaldin_assassin_qaldin_eye_detonate_hero:OnSpellStart()
 
     local my_wards = {}
     for i=1,#find_all_wards do
-        if find_all_wards[i]:GetUnitName() == "npc_custom_unit_qaldin_eye" then
+        if find_all_wards[i]:GetUnitName() == "npc_custom_unit_qaldin_assassin_qaldin_eye" then
             table.insert(my_wards,find_all_wards[i])
         end
     end

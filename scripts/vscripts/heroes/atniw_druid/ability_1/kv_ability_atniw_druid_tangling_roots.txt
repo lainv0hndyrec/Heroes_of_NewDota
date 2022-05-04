@@ -1,0 +1,90 @@
+"DOTAAbilities"
+{
+    "lua_ability_atniw_druid_tangling_roots"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/atniw_druid/ability_1/lua_ability_atniw_druid_tangling_roots"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityTextureName"     	"treant_overgrowth" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        "AbilityCastPoint"              "0.1"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        //"AnimationPlaybackRate"         "2.0"
+        //"AnimationIgnoresModelScale"    "1"
+
+        //"HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "40 50 60 70"
+        //"AbilityCooldown"               "3"
+        //"AbilityCastRange"              "3000"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/atniw_druid/ability_1/tangling_roots_delay.vpcf"
+            "particle"  "particles/units/heroes/atniw_druid/ability_1/tangling_roots.vpcf"
+            "particle"  "particles/units/heroes/atniw_druid/ability_1/tangling_roots_hold.vpcf"
+
+		}
+
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "delay_burst"           "1.0"
+                //"LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+            }
+
+            "02"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "damage_per_sec"        "125"
+            }
+
+            "03"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "stun_duration"         "1.0 1.3 1.6 2.0"
+            }
+
+        }
+
+
+
+        "AbilityValues"
+        {
+            "aoe_redius"  "60"
+
+            "mana_cost"     "100 105 110 115"
+            "ability_cd"    "11"
+            "cast_range"    "1000"
+        }
+
+
+    }
+}

@@ -14,7 +14,7 @@
         "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
-        //"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
         //"AbilitySound"					"Hero_Terrorblade.Metamorphosis"
 
 
@@ -72,6 +72,7 @@
             {
                 "var_type" 	               "FIELD_INTEGER"
                 "magic_damage" 		       "250 450 650"
+                "LinkedSpecialBonus"          "special_bonus_vagabond_phantom_death_light_damage"
             }
         }
     }

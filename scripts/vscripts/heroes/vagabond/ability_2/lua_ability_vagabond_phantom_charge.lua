@@ -163,11 +163,12 @@ function lua_ability_vagabond_phantom_charge_fragment:OnSpellStart()
         {duration = 2.0},self:GetCaster():GetAbsOrigin(),self:GetCaster():GetTeam(),false
     )
 
+    
     --create illu
     local illu = CreateIllusions(
         self:GetCaster(),self:GetCaster(),
         {
-            outgoing_damage = -100.0,
+            outgoing_damage = 0,
             incoming_damage = 0,
             bounty_base = 0,
             bounty_growth = 0,

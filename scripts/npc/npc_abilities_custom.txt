@@ -12,6 +12,10 @@
 #base "../vscripts/heroes/0_generic/change_projectile_speed/kv_ability_generic_change_projectile_speed.txt"
 #base "../vscripts/heroes/0_generic/change_attack_point/kv_ability_generic_change_attack_point.txt"
 #base "../vscripts/heroes/0_generic/change_turn_rate/kv_ability_generic_change_turn_rate.txt"
+#base "../vscripts/heroes/0_generic/illusion_correction/kv_ability_generic_illusion_correction.txt"
+
+
+
 
 
 
@@ -102,3 +106,35 @@
 #base "../vscripts/heroes/fallen_one/ability_3/kv_ability_fallen_one_sadism.txt"
 #base "../vscripts/heroes/fallen_one/ability_4/kv_ability_fallen_one_eternal_suffering.txt"
 #base "../vscripts/heroes/fallen_one/talents/kv_talents_fallen_one.txt"
+
+
+//Night Stalker -> Boogeyman
+#base "../vscripts/heroes/boogeyman/ability_1/kv_ability_boogeyman_fear.txt"
+#base "../vscripts/heroes/boogeyman/ability_2/kv_ability_boogeyman_lunge.txt"
+#base "../vscripts/heroes/boogeyman/ability_3/kv_ability_boogeyman_depravity.txt"
+#base "../vscripts/heroes/boogeyman/ability_4/kv_ability_boogeyman_devour.txt"
+#base "../vscripts/heroes/boogeyman/talents/kv_talents_boogeyman.txt"
+
+
+//Necrophos -> Pope of Pope of Pestilence
+#base "../vscripts/heroes/pope_of_pestilence/ability_1/kv_ability_pope_of_pestilence_exorcismus.txt"
+#base "../vscripts/heroes/pope_of_pestilence/ability_2/kv_ability_pope_of_pestilence_soul_explosion.txt"
+#base "../vscripts/heroes/pope_of_pestilence/ability_3/kv_ability_pope_of_pestilence_banish.txt"
+#base "../vscripts/heroes/pope_of_pestilence/ability_4/kv_ability_pope_of_pestilence_the_rite.txt"
+#base "../vscripts/heroes/pope_of_pestilence/talents/kv_talents_pope_of_pestilence.txt"
+
+
+//Oracle -> Diviner
+#base "../vscripts/heroes/diviner/ability_1/kv_ability_diviner_karma.txt"
+#base "../vscripts/heroes/diviner/ability_2/kv_ability_diviner_chaotic_insight.txt"
+#base "../vscripts/heroes/diviner/ability_3/kv_ability_diviner_altered_fate.txt"
+#base "../vscripts/heroes/diviner/ability_4/kv_ability_diviner_shared_fate.txt"
+#base "../vscripts/heroes/diviner/talents/kv_talents_diviner.txt"
+
+
+//Lone Druid -> Atniw Druid
+#base "../vscripts/heroes/atniw_druid/ability_1/kv_ability_atniw_druid_tangling_roots.txt"
+#base "../vscripts/heroes/atniw_druid/ability_2/kv_ability_atniw_druid_dream_flies.txt"
+#base "../vscripts/heroes/atniw_druid/ability_3/kv_ability_atniw_druid_bear_rush.txt"
+#base "../vscripts/heroes/atniw_druid/ability_4/kv_ability_atniw_druid_atniws_calling.txt"
+#base "../vscripts/heroes/atniw_druid/talents/kv_talents_atniw_druid.txt"

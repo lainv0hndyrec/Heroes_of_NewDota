@@ -107,6 +107,7 @@ function lua_modifier_vagabond_phantom_charge_movement:IsDebuff() return false e
 function lua_modifier_vagabond_phantom_charge_movement:IsPurgable() return false end
 function lua_modifier_vagabond_phantom_charge_movement:IsPurgeException() return false end
 function lua_modifier_vagabond_phantom_charge_movement:AllowIllusionDuplicate() return true end
+function lua_modifier_vagabond_phantom_charge_movement:GetPriority() return MODIFIER_PRIORITY_ULTRA end
 
 
 function lua_modifier_vagabond_phantom_charge_movement:CheckState()
@@ -126,6 +127,7 @@ function lua_modifier_vagabond_phantom_charge_movement:DeclareFunctions()
         MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
         MODIFIER_EVENT_ON_ATTACK,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
+        MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION,
         MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
         MODIFIER_EVENT_ON_ORDER
     }
@@ -242,20 +244,39 @@ function lua_modifier_vagabond_phantom_charge_movement:OnAttackLanded(event)
         {duration = self:GetAbility():GetSpecialValueFor("duration_as")}
     )
 
-    if self:GetParent():IsIllusion() then
-        local dtable = {
-            victim = self.target,
-            attacker = self:GetParent(),
-            damage = self:GetParent():GetAverageTrueAttackDamage(nil),
-            damage_type = DAMAGE_TYPE_PHYSICAL,
-            damage_flags = DOTA_DAMAGE_FLAG_NONE,
-            ability = self:GetAbility()
-        }
-        ApplyDamage(dtable)
-    end
+    -- if self:GetParent():IsIllusion() then
+    --     local dtable = {
+    --         victim = self.target,
+    --         attacker = self:GetParent(),
+    --         damage = self:GetParent():GetAverageTrueAttackDamage(nil),
+    --         damage_type = DAMAGE_TYPE_PHYSICAL,
+    --         damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    --         ability = self:GetAbility()
+    --     }
+    --     ApplyDamage(dtable)
+    -- end
 
     self:Destroy()
 end
+
+
+function lua_modifier_vagabond_phantom_charge_movement:GetModifierDamageOutgoing_Percentage_Illusion(event)
+    if not IsServer() then return end
+    if event.attacker ~= self:GetParent() then return end
+    if self:GetParent():IsIllusion() == false then return end
+
+    local bonus_dmg = self:GetAbility():GetSpecialValueFor("bonus_damage")
+    local ori_dmg = self:GetParent():GetAverageTrueAttackDamage(nil) - bonus_dmg
+    bonus_dmg = bonus_dmg*0.5
+    local percent = (bonus_dmg/ori_dmg)*100
+
+    return percent
+end
+
+
+
+
+
 
 
 function lua_modifier_vagabond_phantom_charge_movement:OnAbilityFullyCast(event)

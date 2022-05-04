@@ -62,6 +62,7 @@
             {
                 "var_type" 	"FIELD_INTEGER"
                 "attack_factor" 		"40"
+
             }
 
             "03" //ability_slow
@@ -88,10 +89,18 @@
                 "projectile_aoe" 		"160"
             }
 
-            "07" //projectile_aoe
+            "07"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "ability_cd" 		"13.0"
+                //"LinkedSpecialBonus"  "special_bonus_corruptedlord_throw_glaive_reduce_cd"
+            }
+
+            "08" //projectile_aoe
             {
                 "var_type" 	"FIELD_INTEGER"
-                "ability_cd" 		"13"
+                "shard_attack_factor" 		"100"
+
             }
         }
     }

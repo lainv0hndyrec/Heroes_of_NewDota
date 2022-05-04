@@ -1,8 +1,6 @@
 // Units File
 "DOTAUnits"
 {
-	"Version"	"1"
-
 	//=================================================================================
 	// Creature: Gnoll Assassin
 	//=================================================================================
@@ -87,3 +85,5 @@
 
 
 #base "../vscripts/heroes/qaldin_assassin/ability_2/kv_unit_qaldin_assassin_qaldin_eye.txt"
+#base "../vscripts/heroes/pope_of_pestilence/ability_3/kv_unit_pope_of_pestilence_skull_soul.txt"
+#base "../vscripts/heroes/pope_of_pestilence/ability_4/kv_unit_pope_of_pestilence_rite_ghost.txt"

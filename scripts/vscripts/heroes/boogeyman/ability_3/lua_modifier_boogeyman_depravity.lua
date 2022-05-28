@@ -91,6 +91,7 @@ function lua_modifier_boogeyman_depravity_lifesteal:OnTakeDamage(event)
     if event.attacker ~= self:GetParent() then return end
     if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then return end
     if event.unit:IsBuilding() then return end
+    if event.unit:IsBaseNPC() == false then return end
 
     --illusion dying leaves the modifier bugging out
     if not self:GetAbility() then

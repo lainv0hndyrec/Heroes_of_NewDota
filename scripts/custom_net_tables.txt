@@ -2,6 +2,7 @@
  {
     custom_net_tables =
     [
+        "new_hero_title",
         "scepter_shard_info",
         "custom_stats_gain"
     ]

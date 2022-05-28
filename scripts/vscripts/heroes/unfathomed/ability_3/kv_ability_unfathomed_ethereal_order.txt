@@ -24,7 +24,7 @@
             "01" //attack damage
             {
                 "var_type" 	        "FIELD_INTEGER"
-                "add_range" 		"75 150 225 300"
+                "add_range" 		"50 100 150 200"
                 "LinkedSpecialBonus"    "special_bonus_unfathomed_ethereal_order_range"
             }
         }

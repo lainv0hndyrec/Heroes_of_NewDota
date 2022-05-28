@@ -118,6 +118,8 @@ function lua_modifier_fallen_one_soul_tap_buff:OnAttackLanded(event)
 
     if event.attacker ~= self:GetParent() then return end
 
+    if event.target:IsBaseNPC() == false then return end
+
 
     self:GetParent():EmitSound("Hero_DoomBringer.LvlDeath")
 

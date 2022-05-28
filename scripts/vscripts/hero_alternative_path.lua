@@ -127,6 +127,16 @@ function HeroAlternativePath:Initialize(hero_string,hero_path,hero_list)
         return
     end
 
+    if hero_string == "npc_dota_hero_death_prophet" then
+        self:Path_DeathProphet(hero_string,hero_path,the_hero)
+        return
+    end
+
+    if hero_string == "npc_dota_hero_tiny" then
+        self:Path_Tiny(hero_string,hero_path,the_hero)
+        return
+    end
+
 end
 
 
@@ -193,6 +203,8 @@ function HeroAlternativePath:Path_Terrorblade(hero_string,hero_path,the_hero)
 
         the_hero:CalculateStatBonus(true)
 
+        local title = "CORRUPTED LORD"
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
 
         local info =  {}
         info["shard"] = {"lua_ability_corruptedlord_throw_glaive"}
@@ -204,6 +216,8 @@ function HeroAlternativePath:Path_Terrorblade(hero_string,hero_path,the_hero)
         stats_gain["agi_gain"] = agi_gain.Agility_Gain
         stats_gain["int_gain"] = int_gain.Intelligence_Gain
         CustomNetTables:SetTableValue("custom_stats_gain", hero_string, stats_gain)
+
+
 
     end
 end
@@ -268,6 +282,9 @@ function HeroAlternativePath:Path_Grimstroke(hero_string,hero_path,the_hero)
 
         the_hero:CalculateStatBonus(true)
 
+        local title = {"KALIGROMANCER"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_kalligromancer_captivate"}
         info["scepter"] = {"lua_ability_kalligromancer_death_portrait"}
@@ -293,12 +310,16 @@ function HeroAlternativePath:Path_Enigma(hero_string,hero_path,the_hero)
         the_hero:AddAbility("generic_hidden")
         the_hero:AddAbility("generic_hidden")
         the_hero:AddAbility("lua_ability_unfathomed_spatial_manipulation")
+
         the_hero:AddAbility("special_bonus_armor_5")
         the_hero:AddAbility("special_bonus_mp_regen_2")
+
         the_hero:AddAbility("special_bonus_attack_speed_30")
         the_hero:AddAbility("special_bonus_unfathomed_ethereal_order_range")
+
         the_hero:AddAbility("special_bonus_strength_20")
         the_hero:AddAbility("special_bonus_unfathomed_overwhelming_presence_range")
+
         the_hero:AddAbility("special_bonus_unfathomed_overwhelming_presence_effect")
         the_hero:AddAbility("special_bonus_unfathomed_yield_range")
         self:RemoveAllTalentModifiers(the_hero)
@@ -344,10 +365,12 @@ function HeroAlternativePath:Path_Enigma(hero_string,hero_path,the_hero)
 
         --Change Attack Range
         local attack_range = the_hero:AddAbility("lua_ability_generic_change_attack_range")
-        attack_range.Change_Attack_Range = 300
+        attack_range.Change_Attack_Range = 400
 
         the_hero:CalculateStatBonus(true)
 
+        local title = {"UNFATHOMED"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
 
         local info =  {}
         info["shard"] = {"lua_ability_unfathomed_yield"}
@@ -423,6 +446,10 @@ function HeroAlternativePath:Path_Phantom_Lancer(hero_string,hero_path,the_hero)
 
         the_hero:CalculateStatBonus(true)
 
+
+        local title = {"VAGABOND"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_vagabond_phantom_charge"}
         info["scepter"] = {"lua_ability_vagabond_prismatic_mist"}
@@ -450,14 +477,18 @@ function HeroAlternativePath:Path_Shredder(hero_string,hero_path,the_hero)
         the_hero:AddAbility("generic_hidden")
         the_hero:AddAbility("generic_hidden")
         the_hero:AddAbility("lua_ability_whistlepunk_sawprise")
+
         the_hero:AddAbility("special_bonus_mp_regen_150")
         the_hero:AddAbility("special_bonus_hp_200")
+
         the_hero:AddAbility("special_bonus_spell_amplify_8")
         the_hero:AddAbility("special_bonus_whistlepunk_oil_spill_slow_duration")
+
         the_hero:AddAbility("special_bonus_intelligence_16")
         the_hero:AddAbility("special_bonus_whistlepunk_oil_spill_slow_amount")
-        the_hero:AddAbility("special_bonus_whistlepunk_rockets_add_stacks")
+
         the_hero:AddAbility("special_bonus_whistlepunk_steam_barrier_purge_heal")
+        the_hero:AddAbility("special_bonus_whistlepunk_rockets_add_stacks")
         self:RemoveAllTalentModifiers(the_hero)
 
 
@@ -515,6 +546,10 @@ function HeroAlternativePath:Path_Shredder(hero_string,hero_path,the_hero)
         int_gain.Intelligence_Gain = 3.0
 
         the_hero:CalculateStatBonus(true)
+
+
+        local title = {"WHISTLEPUNK"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
 
         local info =  {}
         info["shard"] = {"lua_ability_whistlepunk_rockets"}
@@ -595,6 +630,10 @@ function HeroAlternativePath:Path_Razor(hero_string,hero_path,the_hero)
 
         the_hero:CalculateStatBonus(true)
 
+
+        local title = {"SOUL WARDEN"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_soul_warden_restrain"}
         info["scepter"] = {"lua_ability_soul_warden_wardens_purge"}
@@ -653,7 +692,7 @@ function HeroAlternativePath:Path_MonkeyKing(hero_string,hero_path,the_hero)
 
         --Change Turn Rate
         local turn_rate = the_hero:AddAbility("lua_ability_generic_change_turn_rate")
-        turn_rate.Turn_Rate = 0.9000
+        turn_rate.Turn_Rate = 3.1416
 
         --Attack Point
         local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
@@ -675,6 +714,9 @@ function HeroAlternativePath:Path_MonkeyKing(hero_string,hero_path,the_hero)
         the_hero:CalculateStatBonus(true)
 
         --NetTables
+        local title = {"GREAT SAGE"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_great_sage_somersault_cloud"}
         info["scepter"] = {"lua_ability_great_sage_earth_driver"}
@@ -749,6 +791,9 @@ function HeroAlternativePath:Path_LifeStealer(hero_string,hero_path,the_hero)
         the_hero:CalculateStatBonus(true)
 
         --NetTables
+        local title = {"DEFILER"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_defiler_mimicry"}
         info["scepter"] = {"lua_ability_defiler_mimicry"}
@@ -823,6 +868,9 @@ function HeroAlternativePath:Path_BountyHunter(hero_string,hero_path,the_hero)
         the_hero:CalculateStatBonus(true)
 
         --NetTables
+        local title = {"QALDIN ASSASSIN"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_qaldin_assassin_snipe","lua_ability_qaldin_assassin_snipe_blink"}
         info["scepter"] = {"lua_ability_qaldin_assassin_snipe"}
@@ -897,6 +945,9 @@ function HeroAlternativePath:Path_Brewmaster(hero_string,hero_path,the_hero)
         the_hero:CalculateStatBonus(true)
 
         --NetTables
+        local title = {"SPIRITSMASTER"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_spiritsmaster_drunken_affinity"}
         info["scepter"] = {
@@ -975,6 +1026,9 @@ function HeroAlternativePath:Path_DoomBringer(hero_string,hero_path,the_hero)
         the_hero:CalculateStatBonus(true)
 
         --NetTables
+        local title = {"FALLEN ONE"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_fallen_one_soul_tap"}
         info["scepter"] = {"lua_ability_fallen_one_eternal_suffering"}
@@ -1009,7 +1063,7 @@ function HeroAlternativePath:Path_NightStlaker(hero_string,hero_path,the_hero)
 
         the_hero:AddAbility("special_bonus_hp_225")
         the_hero:AddAbility("special_bonus_boogeyman_lunge_range_up")
-        
+
         the_hero:AddAbility("special_bonus_boogeyman_depravity_atk_sped_per_stack_up")
         the_hero:AddAbility("special_bonus_spell_amplify_20")
         self:RemoveAllTalentModifiers(the_hero)
@@ -1052,6 +1106,9 @@ function HeroAlternativePath:Path_NightStlaker(hero_string,hero_path,the_hero)
         the_hero:CalculateStatBonus(true)
 
         --NetTables
+        local title = {"BOOGEYMAN"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_boogeyman_fright_night"}
         info["scepter"] = {"lua_ability_boogeyman_devour"}
@@ -1126,6 +1183,9 @@ function HeroAlternativePath:Path_Necrolyte(hero_string,hero_path,the_hero)
         the_hero:CalculateStatBonus(true)
 
         --NetTables
+        local title = {"POPE OF PESTILENCE"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_pope_of_pestilence_the_rite"}
         info["scepter"] = {"lua_ability_pope_of_pestilence_the_rite"}
@@ -1203,6 +1263,9 @@ function HeroAlternativePath:Path_Oracle(hero_string,hero_path,the_hero)
         the_hero:CalculateStatBonus(true)
 
         --NetTables
+        local title = {"DIVINER"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_diviner_altered_fate"}
         info["scepter"] = {"lua_ability_diviner_shared_fate"}
@@ -1288,9 +1351,183 @@ function HeroAlternativePath:Path_LoneDruid(hero_string,hero_path,the_hero)
         the_hero:CalculateStatBonus(true)
 
         --NetTables
+        local title = {"ATNIW DRUID"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
         local info =  {}
         info["shard"] = {"lua_ability_atniw_druid_atniws_calling"}
         info["scepter"] = {"lua_ability_atniw_druid_atniws_calling"}
+        CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
+
+        local stats_gain = {}
+        stats_gain["str_gain"] = str_gain.Strength_Gain
+        stats_gain["agi_gain"] = agi_gain.Agility_Gain
+        stats_gain["int_gain"] = int_gain.Intelligence_Gain
+        CustomNetTables:SetTableValue("custom_stats_gain", hero_string, stats_gain)
+    end
+end
+
+
+function HeroAlternativePath:Path_DeathProphet(hero_string,hero_path,the_hero)
+
+    if hero_path == 1 then
+
+        self:RemoveOriginalAbilities(the_hero)
+        the_hero:AddAbility("lua_ability_banshee_life_siphon")
+        the_hero:AddAbility("lua_ability_banshee_death_veil")
+        the_hero:AddAbility("lua_ability_banshee_soothsayer")
+        the_hero:AddAbility("lua_ability_banshee_possess_death_rush")
+        the_hero:AddAbility("lua_ability_banshee_possess_release")
+        the_hero:AddAbility("lua_ability_banshee_possess")
+
+        the_hero:AddAbility("special_bonus_intelligence_12")
+        the_hero:AddAbility("special_bonus_banshee_possess_mana_regen_up")
+
+        the_hero:AddAbility("special_bonus_banshee_life_siphon_dmg_up")
+        the_hero:AddAbility("special_bonus_attack_damage_70")
+
+        the_hero:AddAbility("special_bonus_movement_speed_30")
+        the_hero:AddAbility("special_bonus_banshee_possess_death_rush_ms_bonus_up")
+
+        the_hero:AddAbility("special_bonus_banshee_death_veil_length_up")
+        the_hero:AddAbility("special_bonus_banshee_death_veil_dmg_up")
+        self:RemoveAllTalentModifiers(the_hero)
+
+        --HP regen
+        the_hero:SetBaseHealthRegen(1.0)
+
+        --Set Min/Max Damage
+        the_hero:SetBaseDamageMin(22)
+        the_hero:SetBaseDamageMax(30)
+
+        --Base Attack Time
+        the_hero:SetBaseAttackTime(1.7)
+
+        --Set Movespeed
+        the_hero:SetBaseMoveSpeed(300)
+
+        --Armor
+        the_hero:SetPhysicalArmorBaseValue(-0.08)
+
+        --Attack projectile Speed
+        local proj_speed = the_hero:AddAbility("lua_ability_generic_change_projectile_speed")
+        proj_speed.Projectile_Speed = 1100
+
+        --Change Attack Range
+        local attack_range = the_hero:AddAbility("lua_ability_generic_change_attack_range")
+        attack_range.Change_Attack_Range = 600
+
+        --Attack Point
+        local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
+        atk_point.Attack_Point = 0.5
+
+        --Change Stats
+        the_hero:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
+
+        the_hero:SetBaseStrength(19)
+        local str_gain = the_hero:AddAbility("lua_ability_generic_strength_gain")
+        str_gain.Strength_Gain = 1.7
+
+        the_hero:SetBaseAgility(18)
+        local agi_gain = the_hero:AddAbility("lua_ability_generic_agility_gain")
+        agi_gain.Agility_Gain = 1.5
+
+        the_hero:SetBaseIntellect(24)
+        local int_gain = the_hero:AddAbility("lua_ability_generic_intelligence_gain")
+        int_gain.Intelligence_Gain = 2.5
+
+        the_hero:CalculateStatBonus(true)
+
+        --NetTables
+        local title = {"BANSHEE"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
+        local info =  {}
+        info["shard"] = {"lua_ability_banshee_possess_death_rush"}
+        info["scepter"] = {"lua_ability_banshee_possess"}
+        CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
+
+        local stats_gain = {}
+        stats_gain["str_gain"] = str_gain.Strength_Gain
+        stats_gain["agi_gain"] = agi_gain.Agility_Gain
+        stats_gain["int_gain"] = int_gain.Intelligence_Gain
+        CustomNetTables:SetTableValue("custom_stats_gain", hero_string, stats_gain)
+    end
+end
+
+
+function HeroAlternativePath:Path_Tiny(hero_string,hero_path,the_hero)
+
+    if hero_path == 1 then
+
+        self:RemoveOriginalAbilities(the_hero)
+        the_hero:AddAbility("lua_ability_rogue_golem_rock_locker")
+        the_hero:AddAbility("lua_ability_rogue_golem_tree_club")
+        the_hero:AddAbility("lua_ability_rogue_golem_run_forest")
+        the_hero:AddAbility("lua_ability_rogue_golem_tree_chuck")
+        the_hero:AddAbility("generic_hidden")
+        the_hero:AddAbility("lua_ability_rogue_golem_haymaker")
+
+        the_hero:AddAbility("special_bonus_rogue_golem_rock_locker_dmg_up")
+        the_hero:AddAbility("special_bonus_hp_200")
+
+        the_hero:AddAbility("special_bonus_rogue_golem_run_forest_break_speed_up")
+        the_hero:AddAbility("special_bonus_corruption_25")
+
+        the_hero:AddAbility("special_bonus_attack_speed_80")
+        the_hero:AddAbility("special_bonus_rogue_golem_tree_club_max_up")
+
+        the_hero:AddAbility("special_bonus_rogue_golem_run_forest_break_heal")
+        the_hero:AddAbility("special_bonus_cleave_175")
+        self:RemoveAllTalentModifiers(the_hero)
+
+        --SPECIAL TINY PARTICLE
+        local tiny_special = the_hero:AddAbility("lua_ability_rogue_golem_hidden_passive_death_particle")
+
+        --HP regen
+        the_hero:SetBaseHealthRegen(1.0)
+
+        --Set Min/Max Damage
+        the_hero:SetBaseDamageMin(31)
+        the_hero:SetBaseDamageMax(36)
+
+        --Base Attack Time
+        the_hero:SetBaseAttackTime(1.7)
+
+        --Set Movespeed
+        the_hero:SetBaseMoveSpeed(300)
+
+        --Armor
+        the_hero:SetPhysicalArmorBaseValue(0.09)
+
+        --Attack Point
+        local atk_point = the_hero:AddAbility("lua_ability_generic_change_attack_point")
+        atk_point.Attack_Point = 0.4
+
+        --Change Stats
+        the_hero:SetPrimaryAttribute(DOTA_ATTRIBUTE_STRENGTH)
+
+        the_hero:SetBaseStrength(25)
+        local str_gain = the_hero:AddAbility("lua_ability_generic_strength_gain")
+        str_gain.Strength_Gain = 2.7
+
+        the_hero:SetBaseAgility(16)
+        local agi_gain = the_hero:AddAbility("lua_ability_generic_agility_gain")
+        agi_gain.Agility_Gain = 1.5
+
+        the_hero:SetBaseIntellect(16)
+        local int_gain = the_hero:AddAbility("lua_ability_generic_intelligence_gain")
+        int_gain.Intelligence_Gain = 1.5
+
+        the_hero:CalculateStatBonus(true)
+
+        --NetTables
+        local title = {"ROGUE GOLEM"}
+        CustomNetTables:SetTableValue("new_hero_title", hero_string, title)
+
+        local info =  {}
+        info["shard"] = {"lua_ability_rogue_golem_tree_chuck"}
+        info["scepter"] = {"lua_ability_rogue_golem_haymaker"}
         CustomNetTables:SetTableValue("scepter_shard_info", hero_string, info)
 
         local stats_gain = {}

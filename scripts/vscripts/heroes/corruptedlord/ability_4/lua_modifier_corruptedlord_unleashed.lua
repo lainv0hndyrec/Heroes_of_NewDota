@@ -206,6 +206,8 @@ function lua_modifier_corruptedlord_unleashed_transform_demon:OnAttackLanded(key
 	--if keys.attacker:IsAlive() == false then return end
 	if keys.attacker ~= self.caster then return end
 
+	if keys.target:IsBaseNPC() == false then return end
+
 	--DebugDrawCircle(keys.target:GetAbsOrigin(),Vector(255,0,0),1,self.attack_aoe,false,0.5)
 
     if not IsServer() then return end

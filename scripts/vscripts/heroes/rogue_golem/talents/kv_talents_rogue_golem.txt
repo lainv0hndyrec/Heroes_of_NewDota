@@ -1,0 +1,84 @@
+"DOTAAbilities"
+{
+
+    "special_bonus_rogue_golem_rock_locker_dmg_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilityValues"
+		{
+	        "value"		"80"
+		}
+	}
+
+
+    "special_bonus_rogue_golem_run_forest_break_speed_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilityValues"
+		{
+	        "value"		"25"
+		}
+	}
+
+
+    "special_bonus_rogue_golem_tree_club_max_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilityValues"
+		{
+	        "value"		"2"
+		}
+	}
+
+
+    "special_bonus_rogue_golem_run_forest_break_heal"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/corruptedlord/talents/lua_talents_corruptedlord"
+
+        "AbilityValues"
+		{
+	        "value"		"50"
+		}
+	}
+
+
+    "lua_ability_rogue_golem_hidden_passive_death_particle"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        "ScriptFile"		            "heroes/rogue_golem/talents/lua_ability_rogue_golem_hidden_passive_death_particle"
+        "MaxLevel"                      "1"
+
+        "precache"
+		{
+            "particle"  "particles/units/heroes/hero_tiny/tiny04_death.vpcf"
+		}
+	}
+
+}

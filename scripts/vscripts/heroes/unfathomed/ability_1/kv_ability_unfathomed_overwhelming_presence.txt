@@ -19,8 +19,8 @@
         //"AbilitySound"					"Hero_Terrorblade.Metamorphosis"
 
 
-        "AbilityCastPoint"				"0.25"
-        "AbilityCooldown"				"12"
+        "AbilityCastPoint"				"0.3"
+        "AbilityCooldown"				"11"
 
         "AbilityManaCost"				"85 100 115 130"
 
@@ -66,7 +66,7 @@
             "05" //attack damage
             {
                 "var_type" 	                 "FIELD_INTEGER"
-                "slow_effect" 		         "50"
+                "slow_effect" 		         "40"
             }
 
         }

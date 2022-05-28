@@ -68,7 +68,8 @@ function lua_modifier_spiritsmaster_earth_spirit_transform:OnAttackLanded(event)
     local aoe_atk = self:GetAbility():GetSpecialValueFor("scepter_aoe_atk_percent")*0.01
     local atk_dmg = self:GetParent():GetAverageTrueAttackDamage(nil)
 
-
+    if event.target:IsBaseNPC() == false then return end
+    
     local particle = ParticleManager:CreateParticle(
         "particles/econ/events/ti10/mekanism_ti10_shock.vpcf"
         ,PATTACH_ABSORIGIN,event.target

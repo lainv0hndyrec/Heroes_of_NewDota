@@ -146,6 +146,8 @@ end
 
 function lua_modifier_fallen_one_revelation_heal:OnTakeDamage(event)
 
+    if event.unit:IsBaseNPC() == false then return end
+    if event.attacker:IsBaseNPC() == false then return end
     if event.unit ~= self:GetParent() then return end
     if event.attacker ~= self:GetCaster() then return end
     if event.inflictor ~= self:GetAbility() then return end

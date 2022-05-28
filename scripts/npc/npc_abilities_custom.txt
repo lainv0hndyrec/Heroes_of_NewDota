@@ -138,3 +138,26 @@
 #base "../vscripts/heroes/atniw_druid/ability_3/kv_ability_atniw_druid_bear_rush.txt"
 #base "../vscripts/heroes/atniw_druid/ability_4/kv_ability_atniw_druid_atniws_calling.txt"
 #base "../vscripts/heroes/atniw_druid/talents/kv_talents_atniw_druid.txt"
+
+
+//Death Propeth -> Banshee
+#base "../vscripts/heroes/banshee/ability_1/kv_ability_banshee_life_siphon.txt"
+#base "../vscripts/heroes/banshee/ability_2/kv_ability_banshee_death_veil.txt"
+#base "../vscripts/heroes/banshee/ability_3/kv_ability_banshee_soothsayer.txt"
+#base "../vscripts/heroes/banshee/ability_4/kv_ability_banshee_possess.txt"
+#base "../vscripts/heroes/banshee/talents/kv_talents_banshee.txt"
+
+
+//Tiny -> Rogue Golem
+#base "../vscripts/heroes/rogue_golem/ability_1/kv_ability_rogue_golem_rock_locker.txt"
+#base "../vscripts/heroes/rogue_golem/ability_2/kv_ability_rogue_golem_tree_club.txt"
+#base "../vscripts/heroes/rogue_golem/ability_3/kv_ability_rogue_golem_run_forest.txt"
+#base "../vscripts/heroes/rogue_golem/ability_4/kv_ability_rogue_golem_haymaker.txt"
+#base "../vscripts/heroes/rogue_golem/talents/kv_talents_rogue_golem.txt"
+
+
+//Void Spirit -> Hidden One
+#base "../vscripts/heroes/hidden_one/ability_1/kv_ability_hidden_one_shade_salvo.txt"
+#base "../vscripts/heroes/hidden_one/ability_2/kv_ability_hidden_one_cosmic_remnant.txt"
+#base "../vscripts/heroes/hidden_one/ability_3/kv_ability_hidden_one_aether_warp.txt"
+#base "../vscripts/heroes/hidden_one/ability_4/kv_ability_hidden_one_void_out.txt"

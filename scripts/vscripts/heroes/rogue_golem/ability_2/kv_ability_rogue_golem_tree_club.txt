@@ -1,0 +1,189 @@
+"DOTAAbilities"
+{
+    "lua_ability_rogue_golem_tree_club"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/rogue_golem/ability_2/lua_ability_rogue_golem_tree_club"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityTextureName"     	"tiny_tree_grab" //test textures
+        //"AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        //"AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        //"AbilityUnitDamageType"  	"DAMAGE_TYPE_PHYSICAL"
+        //"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"		"SPELL_DISPELLABLE_NO"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        "AbilityCastPoint"              "0.8"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_3"
+        "AnimationPlaybackRate"         "0.6"
+        //"AnimationIgnoresModelScale"    "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "50 65 80 95"
+        //"AbilityCooldown"               "18 15 12 9"
+        //"AbilityCastRange"              "700"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"	"particles/econ/items/tiny/tiny_prestige/tiny_prestige_tree_melee_flek.vpcf"
+            "particle"	"particles/units/heroes/hero_primal_beast/primal_beast_slow_debuff.vpcf"
+
+		}
+
+
+        "AbilityValues"
+        {
+
+
+            "ability_cd"                "15"
+            "cast_range"                "100"
+            "mana_cost"                 "20"
+
+
+        }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "bonus_atk_damage"      "15 30 45 60"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "max_attacks"                 "4"
+                "LinkedSpecialBonus"    "special_bonus_rogue_golem_tree_club_max_up"
+            }
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "lua_ability_rogue_golem_tree_chuck"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/rogue_golem/ability_2/lua_ability_rogue_golem_tree_club"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        "AbilityTextureName"     	"tiny_toss_tree" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"		"SPELL_DISPELLABLE_YES"
+
+        "MaxLevel"                      "1"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        "AbilityCastPoint"              "0.3"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        //"AnimationPlaybackRate"         "1.5"
+        //"AnimationIgnoresModelScale"    "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "50 65 80 95"
+        //"AbilityCooldown"               "18 15 12 9"
+        //"AbilityCastRange"              "700"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"	""
+
+		}
+
+
+        "AbilityValues"
+        {
+
+
+            //"ability_cd"                "15"
+            "cast_range"                "650"
+            "projectile_speed"                 "1200"
+
+            "shard_stun"            "1.0"
+            "shard_slow_duration"            "2.0"
+
+
+        }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	     "FIELD_FLOAT"
+                "mini_stun"      "0.1"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "slow_duration"   "1.5 2.0 2.5 3.0"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "03"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "tapering_slow_percent"      "75"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+        }
+
+
+    }
+
+}

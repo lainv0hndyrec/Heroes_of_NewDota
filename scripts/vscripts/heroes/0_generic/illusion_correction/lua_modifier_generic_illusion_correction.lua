@@ -8,12 +8,14 @@ function lua_modifier_generic_illusion_correction:AllowIllusionDuplicate() retur
 function lua_modifier_generic_illusion_correction:GetPriority() return MODIFIER_PRIORITY_SUPER_ULTRA end
 
 
+
 function lua_modifier_generic_illusion_correction:RemoveOnDeath()
     if self:GetParent():IsIllusion() then
         return true
     end
     return false
 end
+
 
 function lua_modifier_generic_illusion_correction:OnCreated()
     if not IsServer() then return end
@@ -50,6 +52,7 @@ function lua_modifier_generic_illusion_correction:OnIntervalThink()
 
     local proj_name = original_hero:GetRangedProjectileName()
     self:GetParent():SetRangedProjectileName(proj_name)
+
 
     --str
     if new_primary == 0 then
@@ -112,7 +115,7 @@ function lua_modifier_generic_illusion_correction:OnIntervalThink()
         local to_add = original_hero:GetAbilityByIndex(i)
         if not to_add == false then
             local lvl = to_add:GetLevel()
-            local new = self:GetParent():AddAbility(to_add:GetName())
+            local new = self:GetParent():AddAbility(to_add:GetAbilityName())
             new:SetLevel(lvl)
             new:SetHidden(to_add:IsHidden())
         end

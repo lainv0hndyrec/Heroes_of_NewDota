@@ -1,10 +1,9 @@
 lua_modifier_whistlepunk_steam_barrier = class({})
 function lua_modifier_whistlepunk_steam_barrier:IsHidden() return false end
-
 function lua_modifier_whistlepunk_steam_barrier:IsDebuff() return false end
-
 function lua_modifier_whistlepunk_steam_barrier:IsPurgable() return true end
-
+function lua_modifier_whistlepunk_steam_barrier:IsPurgeException() return true end
+function lua_modifier_whistlepunk_steam_barrier:AllowIllusionDuplicate() return true end
 
 
 function lua_modifier_whistlepunk_steam_barrier:OnCreated(kv)
@@ -20,12 +19,17 @@ function lua_modifier_whistlepunk_steam_barrier:OnCreated(kv)
     self.parent:Purge(false, true, false, false, false)
 
     self.particle = ParticleManager:CreateParticle(
-        "particles/units/heroes/hero_tinker/tinker_defense_matrix.vpcf",
+        "particles/units/heroes/soul_warden/ability_2/static_barrier_outer.vpcf",
         PATTACH_ABSORIGIN_FOLLOW,
         self.parent
     )
 
-    ParticleManager:SetParticleControlEnt(self.particle, 1, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), false)
+    ParticleManager:SetParticleControlEnt(
+        self.particle, 1, self.parent,
+        PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc",
+        self.parent:GetAbsOrigin(), false
+    )
+
     self.parent:EmitSound("DOTA_Item.EssenceRing.Cast")
 end
 

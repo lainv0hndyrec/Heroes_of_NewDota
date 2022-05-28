@@ -1,0 +1,76 @@
+"DOTAAbilities"
+{
+    "lua_ability_banshee_death_veil"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"										"ability_lua"
+		"ScriptFile"									"heroes/banshee/ability_2/lua_ability_banshee_death_veil"
+        "AbilityTextureName"							"banshee_death_veil"
+
+
+        "AbilityType"                                   "DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+		"AbilityUnitTargetTeam"							"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"							"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"  	                    "DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"								"SPELL_IMMUNITY_ENEMIES_NO"
+		//"FightRecapLevel"								"1"
+
+        //"HasScepterUpgrade"             "1"
+
+        //"AbilityCastPoint"              "0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+
+
+
+		"precache"
+		{
+			"particle" "particles/units/heroes/hero_dark_seer/dark_seer_wall_of_replica.vpcf"
+            "particle" "particles/units/heroes/banshee/ability_2/banshee_death_veil_wall_burn.vpcf"
+		}
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "wall_duration" 	"3.0 3.4 3.8 4.2"
+                //"LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+            }
+
+            "02"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "wall_damage" 	        "30 40 50 60"
+                "LinkedSpecialBonus"    "special_bonus_banshee_death_veil_dmg_up"
+            }
+
+            "03"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "vision_range" 	    "200"
+                //"LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+            }
+
+            "04"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "wall_length" 	        "325"
+                "LinkedSpecialBonus"    "special_bonus_banshee_death_veil_length_up"
+            }
+
+        }
+
+
+        "AbilityValues"
+        {
+            "mana_cost"     "100"
+            "ability_cd"    "16.0 14.0 12.0 10.0"
+            "cast_range"    "800"
+
+            "wall_width"    "84"
+        }
+	}
+}

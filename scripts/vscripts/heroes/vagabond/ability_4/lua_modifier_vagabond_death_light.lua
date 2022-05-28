@@ -111,6 +111,7 @@ end
 
 
 function lua_modifier_vagabond_death_light:GetAbsoluteNoDamagePhysical(event)
+    if event.target:IsBaseNPC() == false then return 0 end
 
     if event.target ~= self:GetParent() then return 0 end
 
@@ -131,6 +132,7 @@ end
 
 
 function lua_modifier_vagabond_death_light:GetAbsoluteNoDamageMagical(event)
+    if event.target:IsBaseNPC() == false then return end
 
     if event.target ~= self:GetParent() then return 0 end
 
@@ -151,6 +153,7 @@ end
 
 
 function lua_modifier_vagabond_death_light:GetAbsoluteNoDamagePure(event)
+    if event.target:IsBaseNPC() == false then return end
 
     if event.target ~= self:GetParent() then return 0 end
 

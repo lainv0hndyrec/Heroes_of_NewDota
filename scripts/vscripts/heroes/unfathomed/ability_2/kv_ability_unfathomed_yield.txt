@@ -12,6 +12,8 @@
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"	        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+
 		//"SpellImmunityType"					"SPELL_IMMUNITY_ALLIES_YES"
         "MaxLevel"                          "4"
         //"RequiredLevel"                     "1"
@@ -22,8 +24,8 @@
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
         //"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
-        "AbilityManaCost"               "30"
-        "AbilityCooldown"               "11 9 7 5"
+        "AbilityManaCost"               "25"
+        "AbilityCooldown"               "10 8 6 4"
         //"AbilityCastRange"              "300"
 
         //"HasShardUpgrade"                "1"
@@ -42,14 +44,20 @@
             "01"
             {
                 "var_type" 	"FIELD_INTEGER"
-                "effect_distance" 	"75 150 225 300"
+                "effect_distance" 	"200 250 300 350 "
                 "LinkedSpecialBonus"  "special_bonus_unfathomed_yield_range"
             }
 
             "02"
             {
                 "var_type" 	"FIELD_INTEGER"
-                "str_damage" 	"40 60 80 100"
+                "str_damage" 	"30 60 90 120"
+            }
+
+            "03"
+            {
+                "var_type" 	"FIELD_INTEGER"
+                "base_cast_range" 	"400"
             }
 
         }

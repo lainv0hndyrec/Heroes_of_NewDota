@@ -27,8 +27,18 @@ function lua_modifier_generic_change_projectile_speed:GetModifierProjectileSpeed
 
         local new_proj_speed = self:GetAbility().Projectile_Speed
         local diff = new_proj_speed - self.original_proj_speed
-        self:SetStackCount(diff)
 
+        if self:GetParent():IsIllusion() then
+            local original_hero = self:GetParent():GetReplicatingOtherHero()
+            if not original_hero then return end
+
+            local original_modifier = original_hero:FindModifierByName("lua_modifier_generic_change_projectile_speed")
+            if not original_modifier then return end
+
+            diff = original_modifier:GetStackCount()
+        end
+
+        self:SetStackCount(diff)
     end
 
     return self:GetStackCount()

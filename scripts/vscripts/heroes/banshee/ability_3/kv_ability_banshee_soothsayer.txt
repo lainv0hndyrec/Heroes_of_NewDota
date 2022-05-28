@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+    "lua_ability_banshee_soothsayer"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/banshee/ability_3/lua_ability_banshee_soothsayer"
+        "AbilityTextureName"     	    "banshee_soothsayer"
+        //"MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    
+        "AbilitySpecial"
+        {
+            "01" //attack damage
+            {
+                "var_type" 	                "FIELD_INTEGER"
+                "base_hp_regen" 		    "1 2 3 4"
+            }
+
+            "02" //self damage
+            {
+                "var_type"  	            "FIELD_FLOAT"
+                "pecent_hp_regen" 		    "0.1 0.2 0.3 0.4"
+            }
+
+        }
+    }
+}

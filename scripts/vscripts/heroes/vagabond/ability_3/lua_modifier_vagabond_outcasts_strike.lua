@@ -75,6 +75,8 @@ end
 function lua_modifier_vagabond_outcasts_strike:GetModifierPreAttack_CriticalStrike(event)
     if event.attacker ~= self:GetParent() then return end
 
+    if event.target:IsBaseNPC() == false then return end
+
     if event.target:IsBuilding() == true then return end
 
     if self:GetParent():PassivesDisabled() == true then return end
@@ -110,6 +112,8 @@ end
 function lua_modifier_vagabond_outcasts_strike:OnAttackLanded(event)
     if event.attacker ~= self:GetParent() then return end
 
+    if event.target:IsBaseNPC() == false then return end
+    
     if event.target:IsBuilding() == true then return end
 
     if self:GetParent():PassivesDisabled() == true then return end

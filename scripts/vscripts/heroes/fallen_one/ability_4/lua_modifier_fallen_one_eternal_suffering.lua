@@ -157,6 +157,8 @@ function lua_modifier_fallen_one_eternal_suffering_scepter:OnTakeDamage(event)
         if event.inflictor:GetName() == "lua_ability_fallen_one_eternal_suffering" then return end
     end
 
+    if event.unit:IsBaseNPC() == false then return end
+
     local doom = event.unit:FindModifierByName("lua_modifier_fallen_one_eternal_suffering")
     if not doom then return end
 

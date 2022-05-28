@@ -465,6 +465,8 @@ end
 function lua_modifier_pope_of_pestilence_banish_buff:OnAttack(event)
     if event.attacker ~= self:GetParent() then return end
 
+    if event.target:IsBaseNPC() == false then return end
+
     if event.target:IsBuilding() then
         self.attack_record = event.record
     end
@@ -489,6 +491,8 @@ function lua_modifier_pope_of_pestilence_banish_buff:OnAttackFail(event)
     if self.attack_record ~= event.record then return end
 
     if self.attack_released == false then return end
+
+    if event.target:IsBaseNPC() == false then return end
 
     if self:GetParent():IsAlive() then
         local skull_mod = self:GetParent():FindModifierByName("lua_modifier_pope_of_pestilence_banish_skull")

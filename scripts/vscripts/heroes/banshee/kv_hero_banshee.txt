@@ -1,0 +1,34 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	//
+	//=================================================================================================================
+	"npc_custom_hero_bansheee"
+	{
+		"override_hero"				"npc_dota_hero_death_prophet"				// Hero to override
+
+		"Ability1"					"lua_ability_banshee_life_siphon"			// Ability 1
+		"Ability2"					"lua_ability_banshee_death_veil"
+		"Ability3"					"lua_ability_banshee_soothsayer"			// Ability 3
+		"Ability4"					"lua_ability_banshee_possess_death_rush"					// lua_ability_banshee_possess_death_rush
+		"Ability5"					"lua_ability_banshee_possess_release"					// Ability 5
+		"Ability6"					"lua_ability_banshee_possess"		// lua_ability_banshee_possess_release
+		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
+
+		//scepter gives aghanims and cd minus for possess
+		//shard gives attackspeed and increase duration
+
+		//Talents
+		"Ability10"		"special_bonus_intelligence_12"
+		"Ability11"		"special_bonus_banshee_possess_mana_regen_up" //+4 mana regen
+
+		"Ability12"		"special_bonus_banshee_life_siphon_dmg_up" //+18dmg
+		"Ability13"		"special_bonus_attack_damage_70"
+
+		"Ability14"		"special_bonus_movement_speed_30"
+		"Ability15"		"special_bonus_banshee_possess_death_rush_ms_bonus_up" //+60 ms speed
+
+		"Ability16"		"special_bonus_banshee_death_veil_length_up" //+275 width
+		"Ability17"		"special_bonus_banshee_death_veil_dmg_up" //+140 dmg per sec
+	}
+}

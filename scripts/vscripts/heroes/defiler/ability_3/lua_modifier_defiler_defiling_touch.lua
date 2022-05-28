@@ -23,6 +23,7 @@ end
 function lua_modifier_defiler_defiling_touch_source:GetModifierTotalDamageOutgoing_Percentage(event)
     if event.attacker:IsAlive() == false then return 0 end
     if event.attacker ~= self:GetParent() then return 0 end
+    if event.target:IsBaseNPC() == false then return 0 end
     if event.target:IsAlive() == false then return 0 end
     if event.target:GetName() == "npc_dota_roshan" then return 0 end
     if event.target:IsMagicImmune() then return 0 end
@@ -54,6 +55,7 @@ end
 function lua_modifier_defiler_defiling_touch_source:GetModifierIncomingDamage_Percentage(event)
     if event.attacker:IsAlive() == false then return 0 end
     if event.attacker:HasModifier("lua_modifier_defiler_defiling_touch_debuff") == false then return 0 end
+    if event.target:IsBaseNPC() == false then return 0 end
     if event.target:IsAlive() == false then return 0 end
     if event.target ~= self:GetParent() then return 0 end
 

@@ -49,6 +49,7 @@ function lua_modifier_spiritsmaster_storm_spirit_transform:OnAttackLanded(event)
     if not IsServer() then return end
     if event.attacker ~= self:GetParent() then return end
     if event.attacker:IsIllusion() then return end
+    if event.target:IsBaseNPC() == false then return end
     if event.target:IsAlive() == false then return end
     if event.target:IsMagicImmune() then return end
     if event.target:IsBuilding() then return end
@@ -181,6 +182,7 @@ function lua_modifier_spiritsmaster_storm_spirit_bolt:OnAttackLanded(event)
     if not IsServer() then return end
     if event.attacker ~= self:GetParent() then return end
     if event.attacker:IsIllusion() then return end
+    if event.target:IsBaseNPC() == false then return end
     if event.target:IsAlive() == false then return end
     if event.target:IsBuilding() then return end
 

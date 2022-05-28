@@ -1,0 +1,102 @@
+"DOTAAbilities"
+{
+    "lua_ability_hidden_one_void_out"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/hidden_one/ability_4/lua_ability_hidden_one_void_out"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULITMATE"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityTextureName"     	"" //test textures
+        //"AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        //"AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"		"SPELL_DISPELLABLE_YES"
+
+        "MaxLevel"               "3"
+        "RequiredLevel"          "4"
+        "LevelsBetweenUpgrades"  "4"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        //"AbilityCastPoint"              "0.5"
+        //"AbilityCastAnimation"          ""
+        //"AnimationPlaybackRate"         "1.5"
+        //"AnimationIgnoresModelScale"    "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "50 65 80 95"
+        //"AbilityCooldown"               "18 15 12 9"
+        //"AbilityCastRange"              "700"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"	"particles/status_fx/status_effect_void_spirit_aether_remnant.vpcf"
+            "particle"	"particles/units/heroes/hero_rubick/rubick_fade_bolt_debuff.vpcf"
+		}
+
+
+        "AbilitySpecial"
+        {
+
+            "01"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "debuff_duration"       "4.0"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "combo_damage"   "100 150 200"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "03"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "stun_duration"         "2.0"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "04"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "vulnerable_duration"     "3.0"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "05"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "vulnerable_damage"     "30 55 80"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "06"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "cdr_abilities"     "2.0 3.0 4.0"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+        }
+
+
+    }
+}

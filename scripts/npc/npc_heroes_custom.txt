@@ -21,4 +21,7 @@
 //#base "../vscripts/heroes/boogeyman/kv_hero_boogeyman.txt"
 //#base "../vscripts/heroes/pope_of_pestilence/kv_hero_pope_of_pestilence.txt"
 //#base "../vscripts/heroes/diviner/kv_hero_diviner.txt"
-//base "../vscripts/heroes/atniw_druid/kv_hero_atniw_druid.txt"
+//#base "../vscripts/heroes/atniw_druid/kv_hero_atniw_druid.txt"
+//#base "../vscripts/heroes/banshee/kv_hero_banshee.txt"
+//#base "../vscripts/heroes/rogue_golem/kv_hero_rogue_golem.txt"
+#base "../vscripts/heroes/hidden_one/kv_hero_hidden_one.txt"

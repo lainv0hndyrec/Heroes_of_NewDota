@@ -1,0 +1,105 @@
+"DOTAAbilities"
+{
+    "lua_ability_hidden_one_cosmic_remnant"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/hidden_one/ability_2/lua_ability_hidden_one_cosmic_remnant"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityTextureName"     	"void_spirit_aether_remnant" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+        //"SpellDispellableType"		"SPELL_DISPELLABLE_YES"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        "AbilityCastPoint"              "0.25"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        //"AnimationPlaybackRate"         "1.5"
+        //"AnimationIgnoresModelScale"    "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "50 65 80 95"
+        //"AbilityCooldown"               "18 15 12 9"
+        //"AbilityCastRange"              "700"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"	"particles/units/heroes/hero_void_spirit/aether_remnant/void_spirit_aether_remnant_run.vpcf"
+            "particle"	"particles/units/heroes/hero_undying/undying_soul_rip_heal_impact_body.vpcf"
+            "particle"	"particles/units/heroes/hidden_one/hidden_one_cosmic_remnant.vpcf"
+		}
+
+
+        "AbilityValues"
+        {
+
+            "ability_cd"                "12"
+            "cast_range"                "1000"
+            "cast_aoe"                  "200"
+            "mana_cost"                 "110 120 130 140"
+
+            "projectile_speed"          "1000"
+
+        }
+
+
+        "AbilitySpecial"
+        {
+
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "ally_heal"             "30 60 90 120"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "aoe_damage"             "70 120 165 210"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "03"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "damage_up_per_heal"             "15 20 25 30"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "04"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "maximum_damage"             "360"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "05"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "projectile_vision"             "800"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+        }
+
+
+    }
+}

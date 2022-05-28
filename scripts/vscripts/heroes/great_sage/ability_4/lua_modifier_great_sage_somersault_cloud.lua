@@ -29,6 +29,8 @@ function lua_modifier_great_sage_somersault_cloud:OnTakeDamage(event)
 
     if not IsServer() then return end
 
+    if event.unit:IsBaseNPC() == false then return end
+
     if event.unit ~= self:GetParent() then return end
     if event.attacker == self:GetParent() then return end
 

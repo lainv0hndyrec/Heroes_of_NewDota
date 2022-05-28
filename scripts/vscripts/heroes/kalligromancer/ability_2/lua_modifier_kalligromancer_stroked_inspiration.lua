@@ -207,7 +207,8 @@ function lua_modifier_kalligromancer_stroked_inspiration:GetModifierTotalDamageO
     if event.attacker ~= self:GetParent() then return 0 end
 
     if not self.closest_target then return 0 end
-    
+
+    if event.target:IsBaseNPC() == false then return 0 end
     if event.target:IsAlive() == false then return 0 end
     if event.target ~= self.closest_target then return 0 end
 

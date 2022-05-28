@@ -12,6 +12,7 @@ function lua_modifier_atniw_druid_atniws_calling:IsPurgeException() return true 
 function lua_modifier_atniw_druid_atniws_calling:GetModifierAttackRangeOverride() return 150 end
 function lua_modifier_atniw_druid_atniws_calling:GetOverrideAttackMagical() return 1 end
 function lua_modifier_atniw_druid_atniws_calling:AllowIllusionDuplicate() return true end
+function lua_modifier_atniw_druid_atniws_calling:GetPriority() return MODIFIER_PRIORITY_HIGH end
 
 
 function lua_modifier_atniw_druid_atniws_calling:GetEffectName()
@@ -55,8 +56,10 @@ end
 function lua_modifier_atniw_druid_atniws_calling:GetModifierProcAttack_BonusDamage_Physical(event)
     if not IsServer() then return end
     if event.attacker ~= self:GetParent() then return end
+    if event.target:IsBaseNPC() == false then return end
     if event.target:IsBuilding() then return end
     if event.target:IsMagicImmune() then return end
+
 
 
     local magic_dmg = self:GetAbility():GetSpecialValueFor("attack_magic_damage")

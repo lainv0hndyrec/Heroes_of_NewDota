@@ -93,6 +93,7 @@ function lua_modifier_kalligromancer_death_portrait:GetModifierIncomingDamage_Pe
 
     if not IsServer() then return end
 
+    if event.target:IsBaseNPC() == false then return end
     if event.target:IsAlive() == false then return end
     if event.target ~= self:GetParent() then return end
 

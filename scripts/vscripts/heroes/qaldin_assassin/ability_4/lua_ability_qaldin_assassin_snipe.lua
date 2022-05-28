@@ -128,14 +128,14 @@ function lua_ability_qaldin_assassin_snipe:OnProjectileHit(target,pos)
 
 
 
-    local base_dmg = self:GetSpecialValueFor("base_dmg")
+    local base_dmg = self:GetSpecialValueFor("base_damage")
     local dmg_type = DAMAGE_TYPE_MAGICAL
     if scepter then
-        base_dmg = base_dmg + self:GetSpecialValueFor("scepter_base_dmg")
+        base_dmg = base_dmg + self:GetSpecialValueFor("scepter_base_damage")
         dmg_type = DAMAGE_TYPE_PURE
     end
 
-    local hp_dmg = self:GetSpecialValueFor("hp_percent_dmg")*0.01
+    local hp_dmg = self:GetSpecialValueFor("hp_percent_damage")*0.01
     local total_dmg = base_dmg + (hp_dmg*target:GetMaxHealth())
 
 

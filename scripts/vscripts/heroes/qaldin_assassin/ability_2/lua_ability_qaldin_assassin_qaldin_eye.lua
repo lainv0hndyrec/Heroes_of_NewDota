@@ -6,6 +6,7 @@ lua_ability_qaldin_assassin_qaldin_eye = class({})
 
 
 function lua_ability_qaldin_assassin_qaldin_eye:OnUpgrade()
+    if self:GetCaster():IsIllusion() then return end
     local detonate =  self:GetCaster():FindAbilityByName("lua_ability_qaldin_assassin_qaldin_eye_detonate_hero")
     detonate:SetLevel(1)
 end

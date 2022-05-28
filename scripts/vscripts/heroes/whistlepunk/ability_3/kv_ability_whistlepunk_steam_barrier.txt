@@ -15,7 +15,7 @@
         "MaxLevel"                          "4"
         "RequiredLevel"                     "1"
         "LevelsBetweenUpgrades"             "2"
-		"AbilityTextureName"				"tinker_defense_matrix"
+		"AbilityTextureName"				"whistlepunk_steam_barrier"
 
         "AbilityCastPoint"              "0.2"
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
@@ -28,7 +28,7 @@
 
 		"precache"
 		{
-			"particle" "particles/units/heroes/hero_tinker/tinker_defense_matrix.vpcf"
+			"particle" "particles/units/heroes/soul_warden/ability_2/static_barrier_outer.vpcf"
             "particle" "particles/units/heroes/hero_tinker/tinker_defense_matrix_ball_sphere_rings.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
 

@@ -1,0 +1,116 @@
+"DOTAAbilities"
+{
+    "lua_ability_rogue_golem_haymaker"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/rogue_golem/ability_4/lua_ability_rogue_golem_haymaker"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityTextureName"     	"rogue_golem_haymaker" //test textures
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"		"SPELL_DISPELLABLE_YES"
+
+        //"MaxLevel"                      "4"
+        //"RequiredLevel"                 "1"
+        //"LevelsBetweenUpgrades"         "2"
+
+        "AbilityCastPoint"              "0.4"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        //"AnimationPlaybackRate"         "0.5"
+        //"AnimationIgnoresModelScale"    "1"
+
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+        //"AbilityDamage" 				"90 105 120 135"
+        //"AbilityManaCost"               "50 65 80 95"
+        //"AbilityCooldown"               "18 15 12 9"
+        //"AbilityCastRange"              "700"
+        //"AbilityCastRangeBuffer"  "250"
+        //"AbilityChannelTime"      "0.0 0.0 0.0"
+        //"AbilityChannelledManaCostPerSecond" "30 35 40"
+        //"AbilityDuration"         "0.0 0.0 0.0"
+        //"AoERadius"               "200"
+
+
+        "precache"
+		{
+            "particle"	"particles/units/heroes/hero_primal_beast/primal_beast_slow_debuff.vpcf"
+            "particle"	"particles/units/heroes/hero_beastmaster/beastmaster_primal_roar.vpcf"
+
+		}
+
+
+        "AbilityValues"
+        {
+            "ability_cd"                "100 80 60"
+            "cast_range"                "150"
+            "mana_cost"                 "100"
+
+            "scepter_cd"                "15.0"
+            "scepter_str_duration"      "30.0"
+        }
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "str_gain_percent"      "40"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "02"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "str_gain_duration"     "7.0"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "03"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "punch_damage"      "200 400 600"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "04"
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "punch_damage_multiplier"    "19"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "05"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "stun_duration"     "1.5"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "06"
+            {
+                "var_type" 	                 "FIELD_INTEGER"
+                "tapering_slow"     "100"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "06"
+            {
+                "var_type" 	                 "FIELD_FLOAT"
+                "tapering_slow_duration"     "5.0"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+        }
+
+
+    }
+}

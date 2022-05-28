@@ -82,7 +82,12 @@ function lua_modifier_unfathomed_yield_motion:OnCreated(kv)
     end
 
 
-    local caster_facing = self:GetCaster():GetForwardVector()*self:GetCaster():GetHullRadius()
+    local caster_facing = self:GetCaster():GetForwardVector()*100
+    if self.is_push then
+        caster_facing = Vector(0,0,0)
+    end
+
+
     self.caster_position = self:GetCaster():GetAbsOrigin()+caster_facing
     self.parent_position = self:GetParent():GetAbsOrigin()
 
@@ -98,6 +103,8 @@ function lua_modifier_unfathomed_yield_motion:OnCreated(kv)
             ParticleManager:SetParticleControl(self.particle,60,Vector(0,255,255))
         end
     end
+
+    self.total_distance = self.effect_distance
 
     if self:ApplyHorizontalMotionController() then return end
 	self:Destroy()
@@ -118,7 +125,12 @@ end
 function lua_modifier_unfathomed_yield_motion:UpdateHorizontalMotion( me, dt )
     if not IsServer() then return end
     local speed = (dt/self.duration) * self.effect_distance
-
+    if self.total_distance >= speed then
+        self.total_distance = self.total_distance - speed
+    else
+        speed = self.total_distance
+        self.total_distance = 0
+    end
 
     local current_pos = self:GetParent():GetAbsOrigin()
 
@@ -132,6 +144,10 @@ function lua_modifier_unfathomed_yield_motion:UpdateHorizontalMotion( me, dt )
 
     --remove trees
     GridNav:DestroyTreesAroundPoint(ground_pos,150,false)
+
+    if self.total_distance <= 0 then
+        self:Destroy()
+    end
 end
 
 

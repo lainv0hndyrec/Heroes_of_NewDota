@@ -1,0 +1,86 @@
+"DOTAAbilities"
+{
+    "lua_ability_banshee_life_siphon"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"		        "heroes/banshee/ability_1/lua_ability_banshee_life_siphon"
+
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityTextureName"     	"death_prophet_spirit_siphon"
+
+        "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+        "AbilityUnitDamageType"  	"DAMAGE_TYPE_PURE"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+        "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+
+        //"MaxLevel"                  "4"
+
+        //"AbilityCastPoint"              "0.3"
+        "AbilityCastAnimation"          ""
+
+        //"HasShardUpgrade"                "1"
+
+        // Stats
+        //----------------------------------------------------------------------------------------
+
+        //"AbilityManaCost"         "100 110 120 130"
+        //"AbilityCooldown"         "14"
+        //"AbilityCastRange"        "500"
+
+
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf"
+		}
+
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "leech_duration"        "5.0"
+                //"LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+            }
+
+            "02"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "damage_per_second"     "20 30 38 46"
+                "LinkedSpecialBonus"    "special_bonus_banshee_life_siphon_dmg_up"
+            }
+
+            "03"
+            {
+                "var_type" 	            "FIELD_INTEGER"
+                "snap_range"            "200"
+                //"LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+            }
+
+            "04"
+            {
+                "var_type" 	            "FIELD_FLOAT"
+                "snap_stun_duration"    "1.0 1.5 2.0 2.5"
+                //"LinkedSpecialBonus"    "special_bonus_pope_of_pestilence_exorcismus_stacks_up"
+            }
+
+        }
+
+
+
+        "AbilityValues"
+        {
+            "mana_cost"     "120 130 140 150"
+            "ability_cd"    "12.0"
+            "cast_range"    "600"
+        }
+    }
+
+
+}

@@ -16,5 +16,17 @@ end
 
 function lua_modifier_generic_change_turn_rate:GetModifierTurnRate_Override()
     if not IsServer() then return end
+
+    if self:GetParent():IsIllusion() then
+        local original_hero = self:GetParent():GetReplicatingOtherHero()
+        if not original_hero then return end
+
+        local original_ability = original_hero:FindAbilityByName("lua_ability_generic_change_turn_rate")
+        if not original_ability then return end
+
+        return original_ability.Turn_Rate
+    end
+
+
     return self:GetAbility().Turn_Rate
 end

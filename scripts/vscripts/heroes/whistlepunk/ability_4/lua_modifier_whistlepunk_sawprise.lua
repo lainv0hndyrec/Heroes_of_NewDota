@@ -64,6 +64,7 @@ function lua_modifier_whistlepunk_sawprise_thinker:OnCreated(params)
         local new_position = self.cast_position+(self.vector_direction*50*i)
         self.damage_points[i] = new_position
 
+
         local abs_val = math.abs(i)
         if abs_val ~= 8 then
             --provide vision

@@ -12,10 +12,20 @@ lua_ability_unfathomed_yield = class({})
 
 
 function lua_ability_unfathomed_yield:GetCastRange(location,target)
-    local range = 0
-    local caster = self:GetCaster()
-    if not caster then return range end
-    range = self:GetCaster():Script_GetAttackRange()
+
+    local range = self:GetLevelSpecialValueFor("base_cast_range",0)
+    local ethereal_order = self:GetCaster():FindAbilityByName("lua_ability_unfathomed_ethereal_order")
+    if not ethereal_order == false then
+        range = range + ethereal_order:GetSpecialValueFor("add_range")
+    end
+
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_unfathomed_ethereal_order_range")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            range = range+talent:GetSpecialValueFor("value")
+        end
+    end
+
     return range
 end
 
@@ -87,13 +97,8 @@ function lua_ability_unfathomed_yield:OnSpellStart()
 
     self:GetCaster():PerformAttack(
     	self:GetCursorTarget(),
-    	true,
-    	true,
-    	true,
-    	false,
-    	false,
-    	false,
-    	true
+    	true,true,true,false,
+        false,false,true
     )
 
     damage_mod:Destroy()
@@ -106,9 +111,6 @@ end
 
 function lua_ability_unfathomed_yield:Effect_PushPull()
 
-
-
-
     if self:GetCursorTarget():IsMagicImmune() then return end
 
 
@@ -116,9 +118,8 @@ function lua_ability_unfathomed_yield:Effect_PushPull()
         self:GetCaster(),
         self,
         "lua_modifier_unfathomed_yield_motion",
-        {duration = 0.1}
+        {duration = 0.2}
     )
-
 
     --SHARD
     if self:GetCursorTarget():GetTeam() == self:GetCaster():GetTeam() then return end

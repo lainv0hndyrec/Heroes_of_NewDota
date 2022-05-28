@@ -82,7 +82,7 @@ function lua_ability_unfathomed_spatial_manipulation:OnSpellStart()
                     self:GetCaster(),
                     self,
                     "lua_modifier_unfathomed_spatial_manipulation",
-                    {duration = 0.1}
+                    {duration = 0.2}
                 )
             end
         end

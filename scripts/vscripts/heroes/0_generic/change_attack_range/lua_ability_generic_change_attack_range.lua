@@ -5,7 +5,7 @@ lua_ability_generic_change_attack_range = class({})
 
 
 function lua_ability_generic_change_attack_range:Init()
-    self.Change_Attack_Range = nil
+    self.Change_Attack_Range = 0.0
 end
 
 

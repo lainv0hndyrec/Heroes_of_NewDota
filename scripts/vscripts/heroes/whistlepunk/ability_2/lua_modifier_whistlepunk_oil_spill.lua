@@ -91,6 +91,7 @@ end
 function lua_modifier_whistlepunk_oil_spill_slowburn:OnTakeDamage(event)
     if event.attacker ~= self:GetCaster() then return end
 
+    if event.unit:IsBaseNPC() == false then return end
     if event.unit:IsAlive() == false then return end
     if event.unit ~= self:GetParent() then return end
 

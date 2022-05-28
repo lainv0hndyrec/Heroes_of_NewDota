@@ -25,7 +25,6 @@ end
 
 
 
-
 function lua_modifier_kalligromancer_heavy_blot:OnCreated(kv)
 
     if not IsServer() then return end
@@ -38,8 +37,21 @@ function lua_modifier_kalligromancer_heavy_blot:OnCreated(kv)
 
     self.blot = false
     self.attack_record = {}
-end
 
+    if self:GetParent():IsIllusion() == false then return end
+
+    local original_hero = self:GetParent():GetReplicatingOtherHero()
+    if not original_hero then return end
+
+    local mod = original_hero:FindModifierByName("lua_modifier_kalligromancer_heavy_blot")
+    if not mod then return end
+
+    self:SetStackCount(mod:GetStackCount())
+    self.blot = mod.blot
+    self.attack_record = mod.attack_record
+
+
+end
 
 
 
@@ -62,8 +74,6 @@ function lua_modifier_kalligromancer_heavy_blot:OnIntervalThink()
         self.blot = true
     end
 end
-
-
 
 
 
@@ -92,10 +102,6 @@ end
 
 
 
-
-
-
-
 function lua_modifier_kalligromancer_heavy_blot:OnAttackStart(event)
     if not IsServer() then return end
 
@@ -108,18 +114,6 @@ function lua_modifier_kalligromancer_heavy_blot:OnAttackStart(event)
     self:GetParent():StartGesture(ACT_DOTA_GS_INK_CREATURE)
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -161,8 +155,6 @@ end
 
 
 
-
-
 function lua_modifier_kalligromancer_heavy_blot:OnAttackLanded(event)
     if not IsServer() then return end
 
@@ -192,6 +184,7 @@ function lua_modifier_kalligromancer_heavy_blot:OnAttackLanded(event)
         end
     end
 
+    if event.target:IsBaseNPC() == false then return end
 
     local enemies = FindUnitsInRadius(
         event.attacker:GetTeam(),

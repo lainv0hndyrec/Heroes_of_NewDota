@@ -53,6 +53,8 @@ function lua_modifier_qaldin_assassin_weapon_break:OnAttackLanded(event)
     local cd = self:GetAbility():GetCooldownTime()
     local atk_cd = self:GetAbility():GetSpecialValueFor("cd_per_atk")
 
+    if event.target:IsBaseNPC() == false then return end
+
     if cd > 0 then
         self:GetAbility():EndCooldown()
         self:GetAbility():StartCooldown(cd-atk_cd)

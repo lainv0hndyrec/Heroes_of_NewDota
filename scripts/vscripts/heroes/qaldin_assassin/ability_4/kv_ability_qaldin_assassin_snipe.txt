@@ -19,6 +19,7 @@
         "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "AbilityUnitDamageType"  	    "DAMAGE_TYPE_MAGICAL"
         "SpellDispellableType"		    "SPELL_DISPELLABLE_YES"
+        "SpellImmunityType"			    "SPELL_IMMUNITY_ENEMIES_NO"
 
         "AbilityCastPoint"              "1.5"
         //"AbilityChannelTime"            "1.5"
@@ -39,9 +40,9 @@
 
         "AbilityValues"
         {
-            "base_dmg"          "250"
-            "scepter_base_dmg"  "100"
-            "hp_percent_dmg"    "10 20 30"
+            "base_damage"          "250"
+            "scepter_base_damage"  "100"
+            "hp_percent_damage"    "10 20 30"
             "range_check"       "300"
 
             "ms_slow_percent"   "20 30 40"

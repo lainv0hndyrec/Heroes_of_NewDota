@@ -28,11 +28,11 @@ function lua_modifier_hidden_one_void_out_counter:OnCreated(kv)
         return
     end
 
-    local frozen_mod = self:GetParent():HasModifier("lua_modifier_hidden_one_void_out_stun")
-    if frozen_mod == true then
-        self:Destroy()
-        return
-    end
+    -- local frozen_mod = self:GetParent():HasModifier("lua_modifier_hidden_one_void_out_stun")
+    -- if frozen_mod == true then
+    --     self:Destroy()
+    --     return
+    -- end
 
 
     self.ability = kv.ability
@@ -53,17 +53,34 @@ function lua_modifier_hidden_one_void_out_counter:OnRefresh(kv)
 
     self:GetParent():EmitSound("Hero_VoidSpirit.AetherRemnant.Target")
 
+    
     --stun
     local stun_duration = self:GetAbility():GetSpecialValueFor("stun_duration")
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_hidden_one_void_out_stun_up")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            stun_duration = stun_duration+talent:GetSpecialValueFor("value")
+        end
+    end
+
     self:GetParent():AddNewModifier(
         self:GetCaster(),self:GetAbility(),
         "lua_modifier_hidden_one_void_out_stun",
         {duration = stun_duration}
     )
 
+    self:GetParent():InterruptMotionControllers(true)
+
 
     --vulnerable
     local vulnerable_duration = self:GetAbility():GetSpecialValueFor("vulnerable_duration")
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_hidden_one_void_out_vurnerable_time_up")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            vulnerable_duration = vulnerable_duration+talent:GetSpecialValueFor("value")
+        end
+    end
+
     self:GetParent():AddNewModifier(
         self:GetCaster(),self:GetAbility(),
         "lua_modifier_hidden_one_void_out_vulnerable",
@@ -88,8 +105,10 @@ function lua_modifier_hidden_one_void_out_counter:OnRefresh(kv)
 
 end
 
-
-
+function lua_modifier_hidden_one_void_out_counter:OnDestroy()
+    if not IsServer() then return end
+    self:GetParent():StopSound("Hero_VoidSpirit.AetherRemnant.Target")
+end
 
 
 

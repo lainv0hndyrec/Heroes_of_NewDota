@@ -45,6 +45,7 @@ function lua_modifier_atniw_druid_bear_rush:OnModifierAdded(event)
     if event.unit ~= self:GetParent() then return end
 
     if self:GetParent():IsStunned() then
+        print(event.added_buff:GetName())
         self:Destroy()
         return
     end

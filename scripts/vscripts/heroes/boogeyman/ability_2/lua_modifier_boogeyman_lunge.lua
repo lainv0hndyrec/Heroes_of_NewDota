@@ -20,8 +20,8 @@ end
 
 function lua_modifier_boogeyman_lunge_dash:DeclareFunctions()
     local dfunc = {
-        MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
-        MODIFIER_EVENT_ON_MODIFIER_ADDED
+        MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
+        --MODIFIER_EVENT_ON_MODIFIER_ADDED
     }
     return dfunc
 end
@@ -77,22 +77,22 @@ function lua_modifier_boogeyman_lunge_dash:OnCreated(kv)
 end
 
 
-function lua_modifier_boogeyman_lunge_dash:OnModifierAdded(event)
-    if not IsServer() then return end
-    if event.unit ~= self:GetParent() then return end
-    if event.added_buff == self then return end
-
-    if self:GetParent():IsStunned() then
-        self:Destroy()
-        return
-    end
-
-    if self:GetParent():IsRooted() then
-        self:Destroy()
-        return
-    end
-
-end
+-- function lua_modifier_boogeyman_lunge_dash:OnModifierAdded(event)
+--     if not IsServer() then return end
+--     if event.unit ~= self:GetParent() then return end
+--     if event.added_buff == self then return end
+--
+--     if self:GetParent():IsStunned() then
+--         self:Destroy()
+--         return
+--     end
+--
+--     if self:GetParent():IsRooted() then
+--         self:Destroy()
+--         return
+--     end
+--
+-- end
 
 
 function lua_modifier_boogeyman_lunge_dash:UpdateHorizontalMotion(me,dt)

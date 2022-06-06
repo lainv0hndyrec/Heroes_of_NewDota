@@ -7,6 +7,11 @@ function lua_modifier_diviner_shared_fate_scepter:IsPurgable() return false end
 function lua_modifier_diviner_shared_fate_scepter:IsPurgeException() return false end
 
 
+function lua_modifier_diviner_shared_fate_scepter:OnCreated(kv)
+    if not IsServer() then return end
+    self:GetParent():InterruptMotionControllers(true)
+end
+
 
 function lua_modifier_diviner_shared_fate_scepter:CheckState()
     local cstate ={

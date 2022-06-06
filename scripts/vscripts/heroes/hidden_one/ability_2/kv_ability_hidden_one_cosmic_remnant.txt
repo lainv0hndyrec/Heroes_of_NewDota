@@ -8,7 +8,7 @@
         "ScriptFile"		        "heroes/hidden_one/ability_2/lua_ability_hidden_one_cosmic_remnant"
 
         "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
-        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityTextureName"     	"void_spirit_aether_remnant" //test textures
         "AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_BOTH"
         "AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -81,7 +81,7 @@
             {
                 "var_type" 	        "FIELD_INTEGER"
                 "damage_up_per_heal"             "15 20 25 30"
-                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+                "LinkedSpecialBonus"    "special_bonus_hidden_one_cosmic_remnant_healed_dmg_up"
             }
 
             "04"
@@ -95,6 +95,20 @@
             {
                 "var_type" 	        "FIELD_INTEGER"
                 "projectile_vision"             "800"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "06"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "shard_max_dmg"             "160"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "07"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "shard_heal"             "30"
                 //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
             }
 

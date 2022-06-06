@@ -93,7 +93,7 @@
             {
                 "var_type" 	        "FIELD_INTEGER"
                 "move_slow_percent"         "10"
-                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+                "LinkedSpecialBonus"    "special_bonus_hidden_one_shade_salvo_slow_up"
             }
 
             "06"

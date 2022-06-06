@@ -15,24 +15,27 @@
 		"Ability6"					"lua_ability_hidden_one_void_out"		// ULT
 		//"VisionNighttimeRange"		"1800"				// Range of vision at night time.
 
+		//lua_ability_hidden_one_void_out scepter = cd reduction, skill 3 range up
+		//lua_ability_hidden_one_aether_warp shard = increase heal, affects you and max damage
+
 
 		//Talents
-		"Ability10"		"special_bonus_generic_hidden"
-		"Ability11"		"special_bonus_generic_hidden"
+		"Ability10"		"special_bonus_strength_9"
+		"Ability11"		"special_bonus_hidden_one_shade_salvo_slow_up"
 
-		"Ability12"		"special_bonus_generic_hidden"
-		"Ability13"		"special_bonus_generic_hidden"
+		"Ability12"		"special_bonus_hidden_one_cosmic_remnant_healed_dmg_up"
+		"Ability13"		"special_bonus_attack_speed_30"
 
-		"Ability14"		"special_bonus_generic_hidden"
-		"Ability15"		"special_bonus_generic_hidden"
+		"Ability14"		"special_bonus_spell_amplify_10"
+		"Ability15"		"special_bonus_hidden_one_void_out_vurnerable_time_up"
 
-		"Ability16"		"special_bonus_generic_hidden"
-		"Ability17"		"special_bonus_generic_hidden"
+		"Ability16"		"special_bonus_hidden_one_void_out_stun_up"
+		"Ability17"		"special_bonus_attack_range_325"
 
 
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackAcquisitionRange"	"800"
+		"AttackAcquisitionRange"	"650"
 		"AttackRange"				"450"
 		"ProjectileModel"			"particles/units/heroes/hero_bane/bane_projectile.vpcf"
 		"ProjectileSpeed"			"900"	//create modifier

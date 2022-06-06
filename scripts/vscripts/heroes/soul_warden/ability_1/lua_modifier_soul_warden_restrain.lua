@@ -63,13 +63,14 @@ function lua_modifier_soul_warden_restrain:OnCreated(kv)
         )
     end
 
-
     self.max_length = self:GetAbility():GetSpecialValueFor("hold_range")
     self:StartIntervalThink(FrameTime())
     self:OnIntervalThink()
 
     if not IsServer() then return end
     self:GetParent():EmitSound("Ability.static.loop")
+
+    self:GetParent():InterruptMotionControllers(true)
 end
 
 

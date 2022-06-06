@@ -20,7 +20,7 @@ function lua_ability_hidden_one_shade_salvo:GetCooldown(lvl)
     local ult = self:GetCaster():FindAbilityByName("lua_ability_hidden_one_void_out")
     if not ult == false then
         if ult:GetLevel() > 0 then
-            local cdr_abilities = ult:GetLevelSpecialValueFor("cdr_abilities",ult:GetLevel()-1)
+            local cdr_abilities = ult:DecreaseCoolDown(ult:GetLevel())
             ability_cd = ability_cd - cdr_abilities
         end
     end

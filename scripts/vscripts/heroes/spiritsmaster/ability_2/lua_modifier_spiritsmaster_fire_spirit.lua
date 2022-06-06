@@ -155,7 +155,7 @@ end
 
 function lua_modifier_spiritsmaster_fire_spirit_dash:CheckState()
     local cstate = {
-        [MODIFIER_STATE_NO_UNIT_COLLISION]  = true,
+        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
         [MODIFIER_STATE_STUNNED] = true
     }
     return cstate
@@ -189,22 +189,22 @@ end
 
 
 
-function lua_modifier_spiritsmaster_fire_spirit_dash:OnModifierAdded(event)
-    if not IsServer() then return end
-    if event.unit ~= self:GetParent() then return end
-    if event.added_buff == self then return end
-
-    if self:GetParent():IsStunned() then
-        self:Destroy()
-        return
-    end
-
-    if self:GetParent():IsRooted() then
-        self:Destroy()
-        return
-    end
-
-end
+-- function lua_modifier_spiritsmaster_fire_spirit_dash:OnModifierAdded(event)
+--     if not IsServer() then return end
+--     if event.unit ~= self:GetParent() then return end
+--     if event.added_buff == self then return end
+--
+--     if self:GetParent():IsStunned() then
+--         self:Destroy()
+--         return
+--     end
+--
+--     if self:GetParent():IsRooted() then
+--         self:Destroy()
+--         return
+--     end
+--
+-- end
 
 
 

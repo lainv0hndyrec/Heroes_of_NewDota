@@ -9,7 +9,7 @@
 
         "AbilityType"               "DOTA_ABILITY_TYPE_ULITMATE"
         "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"     	"" //test textures
+        "AbilityTextureName"     	"antimage_mana_overload" //test textures
         //"AbilityUnitTargetTeam"  	"DOTA_UNIT_TARGET_TEAM_ENEMY"
         //"AbilityUnitTargetType"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         //"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -71,14 +71,14 @@
             {
                 "var_type" 	        "FIELD_FLOAT"
                 "stun_duration"         "2.0"
-                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+                "LinkedSpecialBonus"    "special_bonus_hidden_one_void_out_stun_up"
             }
 
             "04"
             {
                 "var_type" 	        "FIELD_FLOAT"
                 "vulnerable_duration"     "3.0"
-                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+                "LinkedSpecialBonus"    "special_bonus_hidden_one_void_out_vurnerable_time_up"
             }
 
             "05"
@@ -92,6 +92,13 @@
             {
                 "var_type" 	        "FIELD_FLOAT"
                 "cdr_abilities"     "2.0 3.0 4.0"
+                //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
+            }
+
+            "07"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "scepter_cdr"     "2.0"
                 //"LinkedSpecialBonus"    "special_bonus_fallen_one_revelation_dmg_up"
             }
 

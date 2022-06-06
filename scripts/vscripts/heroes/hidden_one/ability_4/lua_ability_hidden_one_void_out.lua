@@ -10,6 +10,25 @@ function lua_ability_hidden_one_void_out:IsStealable() return false end
 
 
 
+
+
+
+
+function lua_ability_hidden_one_void_out:DecreaseCoolDown(lvl)
+
+    local cd = self:GetLevelSpecialValueFor("cdr_abilities",lvl-1)
+    if self:GetCaster():HasScepter() then
+        cd = cd + self:GetLevelSpecialValueFor("scepter_cdr",0)
+    end
+
+    return cd
+end
+
+
+
+
+
+
 function lua_ability_hidden_one_void_out:ApplyVoidOutModifier(target,casted_ability)
     if not IsServer() then return end
 

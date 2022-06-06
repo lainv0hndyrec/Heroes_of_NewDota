@@ -1,0 +1,88 @@
+"DOTAAbilities"
+{
+
+    "lua_ability_great_sage_flurry_strikes"
+    {
+        // General
+        // ----------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"		            "heroes/great_sage/ability_1/lua_ability_great_sage_flurry_strikes"
+        "AbilityTextureName"     	    "monkey_king_wukongs_command"
+        "MaxLevel"						"4"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"	    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"  	    "DAMAGE_TYPE_PHYSICAL"
+
+
+        //"AbilityCooldown"				"10 9 8 7"
+		//"AbilityManaCost"				"90"
+
+        "precache"
+		{
+            "particle" "particles/units/heroes/great_sage/ability_1/image_trail.vpcf"
+		}
+
+        "AbilitySpecial"
+        {
+
+            "01"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "flurry_range"      "300"
+            }
+
+            "02"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "flurry_radius"      "200"
+            }
+
+            "03"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "flurry_duration"      "0.1"
+            }
+
+            "04"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "flurry_speed"      "3000"
+            }
+
+            "05"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "ability_cd"        "10.0 9.0 8.0 7.0"
+            }
+
+            "06"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "ability_mana"        "90"
+            }
+
+
+
+            "07"
+            {
+                "var_type" 	        "FIELD_FLOAT"
+                "additional_cast_duration"  "2.5"
+                "LinkedSpecialBonus"    "special_bonus_great_sage_flurry_strikes_freecast_duration"
+            }
+
+            "08"
+            {
+                "var_type" 	        "FIELD_INTEGER"
+                "bonus_attack_damage"   "15 30 45 60"
+                "LinkedSpecialBonus"    "special_bonus_great_sage_flurry_strikes_damage"
+            }
+        }
+
+    }
+}

@@ -163,6 +163,8 @@ function lua_modifier_atniw_druid_tangling_roots_debuff:OnCreated(kv)
     if not IsServer() then return end
     self.damage = self:GetAbility():GetSpecialValueFor("damage_per_sec")*0.1
 
+    self:GetParent():InterruptMotionControllers(true)
+
     self:StartIntervalThink(0.1)
     self:OnIntervalThink()
 end

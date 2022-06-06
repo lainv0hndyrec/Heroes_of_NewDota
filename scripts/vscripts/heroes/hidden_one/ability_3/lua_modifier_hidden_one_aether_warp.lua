@@ -7,8 +7,6 @@ function lua_modifier_hidden_one_aether_warp_invulnerable:IsPurgeException() ret
 
 
 function lua_modifier_hidden_one_aether_warp_invulnerable:CheckState()
-    if self:GetStackCount() <= 0 then return end
-
     return {
         [MODIFIER_STATE_STUNNED] = true,
         [MODIFIER_STATE_ATTACK_IMMUNE] = true,
@@ -25,88 +23,104 @@ end
 function lua_modifier_hidden_one_aether_warp_invulnerable:OnCreated(kv)
     if not IsServer() then return end
 
-    print(kv.tele_x)
-
     if not kv.tele_x then
         self:Destroy()
         return
     end
 
-    if not kv.delay_damage then
-        self:Destroy()
-        return
-    end
+    self:GetParent():EmitSound("Hero_VoidSpirit.AstralStep.Target")
 
-    self.delay_damage = kv.delay_damage
+    self:GetParent():StartGesture(ACT_DOTA_CAST_ABILITY_3)
 
     self.tele_pos = Vector(kv.tele_x,kv.tele_y,kv.tele_z)
 
-    --self:GetParent():AddNoDraw()
+    self:StartIntervalThink(0.3)
+end
 
-    self:SetStackCount(1)
+function lua_modifier_hidden_one_aether_warp_invulnerable:OnIntervalThink()
+    if not IsServer() then return end
+    self:GetParent():AddNoDraw()
+    self:StartIntervalThink(-1)
+end
 
-    --particle
-    if not self.start_particle then
-        self.start_particle =  ParticleManager:CreateParticle(
-            "particles/units/heroes/hero_void_spirit/dissimilate/void_spirit_dissimilate.vpcf",
-            PATTACH_ABSORIGIN,self:GetParent()
-        )
-        ParticleManager:SetParticleControl(self.start_particle,0,self.tele_pos)
-        ParticleManager:SetParticleControl(self.start_particle,1,Vector(self:GetAbility():GetAOERadius(),0,0))
-    end
 
-    local invul_time = self:GetAbility():GetSpecialValueFor("invulnerable_time")
-    self:StartIntervalThink(invul_time)
+
+function lua_modifier_hidden_one_aether_warp_invulnerable:OnDestroy()
+    if not IsServer() then return end
+
+    self:GetParent():StartGesture(ACT_DOTA_CAST_ABILITY_3_END)
+
+    FindClearSpaceForUnit(self:GetParent(),self.tele_pos,true)
+
+    self:GetParent():RemoveNoDraw()
+
 end
 
 
 
 
-function lua_modifier_hidden_one_aether_warp_invulnerable:OnIntervalThink()
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+lua_modifier_hidden_one_aether_warp_start = class({})
+
+function lua_modifier_hidden_one_aether_warp_start:IsDebuff() return false end
+function lua_modifier_hidden_one_aether_warp_start:IsHidden() return true end
+function lua_modifier_hidden_one_aether_warp_start:IsPurgable() return false end
+function lua_modifier_hidden_one_aether_warp_start:IsPurgeException() return false end
+
+
+
+
+function lua_modifier_hidden_one_aether_warp_start:OnCreated(kv)
     if not IsServer() then return end
 
-    self:SetStackCount(0)
+    --emit sound
+    self:GetParent():EmitSound("Hero_VoidSpirit.AstralStep.Start")
 
-    if not self.start_particle == false then
-        ParticleManager:DestroyParticle(self.start_particle,false)
-        ParticleManager:ReleaseParticleIndex(self.start_particle)
-        self.start_particle = nil
-    end
+    --destory tree
+    GridNav:DestroyTreesAroundPoint(
+        self:GetParent():GetAbsOrigin(),
+        self:GetAbility():GetAOERadius(),
+        true
+    )
 
-    --self:GetParent():RemoveNoDraw()
-
-    --teleport
-    FindClearSpaceForUnit(self:GetParent(),self.tele_pos,true)
 
     --aoe damage
-    local ult = self:GetParent():FindAbilityByName("lua_ability_hidden_one_void_out")
+    local ult = self:GetCaster():FindAbilityByName("lua_ability_hidden_one_void_out")
+    local aoe_damage = self:GetAbility():GetSpecialValueFor("aoe_damage")
 
     local enemies = FindUnitsInRadius(
-        self:GetParent():GetTeam(),self.tele_pos,nil,
+        self:GetParent():GetTeam(),self:GetParent():GetAbsOrigin(),nil,
         self:GetAbility():GetAOERadius(),DOTA_UNIT_TARGET_TEAM_ENEMY,
         DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
         DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false
     )
 
     for i=1,#enemies do
-
         if not ult == false then
             if ult:GetLevel() > 0 then
-                ult:ApplyVoidOutModifier(enemies[i],self)
+                ult:ApplyVoidOutModifier(enemies[i],self:GetAbility())
             end
         end
 
         local dtable = {
             victim = enemies[i],
-            attacker = self:GetParent(),
-            damage = self.delay_damage,
+            attacker = self:GetCaster(),
+            damage = aoe_damage,
             damage_type = DAMAGE_TYPE_MAGICAL,
             damage_flags = DOTA_DAMAGE_FLAG_NONE,
             ability = self
         }
 
         ApplyDamage(dtable)
-
     end
 
     --particle
@@ -114,8 +128,126 @@ function lua_modifier_hidden_one_aether_warp_invulnerable:OnIntervalThink()
         "particles/units/heroes/hero_void_spirit/dissimilate/void_spirit_dissimilate_dmg.vpcf",
         PATTACH_ABSORIGIN,self:GetParent()
     )
-    ParticleManager:SetParticleControl(particle,0,self.tele_pos)
+    ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle,1,Vector(self:GetAbility():GetAOERadius()-100,0,0))
 
+end
+
+
+
+function lua_modifier_hidden_one_aether_warp_start:OnDestroy()
+    if not IsServer() then return end
+
+    UTIL_Remove(self:GetParent())
+end
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+lua_modifier_hidden_one_aether_warp_end = class({})
+
+function lua_modifier_hidden_one_aether_warp_end:IsDebuff() return false end
+function lua_modifier_hidden_one_aether_warp_end:IsHidden() return true end
+function lua_modifier_hidden_one_aether_warp_end:IsPurgable() return false end
+function lua_modifier_hidden_one_aether_warp_end:IsPurgeException() return false end
+
+
+
+
+function lua_modifier_hidden_one_aether_warp_end:OnCreated(kv)
+    if not IsServer() then return end
+
+    --particle
+
+    self.particle =  ParticleManager:CreateParticle(
+        "particles/units/heroes/hero_void_spirit/dissimilate/void_spirit_dissimilate.vpcf",
+        PATTACH_ABSORIGIN,self:GetParent()
+    )
+    ParticleManager:SetParticleControl(self.particle,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:SetParticleControl(self.particle,1,Vector(self:GetAbility():GetAOERadius(),0,0))
+
+    local invulnerable_time = self:GetAbility():GetSpecialValueFor("invulnerable_time")
+    self:StartIntervalThink(invulnerable_time)
+
+end
+
+
+
+
+function lua_modifier_hidden_one_aether_warp_end:OnIntervalThink()
+    if not IsServer() then return end
+
+    ParticleManager:DestroyParticle(self.particle,false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
+
+    self:GetParent():EmitSound("Hero_VoidSpirit.AstralStep.Start")
+
+    --destory tree
+    GridNav:DestroyTreesAroundPoint(
+        self:GetParent():GetAbsOrigin(),
+        self:GetAbility():GetAOERadius(),
+        true
+    )
+
+
+    --aoe damage
+    local ult = self:GetCaster():FindAbilityByName("lua_ability_hidden_one_void_out")
+    local aoe_damage = self:GetAbility():GetSpecialValueFor("aoe_damage")
+
+    local enemies = FindUnitsInRadius(
+        self:GetParent():GetTeam(),self:GetParent():GetAbsOrigin(),nil,
+        self:GetAbility():GetAOERadius(),DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false
+    )
+
+    for i=1,#enemies do
+        if not ult == false then
+            if ult:GetLevel() > 0 then
+                ult:ApplyVoidOutModifier(enemies[i],self:GetAbility())
+            end
+        end
+
+        local dtable = {
+            victim = enemies[i],
+            attacker = self:GetCaster(),
+            damage = aoe_damage,
+            damage_type = DAMAGE_TYPE_MAGICAL,
+            damage_flags = DOTA_DAMAGE_FLAG_NONE,
+            ability = self
+        }
+
+        ApplyDamage(dtable)
+    end
+
+
+    --particle
+    local particle =  ParticleManager:CreateParticle(
+        "particles/units/heroes/hero_void_spirit/dissimilate/void_spirit_dissimilate_dmg.vpcf",
+        PATTACH_ABSORIGIN,self:GetParent()
+    )
+    ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:SetParticleControl(particle,1,Vector(self:GetAbility():GetAOERadius()-100,0,0))
+
+
     self:StartIntervalThink(-1)
+end
+
+
+
+
+function lua_modifier_hidden_one_aether_warp_end:OnDestroy()
+    if not IsServer() then return end
+    UTIL_Remove(self:GetParent())
 end

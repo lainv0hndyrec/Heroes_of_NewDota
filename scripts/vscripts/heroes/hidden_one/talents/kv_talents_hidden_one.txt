@@ -1,6 +1,7 @@
 "DOTAAbilities"
 {
-    "special_bonus_great_sage_ruyi_jingu_bang_cd_reduction"
+
+    "special_bonus_hidden_one_shade_salvo_slow_up"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -11,47 +12,12 @@
 
         "AbilityValues"
         {
-			"value"      "1.0"
+			"value"      "8"
 		}
 	}
 
 
-
-    "special_bonus_great_sage_flurry_strikes_freecast_duration"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"special_bonus_undefined"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
-
-        "AbilityValues"
-        {
-			"value"      "0.5"
-		}
-	}
-
-
-
-    "special_bonus_great_sage_ruyi_jingu_bang_slow_duration"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"special_bonus_undefined"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
-
-        "AbilityValues"
-        {
-			"value"      "1.0"
-		}
-	}
-
-
-
-    "special_bonus_great_sage_somersault_cloud_ms_bonus"
+    "special_bonus_hidden_one_cosmic_remnant_healed_dmg_up"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -66,8 +32,7 @@
 		}
 	}
 
-
-    "special_bonus_great_sage_flurry_strikes_damage"
+    "special_bonus_hidden_one_void_out_vurnerable_time_up"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -78,9 +43,26 @@
 
         "AbilityValues"
         {
-			"value"      "40"
+			"value"      "3.0"
 		}
 	}
+
+    "special_bonus_hidden_one_void_out_stun_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"ScriptFile"		            "heroes/whistlepunk/talents/lua_talents_whistlepunk"
+
+        "AbilityValues"
+        {
+			"value"      "1.0"
+		}
+	}
+
+
 
 
 }

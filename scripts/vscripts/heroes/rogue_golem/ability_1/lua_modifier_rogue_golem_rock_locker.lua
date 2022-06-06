@@ -165,6 +165,8 @@ function lua_modifier_rogue_golem_rock_locker_root:OnCreated(kv)
 
     self:StartIntervalThink(0.25)
     self:OnIntervalThink()
+
+    self:GetParent():InterruptMotionControllers(true)
 end
 
 

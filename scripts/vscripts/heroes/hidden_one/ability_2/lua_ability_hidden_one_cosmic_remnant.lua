@@ -21,7 +21,7 @@ function lua_ability_hidden_one_cosmic_remnant:GetCooldown(lvl)
     local ult = self:GetCaster():FindAbilityByName("lua_ability_hidden_one_void_out")
     if not ult == false then
         if ult:GetLevel() > 0 then
-            local cdr_abilities = ult:GetLevelSpecialValueFor("cdr_abilities",ult:GetLevel()-1)
+            local cdr_abilities = ult:DecreaseCoolDown(ult:GetLevel())
             ability_cd = ability_cd - cdr_abilities
         end
     end
@@ -50,6 +50,12 @@ function lua_ability_hidden_one_cosmic_remnant:OnSpellStart()
     local normal = diff:Normalized()
     local velo = (normal*self:GetSpecialValueFor("projectile_speed"))
 
+    local ignore_self = true
+    local shard = self:GetCaster():HasModifier("modifier_item_aghanims_shard")
+    if shard == true then
+        ignore_self = false
+    end
+
     local ptable = {
         vSpawnOrigin = self:GetCaster():GetAbsOrigin(),
         vVelocity = velo,
@@ -60,7 +66,7 @@ function lua_ability_hidden_one_cosmic_remnant:OnSpellStart()
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_BOTH,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
         iUnitTargetType = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
-        bIgnoreSource = true,
+        bIgnoreSource = ignore_self,
         bDrawsOnMinimap = false,
         bVisibleToEnemies = true,
         EffectName = "particles/units/heroes/hero_void_spirit/aether_remnant/void_spirit_aether_remnant_run.vpcf",
@@ -88,11 +94,23 @@ function lua_ability_hidden_one_cosmic_remnant:OnProjectileHitHandle(target,pos,
 
         self:GetCaster():EmitSound("Hero_VoidSpirit.AstralStep.End")
 
-
         local base_dmg = self:GetSpecialValueFor("aoe_damage")
+
         local dmg_per_heal = self:GetSpecialValueFor("damage_up_per_heal")
+        local talent = self:GetCaster():FindAbilityByName("special_bonus_hidden_one_cosmic_remnant_healed_dmg_up")
+        if not talent == false then
+            if talent:GetLevel() > 0 then
+                dmg_per_heal = dmg_per_heal+talent:GetSpecialValueFor("value")
+            end
+        end
+
         local total_healed = self.projectile_table[proj_id]
+
         local max_dmg = self:GetSpecialValueFor("maximum_damage")
+        if shard == true then
+            max_dmg = max_dmg+self:GetSpecialValueFor("shard_max_dmg")
+        end
+
         local total_dmg = base_dmg + (total_healed*dmg_per_heal)
         total_dmg = math.min(total_dmg,max_dmg)
 
@@ -137,14 +155,29 @@ function lua_ability_hidden_one_cosmic_remnant:OnProjectileHitHandle(target,pos,
         return true
     end
 
-
     -- the projectile hits a unit
     if target:IsBaseNPC() == false then return end
 
+    -- the projectile hits a unit
     if target:GetTeam() == self:GetCaster():GetTeam() then
         --ALLY
         local heal = self:GetSpecialValueFor("ally_heal")
+
+        local shard = self:GetCaster():HasModifier("modifier_item_aghanims_shard")
+        if shard == true then
+            heal = heal+self:GetSpecialValueFor("shard_heal")
+        end
+
+
+        local origin_player = self:GetCaster():GetPlayerOwner()
+        SendOverheadEventMessage(origin_player,OVERHEAD_ALERT_HEAL,target,heal,origin_player)
+        if self:GetCaster() ~= target then
+            local target_player = target:GetPlayerOwner()
+            SendOverheadEventMessage(target_player,OVERHEAD_ALERT_HEAL,target,heal,origin_player)
+        end
+
         target:Heal(heal,self)
+
         self.projectile_table[proj_id] = self.projectile_table[proj_id]+1
         local particle = ParticleManager:CreateParticle(
             "particles/units/heroes/hero_undying/undying_soul_rip_heal_impact_body.vpcf",

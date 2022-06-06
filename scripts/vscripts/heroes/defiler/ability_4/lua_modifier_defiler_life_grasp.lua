@@ -11,7 +11,7 @@ function lua_modifier_defiler_life_grasp_anim:IsPurgeException() return false en
 
 function lua_modifier_defiler_life_grasp_anim:CheckState()
     local cstate = {
-        --[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
         [MODIFIER_STATE_FROZEN] = true
     }
     return cstate
@@ -201,22 +201,22 @@ end
 
 
 
-function lua_modifier_defiler_life_grasp_leap:OnModifierAdded(event)
-    if not IsServer() then return end
-    if event.unit ~= self:GetParent() then return end
-    if event.added_buff == self then return end
-
-    if self:GetParent():IsStunned() then
-        self:Destroy()
-        return
-    end
-
-    if self:GetParent():IsRooted() then
-        self:Destroy()
-        return
-    end
-
-end
+-- function lua_modifier_defiler_life_grasp_leap:OnModifierAdded(event)
+--     if not IsServer() then return end
+--     if event.unit ~= self:GetParent() then return end
+--     if event.added_buff == self then return end
+--
+--     if self:GetParent():IsStunned() then
+--         self:Destroy()
+--         return
+--     end
+--
+--     if self:GetParent():IsRooted() then
+--         self:Destroy()
+--         return
+--     end
+--
+-- end
 
 
 

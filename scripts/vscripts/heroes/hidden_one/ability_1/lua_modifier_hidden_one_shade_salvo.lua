@@ -149,6 +149,13 @@ end
 
 function lua_modifier_hidden_one_shade_salvo_slow:GetModifierMoveSpeedBonus_Percentage()
     local move_slow = self:GetAbility():GetSpecialValueFor("move_slow_percent")
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_hidden_one_shade_salvo_slow_up")
+    if not talent == false then
+        if talent:GetLevel() > 0 then
+            move_slow = move_slow+talent:GetSpecialValueFor("value")
+        end
+    end
+
     local total_slow = self:GetStackCount()*move_slow
     return -total_slow
 end

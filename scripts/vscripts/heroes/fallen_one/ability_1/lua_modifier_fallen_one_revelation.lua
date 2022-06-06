@@ -22,6 +22,7 @@ function lua_modifier_fallen_one_revelation_delay:OnCreated(kv)
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle,1,self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle,2,self:GetParent():GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(particle)
 
 
     local delay = self:GetAbility():GetSpecialValueFor("blast_delay")
@@ -47,6 +48,7 @@ function lua_modifier_fallen_one_revelation_delay:OnIntervalThink()
         PATTACH_ABSORIGIN,self:GetParent()
     )
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(particle)
 
     local aoe_range = self:GetAbility():GetAOERadius()
     local aoe_dmg = self:GetAbility():GetSpecialValueFor("blast_damage")

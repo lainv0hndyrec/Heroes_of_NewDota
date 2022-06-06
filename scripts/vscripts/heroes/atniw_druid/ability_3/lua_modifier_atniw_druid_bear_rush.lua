@@ -93,17 +93,25 @@ function lua_modifier_atniw_druid_bear_rush:OnIntervalThink()
         "particles/units/heroes/hero_lone_druid/lone_druid_rabid_buff_speed.vpcf",
         PATTACH_ABSORIGIN, self:GetParent()
     )
-
     ParticleManager:SetParticleControlEnt(
         particle,2,self:GetParent(),PATTACH_ABSORIGIN,
         "attach_origin",self:GetParent():GetAbsOrigin(),true
     )
+
+    ParticleManager:DestroyParticle(particle,false)
+    ParticleManager:ReleaseParticleIndex(particle)
+
+
 
     local particle_wave = ParticleManager:CreateParticle(
         "particles/units/heroes/atniw_druid/ability_3/atniw_bear_rush_waves.vpcf",
         PATTACH_ABSORIGIN, self:GetParent()
     )
     ParticleManager:SetParticleControl(particle_wave,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:DestroyParticle(particle_wave,false)
+    ParticleManager:ReleaseParticleIndex(particle_wave)
+
+
 
 
     --debuff

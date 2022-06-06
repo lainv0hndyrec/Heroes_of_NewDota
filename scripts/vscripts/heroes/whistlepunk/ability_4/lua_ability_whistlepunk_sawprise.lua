@@ -48,8 +48,6 @@ end
 function lua_ability_whistlepunk_sawprise:OnSpellStart()
     if not IsServer() then return end
 
-    DebugDrawCircle(self.cast_position,Vector(255,0,0),1.0,100,true,2.0)
-
     self.thinker = CreateModifierThinker(
         self.caster,
         self,

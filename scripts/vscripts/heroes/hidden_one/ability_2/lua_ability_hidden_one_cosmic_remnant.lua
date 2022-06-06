@@ -121,6 +121,7 @@ function lua_ability_hidden_one_cosmic_remnant:OnProjectileHitHandle(target,pos,
         )
         ParticleManager:SetParticleControl(aoe_part,0,pos)
         ParticleManager:SetParticleControl(aoe_part,1,Vector(self:GetAOERadius()*2,0,0))
+        ParticleManager:ReleaseParticleIndex(aoe_part)
 
         --damage
         local enemies = FindUnitsInRadius(
@@ -184,6 +185,7 @@ function lua_ability_hidden_one_cosmic_remnant:OnProjectileHitHandle(target,pos,
             PATTACH_POINT_FOLLOW,target
         )
         ParticleManager:SetParticleControl(particle,0,target:GetAbsOrigin())
+        ParticleManager:ReleaseParticleIndex(aoe_part)
     else
         --ENEMY
         if not ult == false then

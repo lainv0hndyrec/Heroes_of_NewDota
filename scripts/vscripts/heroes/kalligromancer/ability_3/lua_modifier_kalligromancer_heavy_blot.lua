@@ -226,6 +226,7 @@ function lua_modifier_kalligromancer_heavy_blot:OnAttackLanded(event)
     )
     ParticleManager:SetParticleControl(splat,2,Vector(aoe_radius,0,0))
     ParticleManager:SetParticleControl(splat,4,event.target:GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(splat)
     event.target:EmitSound("Hero_Grimstroke.InkSwell.Stun")
     --createhero npc_dota_hero_terrorblade enemy
 end

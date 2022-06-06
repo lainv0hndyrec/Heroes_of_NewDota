@@ -113,7 +113,7 @@ function lua_modifier_vagabond_outcasts_strike:OnAttackLanded(event)
     if event.attacker ~= self:GetParent() then return end
 
     if event.target:IsBaseNPC() == false then return end
-    
+
     if event.target:IsBuilding() == true then return end
 
     if self:GetParent():PassivesDisabled() == true then return end
@@ -167,4 +167,11 @@ function lua_modifier_vagabond_outcasts_strike:OnUnitMoved(event)
     ParticleManager:SetParticleControl(
         self.particle,1,Vector(self:GetStackCount(),0,0)
     )
+end
+
+
+
+function lua_modifier_vagabond_outcasts_strike:OnDestroy()
+    ParticleManager:DestroyParticle(self.particle,false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
 end

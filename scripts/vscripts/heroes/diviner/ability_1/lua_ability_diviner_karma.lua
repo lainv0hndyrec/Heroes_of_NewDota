@@ -123,6 +123,7 @@ function lua_ability_diviner_karma:OnProjectileHit(target,pos)
     )
     ParticleManager:SetParticleControl(particle,0,pos)
     ParticleManager:SetParticleControl(particle,2,Vector(self:GetAOERadius(),0,0))
+    ParticleManager:ReleaseParticleIndex(particle)
 
     return true
 end

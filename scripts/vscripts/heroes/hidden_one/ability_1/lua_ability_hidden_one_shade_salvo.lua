@@ -87,12 +87,14 @@ function lua_ability_hidden_one_shade_salvo:OnProjectileHit(target,pos)
         PATTACH_ABSORIGIN,self:GetCaster()
     )
     ParticleManager:SetParticleControl(particle,0,ground)
+    ParticleManager:ReleaseParticleIndex(particle)
 
     local particle_radius = ParticleManager:CreateParticle(
         "particles/units/heroes/hidden_one/hidden_one_salvo_aoe.vpcf",
         PATTACH_ABSORIGIN,self:GetCaster()
     )
     ParticleManager:SetParticleControl(particle_radius,6,ground)
+    ParticleManager:ReleaseParticleIndex(particle_radius)
 
 
     local ult = self:GetCaster():FindAbilityByName("lua_ability_hidden_one_void_out")

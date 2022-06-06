@@ -69,13 +69,14 @@ function lua_modifier_spiritsmaster_earth_spirit_transform:OnAttackLanded(event)
     local atk_dmg = self:GetParent():GetAverageTrueAttackDamage(nil)
 
     if event.target:IsBaseNPC() == false then return end
-    
+
     local particle = ParticleManager:CreateParticle(
         "particles/econ/events/ti10/mekanism_ti10_shock.vpcf"
         ,PATTACH_ABSORIGIN,event.target
     )
 
     ParticleManager:SetParticleControl(particle,0,event.target:GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(particle)
 
     local enemies = FindUnitsInRadius(
         self:GetParent():GetTeam(),event.target:GetAbsOrigin(),

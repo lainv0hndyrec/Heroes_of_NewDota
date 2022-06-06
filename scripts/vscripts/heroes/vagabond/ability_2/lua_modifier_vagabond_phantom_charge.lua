@@ -15,6 +15,7 @@ function lua_modifier_vagabond_phantom_charge_particle:OnCreated(kv)
         "particles/econ/events/new_bloom/dragon_death_sparkle.vpcf",PATTACH_ABSORIGIN,self:GetParent()
     )
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(particle)
 end
 
 

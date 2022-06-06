@@ -128,6 +128,7 @@ function lua_modifier_fallen_one_soul_tap_buff:OnAttackLanded(event)
         PATTACH_POINT_FOLLOW,self:GetParent()
     )
     ParticleManager:SetParticleControl(slash,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(slash)
 
     if event.target:IsBuilding() then
         self:Destroy()
@@ -139,6 +140,7 @@ function lua_modifier_fallen_one_soul_tap_buff:OnAttackLanded(event)
         PATTACH_POINT_FOLLOW,self:GetParent()
     )
     ParticleManager:SetParticleControl(lf_particle,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(lf_particle)
 
     local lifesteal = self:GetAbility():GetSpecialValueFor("lfs_bonus")*0.01
     local heal = event.damage*lifesteal

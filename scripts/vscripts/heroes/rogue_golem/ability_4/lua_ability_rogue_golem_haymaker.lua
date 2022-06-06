@@ -47,6 +47,7 @@ function lua_ability_rogue_golem_haymaker:OnSpellStart()
     )
     ParticleManager:SetParticleControl(particle,0,self:GetCursorTarget():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle,1,self:GetCursorTarget():GetAbsOrigin()+direction)
+    ParticleManager:ReleaseParticleIndex(particle)
 
     self:GetCursorTarget():InterruptMotionControllers(true)
 

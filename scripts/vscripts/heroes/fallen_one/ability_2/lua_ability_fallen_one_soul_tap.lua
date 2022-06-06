@@ -43,6 +43,7 @@ function lua_ability_fallen_one_soul_tap:OnSpellStart()
     )
     ParticleManager:SetParticleControl(stomp_particle,0,self:GetCaster():GetAbsOrigin())
     ParticleManager:SetParticleControl(stomp_particle,1,Vector(self:GetAOERadius(),0,0))
+    ParticleManager:ReleaseParticleIndex(stomp_particle)
 
 
     local enemies = FindUnitsInRadius(

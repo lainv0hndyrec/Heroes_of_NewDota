@@ -63,6 +63,8 @@ function lua_ability_soul_warden_wardens_purge:OnSpellStart()
         "attach_hitlock",Vector(0,0,0),false
     )
 
+    ParticleManager:ReleaseParticleIndex(arc_effect)
+
     --if Ally
     if team_value == self:GetCaster():GetTeam() then
 

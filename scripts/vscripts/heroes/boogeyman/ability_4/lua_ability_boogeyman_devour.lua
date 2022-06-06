@@ -72,6 +72,8 @@ function lua_ability_boogeyman_devour:OnSpellStart()
         Vector(0,0,0),false
     )
 
+    ParticleManager:DestroyParticle(particle,false)
+    ParticleManager:ReleaseParticleIndex(particle)
 
 
 

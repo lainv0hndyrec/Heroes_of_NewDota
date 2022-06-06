@@ -80,6 +80,7 @@ function lua_modifier_qaldin_assassin_assassins_shroud:OnCreated(kv)
     )
 
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(particle)
 
 
     self:GetParent():AddNewModifier(

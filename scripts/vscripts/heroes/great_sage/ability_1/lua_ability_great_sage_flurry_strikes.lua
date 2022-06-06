@@ -12,38 +12,29 @@ function lua_ability_great_sage_flurry_strikes:OnSpellStart()
 
     if free_mod == false then
 
-        self:GetCaster():AddNewModifier(
-            self:GetCaster(),
-            self,
+        local dash = self:GetCaster():AddNewModifier(
+            self:GetCaster(),self,
             "lua_modifier_great_sage_flurry_strikes_zoomies",
-            {
-                duration = 1.0,
-                additional_dash = 1
-            }
+            {duration = 1.0}
         )
 
-        -- self:EndCooldown()
-        -- self:StartCooldown(0.2)
+        dash:SetStackCount(1)
         return
     end
 
 
     if free_mod == true then
 
-        self:GetCaster():AddNewModifier(
-            self:GetCaster(),
-            self,
+        local dash = self:GetCaster():AddNewModifier(
+            self:GetCaster(),self,
             "lua_modifier_great_sage_flurry_strikes_zoomies",
-            {
-                duration = 1.0,
-                additional_dash = 0
-            }
+            {duration = 1.0}
         )
 
+        dash:SetStackCount(0)
+
         local timer_mod = self:GetCaster():FindModifierByName("lua_modifier_great_sage_flurry_strikes_timer")
-
         if not timer_mod then return end
-
         timer_mod:Destroy()
     end
 

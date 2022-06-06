@@ -175,6 +175,8 @@ function lua_ability_defiler_mimicry:OnSpellStart()
         "attach_hitlock",Vector(0,0,0),false
     )
 
+    ParticleManager:ReleaseParticleIndex(particle)
+
 end
 
 

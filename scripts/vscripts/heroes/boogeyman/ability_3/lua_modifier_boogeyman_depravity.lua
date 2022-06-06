@@ -121,6 +121,8 @@ function lua_modifier_boogeyman_depravity_lifesteal:OnTakeDamage(event)
         PATTACH_POINT_FOLLOW,self:GetParent()
     )
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:DestroyParticle(particle,false)
+    ParticleManager:ReleaseParticleIndex(particle)
 end
 
 function lua_modifier_boogeyman_depravity_lifesteal:OnCreated(kv)
@@ -140,18 +142,32 @@ function lua_modifier_boogeyman_depravity_lifesteal:OnIntervalThink()
         return
     end
 
-    local particle = ParticleManager:CreateParticle(
-        "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_sigil_c.vpcf",
-        PATTACH_ABSORIGIN_FOLLOW,
-        self:GetParent()
-    )
-    ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
+    if not self.sigil_particle == false then
+        ParticleManager:DestroyParticle(self.sigil_particle,false)
+        ParticleManager:ReleaseParticleIndex(self.sigil_particle)
+        self.sigil_particle = nil
+    end
 
+    if not self.sigil_particle then
+        self.sigil_particle = ParticleManager:CreateParticle(
+            "particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_sigil_c.vpcf",
+            PATTACH_ABSORIGIN_FOLLOW,
+            self:GetParent()
+        )
+        ParticleManager:SetParticleControl(self.sigil_particle,0,self:GetParent():GetAbsOrigin())
+    end
 
 end
 
 
-
+function lua_modifier_boogeyman_depravity_lifesteal:OnDestroy()
+    if not IsServer() then return end
+    if not self.sigil_particle == false then
+        ParticleManager:DestroyParticle(self.sigil_particle,false)
+        ParticleManager:ReleaseParticleIndex(self.sigil_particle)
+        self.sigil_particle = nil
+    end
+end
 
 
 

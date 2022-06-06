@@ -95,6 +95,8 @@ function lua_modifier_atniw_druid_atniws_calling:GetModifierProcAttack_BonusDama
             PATTACH_ABSORIGIN,event.target
         )
         ParticleManager:SetParticleControl(particle ,0,event.target:GetAbsOrigin())
+        ParticleManager:DestroyParticle(particle,false)
+        ParticleManager:ReleaseParticleIndex(particle)
 
         if event.attacker:IsIllusion() then
             total_dmg = total_dmg*0.33
@@ -166,12 +168,16 @@ function lua_modifier_atniw_druid_atniws_calling:OnCreated(kv)
         PATTACH_POINT,self:GetParent()
     )
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:DestroyParticle(particle,false)
+    ParticleManager:ReleaseParticleIndex(particle)
 
     local particle_smoke = ParticleManager:CreateParticle(
         "particles/units/heroes/hero_treant/treant_naturesguise_mushroom.vpcf",
         PATTACH_POINT,self:GetParent()
     )
     ParticleManager:SetParticleControl(particle_smoke,2,self:GetParent():GetAbsOrigin())
+    ParticleManager:DestroyParticle(particle_smoke,false)
+    ParticleManager:ReleaseParticleIndex(particle_smoke)
 end
 
 

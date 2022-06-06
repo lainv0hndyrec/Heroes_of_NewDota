@@ -55,6 +55,7 @@ function lua_ability_spiritsmaster_earth_spirit:OnSpellStart()
     local aoe_range = self:GetCastRange(self:GetCaster():GetAbsOrigin(),self:GetCaster())
     ParticleManager:SetParticleControl(clap,0,self:GetCaster():GetAbsOrigin())
     ParticleManager:SetParticleControl(clap,1,Vector(aoe_range,0,0))
+    ParticleManager:ReleaseParticleIndex(aoe_range)
 
     local slow_time = self:GetSpecialValueFor("slow_time")
     local talent = self:GetCaster():FindAbilityByName("special_bonus_spiritsmaster_earth_spirit_slow_time_up")

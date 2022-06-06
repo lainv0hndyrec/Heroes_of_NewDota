@@ -270,6 +270,7 @@ function lua_ability_qaldin_assassin_qaldin_eye_detonate_ward:OnSpellStart()
 
     ParticleManager:SetParticleControl(particle,0,self:GetCaster():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle,1,Vector(self:GetAOERadius(),0,0))
+    ParticleManager:ReleaseParticleIndex(particle)
 
     self:GetCaster():EmitSound("Hero_BountyHunter.Target")
 

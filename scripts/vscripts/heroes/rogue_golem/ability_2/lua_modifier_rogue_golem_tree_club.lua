@@ -67,6 +67,7 @@ function lua_modifier_rogue_golem_tree_club_buff:OnAttackLanded(event)
     )
     ParticleManager:SetParticleControlEnt(debri,0,event.target,PATTACH_POINT,"attach_hitloc",Vector(0,0,0),false)
     ParticleManager:SetParticleControlEnt(debri,2,event.target,PATTACH_POINT,"attach_hitloc",Vector(0,0,0),false)
+    ParticleManager:ReleaseParticleIndex(debri)
 
 
 

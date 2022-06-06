@@ -47,18 +47,20 @@ function lua_modifier_vagabond_death_light:OnCreated(event)
 
     self:GetParent():StartGesture(ACT_DOTA_VICTORY)
 
-    self.particle = ParticleManager:CreateParticle(
-        "particles/units/heroes/hero_legion_commander/legion_commander_press_owner.vpcf",
-        PATTACH_ABSORIGIN,
-        self:GetParent()
-    )
+    if not self.particle then
 
-    ParticleManager:SetParticleControl(self.particle,0,self:GetParent():GetAbsOrigin())
-    ParticleManager:SetParticleControl(self.particle,1,self:GetParent():GetAbsOrigin())
-    ParticleManager:SetParticleControl(self.particle,2,self:GetParent():GetAbsOrigin())
-    ParticleManager:SetParticleControl(self.particle,3,self:GetParent():GetAbsOrigin())
+        self.particle = ParticleManager:CreateParticle(
+            "particles/units/heroes/hero_legion_commander/legion_commander_press_owner.vpcf",
+            PATTACH_ABSORIGIN,
+            self:GetParent()
+        )
 
+        ParticleManager:SetParticleControl(self.particle,0,self:GetParent():GetAbsOrigin())
+        ParticleManager:SetParticleControl(self.particle,1,self:GetParent():GetAbsOrigin())
+        ParticleManager:SetParticleControl(self.particle,2,self:GetParent():GetAbsOrigin())
+        ParticleManager:SetParticleControl(self.particle,3,self:GetParent():GetAbsOrigin())
 
+    end
 
 end
 
@@ -67,17 +69,7 @@ end
 
 
 function lua_modifier_vagabond_death_light:OnRefresh(kv)
-    self.mod_active = true
-
-    if not IsServer() then return end
-
-    self:GetParent():StartGesture(ACT_DOTA_VICTORY)
-
-    self.particle = ParticleManager:CreateParticle(
-        "particles/units/heroes/hero_legion_commander/legion_commander_press_owner.vpcf",
-        PATTACH_ABSORIGIN,
-        self:GetParent()
-    )
+    self:OnCreated(kv)
 end
 
 

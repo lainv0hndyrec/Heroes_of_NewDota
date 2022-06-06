@@ -62,8 +62,8 @@ function lua_ability_banshee_possess:OnSpellStart()
 
     ParticleManager:SetParticleControl(particle,1,position)
     ParticleManager:SetParticleControl(particle,0,self:GetCursorTarget():GetAbsOrigin())
-
-
+    ParticleManager:DestroyParticle(particle,false)
+    ParticleManager:ReleaseParticleIndex(particle)
 
 
     self:GetCaster():AddNewModifier(

@@ -198,6 +198,7 @@ function lua_modifier_spiritsmaster_storm_spirit_bolt:OnAttackLanded(event)
         t_pos.z = t_pos.z + 900
         ParticleManager:SetParticleControl(particle,0,t_pos)
         ParticleManager:SetParticleControl(particle,1,event.target:GetAbsOrigin())
+        ParticleManager:ReleaseParticleIndex(particle)
 
 
         local stun_time = self:GetAbility():GetSpecialValueFor("atk_bolt_stun")

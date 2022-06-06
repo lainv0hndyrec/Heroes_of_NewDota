@@ -231,6 +231,7 @@ function lua_modifier_great_sage_ruyi_jingu_bang_vault:OnDestroy()
     ParticleManager:SetParticleControl(particle,1,Vector(self.aoe_radius,0,0))
     ParticleManager:SetParticleControl(particle,2,Vector(self.aoe_radius,0,0))
     ParticleManager:SetParticleControl(particle,3,Vector(self.aoe_radius,0,0))
+    ParticleManager:ReleaseParticleIndex(particle)
 
     self:GetParent():EmitSound("Hero_MonkeyKing.Spring.Impact")
 

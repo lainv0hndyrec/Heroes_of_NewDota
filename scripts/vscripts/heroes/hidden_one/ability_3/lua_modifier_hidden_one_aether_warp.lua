@@ -130,6 +130,7 @@ function lua_modifier_hidden_one_aether_warp_start:OnCreated(kv)
     )
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle,1,Vector(self:GetAbility():GetAOERadius()-100,0,0))
+    ParticleManager:ReleaseParticleIndex(particle)
 
 end
 
@@ -239,6 +240,7 @@ function lua_modifier_hidden_one_aether_warp_end:OnIntervalThink()
     )
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle,1,Vector(self:GetAbility():GetAOERadius()-100,0,0))
+    ParticleManager:ReleaseParticleIndex(particle)
 
 
     self:StartIntervalThink(-1)

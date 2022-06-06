@@ -202,6 +202,8 @@ function lua_ability_qaldin_assassin_snipe_blink:OnSpellStart()
                 PATTACH_ABSORIGIN,self:GetCaster()
             )
             ParticleManager:SetParticleControl(particle1,0,self:GetCaster():GetAbsOrigin())
+            ParticleManager:ReleaseParticleIndex(particle1)
+
             self:GetCaster():EmitSound("Hero_BountyHunter.WindWalk")
 
             local back_vector = -enemies[i]:GetForwardVector()
@@ -217,6 +219,8 @@ function lua_ability_qaldin_assassin_snipe_blink:OnSpellStart()
                 PATTACH_ABSORIGIN,self:GetCaster()
             )
             ParticleManager:SetParticleControl(particle2,0,pos)
+            ParticleManager:ReleaseParticleIndex(particle2)
+            
             enemies[i]:EmitSound("Hero_BountyHunter.WindWalk")
             return
         end

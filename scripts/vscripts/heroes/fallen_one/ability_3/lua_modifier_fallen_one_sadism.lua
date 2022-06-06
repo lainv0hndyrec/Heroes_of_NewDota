@@ -146,6 +146,7 @@ function lua_modifier_fallen_one_sadism_steal:OnIntervalThink()
         PATTACH_POINT_FOLLOW,self:GetParent()
     )
     ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(particle)
 
     local owner = self:GetAuraOwner()
     if not owner then self:Destroy() return end

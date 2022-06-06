@@ -232,6 +232,7 @@ function lua_modifier_defiler_mimicry_host:OnDestroy()
         PATTACH_ABSORIGIN,self:GetCaster()
     )
     ParticleManager:SetParticleControl(particle,0,self:GetCaster():GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(particle)
 
     local shard = self:GetCaster():HasModifier("modifier_item_aghanims_shard")
 

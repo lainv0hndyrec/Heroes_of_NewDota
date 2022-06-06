@@ -135,6 +135,7 @@ function lua_modifier_soul_warden_wardens_purge_ally:OnCreated(kv)
         "attach_hitlock",Vector(0,0,0),false
     )
 
+    ParticleManager:ReleaseParticleIndex(arc_effect)
 
 end
 
@@ -332,7 +333,7 @@ function lua_modifier_soul_warden_wardens_purge_enemy:OnCreated(kv)
         arc_effect,2,self:GetParent(),PATTACH_ROOTBONE_FOLLOW,
         "attach_hitlock",Vector(0,0,0),false
     )
-
+    ParticleManager:ReleaseParticleIndex(arc_effect)
 
 end
 

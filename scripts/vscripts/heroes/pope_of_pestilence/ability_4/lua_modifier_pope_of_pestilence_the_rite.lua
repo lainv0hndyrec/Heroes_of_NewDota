@@ -65,6 +65,7 @@ function lua_modifier_pope_of_pestilence_the_rite_thinker:OnIntervalThink()
         PATTACH_ABSORIGIN,ghost
     )
     ParticleManager:SetParticleControl(poof,3,ghost:GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(poof)
 
     --countdown
     self.ghost_count = self.ghost_count - 1
@@ -299,6 +300,7 @@ function lua_modifier_pope_of_pestilence_the_rite_bomber:OnDestroy()
         PATTACH_POINT_FOLLOW,self:GetParent()
     )
     ParticleManager:SetParticleControl(boom,0,Vector(0,0,0))
+    ParticleManager:ReleaseParticleIndex(boom)
 
     if self:GetParent():IsAlive() == false then return end
 

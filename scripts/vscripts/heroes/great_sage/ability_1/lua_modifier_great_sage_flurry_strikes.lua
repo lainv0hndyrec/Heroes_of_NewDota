@@ -46,7 +46,7 @@ end
 function lua_modifier_great_sage_flurry_strikes_zoomies:GetModifierPreAttack_BonusDamage()
 
     local dmg = self:GetAbility():GetSpecialValueFor("bonus_attack_damage")
-    local talent = self:GetCaster():FindAbilityByName("special_bonus_great_sage_flurry_strikes_damage")
+    local talent = self:GetParent():FindAbilityByName("special_bonus_great_sage_flurry_strikes_damage")
     if not talent == false then
         if talent:GetLevel() > 0 then
             dmg = dmg + talent:GetSpecialValueFor("value")
@@ -61,7 +61,7 @@ end
 
 function lua_modifier_great_sage_flurry_strikes_zoomies:CheckState()
     local cstate = {
-        [MODIFIER_STATE_NO_UNIT_COLLISION]  = true,
+        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
         [MODIFIER_STATE_STUNNED] = true
     }
     return cstate
@@ -76,10 +76,11 @@ function lua_modifier_great_sage_flurry_strikes_zoomies:OnCreated(kv)
 
     self.effect_distance = self:GetAbility():GetSpecialValueFor("flurry_range")
     self.flurry_radius = self:GetAbility():GetSpecialValueFor("flurry_radius")
-
+    self.flurry_speed = self:GetAbility():GetSpecialValueFor("flurry_speed")
     self.damaged_units = {}
 
-    if not kv.additional_dash then self:Destroy() return end
+    local id = self:GetParent():GetPlayerID()
+    GameRules:SendCustomMessage("on created initiated",id,id)
 
     ProjectileManager:ProjectileDodge(self:GetParent())
 
@@ -87,13 +88,15 @@ function lua_modifier_great_sage_flurry_strikes_zoomies:OnCreated(kv)
 
     self.direction = self:GetParent():GetForwardVector()
 
-    self.flurry_speed = self:GetAbility():GetSpecialValueFor("flurry_speed")
-
-    self.additional_dash = kv.additional_dash
-
     self:GetParent():StartGestureWithPlaybackRate(ACT_DOTA_ATTACK_STATUE,4.0)
 
+    local id = self:GetParent():GetPlayerID()
+    GameRules:SendCustomMessage("kv additional_dash existed",id,id)
+
+
     if self:ApplyHorizontalMotionController() == false then
+        local id = self:GetParent():GetPlayerID()
+        GameRules:SendCustomMessage("motion controller failed",id,id)
 	    self:Destroy()
     end
 end
@@ -104,6 +107,9 @@ end
 function lua_modifier_great_sage_flurry_strikes_zoomies:UpdateHorizontalMotion( me, dt )
     if not IsServer() then return end
     local speed = self.flurry_speed*dt
+
+    local id = self:GetParent():GetPlayerID()
+    GameRules:SendCustomMessage("motion controller good",id,id)
 
     local current_pos = me:GetAbsOrigin()
 
@@ -128,6 +134,7 @@ function lua_modifier_great_sage_flurry_strikes_zoomies:UpdateHorizontalMotion( 
     ParticleManager:SetParticleControl(particle, 1, ground_pos)
     ParticleManager:SetParticleControlEnt(particle, 2, me, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(0,RandomInt(0,360),0), true)
     ParticleManager:DestroyParticle(particle,false)
+    ParticleManager:ReleaseParticleIndex(particle)
 
 
     if self.effect_distance <= 0 then
@@ -139,6 +146,8 @@ end
 
 
 function lua_modifier_great_sage_flurry_strikes_zoomies:OnHorizontalMotionInterrupted()
+    local id = self:GetParent():GetPlayerID()
+    GameRules:SendCustomMessage("motion controller interrupted",id,id)
     self:Destroy()
 end
 
@@ -147,6 +156,8 @@ end
 
 function lua_modifier_great_sage_flurry_strikes_zoomies:OnDestroy()
     if not IsServer() then return end
+    local id = self:GetParent():GetPlayerID()
+    GameRules:SendCustomMessage("buff destroyed",id,id)
     self:GetParent():RemoveHorizontalMotionController(self)
 end
 
@@ -154,6 +165,9 @@ end
 
 function lua_modifier_great_sage_flurry_strikes_zoomies:PerformAttackAroundYou()
     if not IsServer() then return end
+
+    local id = self:GetParent():GetPlayerID()
+    GameRules:SendCustomMessage("performing attack",id,id)
 
     local free_dash = false
 
@@ -190,20 +204,20 @@ function lua_modifier_great_sage_flurry_strikes_zoomies:PerformAttackAroundYou()
 
     if free_dash == false then return end
 
-    if self.additional_dash == 0 then return end
+    if self:GetStackCount() <= 0 then return end
 
-    self.additional_dash = 0
+    self:SetStackCount(0)
 
     local free_cast_dur = self:GetAbility():GetSpecialValueFor("additional_cast_duration")
-    local talent = self:GetCaster():FindAbilityByName("special_bonus_great_sage_flurry_strikes_freecast_duration")
+    local talent = self:GetParent():FindAbilityByName("special_bonus_great_sage_flurry_strikes_freecast_duration")
     if not talent == false then
         if talent:GetLevel() > 0 then
             free_cast_dur = free_cast_dur + talent:GetSpecialValueFor("value")
         end
     end
 
-    self:GetCaster():AddNewModifier(
-        self:GetCaster(),
+    self:GetParent():AddNewModifier(
+        self:GetParent(),
         self:GetAbility(),
         "lua_modifier_great_sage_flurry_strikes_timer",
         {duration = free_cast_dur}
